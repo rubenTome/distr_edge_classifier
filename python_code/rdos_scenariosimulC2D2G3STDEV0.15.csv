@@ -1,5 +1,0 @@
-classifier,npartitions,accurancy
-KNN,4,0.54
-KNN,4,0.72
-KNN,4,0.56
-KNN,4,0.48

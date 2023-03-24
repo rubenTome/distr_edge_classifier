@@ -72,7 +72,7 @@ for d in range(len(datasets)):
 
     splitedPath = datasets[d].split("/")
     name = splitedPath[len(splitedPath) - 1]
-    file = open("rdos_" + name, "w")
+    file = open("rdos_python/rdos_" + name, "w")
     writer = csv.writer(file)
     writer.writerow(["classifier", "npartitions", "accurancy"])
     for t in range(len(ClassifAcc)):
