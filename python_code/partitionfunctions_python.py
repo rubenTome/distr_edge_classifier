@@ -6,7 +6,8 @@ import random
 import pandas as pd
 import sys
 import math as mt
-#TODO cambiar energy_distance por la de scipy si es posible
+from dcor import energy_distance
+import statistics as st
 
 # ditancia "energy" energy.stat
 energy_r = ro.r('''
@@ -17,8 +18,12 @@ energy_r = ro.r('''
     }
 ''')
 
-def end(x,y):
-    return float(np.asarray(energy_r(x,y)))
+#x e y en caso de usar la distancia de R deben pasarse como robjects
+def end(x, y, rDist):
+    if rDist:
+        return float(np.asarray(energy_r(x,y)))
+    else: 
+        return energy_distance(x, y) / st.variance(np.array(x + y).flatten())
 
 def sample_n_from_csv(filename:str, n:int=100, total_rows:int=None) -> pd.DataFrame:
     if total_rows==None:
