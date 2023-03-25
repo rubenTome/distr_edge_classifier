@@ -1,5 +1,6 @@
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import recall_score
 import partitionfunctions_python as partf
 #import fine_analisis_python as fan
 import numpy as np
@@ -19,8 +20,11 @@ def knn(partition):#partition es un pandas.DataFrame
     trainclasses = partition[:,[nVars]].flatten()
     clf = KNeighborsClassifier(n_neighbors = 2)
     clf.fit(trainset, trainclasses)
-
-    return clf.score(ds["testset"].to_numpy(), ds["testclasses"].to_numpy().flatten())
+    score = clf.score(ds["testset"].to_numpy(), ds["testclasses"].to_numpy().flatten())
+    #revisar parametro average
+    recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
+                          clf.predict(ds["testset"].to_numpy()), average="weighted")
+    return [score, recall]
 
 def rf(partition):
     partition = partition.to_numpy()
@@ -29,20 +33,24 @@ def rf(partition):
     trainclasses = partition[:,[nVars]].flatten()
     rfc = RandomForestClassifier()
     rfc.fit(trainset, trainclasses)
-    return rfc.score(ds["testset"].to_numpy(), ds["testclasses"].to_numpy().flatten())
+    scores = rfc.score(ds["testset"].to_numpy(), ds["testclasses"].to_numpy().flatten())
+    #revisar parametro average
+    recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
+                          rfc.predict(ds["testset"].to_numpy()), average="weighted")
+    return [scores, recall]
 
 #PARAMETROS 
 
 totalresults = None
 
 #numero de cifras decimales
-NDECIMALS = 2
+NDECIMALS = 5
 #how many reps per experiment
 NREP = 5
 #size of the total dataset (subsampple)
-NSET = 1500
+NSET = 1000
 #size of the train set, thse size of the test set will be NSET - NTRAIN
-NTRAIN = 750
+NTRAIN = 500
 
 #number of partitions
 Pset = [4]
@@ -87,8 +95,10 @@ for d in range(len(datasets)):
     name = splitedPath[len(splitedPath) - 1]
     file = open("rdos_python/rdos_" + name, "w")
     writer = csv.writer(file)
-    writer.writerow(["classifier", "npartitions", "partition", "accurancy"])
+    writer.writerow(["classifier", "npartitions", "partition", "accurancy", "recall"])
     for t in range(len(classifAcc)):
         label = list(classifAcc)[t]
+        classifier = classifAcc[label]
         splitedName = label.split("_")
-        writer.writerow([splitedName[0], splitedName[1], splitedName[2], round(classifAcc[label], NDECIMALS)])
+        writer.writerow([splitedName[0], splitedName[1], splitedName[2], 
+                        round(classifier[0], NDECIMALS), round(classifier[1], NDECIMALS)])
