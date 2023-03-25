@@ -6,8 +6,8 @@ import partitionfunctions_python as partf
 import numpy as np
 import csv
 
-#FALLO EN CREATE_PERTURBATED_PARTITION SI NO HAY ELEMENTOS DE UNA CLASE EN EL DATASET 
 #import de partitionfunctions_python muy lento -> DEBIDO A IMPORT DE DCOR
+#recall y accurancy tienen siempre el mismo valor
 
 #CLASIFICADORES
 
