@@ -86,14 +86,6 @@ def create_random_partition(trainset, trainclasses, npartitions):
     
     return partitions
 
-#no usada
-def boosting_partition(trainset, trainclasses, npartitions, replicates):
-    print("boosting_partition")
-
-#no usada
-def perturbation_whole(S, N, C, P):
-    print("perturbation_whole")
-
 def tablef(list, trainclasses):
     classes = np.unique(trainclasses)
     table = [0 for _ in range(len(classes))]
@@ -117,7 +109,6 @@ def deleteRowsDf(dataframe, rows):
         dataframe.drop([dataframe.index[rows[i]]], inplace=True)
     return dataframe
 
-#falla con 2 y 4 particiones, numero de clases de patrones > numero de patrones 
 def create_perturbated_partition(trainset, trainclasses, npartitions):
     listRes = [[] for _ in range(npartitions)]
 
@@ -243,7 +234,3 @@ def energy_wheights_sets(trainset, testset, bound=4):
 #no usada
 def kfun(x, y):
     return -np.sum(np.power(np.subtract(x, y), 2)) + np.sum(np.power(x, 2)) + np.sum(np.power(y, 2))
-
-#no usada
-def lbfgs_energyweight(trainset, testset, bound=4):
-    print("lbfgs_energyweight")
