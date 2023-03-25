@@ -1,7 +1,5 @@
-import time
 from sklearn.neighbors import KNeighborsClassifier
 import partitionfunctions_python as partf
-inicio = time.time()
 #import fine_analisis_python as fan
 import numpy as np
 import csv
@@ -9,7 +7,7 @@ import csv
 
 
 #FALLO EN CREATE_PERTURBATED_PARTITION SI NO HAY ELEMENTOS DE UNA CLASE EN EL DATASET 
-#import de partitionfunctions_python muy lento
+#import de partitionfunctions_python muy lento -> DEBIDO A IMPORT DE DCOR
 
 #CLASIFICADORES
 
@@ -23,6 +21,8 @@ def knn(partition):#partition es un pandas.DataFrame
 
     return clf.score(ds["testset"].to_numpy(), ds["testclasses"].to_numpy().flatten())
 
+def rf():
+    return
 
 #PARAMETROS 
 
@@ -82,6 +82,3 @@ for d in range(len(datasets)):
         label = list(ClassifAcc)[t]
         npart = label.split("_")[1]
         writer.writerow([namesclassifiers[0], npart, ClassifAcc[label]])
-
-fin = time.time()
-print("tiempo de ejecucion: ", fin - inicio)
