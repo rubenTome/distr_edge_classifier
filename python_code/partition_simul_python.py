@@ -6,6 +6,7 @@ import partitionfunctions_python as partf
 import numpy as np
 import csv
 
+#1º knn3, 2º rf, 3º xgb, 4º mult
 #import de partitionfunctions_python muy lento -> DEBIDO A IMPORT DE DCOR
 #recall y accurancy tienen siempre el mismo valor
 
