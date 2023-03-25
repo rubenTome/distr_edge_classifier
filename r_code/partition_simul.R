@@ -3,7 +3,6 @@
 #####################################################
 ####   classifiers outputting degrees of belief  ####
 #####################################################
-#1º knn3, 2ºrf, xgb, mult 
 svm.classifier.prob = function(trainset,
                                trainclasses,
                                testset,
