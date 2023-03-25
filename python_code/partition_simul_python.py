@@ -35,6 +35,8 @@ def rf(partition):
 
 totalresults = None
 
+#numero de cifras decimales
+NDECIMALS = 2
 #how many reps per experiment
 NREP = 5
 #size of the total dataset (subsampple)
@@ -89,4 +91,4 @@ for d in range(len(datasets)):
     for t in range(len(classifAcc)):
         label = list(classifAcc)[t]
         splitedName = label.split("_")
-        writer.writerow([splitedName[0], splitedName[1], splitedName[2], classifAcc[label]])
+        writer.writerow([splitedName[0], splitedName[1], splitedName[2], round(classifAcc[label], NDECIMALS)])
