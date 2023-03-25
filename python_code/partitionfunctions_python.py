@@ -135,8 +135,7 @@ def create_perturbated_partition(trainset, trainclasses, npartitions):
             rem = whichf(remainingclasses, j + 1)
 
             if (len(rem) == 0):
-                print("ERROR NO ELEMENTS  OF CLASS", j)
-                exit
+                exit("ERROR NO ELEMENTS  OF CLASS " + str(j))
 
             nobs = observations[j]
 
