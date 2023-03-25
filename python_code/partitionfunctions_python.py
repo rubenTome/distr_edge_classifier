@@ -94,8 +94,8 @@ def boosting_partition(trainset, trainclasses, npartitions, replicates):
 def perturbation_whole(S, N, C, P):
     print("perturbation_whole")
 
-def tablef(list):
-    classes = np.unique(list)
+def tablef(list, trainclasses):
+    classes = np.unique(trainclasses)
     table = [0 for _ in range(len(classes))]
     for i in range(len(classes)):
         for j in range(len(list)):
@@ -130,7 +130,7 @@ def create_perturbated_partition(trainset, trainclasses, npartitions):
     for i in range(npartitions-1):
         N = len(remainingclasses)
         P = npartitions - i
-        prop = np.array(tablef(remainingclasses)) / N
+        prop = np.array(tablef(remainingclasses, trainclasses)) / N
         dev = prop * nprd.uniform(0.1, 0.9, C)
         dev = dev / np.sum(dev)
         
@@ -163,7 +163,7 @@ def create_perturbated_partition(trainset, trainclasses, npartitions):
 
             partitionclasses[i] = np.append(partitionclasses[i], remainingclasses[selectedobs]).astype("int")
 
-            if((tablef(remainingclasses)[j] - nobs) < 1):
+            if((tablef(remainingclasses, trainclasses)[j] - nobs) < 1):
                 toadd = nobs
                 remainingset = pd.concat([remainingset, remainingset.iloc[rem[:toadd]]])
                 remainingclasses = np.append(remainingclasses, [remainingclasses[i] for i in rem[:toadd]])  
