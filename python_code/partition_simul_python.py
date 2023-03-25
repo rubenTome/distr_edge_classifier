@@ -1,12 +1,10 @@
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import recall_score
+from sklearn.metrics import precision_score, recall_score
 import partitionfunctions_python as partf
 #import fine_analisis_python as fan
 import numpy as np
 import csv
-
-
 
 #FALLO EN CREATE_PERTURBATED_PARTITION SI NO HAY ELEMENTOS DE UNA CLASE EN EL DATASET 
 #import de partitionfunctions_python muy lento -> DEBIDO A IMPORT DE DCOR
@@ -22,9 +20,11 @@ def knn(partition):#partition es un pandas.DataFrame
     clf.fit(trainset, trainclasses)
     score = clf.score(ds["testset"].to_numpy(), ds["testclasses"].to_numpy().flatten())
     #revisar parametro average
+    precision = precision_score(ds["testclasses"].to_numpy().flatten(), 
+                                clf.predict(ds["testset"].to_numpy()), average="weighted")
     recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
                           clf.predict(ds["testset"].to_numpy()), average="weighted")
-    return [score, recall]
+    return [score, precision, recall]
 
 def rf(partition):
     partition = partition.to_numpy()
@@ -34,10 +34,11 @@ def rf(partition):
     rfc = RandomForestClassifier()
     rfc.fit(trainset, trainclasses)
     scores = rfc.score(ds["testset"].to_numpy(), ds["testclasses"].to_numpy().flatten())
-    #revisar parametro average
+    precision = precision_score(ds["testclasses"].to_numpy().flatten(), 
+                                rfc.predict(ds["testset"].to_numpy()), average="weighted")
     recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
                           rfc.predict(ds["testset"].to_numpy()), average="weighted")
-    return [scores, recall]
+    return [scores, precision, recall]
 
 #PARAMETROS 
 
@@ -57,7 +58,8 @@ Pset = [4]
 
 is_balanced = False
 
-datasets = ["../scenariosimul/scenariosimulC2D2G3STDEV0.15.csv", "../scenariosimul/scenariosimulC8D3G3STDEV0.05.csv"]
+datasets = ["../scenariosimul/scenariosimulC2D2G3STDEV0.15.csv", 
+            "../scenariosimul/scenariosimulC8D3G3STDEV0.05.csv"]
 
 #some datasets are split into train and test, because of concept drift
 testdatasets= [""]
@@ -95,10 +97,10 @@ for d in range(len(datasets)):
     name = splitedPath[len(splitedPath) - 1]
     file = open("rdos_python/rdos_" + name, "w")
     writer = csv.writer(file)
-    writer.writerow(["classifier", "npartitions", "partition", "accurancy", "recall"])
+    writer.writerow(["classifier", "npartitions", "partition", "accurancy", "precision", "recall"])
     for t in range(len(classifAcc)):
         label = list(classifAcc)[t]
         classifier = classifAcc[label]
         splitedName = label.split("_")
-        writer.writerow([splitedName[0], splitedName[1], splitedName[2], 
-                        round(classifier[0], NDECIMALS), round(classifier[1], NDECIMALS)])
+        writer.writerow([splitedName[0], splitedName[1], splitedName[2], round(classifier[0], NDECIMALS), 
+                        round(classifier[1], NDECIMALS), round(classifier[2], NDECIMALS)])
