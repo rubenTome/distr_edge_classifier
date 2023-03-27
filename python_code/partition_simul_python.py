@@ -132,7 +132,7 @@ for d in range(len(datasets)):
     name = splitedPath[len(splitedPath) - 1]
     file = open("rdos_python/rdos_" + name, "w")
     if generateTables:
-        fileTable = open("rdos_python/tabla_rdos_" + name, "w")
+        fileTable = open("rdos_python/tabla_rdos_" + name.split(".")[0] + ".txt", "w")
         headers = PrettyTable(["classifier", "npartitions", "partition", "accurancy", "precision", "recall", "energy"])
         headers.align = "l"
     writer = csv.writer(file)
