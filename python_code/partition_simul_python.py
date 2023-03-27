@@ -11,6 +11,7 @@ import csv
 #se repite codigo en las funciones de los clasificadores
 #sklearn.datasets tiene funciones utiles para generar datasets
 #sklearn.linear_model.LogisticRegression para imitar multinom.classifier.prob
+#cuando las particiones son balanceadas: DEBEN TENER IGUAL VALOR DE ENERGIA ?
 
 #CLASIFICADORES
 
@@ -75,7 +76,7 @@ def xgb(partition):
 totalresults = None
 
 #numero de cifras decimales
-NDECIMALS = 5
+NDECIMALS = 2
 #how many reps per experiment
 NREP = 5
 #size of the total dataset (subsampple)
@@ -127,10 +128,14 @@ for d in range(len(datasets)):
     name = splitedPath[len(splitedPath) - 1]
     file = open("rdos_python/rdos_" + name, "w")
     writer = csv.writer(file)
-    writer.writerow(["classifier", "npartitions", "partition", "accurancy", "precision", "recall"])
+    writer.writerow(["classifier", "npartitions", "partition", "accurancy", "precision", "recall", "energy"])
     for t in range(len(classifAcc)):
         label = list(classifAcc)[t]
         classifier = classifAcc[label]
         splitedName = label.split("_")
-        writer.writerow([splitedName[0], splitedName[1], splitedName[2], round(classifier[0], NDECIMALS), 
-                        round(classifier[1], NDECIMALS), round(classifier[2], NDECIMALS)])
+        actualData = partitions[Pset.index(int(splitedName[1]))][int(splitedName[2]) - 1].to_numpy()
+        actualData = actualData[:, np.arange(np.shape(actualData)[1] - 1)]
+        energyDist = partf.end(actualData, ds["trainset"], True)
+        writer.writerow([splitedName[0], splitedName[1], splitedName[2], 
+                        round(classifier[0], NDECIMALS), round(classifier[1], NDECIMALS), 
+                        round(classifier[2], NDECIMALS), round(energyDist, NDECIMALS)])
