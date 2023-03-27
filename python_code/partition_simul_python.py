@@ -1,5 +1,5 @@
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.metrics import precision_score, recall_score
 import partitionfunctions_python as partf
 #import fine_analisis_python as fan
@@ -23,8 +23,12 @@ def knn(partition):#partition es un pandas.DataFrame
     #revisar parametro average
     precision = precision_score(ds["testclasses"].to_numpy().flatten(), 
                                 clf.predict(ds["testset"].to_numpy()), average="weighted")
-    recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
-                          clf.predict(ds["testset"].to_numpy()), average="weighted")
+    if(len(np.unique(trainclasses)) == 2):
+        recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
+                              clf.predict(ds["testset"].to_numpy()), average="binary")
+    else:
+        recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
+                              clf.predict(ds["testset"].to_numpy()), average="weighted")
     return [score, precision, recall]
 
 def rf(partition):
@@ -37,9 +41,32 @@ def rf(partition):
     scores = rfc.score(ds["testset"].to_numpy(), ds["testclasses"].to_numpy().flatten())
     precision = precision_score(ds["testclasses"].to_numpy().flatten(), 
                                 rfc.predict(ds["testset"].to_numpy()), average="weighted")
-    recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
-                          rfc.predict(ds["testset"].to_numpy()), average="weighted")
+    if(len(np.unique(trainclasses)) == 2):
+        recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
+                              rfc.predict(ds["testset"].to_numpy()), average="binary")
+    else:
+        recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
+                              rfc.predict(ds["testset"].to_numpy()), average="weighted")
     return [scores, precision, recall]
+
+def xgb(partition):
+    partition = partition.to_numpy()
+    nVars = np.shape(partition)[1] - 1
+    trainset = partition[:, np.arange(nVars)]
+    trainclasses = partition[:,[nVars]].flatten()
+    gbc = GradientBoostingClassifier()
+    gbc.fit(trainset, trainclasses)
+    scores = gbc.score(ds["testset"].to_numpy(), ds["testclasses"].to_numpy().flatten())
+    precision = precision_score(ds["testclasses"].to_numpy().flatten(), 
+                                gbc.predict(ds["testset"].to_numpy()), average="weighted")
+    if(len(np.unique(trainclasses)) == 2):
+        recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
+                              gbc.predict(ds["testset"].to_numpy()), average="binary")
+    else:
+        recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
+                              gbc.predict(ds["testset"].to_numpy()), average="weighted")
+    return [scores, precision, recall]
+
 
 #PARAMETROS 
 
@@ -65,10 +92,10 @@ datasets = ["../scenariosimul/scenariosimulC2D2G3STDEV0.15.csv",
 #some datasets are split into train and test, because of concept drift
 testdatasets= [""]
 
-classifiers = [knn, rf]
+classifiers = [knn, rf, xgb]
 
 #names for printing them
-namesclassifiers = ["KNN", "RF"] 
+namesclassifiers = ["KNN", "RF", "XGB"] 
 
 
 #SIMULACION
