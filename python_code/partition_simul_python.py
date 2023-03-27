@@ -22,15 +22,15 @@ def knn(partition):#partition es un pandas.DataFrame
     clf = KNeighborsClassifier(n_neighbors = 2)
     clf.fit(trainset, trainclasses)
     score = clf.score(ds["testset"].to_numpy(), ds["testclasses"].to_numpy().flatten())
-    #en precision_score average tiene que ser binario si es una clasificacion binaria?
-    precision = precision_score(ds["testclasses"].to_numpy().flatten(), 
-                                clf.predict(ds["testset"].to_numpy()), average="weighted")
     if(len(np.unique(trainclasses)) == 2):
-        recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
-                              clf.predict(ds["testset"].to_numpy()), average="binary")
+        av = "binary"
     else:
-        recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
-                              clf.predict(ds["testset"].to_numpy()), average="weighted")
+        av = "weighted"
+    precision = precision_score(ds["testclasses"].to_numpy().flatten(), 
+                                clf.predict(ds["testset"].to_numpy()), average=av)
+    recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
+                          clf.predict(ds["testset"].to_numpy()), average=av)
+
     return [score, precision, recall]
 
 def rf(partition):
@@ -41,14 +41,14 @@ def rf(partition):
     rfc = RandomForestClassifier()
     rfc.fit(trainset, trainclasses)
     scores = rfc.score(ds["testset"].to_numpy(), ds["testclasses"].to_numpy().flatten())
-    precision = precision_score(ds["testclasses"].to_numpy().flatten(), 
-                                rfc.predict(ds["testset"].to_numpy()), average="weighted")
     if(len(np.unique(trainclasses)) == 2):
-        recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
-                              rfc.predict(ds["testset"].to_numpy()), average="binary")
+        av = "binary"
     else:
-        recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
-                              rfc.predict(ds["testset"].to_numpy()), average="weighted")
+        av = "weighted"
+    precision = precision_score(ds["testclasses"].to_numpy().flatten(), 
+                                rfc.predict(ds["testset"].to_numpy()), average=av)
+    recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
+                          rfc.predict(ds["testset"].to_numpy()), average=av)
     return [scores, precision, recall]
 
 def xgb(partition):
@@ -59,14 +59,14 @@ def xgb(partition):
     gbc = GradientBoostingClassifier()
     gbc.fit(trainset, trainclasses)
     scores = gbc.score(ds["testset"].to_numpy(), ds["testclasses"].to_numpy().flatten())
-    precision = precision_score(ds["testclasses"].to_numpy().flatten(), 
-                                gbc.predict(ds["testset"].to_numpy()), average="weighted")
     if(len(np.unique(trainclasses)) == 2):
-        recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
-                              gbc.predict(ds["testset"].to_numpy()), average="binary")
+        av = "binary"
     else:
-        recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
-                              gbc.predict(ds["testset"].to_numpy()), average="weighted")
+        av = "weighted"
+    precision = precision_score(ds["testclasses"].to_numpy().flatten(), 
+                                gbc.predict(ds["testset"].to_numpy()), average=av)
+    recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
+                          gbc.predict(ds["testset"].to_numpy()), average=av)
     return [scores, precision, recall]
 
 
