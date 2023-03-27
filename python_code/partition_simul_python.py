@@ -6,10 +6,11 @@ import partitionfunctions_python as partf
 import numpy as np
 import csv
 
-#1º knn3, 2º rf, 3º xgb, 4º mult
 #import de partitionfunctions_python muy lento -> DEBIDO A IMPORT DE DCOR
 #recall y accurancy tienen siempre el mismo valor cuando hay mas de 2 clases
 #se repite codigo en las funciones de los clasificadores
+#sklearn.datasets tiene funciones utiles para generar datasets
+#sklearn.linear_model.LogisticRegression para imitar multinom.classifier.prob
 
 #CLASIFICADORES
 
@@ -21,7 +22,7 @@ def knn(partition):#partition es un pandas.DataFrame
     clf = KNeighborsClassifier(n_neighbors = 2)
     clf.fit(trainset, trainclasses)
     score = clf.score(ds["testset"].to_numpy(), ds["testclasses"].to_numpy().flatten())
-    #revisar parametro average
+    #en precision_score average tiene que ser binario si es una clasificacion binaria?
     precision = precision_score(ds["testclasses"].to_numpy().flatten(), 
                                 clf.predict(ds["testset"].to_numpy()), average="weighted")
     if(len(np.unique(trainclasses)) == 2):

@@ -189,14 +189,12 @@ def energy_wheights_sets(trainset, testset, bound=4):
         "val": None
     }
     n = trainset.shape[0]
-    d = trainset.shape[1]
     distances = distancef(trainset, testset)
     K = distances.iloc[0:n, 0:n]
     k = distances.iloc[0:n, n:n + testset.shape[0]]
     WB = distances.iloc[n:n + testset.shape[0], n:n + testset.shape[0]]
     k = k.mean(axis = 1)
-    B = 0#1
-    m = n
+    B = 0
     c = np.array(-k)
     H = K
     H =  H.to_numpy().flatten(order="F")
