@@ -5,6 +5,7 @@ import partitionfunctions_python as partf
 #import fine_analisis_python as fan
 import numpy as np
 import csv
+from prettytable import PrettyTable
 
 #import de partitionfunctions_python muy lento -> DEBIDO A IMPORT DE DCOR
 #recall y accurancy tienen siempre el mismo valor cuando hay mas de 2 clases
@@ -75,6 +76,9 @@ def xgb(partition):
 
 totalresults = None
 
+#generar tablas con los resultados (+legible)
+generateTables = True
+
 #numero de cifras decimales
 NDECIMALS = 2
 #how many reps per experiment
@@ -127,6 +131,10 @@ for d in range(len(datasets)):
     splitedPath = datasets[d].split("/")
     name = splitedPath[len(splitedPath) - 1]
     file = open("rdos_python/rdos_" + name, "w")
+    if generateTables:
+        fileTable = open("rdos_python/tabla_rdos_" + name, "w")
+        headers = PrettyTable(["classifier", "npartitions", "partition", "accurancy", "precision", "recall", "energy"])
+        headers.align = "l"
     writer = csv.writer(file)
     writer.writerow(["classifier", "npartitions", "partition", "accurancy", "precision", "recall", "energy"])
     for t in range(len(classifAcc)):
@@ -136,6 +144,12 @@ for d in range(len(datasets)):
         actualData = partitions[Pset.index(int(splitedName[1]))][int(splitedName[2]) - 1].to_numpy()
         actualData = actualData[:, np.arange(np.shape(actualData)[1] - 1)]
         energyDist = partf.end(actualData, ds["trainset"], True)
+        if generateTables:
+            headers.add_row([splitedName[0], splitedName[1], splitedName[2], 
+                            round(classifier[0], NDECIMALS), round(classifier[1], NDECIMALS), 
+                            round(classifier[2], NDECIMALS), round(energyDist, NDECIMALS)])
         writer.writerow([splitedName[0], splitedName[1], splitedName[2], 
                         round(classifier[0], NDECIMALS), round(classifier[1], NDECIMALS), 
                         round(classifier[2], NDECIMALS), round(energyDist, NDECIMALS)])
+    if generateTables:
+        fileTable.write(str(headers))
