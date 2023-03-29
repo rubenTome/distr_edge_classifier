@@ -7,12 +7,13 @@ import numpy as np
 import csv
 from prettytable import PrettyTable
 
-#import de partitionfunctions_python muy lento -> DEBIDO A IMPORT DE DCOR
-#recall y accurancy tienen siempre el mismo valor cuando hay mas de 2 clases
+#import de partitionfunctions_python muy lento -> USAR CODIGO R
+#recall y accurancy tienen siempre el mismo valor cuando hay mas de 2 clases -> MAL, REVISAR ESTO
 #se repite codigo en las funciones de los clasificadores
 #sklearn.datasets tiene funciones utiles para generar datasets
 #sklearn.linear_model.LogisticRegression para imitar multinom.classifier.prob
-#cuando las particiones son balanceadas: DEBEN TENER IGUAL VALOR DE ENERGIA ?
+#cuando las particiones son balanceadas: DEBEN TENER IGUAL VALOR DE ENERGIA ? -> NO
+#mqtt protocolo comunicacion raspberrys, comenzar con esto
 
 #CLASIFICADORES
 
@@ -91,7 +92,7 @@ NTRAIN = 500
 #number of partitions
 Pset = [4]
 
-is_balanced = False
+is_balanced = True
 
 datasets = ["../scenariosimul/scenariosimulC2D2G3STDEV0.15.csv", 
             "../scenariosimul/scenariosimulC8D3G3STDEV0.05.csv"]
@@ -143,7 +144,7 @@ for d in range(len(datasets)):
         splitedName = label.split("_")
         actualData = partitions[Pset.index(int(splitedName[1]))][int(splitedName[2]) - 1].to_numpy()
         actualData = actualData[:, np.arange(np.shape(actualData)[1] - 1)]
-        energyDist = partf.end(actualData, ds["trainset"], True)
+        energyDist = partf.end(actualData, ds["trainset"].values.tolist(), True)
         if generateTables:
             headers.add_row([splitedName[0], splitedName[1], splitedName[2], 
                             round(classifier[0], NDECIMALS), round(classifier[1], NDECIMALS), 

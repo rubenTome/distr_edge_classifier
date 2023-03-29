@@ -27,7 +27,7 @@ def end(x, y, rDist):#x e y son del tipo list
         yR = ro.r.matrix(ro.FloatVector(y.flatten(order="F")), nrow=y.shape[0])
         return float(np.asarray(energy_r(xR,yR)))
     else: 
-        return energy_distance(x, y) / st.variance(np.array(x + y).flatten())
+        return energy_distance(x.tolist(), y) / st.variance(np.array(x.tolist() + y).flatten())
 
 def sample_n_from_csv(filename:str, n:int=100, total_rows:int=None) -> pd.DataFrame:
     if total_rows==None:
