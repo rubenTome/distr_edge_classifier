@@ -1,6 +1,7 @@
 import paho.mqtt.client as mqtt
 
 #los clientes se subscriben a su particion y publican los resultados
+BROKER_IP = "192.168.1.138"
 
 #se llama al conectarse al broker
 def on_connect(client, userdata, flags, rc):
@@ -17,6 +18,6 @@ client.on_connect = on_connect
 client.on_message = on_message
 
 #conectamos con el broker
-client.connect("192.168.1.138", 1883)#debe ser el nombre o ip
+client.connect(BROKER_IP, 1883)#debe ser el nombre o ip
 
 client.loop_forever()

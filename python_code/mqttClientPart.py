@@ -22,6 +22,8 @@ datasets = ["../scenariosimul/scenariosimulC2D2G3STDEV0.15.csv",
 #some datasets are split into train and test, because of concept drift
 testdatasets= [""]
 
+BROKER_IP = "192.168.1.138"
+
 #CREACION PARTICIONES
 for d in range(len(datasets)):
     
@@ -36,13 +38,11 @@ for d in range(len(datasets)):
     for p in range(len(Pset)):
             partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p])
 
-print(partitions)
-
 #MQTT
 def on_connect(client, userdata, flags, rc):
     print("Connected partitions client with result code " + str(rc))
     client.subscribe("partition/results/#")
-    client.publish("partition/1", partitions)
+    client.publish("partition/1", str(partitions))
 
 def on_message(client, userdata, msg):
     print(msg.topic + " " + str(msg.payload))
@@ -51,6 +51,6 @@ client = mqtt.Client("partitions_client")
 client.on_connect = on_connect
 client.on_message = on_message
 
-client.connect("192.168.1.138", 1883)
+client.connect(BROKER_IP, 1883)
 
 client.loop_forever()
