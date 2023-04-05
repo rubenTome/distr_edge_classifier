@@ -2,7 +2,8 @@ import paho.mqtt.client as mqtt
 import partitionfunctions_python as partf
 import numpy as np
 
-#cliente para crear y publicar las particiones, y recibir resultados 
+#cliente para crear y publicar las particiones, y recibir resultados
+#ARRANCAR DESPUES DE LOS CLASIFICADORES 
 
 #PARAMETROS 
 
@@ -43,6 +44,7 @@ def on_connect(client, userdata, flags, rc):
     print("Connected partitions client with result code " + str(rc))
     client.subscribe("partition/results/#")
     client.publish("partition/1", str(partitions))
+    print("Published partitions: ", str(partitions))
 
 def on_message(client, userdata, msg):
     print(msg.topic + " " + str(msg.payload))
