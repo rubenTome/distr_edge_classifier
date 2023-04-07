@@ -39,12 +39,21 @@ for d in range(len(datasets)):
     for p in range(len(Pset)):
             partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p])
 
+strList = []
+for i in range(len(partitions)):
+    dfStr = ",".join(partitions[i][0].columns) + "\n"
+    for j in range(len(partitions[i][0].values)):
+        dfStr = dfStr + ",".join([str(k) for k in partitions[i][0].values[j]]) + "\n"
+    strList.append(dfStr)         
+
+message = "$".join(strList)
+
 #MQTT
 def on_connect(client, userdata, flags, rc):
     print("Connected partitions client with result code " + str(rc))
     client.subscribe("partition/results/#")
-    client.publish("partition/1", str(partitions))
-    print("Published partitions: ", str(partitions))
+    client.publish("partition/1", message)
+    print("Published partitions")
 
 def on_message(client, userdata, msg):
     print(msg.topic + " " + str(msg.payload))
