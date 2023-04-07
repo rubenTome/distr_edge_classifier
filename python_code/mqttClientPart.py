@@ -53,7 +53,7 @@ def on_connect(client, userdata, flags, rc):
     print("Connected partitions client with result code " + str(rc))
     client.subscribe("partition/results/#")
     client.publish("partition/1", message)
-    print("Published partitions")
+    print("Published partitions: \n", message)
 
 def on_message(client, userdata, msg):
     print(msg.topic + " " + str(msg.payload))
