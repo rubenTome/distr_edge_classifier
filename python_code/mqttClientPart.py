@@ -41,6 +41,7 @@ def on_connect(client, userdata, flags, rc):
         partitions = [[] for _ in range(len(Pset))]
         for p in range(len(Pset)):
                 partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p])
+    #TEMPORALMENTE NOS QUEDAMOS SOLO CON EL ULTIMO DATASET
     for i in range(len(Pset)):
         for j in range(Pset[i]):
             #nombres de las columnas de cada particion
