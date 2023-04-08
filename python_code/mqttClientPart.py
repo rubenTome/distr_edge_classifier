@@ -8,12 +8,12 @@ import numpy as np
 #PARAMETROS 
 
 #size of the total dataset (subsampple)
-NSET = 50
+NSET = 1000
 #size of the train set, thse size of the test set will be NSET - NTRAIN
-NTRAIN = 25
+NTRAIN = 500
 
 #number of partitions
-Pset = [1, 2]
+Pset = [1, 4]
 
 is_balanced = True
 
