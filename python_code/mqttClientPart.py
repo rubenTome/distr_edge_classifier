@@ -30,6 +30,28 @@ def on_connect(client, userdata, flags, rc):
     print("Connected partitions client with result code " + str(rc))
     client.subscribe("partition/results/#")
     print("Subscribed to partition/results/#")
+    #CREACION PARTICIONES
+    for d in range(len(datasets)):
+        ds = partf.load_dataset(datasets[d], NSET, NSET - NTRAIN)
+        #creamos las particiones segun parametro is_balanced
+        if is_balanced:
+            partitionFun = partf.create_random_partition
+        else:
+            partitionFun = partf.create_perturbated_partition
+        partitions = [[] for _ in range(len(Pset))]
+        for p in range(len(Pset)):
+                partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p])
+    for i in range(len(Pset)):
+        for j in range(Pset[i]):
+            #nombres de las columnas de cada particion
+            dfStr = ",".join(partitions[i][j].columns) + "\n"
+            for k in range(len(partitions[i][j].values)):
+                #valores de las filas de cada particion
+                dfStr = dfStr + ",".join([str(l) for l in partitions[i][j].values[k]]) + "\n"
+            #enviamos particiones
+            client.publish("partition/" + str(i) + "." + str(j), dfStr)
+            print("publicada particion" + str(i) + "." + str(j))
+            dfStr = ""
 
 def on_message(client, userdata, msg):
     print(msg.topic + " " + str(msg.payload))
@@ -39,31 +61,5 @@ client.on_connect = on_connect
 client.on_message = on_message
 
 client.connect(BROKER_IP, 1883)
-
-#CREACION PARTICIONES
-for d in range(len(datasets)):
-    
-    ds = partf.load_dataset(datasets[d], NSET, NSET - NTRAIN)
-
-    #creamos las particiones segun parametro is_balanced
-    if is_balanced:
-        partitionFun = partf.create_random_partition
-    else:
-        partitionFun = partf.create_perturbated_partition
-    partitions = [[] for _ in range(len(Pset))]
-    for p in range(len(Pset)):
-            partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p])
-
-for i in range(len(Pset)):
-    for j in range(Pset[i]):
-        #nombres de las columnas de cada particion
-        dfStr = ",".join(partitions[i][j].columns) + "\n"
-        for k in range(len(partitions[i][j].values)):
-            #valores de las filas de cada particion
-            dfStr = dfStr + ",".join([str(l) for l in partitions[i][j].values[k]]) + "\n"
-        #enviamos particiones
-        client.publish("partition/" + str(i) + "." + str(j), dfStr)
-        print("publicada particion" + str(i) + "." + str(j))
-        dfStr = ""
 
 client.loop_forever()
