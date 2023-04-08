@@ -1,6 +1,7 @@
 import paho.mqtt.client as mqtt
 import partitionfunctions_python as partf
 import numpy as np
+import json
 
 #cliente para crear y publicar las particiones, y recibir resultados
 #ARRANCAR DESPUES DE LOS CLASIFICADORES 
@@ -26,6 +27,12 @@ testdatasets= [""]
 BROKER_IP = "192.168.1.138"
 
 #CREACION PARTICIONES
+
+def datasetToStr(ds):
+    for i in range(len(ds)):
+        0
+    return ""
+
 def partition():
     for d in range(len(datasets)):
         ds = partf.load_dataset(datasets[d], NSET, NSET - NTRAIN)
@@ -45,6 +52,8 @@ def partition():
             for k in range(len(partitions[i][j].values)):
                 #valores de las filas de cada particion
                 dfStr = dfStr + ",".join([str(l) for l in partitions[i][j].values[k]]) + "\n"
+                #pasamos el dataset original a todos los clasificadores
+                dfStr = dfStr + "$" + datasetToStr(ds)
             #enviamos particiones
             client.publish("partition/" + str(i) + "." + str(j), dfStr)
             print("publicada particion" + str(i) + "." + str(j))
