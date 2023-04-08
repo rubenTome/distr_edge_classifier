@@ -25,12 +25,8 @@ testdatasets= [""]
 
 BROKER_IP = "192.168.1.138"
 
-#MQTT
-def on_connect(client, userdata, flags, rc):
-    print("Connected partitions client with result code " + str(rc))
-    client.subscribe("partition/results/#")
-    print("Subscribed to partition/results/#")
-    #CREACION PARTICIONES
+#CREACION PARTICIONES
+def partition():
     for d in range(len(datasets)):
         ds = partf.load_dataset(datasets[d], NSET, NSET - NTRAIN)
         #creamos las particiones segun parametro is_balanced
@@ -53,6 +49,12 @@ def on_connect(client, userdata, flags, rc):
             client.publish("partition/" + str(i) + "." + str(j), dfStr)
             print("publicada particion" + str(i) + "." + str(j))
             dfStr = ""
+
+#MQTT
+def on_connect(client, userdata, flags, rc):
+    print("Connected partitions client with result code " + str(rc))
+    client.subscribe("partition/results/#")
+    partition()
 
 def on_message(client, userdata, msg):
     print(msg.topic + " " + str(msg.payload))
