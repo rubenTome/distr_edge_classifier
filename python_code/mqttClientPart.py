@@ -64,5 +64,6 @@ for i in range(len(Pset)):
         #enviamos particiones
         client.publish("partition/" + str(i) + "." + str(j), dfStr)
         print("publicada particion" + str(i) + "." + str(j))
+        dfStr = ""
 
 client.loop_forever()
