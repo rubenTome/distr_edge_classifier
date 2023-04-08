@@ -132,16 +132,19 @@ def classifier(partitions, Pset, datasets, d, ds):
 #se llama al conectarse al broker
 def on_connect(client, userdata, flags, rc):
     print("Connected classification client with result code " + str(rc))
-    client.subscribe("partition/1") #nos subscribimos a este tema
+    client.subscribe("partition/0.0") #nos subscribimos a este tema
+    print("Subscribed to partition/0.0")
 
 #se llama al obtener un mensaje del broker
 def on_message(client, userdata, msg):
-    print(msg.topic + " " + str(msg.payload)) #imprimimos la respuesta
+    #imprimimos la respuesta
+    print(msg.topic + " " + str(msg.payload))
 
-    client.publish("partition/results/1", "results_clas_client_1")#publicamos los resultados
-    print("Published results: results_clas_client_1")
+    #publicamos los resultados
+    client.publish("partition/results/0.0", "results_clas_client_0.0")
+    print("Published results: results_clas_client_0.0")
 
-client = mqtt.Client("clas_client_1")
+client = mqtt.Client("clas_client_0.0")
 client.on_connect = on_connect
 client.on_message = on_message
 
