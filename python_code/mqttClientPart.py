@@ -8,12 +8,12 @@ import numpy as np
 #PARAMETROS 
 
 #size of the total dataset (subsampple)
-NSET = 1000
+NSET = 50
 #size of the train set, thse size of the test set will be NSET - NTRAIN
-NTRAIN = 500
+NTRAIN = 25
 
 #number of partitions
-Pset = [1]
+Pset = [1, 2]
 
 is_balanced = True
 
@@ -24,6 +24,21 @@ datasets = ["../scenariosimul/scenariosimulC2D2G3STDEV0.15.csv",
 testdatasets= [""]
 
 BROKER_IP = "192.168.1.138"
+
+#MQTT
+def on_connect(client, userdata, flags, rc):
+    print("Connected partitions client with result code " + str(rc))
+    client.subscribe("partition/results/#")
+    print("Subscribed to partition/results/#")
+
+def on_message(client, userdata, msg):
+    print(msg.topic + " " + str(msg.payload))
+
+client = mqtt.Client("partitions_client")
+client.on_connect = on_connect
+client.on_message = on_message
+
+client.connect(BROKER_IP, 1883)
 
 #CREACION PARTICIONES
 for d in range(len(datasets)):
@@ -39,29 +54,15 @@ for d in range(len(datasets)):
     for p in range(len(Pset)):
             partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p])
 
-strList = []
-for i in range(len(partitions)):
-    dfStr = ",".join(partitions[i][0].columns) + "\n"
-    for j in range(len(partitions[i][0].values)):
-        dfStr = dfStr + ",".join([str(k) for k in partitions[i][0].values[j]]) + "\n"
-    strList.append(dfStr)         
-
-message = "$".join(strList)
-
-#MQTT
-def on_connect(client, userdata, flags, rc):
-    print("Connected partitions client with result code " + str(rc))
-    client.subscribe("partition/results/#")
-    client.publish("partition/1", message)
-    print("Published partitions")
-
-def on_message(client, userdata, msg):
-    print(msg.topic + " " + str(msg.payload))
-
-client = mqtt.Client("partitions_client")
-client.on_connect = on_connect
-client.on_message = on_message
-
-client.connect(BROKER_IP, 1883)
+for i in range(len(Pset)):
+    for j in range(Pset[i]):
+        #nombres de las columnas de cada particion
+        dfStr = ",".join(partitions[i][j].columns) + "\n"
+        for k in range(len(partitions[i][j].values)):
+            #valores de las filas de cada particion
+            dfStr = dfStr + ",".join([str(l) for l in partitions[i][j].values[k]]) + "\n"
+        #enviamos particiones
+        client.publish("partition/" + str(i) + "." + str(j), dfStr)
+        print("publicada particion" + str(i) + "." + str(j))
 
 client.loop_forever()
