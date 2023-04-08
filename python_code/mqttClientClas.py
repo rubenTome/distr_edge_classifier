@@ -13,7 +13,7 @@ from prettytable import PrettyTable
 
  #CLASIFICADORES
 
-def knn(partition):#partition es un pandas.DataFrame
+def knn(partition, ds):#partition es un pandas.DataFrame
     partition = partition.to_numpy()
     nVars = np.shape(partition)[1] - 1
     trainset = partition[:, np.arange(nVars)]
@@ -32,7 +32,7 @@ def knn(partition):#partition es un pandas.DataFrame
 
     return [score, precision, recall]
 
-def rf(partition):
+def rf(partition, ds):
     partition = partition.to_numpy()
     nVars = np.shape(partition)[1] - 1
     trainset = partition[:, np.arange(nVars)]
@@ -50,7 +50,7 @@ def rf(partition):
                         rfc.predict(ds["testset"].to_numpy()), average=av)
     return [scores, precision, recall]
 
-def xgb(partition):
+def xgb(partition, ds):
     partition = partition.to_numpy()
     nVars = np.shape(partition)[1] - 1
     trainset = partition[:, np.arange(nVars)]
@@ -84,6 +84,7 @@ classifiers = [knn, rf, xgb]
 #names for printing them
 namesclassifiers = ["KNN", "RF", "XGB"] 
 
+#debe ser el nombre o ip
 BROKER_IP = "192.168.1.138"
 
 #CREACION DE CLASIFICADORES
@@ -132,14 +133,15 @@ def classifier(partitions, Pset, datasets, d, ds):
 #se llama al conectarse al broker
 def on_connect(client, userdata, flags, rc):
     print("Connected classification client with result code " + str(rc))
-    client.subscribe("partition/0.0") #nos subscribimos a este tema
+    #nos subscribimos a este tema
+    client.subscribe("partition/0.0")
     print("Subscribed to partition/0.0")
 
 #se llama al obtener un mensaje del broker
 def on_message(client, userdata, msg):
     #imprimimos la respuesta
     print(msg.topic + " " + str(msg.payload))
-
+    #classifier(str(msg.payload), [0], ["dataset.csv"], 0, )
     #publicamos los resultados
     client.publish("partition/results/0.0", "results_clas_client_0.0")
     print("Published results: results_clas_client_0.0")
@@ -149,6 +151,6 @@ client.on_connect = on_connect
 client.on_message = on_message
 
 #conectamos con el broker
-client.connect(BROKER_IP, 1883)#debe ser el nombre o ip
+client.connect(BROKER_IP, 1883)
 
 client.loop_forever()
