@@ -9,9 +9,9 @@ import json
 #PARAMETROS 
 
 #size of the total dataset (subsampple)
-NSET = 1000
+NSET = 50
 #size of the train set, thse size of the test set will be NSET - NTRAIN
-NTRAIN = 500
+NTRAIN = 25
 
 #number of partitions
 Pset = [1, 4]
@@ -24,14 +24,14 @@ datasets = ["../scenariosimul/scenariosimulC2D2G3STDEV0.15.csv",
 #some datasets are split into train and test, because of concept drift
 testdatasets= [""]
 
-BROKER_IP = "192.168.1.138"
+BROKER_IP = "192.168.1.143"
 
 #CREACION PARTICIONES
 
 def datasetToStr(ds):
     for i in range(len(ds)):
         0
-    return ""
+    return "DATASET_ORIGINAL"
 
 def partition():
     for d in range(len(datasets)):
@@ -52,8 +52,8 @@ def partition():
             for k in range(len(partitions[i][j].values)):
                 #valores de las filas de cada particion
                 dfStr = dfStr + ",".join([str(l) for l in partitions[i][j].values[k]]) + "\n"
-                #pasamos el dataset original a todos los clasificadores
-                dfStr = dfStr + "$" + datasetToStr(ds)
+            #pasamos el dataset original a todos los clasificadores
+            dfStr = dfStr + "$" + datasetToStr(ds)
             #enviamos particiones
             client.publish("partition/" + str(i) + "." + str(j), dfStr)
             print("publicada particion" + str(i) + "." + str(j))
