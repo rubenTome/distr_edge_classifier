@@ -85,7 +85,7 @@ classifiers = [knn, rf, xgb]
 namesclassifiers = ["KNN", "RF", "XGB"] 
 
 #debe ser el nombre o ip
-BROKER_IP = "192.168.1.138"
+BROKER_IP = "192.168.1.143"
 
 #CREACION DE CLASIFICADORES
 
