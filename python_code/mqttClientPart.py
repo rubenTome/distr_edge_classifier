@@ -14,7 +14,7 @@ NSET = 50
 NTRAIN = 25
 
 #number of partitions
-Pset = [1, 4]
+Pset = [1]
 
 is_balanced = True
 
@@ -28,10 +28,24 @@ BROKER_IP = "192.168.1.143"
 
 #CREACION PARTICIONES
 
+def dataframeToStr(df):
+    #nombres de las columnas de cada particion
+    string = ",".join(df.columns) + "\n"
+    for k in range(len(df.values)):
+        #valores de las filas de cada particion
+        string = string + ",".join([str(l) for l in df.values[k]]) + "\n"
+    return string
+
 def datasetToStr(ds):
+    keys = ["trainset", "trainclasses", "testset", "testclasses"]
+    string = "{"
     for i in range(len(ds)):
-        0
-    return "DATASET_ORIGINAL"
+        if i == 1 or i == 3:
+            string = string + keys[i] + ": " + dataframeToStr(ds[keys[i]].to_frame())
+        else:
+            string = string + keys[i] + ": " + dataframeToStr(ds[keys[i]])
+    string = string + "}"
+    return string
 
 def partition():
     for d in range(len(datasets)):
@@ -47,16 +61,13 @@ def partition():
     #TEMPORALMENTE NOS QUEDAMOS SOLO CON EL ULTIMO DATASET
     for i in range(len(Pset)):
         for j in range(Pset[i]):
-            #nombres de las columnas de cada particion
-            dfStr = ",".join(partitions[i][j].columns) + "\n"
-            for k in range(len(partitions[i][j].values)):
-                #valores de las filas de cada particion
-                dfStr = dfStr + ",".join([str(l) for l in partitions[i][j].values[k]]) + "\n"
+            dfStr = dataframeToStr(partitions[i][j])
             #pasamos el dataset original a todos los clasificadores
             dfStr = dfStr + "$" + datasetToStr(ds)
             #enviamos particiones
             client.publish("partition/" + str(i) + "." + str(j), dfStr)
             print("publicada particion" + str(i) + "." + str(j))
+            print("mensaje:", dfStr, "\n")
             dfStr = ""
 
 #MQTT
