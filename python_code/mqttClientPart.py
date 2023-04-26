@@ -38,13 +38,14 @@ def dataframeToStr(df):
 
 def datasetToStr(ds):
     keys = ["trainset", "trainclasses", "testset", "testclasses"]
-    string = "{"
+    string = ""
     for i in range(len(ds)):
         if i == 1 or i == 3:
             string = string + keys[i] + ": " + dataframeToStr(ds[keys[i]].to_frame())
         else:
             string = string + keys[i] + ": " + dataframeToStr(ds[keys[i]])
-    string = string + "}"
+        if i < len(ds) - 1:
+            string = string + ";"
     return string
 
 def partition():

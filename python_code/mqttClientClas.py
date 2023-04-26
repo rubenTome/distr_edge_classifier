@@ -132,8 +132,13 @@ def classifier(partitions, Pset, datasets, d, ds):
         fileTable.write(str(headers))
 
 def extractDataset(string):
-    print("STRING--->", string)
-    return 0
+    resultDict = {}
+    #nos da las parejas clave-valor
+    splitedString = string.split(";")
+    for i in range(len(splitedString)):
+        keyValue = splitedString[i].split(": ")
+        resultDict[keyValue[0]] = pd.read_csv(StringIO(keyValue[1]))
+    return resultDict
 
 def extractData(message):
     message = message.replace("\\n", "\n")
@@ -144,7 +149,7 @@ def extractData(message):
         Pset[i] = int(Pset[i])
     datasets = splitedMsg[2].strip("][").split(", ")
     d = int(splitedMsg[3])
-    ds = extractDataset(splitedMsg[4])
+    ds = extractDataset(splitedMsg[4][:-1])
     return partitions, Pset, datasets, d, ds
 
 #MQTT
@@ -161,7 +166,7 @@ def on_message(client, userdata, msg):
     print(msg.topic + " " + str(msg.payload))
     partitions, Pset, datasets, d, ds = extractData(str(msg.payload))
     print(partitions, "\n\n",Pset,"\n\n" ,datasets, "\n\n",d, "\n\n",ds)
-    #classifier(partitions, Pset, datasets, d, ds)
+    classifier(partitions, Pset, datasets, d, ds)
     #publicamos los resultados
     client.publish("partition/results/0.0", "results_clas_client_0.0")
     print("Published results: results_clas_client_0.0")
