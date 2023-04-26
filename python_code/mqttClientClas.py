@@ -7,6 +7,8 @@ import partitionfunctions_python as partf
 import numpy as np
 import csv
 from prettytable import PrettyTable
+import pandas as pd
+from io import StringIO
 
 #los clientes se subscriben a su particion y publican los resultados
 #ARRANCAR PRIMERO LOS CLASIFICADORES
@@ -129,6 +131,22 @@ def classifier(partitions, Pset, datasets, d, ds):
     if generateTables:
         fileTable.write(str(headers))
 
+def extractDataset(string):
+    print("STRING--->", string)
+    return 0
+
+def extractData(message):
+    message = message.replace("\\n", "\n")
+    splitedMsg = message.split("$")
+    partitions = pd.read_csv(StringIO(splitedMsg[0][2:]))
+    Pset = splitedMsg[1].strip("][").split(", ")
+    for i in range(len(Pset)):
+        Pset[i] = int(Pset[i])
+    datasets = splitedMsg[2].strip("][").split(", ")
+    d = int(splitedMsg[3])
+    ds = extractDataset(splitedMsg[4])
+    return partitions, Pset, datasets, d, ds
+
 #MQTT
 #se llama al conectarse al broker
 def on_connect(client, userdata, flags, rc):
@@ -141,7 +159,9 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     #imprimimos la respuesta
     print(msg.topic + " " + str(msg.payload))
-    #classifier(str(msg.payload), [0], ["dataset.csv"], 0, )
+    partitions, Pset, datasets, d, ds = extractData(str(msg.payload))
+    print(partitions, "\n\n",Pset,"\n\n" ,datasets, "\n\n",d, "\n\n",ds)
+    #classifier(partitions, Pset, datasets, d, ds)
     #publicamos los resultados
     client.publish("partition/results/0.0", "results_clas_client_0.0")
     print("Published results: results_clas_client_0.0")

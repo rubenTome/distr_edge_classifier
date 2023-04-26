@@ -63,7 +63,8 @@ def partition():
         for j in range(Pset[i]):
             dfStr = dataframeToStr(partitions[i][j])
             #pasamos el dataset original a todos los clasificadores
-            dfStr = dfStr + "$" + datasetToStr(ds)
+            #TEMPORALMENTE NOS QUEDAMOS SOLO CON EL ULTIMO DATASET
+            dfStr = dfStr + "$" + str(Pset) + "$" + str(datasets[len(datasets) - 1]) + "$" + str(len(datasets) - 1) + "$" + datasetToStr(ds)
             #enviamos particiones
             client.publish("partition/" + str(i) + "." + str(j), dfStr)
             print("publicada particion" + str(i) + "." + str(j))
