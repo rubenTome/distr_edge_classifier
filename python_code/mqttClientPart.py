@@ -59,18 +59,16 @@ def partition():
         partitions = [[] for _ in range(len(Pset))]
         for p in range(len(Pset)):
                 partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p])
-    #TEMPORALMENTE NOS QUEDAMOS SOLO CON EL ULTIMO DATASET
-    for i in range(len(Pset)):
-        for j in range(Pset[i]):
-            dfStr = dataframeToStr(partitions[i][j])
-            #pasamos el dataset original a todos los clasificadores
-            #TEMPORALMENTE NOS QUEDAMOS SOLO CON EL ULTIMO DATASET
-            #TODO revisar parametros innecesarios
-            dfStr = dfStr + "$" + str(Pset) + "$" + str(datasets[len(datasets) - 1]) + "$" + "0" + "$" + datasetToStr(ds)
-            #enviamos particiones
-            client.publish("partition/" + str(i) + "." + str(j), dfStr)
-            print("\npublished partition" + str(i) + "." + str(j))
-            dfStr = ""
+        for i in range(len(Pset)):
+            for j in range(Pset[i]):
+                dfStr = dataframeToStr(partitions[i][j])
+                #pasamos el dataset original a todos los clasificadores
+                #TODO revisar parametros innecesarios
+                dfStr = dfStr + "$" + str(Pset) + "$" + str(datasets[d]) + "$" + str(d - 1) + "$" + datasetToStr(ds)
+                #enviamos particiones
+                client.publish("partition/" + str(i) + "." + str(j), dfStr)
+                print("\npublished partition" + str(i) + "." + str(j))
+                dfStr = ""
 
 #MQTT
 def on_connect(client, userdata, flags, rc):
