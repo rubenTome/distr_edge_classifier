@@ -67,7 +67,6 @@ def partition():
             #enviamos particiones
             client.publish("partition/" + str(i) + "." + str(j), dfStr)
             print("publicada particion" + str(i) + "." + str(j))
-            print("mensaje:", dfStr, "\n")
             dfStr = ""
 
 #MQTT
