@@ -98,11 +98,10 @@ BROKER_IP = "192.168.1.143"
 #ds: conjunto total de todos los datos seleccionados del dataset
 def classifier(partitions, Pset, datasets, d, ds):
     classifAcc = {}
-    for ps in range(len(Pset)):
-        for c in range(len(classifiers)):
-            for pa in range(len(partitions[ps])):
-                classifAcc[namesclassifiers[c] + "_" + str(Pset[ps]) + "_" + str(pa + 1)] = (
-                classifiers[c](partitions[ps][pa]))
+    for c in range(len(classifiers)):
+        #TEMPORALMENTE USAMOS PRIMER PSET Y STR(0 + 1)
+        classifAcc[namesclassifiers[c] + "_" + str(Pset[0]) + "_" + str(0 + 1)] = (
+        classifiers[c](partitions, ds))
 
     #guardamos en un csv la informacion de cada clasificador en classifAcc
     splitedPath = datasets[d].split("/")
@@ -118,7 +117,7 @@ def classifier(partitions, Pset, datasets, d, ds):
         label = list(classifAcc)[t]
         classifier = classifAcc[label]
         splitedName = label.split("_")
-        actualData = partitions[Pset.index(int(splitedName[1]))][int(splitedName[2]) - 1].to_numpy()
+        actualData = partitions.to_numpy()
         actualData = actualData[:, np.arange(np.shape(actualData)[1] - 1)]
         energyDist = partf.end(actualData, ds["trainset"].values.tolist(), True)
         if generateTables:
@@ -130,6 +129,9 @@ def classifier(partitions, Pset, datasets, d, ds):
                         round(classifier[2], NDECIMALS), round(energyDist, NDECIMALS)])
     if generateTables:
         fileTable.write(str(headers))
+
+    file.close()
+    return open("rdos_python/rdos_" + name, "r").read()
 
 def extractDataset(string):
     resultDict = {}
@@ -158,18 +160,17 @@ def on_connect(client, userdata, flags, rc):
     print("Connected classification client with result code " + str(rc))
     #nos subscribimos a este tema
     client.subscribe("partition/0.0")
-    print("Subscribed to partition/0.0")
+    print("\nSubscribed to partition/0.0")
 
 #se llama al obtener un mensaje del broker
 def on_message(client, userdata, msg):
     #imprimimos la respuesta
-    print(msg.topic + " " + str(msg.payload))
+    print("\nfrom topic " + msg.topic + ":\n" + str(msg.payload))
     partitions, Pset, datasets, d, ds = extractData(str(msg.payload))
-    print(partitions, "\n\n",Pset,"\n\n" ,datasets, "\n\n",d, "\n\n",ds)
-    classifier(partitions, Pset, datasets, d, ds)
+    response = classifier(partitions, Pset, datasets, d, ds)
     #publicamos los resultados
-    client.publish("partition/results/0.0", "results_clas_client_0.0")
-    print("Published results: results_clas_client_0.0")
+    client.publish("partition/results/0.0", response)
+    print("\nPublished results:\n", response)
 
 client = mqtt.Client("clas_client_0.0")
 client.on_connect = on_connect

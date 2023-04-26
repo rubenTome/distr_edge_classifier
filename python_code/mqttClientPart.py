@@ -9,9 +9,9 @@ import json
 #PARAMETROS 
 
 #size of the total dataset (subsampple)
-NSET = 50
+NSET = 1000
 #size of the train set, thse size of the test set will be NSET - NTRAIN
-NTRAIN = 25
+NTRAIN = 500
 
 #number of partitions
 Pset = [1]
@@ -65,10 +65,11 @@ def partition():
             dfStr = dataframeToStr(partitions[i][j])
             #pasamos el dataset original a todos los clasificadores
             #TEMPORALMENTE NOS QUEDAMOS SOLO CON EL ULTIMO DATASET
-            dfStr = dfStr + "$" + str(Pset) + "$" + str(datasets[len(datasets) - 1]) + "$" + str(len(datasets) - 1) + "$" + datasetToStr(ds)
+            #TODO revisar parametros innecesarios
+            dfStr = dfStr + "$" + str(Pset) + "$" + str(datasets[len(datasets) - 1]) + "$" + "0" + "$" + datasetToStr(ds)
             #enviamos particiones
             client.publish("partition/" + str(i) + "." + str(j), dfStr)
-            print("publicada particion" + str(i) + "." + str(j))
+            print("\npublished partition" + str(i) + "." + str(j))
             dfStr = ""
 
 #MQTT
@@ -78,7 +79,7 @@ def on_connect(client, userdata, flags, rc):
     partition()
 
 def on_message(client, userdata, msg):
-    print(msg.topic + " " + str(msg.payload))
+    print("\nfrom topic " + msg.topic + ":\n" + str(msg.payload).replace("\\n", "\n"))
 
 client = mqtt.Client("partitions_client")
 client.on_connect = on_connect
