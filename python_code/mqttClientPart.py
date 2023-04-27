@@ -14,7 +14,7 @@ NSET = 1000
 NTRAIN = 500
 
 #number of partitions
-Pset = [1]
+Pset = [4]
 
 is_balanced = True
 
