@@ -14,12 +14,11 @@ NSET = 1000
 NTRAIN = 500
 
 #number of partitions
-Pset = [1]
+Pset = [2]
 
 is_balanced = True
 
-datasets = ["../scenariosimul/scenariosimulC2D2G3STDEV0.15.csv", 
-            "../scenariosimul/scenariosimulC8D3G3STDEV0.05.csv"]
+datasets = ["../scenariosimul/scenariosimulC2D2G3STDEV0.15.csv"]
 
 #some datasets are split into train and test, because of concept drift
 testdatasets= [""]
@@ -65,8 +64,8 @@ def partition():
                 #pasamos el dataset original a todos los clasificadores
                 dfStr = dfStr + "$" + str(Pset[i]) + "$" + str(j) + "$" + datasets[d] + "$" + datasetToStr(ds)
                 #enviamos particiones
-                client.publish("partition/" + str(i) + "." + str(j), dfStr)
-                print("\npublished partition" + str(i) + "." + str(j))
+                client.publish("partition/" + str(Pset[i]) + "." + str(j), dfStr)
+                print("\npublished partition " + str(Pset[i]) + "." + str(j))
                 dfStr = ""
 
 #MQTT

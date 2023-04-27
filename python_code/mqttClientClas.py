@@ -90,6 +90,8 @@ namesclassifiers = ["KNN", "RF", "XGB"]
 #debe ser el nombre o ip
 BROKER_IP = "192.168.1.143"
 
+CLASSIFIERID = "2.0"
+
 #CREACION DE CLASIFICADORES
 
 #partitions: datos de la particion asignada
@@ -157,8 +159,8 @@ def extractData(message):
 def on_connect(client, userdata, flags, rc):
     print("Connected classification client with result code " + str(rc))
     #nos subscribimos a este tema
-    client.subscribe("partition/#")
-    print("\nSubscribed to partition/#")
+    client.subscribe("partition/" + CLASSIFIERID)
+    print("\nSubscribed to partition/" + CLASSIFIERID)
 
 #se llama al obtener un mensaje del broker
 def on_message(client, userdata, msg):
@@ -168,9 +170,9 @@ def on_message(client, userdata, msg):
     dsName = datasets.split("/")
     dsName = dsName[len(dsName) - 1]
     client.publish("results/" + Pset + "." + partition + "." + dsName, response)
-    print("\nPublished results:\n", response)
+    print("\nPublished results/" + Pset + "." + partition + "." + dsName + ": \n", response)
 
-client = mqtt.Client("clas_client_" + str(randint(0, 999)))
+client = mqtt.Client("clas_client_" + CLASSIFIERID)
 client.on_connect = on_connect
 client.on_message = on_message
 
