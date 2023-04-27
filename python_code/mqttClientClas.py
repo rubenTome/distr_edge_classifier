@@ -93,18 +93,18 @@ BROKER_IP = "192.168.1.143"
 
 #partitions: datos de la particion asignada
 #Pset: numero de particiones que queremos crear
-#datasets: nombres de los datasets usados para las particiones
-#d: indice del array datasets 
+#partition: numero de particion dentro del Pset
+#dataset: nombre del dataset usado para la particion
 #ds: conjunto total de todos los datos seleccionados del dataset
-def classifier(partitions, Pset, datasets, d, ds):
+def classifier(partitions, Pset, partition, dataset, ds):
     classifAcc = {}
     for c in range(len(classifiers)):
         #TEMPORALMENTE USAMOS PRIMER PSET Y STR(0 + 1)
-        classifAcc[namesclassifiers[c] + "_" + str(Pset[0]) + "_" + str(0 + 1)] = (
+        classifAcc[namesclassifiers[c] + "_" + str(Pset) + "_" + str(partition + 1)] = (
         classifiers[c](partitions, ds))
 
     #guardamos en un csv la informacion de cada clasificador en classifAcc
-    splitedPath = datasets[d].split("/")
+    splitedPath = dataset.split("/")
     name = splitedPath[len(splitedPath) - 1]
     file = open("rdos_python/rdos_" + name, "w")
     if generateTables:
@@ -146,13 +146,11 @@ def extractData(message):
     message = message.replace("\\n", "\n")
     splitedMsg = message.split("$")
     partitions = pd.read_csv(StringIO(splitedMsg[0][2:]))
-    Pset = splitedMsg[1].strip("][").split(", ")
-    for i in range(len(Pset)):
-        Pset[i] = int(Pset[i])
-    datasets = splitedMsg[2].strip("][").split(", ")
-    d = int(splitedMsg[3])
+    Pset = int(splitedMsg[1])
+    partition = int(splitedMsg[2])
+    dataset = splitedMsg[3]
     ds = extractDataset(splitedMsg[4][:-1])
-    return partitions, Pset, datasets, d, ds
+    return partitions, Pset, partition, dataset, ds
 
 #MQTT
 #se llama al conectarse al broker
@@ -166,8 +164,8 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     #imprimimos la respuesta
     print("\nfrom topic " + msg.topic + ":\n" + str(msg.payload))
-    partitions, Pset, datasets, d, ds = extractData(str(msg.payload))
-    response = classifier(partitions, Pset, datasets, d, ds)
+    partitions, Pset, partition, datasets, ds = extractData(str(msg.payload))
+    response = classifier(partitions, Pset, partition, datasets, ds)
     #publicamos los resultados
     client.publish("partition/results/0.0", response)
     print("\nPublished results:\n", response)
