@@ -100,7 +100,6 @@ BROKER_IP = "192.168.1.143"
 def classifier(partitions, Pset, partition, dataset, ds):
     classifAcc = {}
     for c in range(len(classifiers)):
-        #TEMPORALMENTE USAMOS PRIMER PSET Y STR(0 + 1)
         classifAcc[namesclassifiers[c] + "_" + Pset + "_" + partition] = (
         classifiers[c](partitions, ds))
 
