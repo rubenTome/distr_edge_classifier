@@ -2,6 +2,7 @@ import paho.mqtt.client as mqtt
 import partitionfunctions_python as partf
 import numpy as np
 import json
+import sys
 
 #cliente para crear y publicar las particiones, y recibir resultados
 #ARRANCAR DESPUES DE LOS CLASIFICADORES 
@@ -14,7 +15,9 @@ NSET = 1000
 NTRAIN = 500
 
 #number of partitions
-Pset = [4]
+Pset = sys.argv[1].replace(" ", "").strip("][").split(",")
+for i in range(len(Pset)):
+    Pset[i] = int(Pset[i])
 
 is_balanced = True
 
