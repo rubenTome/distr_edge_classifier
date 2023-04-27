@@ -9,7 +9,7 @@ import csv
 from prettytable import PrettyTable
 import pandas as pd
 from io import StringIO
-from random import randint
+import sys
 
 #los clientes se subscriben a su particion y publican los resultados
 #ARRANCAR PRIMERO LOS CLASIFICADORES
@@ -90,7 +90,7 @@ namesclassifiers = ["KNN", "RF", "XGB"]
 #debe ser el nombre o ip
 BROKER_IP = "192.168.1.143"
 
-CLASSIFIERID = "2.0"
+CLASSIFIERID = sys.argv[1]
 
 #CREACION DE CLASIFICADORES
 
