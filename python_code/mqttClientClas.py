@@ -9,6 +9,7 @@ import csv
 from prettytable import PrettyTable
 import pandas as pd
 from io import StringIO
+from random import randint
 
 #los clientes se subscriben a su particion y publican los resultados
 #ARRANCAR PRIMERO LOS CLASIFICADORES
@@ -100,7 +101,7 @@ def classifier(partitions, Pset, partition, dataset, ds):
     classifAcc = {}
     for c in range(len(classifiers)):
         #TEMPORALMENTE USAMOS PRIMER PSET Y STR(0 + 1)
-        classifAcc[namesclassifiers[c] + "_" + str(Pset) + "_" + str(partition + 1)] = (
+        classifAcc[namesclassifiers[c] + "_" + Pset + "_" + partition] = (
         classifiers[c](partitions, ds))
 
     #guardamos en un csv la informacion de cada clasificador en classifAcc
@@ -146,8 +147,8 @@ def extractData(message):
     message = message.replace("\\n", "\n")
     splitedMsg = message.split("$")
     partitions = pd.read_csv(StringIO(splitedMsg[0][2:]))
-    Pset = int(splitedMsg[1])
-    partition = int(splitedMsg[2])
+    Pset = splitedMsg[1]
+    partition = splitedMsg[2]
     dataset = splitedMsg[3]
     ds = extractDataset(splitedMsg[4][:-1])
     return partitions, Pset, partition, dataset, ds
@@ -157,8 +158,8 @@ def extractData(message):
 def on_connect(client, userdata, flags, rc):
     print("Connected classification client with result code " + str(rc))
     #nos subscribimos a este tema
-    client.subscribe("partition/0.0")
-    print("\nSubscribed to partition/0.0")
+    client.subscribe("partition/#")
+    print("\nSubscribed to partition/#")
 
 #se llama al obtener un mensaje del broker
 def on_message(client, userdata, msg):
@@ -167,10 +168,12 @@ def on_message(client, userdata, msg):
     partitions, Pset, partition, datasets, ds = extractData(str(msg.payload))
     response = classifier(partitions, Pset, partition, datasets, ds)
     #publicamos los resultados
-    client.publish("partition/results/0.0", response)
+    dsName = datasets.split("/")
+    dsName = dsName[len(dsName) - 1]
+    client.publish("results/" + Pset + "." + partition + "." + dsName, response)
     print("\nPublished results:\n", response)
 
-client = mqtt.Client("clas_client_0.0")
+client = mqtt.Client("clas_client_" + str(randint(0, 999)))
 client.on_connect = on_connect
 client.on_message = on_message
 

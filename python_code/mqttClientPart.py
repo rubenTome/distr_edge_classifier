@@ -72,7 +72,7 @@ def partition():
 #MQTT
 def on_connect(client, userdata, flags, rc):
     print("Connected partitions client with result code " + str(rc))
-    client.subscribe("partition/results/#")
+    client.subscribe("results/#")
     partition()
 
 def on_message(client, userdata, msg):
