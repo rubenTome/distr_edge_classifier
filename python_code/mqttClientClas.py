@@ -163,8 +163,6 @@ def on_connect(client, userdata, flags, rc):
 
 #se llama al obtener un mensaje del broker
 def on_message(client, userdata, msg):
-    #imprimimos la respuesta
-    print("\nfrom topic " + msg.topic + ":\n" + str(msg.payload))
     partitions, Pset, partition, datasets, ds = extractData(str(msg.payload))
     response = classifier(partitions, Pset, partition, datasets, ds)
     #publicamos los resultados
