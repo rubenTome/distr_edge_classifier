@@ -50,7 +50,7 @@ def datasetToStr(ds):
             string = string + ";"
     return string
 
-def partition():
+def create_partitions():
     for d in range(len(datasets)):
         ds = partf.load_dataset(datasets[d], NSET, NSET - NTRAIN)
         #creamos las particiones segun parametro is_balanced
@@ -59,23 +59,30 @@ def partition():
         else:
             partitionFun = partf.create_perturbated_partition
         partitions = [[] for _ in range(len(Pset))]
+        distances = [[] for _ in range(len(Pset))]
         for p in range(len(Pset)):
-                partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p])
+            #creamos particiones para cada nodo
+            partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p])
         for i in range(len(Pset)):
             for j in range(Pset[i]):
-                dfStr = dataframeToStr(partitions[i][j])
-                #pasamos el dataset original a todos los clasificadores
-                dfStr = dfStr + "$" + str(Pset[i]) + "$" + str(j) + "$" + datasets[d] + "$" + datasetToStr(ds)
-                #enviamos particiones
-                client.publish("partition/" + str(Pset[i]) + "." + str(j), dfStr)
-                print("\npublished partition " + str(Pset[i]) + "." + str(j))
-                dfStr = ""
+                #medimos distancia entre cada particion y el conjunto global de datos
+                distances[i].append(partf.end(partitions[i][j].drop('classes', axis=1).values.tolist(),
+                                              ds["trainset"].values.tolist()))
+    return (partitions, distances)
 
 #MQTT
 def on_connect(client, userdata, flags, rc):
     print("Connected partitions client with result code " + str(rc))
     client.subscribe("results/#")
-    partition()
+    partAndDist = create_partitions()
+    for i in range(len(datasets)):
+        for j in range(len(Pset)):
+            for k in range(Pset[j]):
+                name = datasets[i].split("/")
+                name = name[len(name) - 1]
+                message = dataframeToStr(partAndDist[0][j][k]) + "$" + str(partAndDist[1][j][k]) + "$" + name
+                client.publish("partition/" + str(Pset[j]) + "." + str(k), message)
+                print("published partition " + str(Pset[j]) + "." + str(k))
 
 def on_message(client, userdata, msg):
     print("\nfrom topic " + msg.topic + ":\n" + str(msg.payload).replace("\\n", "\n"))

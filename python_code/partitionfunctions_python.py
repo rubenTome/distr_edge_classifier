@@ -19,15 +19,12 @@ energy_r = ro.r('''
 ''')
 
 #x e y en caso de usar la distancia de R deben pasarse como robjects
-def end(x, y, rDist):#x e y son del tipo list
-    if rDist:
-        x = np.array(x)
-        y = np.array(y)
-        xR = ro.r.matrix(ro.FloatVector(x.flatten(order="F")), nrow=x.shape[0])
-        yR = ro.r.matrix(ro.FloatVector(y.flatten(order="F")), nrow=y.shape[0])
-        return float(np.asarray(energy_r(xR,yR)))
-    #else: 
-        #return energy_distance(x.tolist(), y) / st.variance(np.array(x.tolist() + y).flatten())
+def end(x, y):#x e y son del tipo list
+    x = np.array(x)
+    y = np.array(y)
+    xR = ro.r.matrix(ro.FloatVector(x.flatten(order="F")), nrow=x.shape[0])
+    yR = ro.r.matrix(ro.FloatVector(y.flatten(order="F")), nrow=y.shape[0])
+    return float(np.asarray(energy_r(xR,yR)))
 
 def sample_n_from_csv(filename:str, n:int=100, total_rows:int=None) -> pd.DataFrame:
     if total_rows==None:

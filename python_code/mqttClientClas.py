@@ -3,7 +3,6 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.metrics import precision_score, recall_score
 import partitionfunctions_python as partf
-#import fine_analisis_python as fan
 import numpy as np
 import csv
 from prettytable import PrettyTable
@@ -135,24 +134,16 @@ def classifier(partitions, Pset, partition, dataset, ds):
     file.close()
     return open("rdos_python/rdos_" + name, "r").read()
 
-def extractDataset(string):
-    resultDict = {}
-    #nos da las parejas clave-valor
-    splitedString = string.split(";")
-    for i in range(len(splitedString)):
-        keyValue = splitedString[i].split(": ")
-        resultDict[keyValue[0]] = pd.read_csv(StringIO(keyValue[1]))
-    return resultDict
-
 def extractData(message):
     message = message.replace("\\n", "\n")
     splitedMsg = message.split("$")
     partitions = pd.read_csv(StringIO(splitedMsg[0][2:]))
-    Pset = splitedMsg[1]
-    partition = splitedMsg[2]
-    dataset = splitedMsg[3]
-    ds = extractDataset(splitedMsg[4][:-1])
-    return partitions, Pset, partition, dataset, ds
+    distance = float(splitedMsg[1])
+    dsName = splitedMsg[2][:-1]
+    return partitions, distance, dsName
+
+def classify(partition, distance, dsName):
+    return "RESULTADOS" + "_" + CLASSIFIERID + "_" +  dsName 
 
 #MQTT
 #se llama al conectarse al broker
@@ -164,13 +155,9 @@ def on_connect(client, userdata, flags, rc):
 
 #se llama al obtener un mensaje del broker
 def on_message(client, userdata, msg):
-    partitions, Pset, partition, datasets, ds = extractData(str(msg.payload))
-    response = classifier(partitions, Pset, partition, datasets, ds)
-    #publicamos los resultados
-    dsName = datasets.split("/")
-    dsName = dsName[len(dsName) - 1]
-    client.publish("results/" + Pset + "." + partition + "." + dsName, response)
-    print("\nPublished results/" + Pset + "." + partition + "." + dsName + ": \n", response)
+    partition, distance, dsName = extractData(str(msg.payload))
+    classifiedData = classify(partition, distance, dsName)
+    client.publish("results/" + CLASSIFIERID + "." + dsName, classifiedData)
 
 client = mqtt.Client("clas_client_" + CLASSIFIERID)
 client.on_connect = on_connect
