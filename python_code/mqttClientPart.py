@@ -18,6 +18,9 @@ Pset = sys.argv[1].replace(" ", "").strip("][").split(",")
 for i in range(len(Pset)):
     Pset[i] = int(Pset[i])
 
+#array de weighed belief values
+wbelief = {i:[] for i in Pset}
+print(wbelief)
 is_balanced = True
 
 datasets = ["../scenariosimul/scenariosimulC2D2G3STDEV0.15.csv"]
@@ -85,7 +88,16 @@ def on_connect(client, userdata, flags, rc):
                 print("published partition " + str(Pset[j]) + "." + str(k))
 
 def on_message(client, userdata, msg):
+    nPset = int(msg.topic.split("/")[1].split(".")[0])
+    wbelief[nPset].append(str(msg.payload).replace("\\n", "\n")[2:-1])
     print("from topic " + msg.topic + ": received weighed belief values")
+    allReceived = 1
+    for i in Pset:
+        if (len(wbelief[i]) != i):
+            allReceived = 0
+            break
+    if (allReceived):
+        print("all received")
 
 client = mqtt.Client("partitions_client")
 client.on_connect = on_connect
