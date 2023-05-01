@@ -1,7 +1,6 @@
 import paho.mqtt.client as mqtt
 import partitionfunctions_python as partf
-import numpy as np
-import json
+import pandas as pd
 import sys
 
 #cliente para crear y publicar las particiones, y recibir resultados
@@ -26,7 +25,7 @@ datasets = ["../scenariosimul/scenariosimulC2D2G3STDEV0.15.csv"]
 #some datasets are split into train and test, because of concept drift
 testdatasets= [""]
 
-BROKER_IP = "192.168.1.143"
+BROKER_IP = "192.168.1.140"
 
 #CREACION PARTICIONES
 
@@ -59,6 +58,7 @@ def create_partitions():
         else:
             partitionFun = partf.create_perturbated_partition
         partitions = [[] for _ in range(len(Pset))]
+        test = ds["testset"]
         distances = [[] for _ in range(len(Pset))]
         for p in range(len(Pset)):
             #creamos particiones para cada nodo
@@ -68,7 +68,7 @@ def create_partitions():
                 #medimos distancia entre cada particion y el conjunto global de datos
                 distances[i].append(partf.end(partitions[i][j].drop('classes', axis=1).values.tolist(),
                                               ds["trainset"].values.tolist()))
-    return (partitions, distances)
+    return (partitions, distances, test)
 
 #MQTT
 def on_connect(client, userdata, flags, rc):
@@ -80,12 +80,12 @@ def on_connect(client, userdata, flags, rc):
             for k in range(Pset[j]):
                 name = datasets[i].split("/")
                 name = name[len(name) - 1]
-                message = dataframeToStr(partAndDist[0][j][k]) + "$" + str(partAndDist[1][j][k]) + "$" + name
+                message = dataframeToStr(partAndDist[0][j][k]) + "$" + str(partAndDist[1][j][k]) + "$" + dataframeToStr(partAndDist[2]) + "$" + name
                 client.publish("partition/" + str(Pset[j]) + "." + str(k), message)
                 print("published partition " + str(Pset[j]) + "." + str(k))
 
 def on_message(client, userdata, msg):
-    print("\nfrom topic " + msg.topic + ":\n" + str(msg.payload).replace("\\n", "\n"))
+    print("from topic " + msg.topic + ": received weighed belief values")
 
 client = mqtt.Client("partitions_client")
 client.on_connect = on_connect
