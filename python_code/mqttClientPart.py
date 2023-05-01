@@ -1,6 +1,5 @@
 import paho.mqtt.client as mqtt
 import partitionfunctions_python as partf
-import pandas as pd
 import sys
 
 #cliente para crear y publicar las particiones, y recibir resultados
@@ -73,10 +72,14 @@ def create_partitions():
                                               ds["trainset"].values.tolist()))
     return (partitions, distances, test)
 
+def distClass():
+    client.publish("exit", 1)
+
 #MQTT
 def on_connect(client, userdata, flags, rc):
     print("Connected partitions client with result code " + str(rc))
     client.subscribe("results/#")
+    client.subscribe("exit")
     partAndDist = create_partitions()
     for i in range(len(datasets)):
         for j in range(len(Pset)):
@@ -88,6 +91,8 @@ def on_connect(client, userdata, flags, rc):
                 print("published partition " + str(Pset[j]) + "." + str(k))
 
 def on_message(client, userdata, msg):
+    if (msg.topic == "exit"):
+        exit()
     nPset = int(msg.topic.split("/")[1].split(".")[0])
     wbelief[nPset].append(str(msg.payload).replace("\\n", "\n")[2:-1])
     print("from topic " + msg.topic + ": received weighed belief values")
@@ -98,6 +103,7 @@ def on_message(client, userdata, msg):
             break
     if (allReceived):
         print("all received")
+        distClass()
 
 client = mqtt.Client("partitions_client")
 client.on_connect = on_connect

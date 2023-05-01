@@ -4,11 +4,11 @@ from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.metrics import precision_score, recall_score
 import partitionfunctions_python as partf
 import numpy as np
-import csv
-from prettytable import PrettyTable
 import pandas as pd
 from io import StringIO
 import sys
+import os
+import signal
 
 #los clientes se subscriben a su particion y publican los resultados
 #ARRANCAR PRIMERO LOS CLASIFICADORES
@@ -110,10 +110,13 @@ def on_connect(client, userdata, flags, rc):
     print("Connected classification client with result code " + str(rc))
     #nos subscribimos a este tema
     client.subscribe("partition/" + CLASSIFIERID)
+    client.subscribe("exit")
     print("\nSubscribed to partition/" + CLASSIFIERID)
 
 #se llama al obtener un mensaje del broker
 def on_message(client, userdata, msg):
+    if (msg.topic == "exit"):
+        os.kill(os.getppid(), signal.SIGHUP)
     partition, distance, test, dsName = extractData(str(msg.payload))
     classifiedData = classify(partition, distance, test)
     print("pubish weighed belief values:\n", classifiedData)
