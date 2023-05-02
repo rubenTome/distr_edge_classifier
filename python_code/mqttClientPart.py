@@ -1,6 +1,7 @@
 import paho.mqtt.client as mqtt
 import partitionfunctions_python as partf
 import sys
+from ast import literal_eval
 
 #cliente para crear y publicar las particiones, y recibir resultados
 #ARRANCAR DESPUES DE LOS CLASIFICADORES 
@@ -19,7 +20,6 @@ for i in range(len(Pset)):
 
 #array de weighed belief values
 wbelief = {i:[] for i in Pset}
-print(wbelief)
 is_balanced = True
 
 datasets = ["../scenariosimul/scenariosimulC2D2G3STDEV0.15.csv"]
@@ -39,17 +39,18 @@ def dataframeToStr(df):
         string = string + ",".join([str(l) for l in df.values[k]]) + "\n"
     return string
 
-def datasetToStr(ds):
-    keys = ["trainset", "trainclasses", "testset", "testclasses"]
-    string = ""
-    for i in range(len(ds)):
-        if i == 1 or i == 3:
-            string = string + keys[i] + ": " + dataframeToStr(ds[keys[i]].to_frame())
-        else:
-            string = string + keys[i] + ": " + dataframeToStr(ds[keys[i]])
-        if i < len(ds) - 1:
-            string = string + ";"
-    return string
+def strToArray(str):
+    str = str.replace("0.", "0.0").replace("[", "").replace("]", "").replace("\n ", "\n")
+    splitedStr = str.split("\n")
+    resArr = [[] for _ in range(NSET - NTRAIN)]
+    for i in range(len(splitedStr)):
+        splitedStr[i] = splitedStr[i].split(" ")
+        for j in range(len(splitedStr[i])):
+            if(len(splitedStr[i][j]) == 0):
+                continue
+            else:
+                resArr[i].append(float(splitedStr[i][j]))
+    return resArr
 
 def create_partitions():
     for d in range(len(datasets)):
@@ -73,6 +74,7 @@ def create_partitions():
     return (partitions, distances, test)
 
 def distClass():
+    print(wbelief)
     client.publish("exit", 1)
 
 #MQTT
@@ -94,7 +96,7 @@ def on_message(client, userdata, msg):
     if (msg.topic == "exit"):
         exit()
     nPset = int(msg.topic.split("/")[1].split(".")[0])
-    wbelief[nPset].append(str(msg.payload).replace("\\n", "\n")[2:-1])
+    wbelief[nPset].append(strToArray(str(msg.payload).replace("\\n", "\n")[2:-1]))
     print("from topic " + msg.topic + ": received weighed belief values")
     allReceived = 1
     for i in Pset:
