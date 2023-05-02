@@ -1,7 +1,7 @@
 import paho.mqtt.client as mqtt
 import partitionfunctions_python as partf
+import fine_analisis_python as finean
 import sys
-from ast import literal_eval
 
 #cliente para crear y publicar las particiones, y recibir resultados
 #ARRANCAR DESPUES DE LOS CLASIFICADORES 
@@ -74,7 +74,6 @@ def create_partitions():
     return (partitions, distances, test)
 
 def distClass():
-    print(wbelief)
     client.publish("exit", 1)
 
 #MQTT
