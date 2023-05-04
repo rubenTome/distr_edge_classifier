@@ -53,6 +53,8 @@ def strToArray(str):
 
 def create_partitions():
     ds = partf.load_dataset(dataset, NSET, NSET - NTRAIN)
+    global testClasses
+    testClasses = ds["testclasses"]
     #creamos las particiones segun parametro is_balanced
     if is_balanced:
         partitionFun = partf.create_random_partition
@@ -87,6 +89,7 @@ def distClass(usedClassifier):
     for i in range(len(Pset)):
         file.write("\t" + str(Pset[i]) + " partitions:\n")
         file.write("\t" + str(classArr[Pset[i]]) + "\n\n")
+    file.write("real values:\n\t" + str(testClasses.tolist()))
     client.publish("exit", 1)
 
 #MQTT
