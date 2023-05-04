@@ -105,7 +105,7 @@ def on_message(client, userdata, msg):
     partition, distance, test, dsName = extractData(str(msg.payload))
     classifiedData = classify(partition, distance, test)
     print("pubish weighed belief values:\n", classifiedData)
-    client.publish("results/" + CLASSIFIERID + "." + dsName, classifiedData)
+    client.publish("results/" + CLASSIFIERID + "." + dsName, classifiedData + "$" + USEDCLASSIFIER)
 
 client = mqtt.Client("clas_client_" + CLASSIFIERID)
 client.on_connect = on_connect

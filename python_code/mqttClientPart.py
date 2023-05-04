@@ -2,6 +2,7 @@ import paho.mqtt.client as mqtt
 import partitionfunctions_python as partf
 import fine_analisis_python as finean
 import sys
+from prettytable import PrettyTable
 
 #cliente para crear y publicar las particiones, y recibir resultados
 #ARRANCAR DESPUES DE LOS CLASIFICADORES 
@@ -75,7 +76,8 @@ def create_partitions():
                                               ds["trainset"].values.tolist()))
     return (partitions, distances, test)
 
-def distClass():
+def distClass(usedClassifier):
+    file = open("rdos_" + usedClassifier + "_distr.txt", "w")
     classArr = {i:[] for i in Pset}
     tempArr = []
     for i in (Pset):
@@ -84,8 +86,9 @@ def distClass():
                 tempArr.append(wbelief[i][k][j])
             classArr[i].append(finean.sum_rule(tempArr))
             tempArr = []
-    file = open("rdos_clas_dist.txt", "w")
-    file.write(str(classArr))
+    for i in range(len(Pset)):
+        file.write(str(Pset[i]) + " partitions:\n")
+        file.write(str(classArr[Pset[i]]) + "\n\n")
     client.publish("exit", 1)
 
 #MQTT
@@ -107,7 +110,10 @@ def on_message(client, userdata, msg):
     if (msg.topic == "exit"):
         exit()
     nPset = int(msg.topic.split("/")[1].split(".")[0])
-    wbelief[nPset].append(strToArray(str(msg.payload).replace("\\n", "\n")[2:-1]))
+    splitedMsg = str(msg.payload)[2:-1].split("$")
+    message = splitedMsg[0].replace("\\n", "\n")
+    usedClassifier = splitedMsg[1]
+    wbelief[nPset].append(strToArray(message))
     print("from topic " + msg.topic + ": received weighed belief values")
     allReceived = 1
     for i in Pset:
@@ -116,7 +122,7 @@ def on_message(client, userdata, msg):
             break
     if (allReceived):
         print("all received")
-        distClass()
+        distClass(usedClassifier)
 
 client = mqtt.Client("partitions_client")
 client.on_connect = on_connect
