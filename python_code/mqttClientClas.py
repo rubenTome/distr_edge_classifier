@@ -1,8 +1,6 @@
 import paho.mqtt.client as mqtt
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
-from sklearn.metrics import precision_score, recall_score
-import partitionfunctions_python as partf
 import numpy as np
 import pandas as pd
 from io import StringIO
