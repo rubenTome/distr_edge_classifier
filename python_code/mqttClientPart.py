@@ -38,11 +38,10 @@ def dataframeToStr(df):
     return string
 
 def strToArray(str):
-    str = str.replace("[", "").replace("]", "").replace("\n ", "\n")
     splitedStr = str.split("\n")
     resArr = [[] for _ in range(NSET - NTRAIN)]
     for i in range(len(splitedStr)):
-        splitedStr[i] = splitedStr[i].split(" ")
+        splitedStr[i] = splitedStr[i][1:-1].split(",")
         for j in range(len(splitedStr[i])):
             if(len(splitedStr[i][j]) == 0):
                 continue

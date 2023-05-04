@@ -86,7 +86,14 @@ def classify(partition, distance, test):
     for i in range(len(classifierOutput)):
         for j in range(len(classifierOutput[i])):
             classifierOutput[i][j] = classifierOutput[i][j] * distance
-    return str(classifierOutput) 
+    stringOutput = ""
+    for i in range(len(classifierOutput)):
+        stringOutput += "["
+        for j in range(len(classifierOutput[i])):
+            stringOutput += str(classifierOutput[i][j])
+            stringOutput += ","
+        stringOutput += "]\n"
+    return stringOutput
 
 #MQTT
 #se llama al conectarse al broker
