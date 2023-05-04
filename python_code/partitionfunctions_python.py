@@ -6,7 +6,6 @@ import random
 import pandas as pd
 import sys
 import math as mt
-#from dcor import energy_distance #TEMPORAL, DA PROBLEMAS EN MAC
 import statistics as st
 
 # ditancia "energy" energy.stat
