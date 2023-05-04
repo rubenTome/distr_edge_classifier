@@ -64,9 +64,8 @@ def extractData(message):
     splitedMsg = message.split("$")
     partitions = pd.read_csv(StringIO(splitedMsg[0][2:]))
     distance = float(splitedMsg[1])
-    test = pd.read_csv(StringIO(splitedMsg[2]))
-    dsName = splitedMsg[3][:-1]
-    return partitions, distance, test, dsName
+    test = pd.read_csv(StringIO(splitedMsg[2][:-1]))
+    return partitions, distance, test
 
 #ENTRENAMIENTO Y CLASIFICACION
 
@@ -102,10 +101,10 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     if (msg.topic == "exit"):
         os.kill(os.getppid(), signal.SIGHUP)
-    partition, distance, test, dsName = extractData(str(msg.payload))
+    partition, distance, test = extractData(str(msg.payload))
     classifiedData = classify(partition, distance, test)
     print("pubish weighed belief values:\n", classifiedData)
-    client.publish("results/" + CLASSIFIERID + "." + dsName, classifiedData + "$" + USEDCLASSIFIER)
+    client.publish("results/" + CLASSIFIERID, classifiedData + "$" + USEDCLASSIFIER)
 
 client = mqtt.Client("clas_client_" + CLASSIFIERID)
 client.on_connect = on_connect

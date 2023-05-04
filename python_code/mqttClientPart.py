@@ -23,10 +23,7 @@ for i in range(len(Pset)):
 wbelief = {i:[] for i in Pset}
 is_balanced = True
 
-datasets = ["../scenariosimul/scenariosimulC2D2G3STDEV0.15.csv"]
-
-#some datasets are split into train and test, because of concept drift
-testdatasets= [""]
+dataset = sys.argv[2]
 
 BROKER_IP = "192.168.1.140"
 
@@ -56,28 +53,30 @@ def strToArray(str):
     return resArr
 
 def create_partitions():
-    for d in range(len(datasets)):
-        ds = partf.load_dataset(datasets[d], NSET, NSET - NTRAIN)
-        #creamos las particiones segun parametro is_balanced
-        if is_balanced:
-            partitionFun = partf.create_random_partition
-        else:
-            partitionFun = partf.create_perturbated_partition
-        partitions = [[] for _ in range(len(Pset))]
-        test = ds["testset"]
-        distances = [[] for _ in range(len(Pset))]
-        for p in range(len(Pset)):
-            #creamos particiones para cada nodo
-            partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p])
-        for i in range(len(Pset)):
-            for j in range(Pset[i]):
-                #medimos distancia entre cada particion y el conjunto global de datos
-                distances[i].append(partf.end(partitions[i][j].drop('classes', axis=1).values.tolist(),
-                                              ds["trainset"].values.tolist()))
+    ds = partf.load_dataset(dataset, NSET, NSET - NTRAIN)
+    #creamos las particiones segun parametro is_balanced
+    if is_balanced:
+        partitionFun = partf.create_random_partition
+    else:
+        partitionFun = partf.create_perturbated_partition
+    partitions = [[] for _ in range(len(Pset))]
+    test = ds["testset"]
+    distances = [[] for _ in range(len(Pset))]
+    for p in range(len(Pset)):
+        #creamos particiones para cada nodo
+        partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p])
+    for i in range(len(Pset)):
+        for j in range(Pset[i]):
+            #medimos distancia entre cada particion y el conjunto global de datos
+            distances[i].append(partf.end(partitions[i][j].drop('classes', axis=1).values.tolist(),
+                                            ds["trainset"].values.tolist()))
     return (partitions, distances, test)
 
 def distClass(usedClassifier):
-    file = open("rdos_" + usedClassifier + "_distr.txt", "w")
+    splitedName = dataset.split("/")
+    dsName = splitedName[len(splitedName) - 1].split(".")[0]
+    file = open("rdos_" + usedClassifier + "_" + dsName + "_distr.txt", "w")
+    file.write("From dataset " + dataset + "\n")
     classArr = {i:[] for i in Pset}
     tempArr = []
     for i in (Pset):
@@ -87,8 +86,8 @@ def distClass(usedClassifier):
             classArr[i].append(finean.sum_rule(tempArr))
             tempArr = []
     for i in range(len(Pset)):
-        file.write(str(Pset[i]) + " partitions:\n")
-        file.write(str(classArr[Pset[i]]) + "\n\n")
+        file.write("\t" + str(Pset[i]) + " partitions:\n")
+        file.write("\t" + str(classArr[Pset[i]]) + "\n\n")
     client.publish("exit", 1)
 
 #MQTT
@@ -97,14 +96,11 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("results/#")
     client.subscribe("exit")
     partAndDist = create_partitions()
-    for i in range(len(datasets)):
-        for j in range(len(Pset)):
-            for k in range(Pset[j]):
-                name = datasets[i].split("/")
-                name = name[len(name) - 1]
-                message = dataframeToStr(partAndDist[0][j][k]) + "$" + str(partAndDist[1][j][k]) + "$" + dataframeToStr(partAndDist[2]) + "$" + name
-                client.publish("partition/" + str(Pset[j]) + "." + str(k), message)
-                print("published partition " + str(Pset[j]) + "." + str(k))
+    for j in range(len(Pset)):
+        for k in range(Pset[j]):
+            message = dataframeToStr(partAndDist[0][j][k]) + "$" + str(partAndDist[1][j][k]) + "$" + dataframeToStr(partAndDist[2])
+            client.publish("partition/" + str(Pset[j]) + "." + str(k), message)
+            print("published partition " + str(Pset[j]) + "." + str(k))
 
 def on_message(client, userdata, msg):
     if (msg.topic == "exit"):
