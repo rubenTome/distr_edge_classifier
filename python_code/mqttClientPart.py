@@ -84,7 +84,7 @@ def distClass(usedClassifier):
         for j in range(len(wbelief[i][0])):
             for k in range(i):
                 tempArr.append(wbelief[i][k][j])
-            classArr[i].append(finean.sum_rule(tempArr))
+            classArr[i].append(finean.sum_rule(tempArr) + 1)
             tempArr = []
     for i in range(len(Pset)):
         file.write("\t" + str(Pset[i]) + " partitions:\n")
