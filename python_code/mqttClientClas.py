@@ -55,15 +55,11 @@ NDECIMALS = 2
 #generar tablas con los resultados (+legible)
 generateTables = True
 
-classifiers = [knn, rf, xgb]
-
-#names for printing them
-namesclassifiers = ["KNN", "RF", "XGB"] 
-
 #debe ser el nombre o ip
 BROKER_IP = "192.168.1.140"
 
 CLASSIFIERID = sys.argv[1]
+USEDCLASSIFIER = sys.argv[2]
 
 def extractData(message):
     message = message.replace("\\n", "\n")
@@ -80,7 +76,15 @@ def classify(partition, distance, test):
     #TEMPORALMENTE SOLO KNN
 
     #obtenemos belief values
-    classifierOutput = knn(partition, test)
+    if (USEDCLASSIFIER == "knn"):
+        classifierOutput = knn(partition, test)
+    elif(USEDCLASSIFIER == "rf"):
+        classifierOutput = rf(partition, test)
+    elif(USEDCLASSIFIER == "xgb"):
+        classifierOutput = xgb(partition, test)
+    else:
+        print("UNKNOWN CLASSIFIER")
+        exit(0)
     #pesamos los belief values
     for i in range(len(classifierOutput)):
         for j in range(len(classifierOutput[i])):
