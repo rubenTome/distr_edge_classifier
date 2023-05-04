@@ -4,7 +4,7 @@ import numpy as np
 
 #mejor regla
 def sum_rule(beliefs):
-    return np.argmax(np.sum(beliefs, axis=1))
+    return np.argmax(np.sum(beliefs, axis=0))
 
 def multi_precision(preds, true_classes):
     tpl = 0

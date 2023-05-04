@@ -40,7 +40,7 @@ def dataframeToStr(df):
     return string
 
 def strToArray(str):
-    str = str.replace("0.", "0.0").replace("[", "").replace("]", "").replace("\n ", "\n")
+    str = str.replace("[", "").replace("]", "").replace("\n ", "\n")
     splitedStr = str.split("\n")
     resArr = [[] for _ in range(NSET - NTRAIN)]
     for i in range(len(splitedStr)):
@@ -49,6 +49,8 @@ def strToArray(str):
             if(len(splitedStr[i][j]) == 0):
                 continue
             else:
+                if (splitedStr[i][j] == "0."):
+                    splitedStr[i][j] == "0.0"
                 resArr[i].append(float(splitedStr[i][j]))
     return resArr
 
@@ -74,6 +76,16 @@ def create_partitions():
     return (partitions, distances, test)
 
 def distClass():
+    classArr = {i:[] for i in Pset}
+    tempArr = []
+    for i in (Pset):
+        for j in range(len(wbelief[i][0])):
+            for k in range(i):
+                tempArr.append(wbelief[i][k][j])
+            classArr[i].append(finean.sum_rule(tempArr))
+            tempArr = []
+    file = open("rdos_clas_dist.txt", "w")
+    file.write(str(classArr))
     client.publish("exit", 1)
 
 #MQTT
