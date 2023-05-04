@@ -13,7 +13,7 @@ import signal
 #los clientes se subscriben a su particion y publican los resultados
 #ARRANCAR PRIMERO LOS CLASIFICADORES
 
- #CLASIFICADORES
+#CLASIFICADORES
 
 def knn(partition, test):#partition es un pandas.DataFrame
     partition = partition.to_numpy()
@@ -25,42 +25,25 @@ def knn(partition, test):#partition es un pandas.DataFrame
     testClass = clf.predict_proba(test[:].values)
     return testClass
 
-def rf(partition, ds):
+def rf(partition, test):
     partition = partition.to_numpy()
     nVars = np.shape(partition)[1] - 1
     trainset = partition[:, np.arange(nVars)]
     trainclasses = partition[:,[nVars]].flatten()
     rfc = RandomForestClassifier()
     rfc.fit(trainset, trainclasses)
-    scores = rfc.score(ds["testset"].to_numpy(), ds["testclasses"].to_numpy().flatten())
-    if(len(np.unique(trainclasses)) == 2):
-        av = "binary"
-    else:
-        av = "weighted"
-    precision = precision_score(ds["testclasses"].to_numpy().flatten(), 
-                                rfc.predict(ds["testset"].to_numpy()), average=av)
-    recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
-                        rfc.predict(ds["testset"].to_numpy()), average=av)
-    return [scores, precision, recall]
+    testClass = rfc.predict_proba(test[:].values)
+    return testClass
 
-def xgb(partition, ds):
+def xgb(partition, test):
     partition = partition.to_numpy()
     nVars = np.shape(partition)[1] - 1
     trainset = partition[:, np.arange(nVars)]
     trainclasses = partition[:,[nVars]].flatten()
     gbc = GradientBoostingClassifier()
     gbc.fit(trainset, trainclasses)
-    scores = gbc.score(ds["testset"].to_numpy(), ds["testclasses"].to_numpy().flatten())
-    if(len(np.unique(trainclasses)) == 2):
-        av = "binary"
-    else:
-        av = "weighted"
-    precision = precision_score(ds["testclasses"].to_numpy().flatten(), 
-                                gbc.predict(ds["testset"].to_numpy()), average=av)
-    recall = recall_score(ds["testclasses"].to_numpy().flatten(), 
-                          gbc.predict(ds["testset"].to_numpy()), average=av)
-    return [scores, precision, recall]
-
+    testClass = gbc.predict_proba(test[:].values)
+    return testClass
 
 #PARAMETROS 
 
