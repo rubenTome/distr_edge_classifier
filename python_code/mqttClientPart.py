@@ -88,7 +88,10 @@ def distClass(usedClassifier):
             tempArr = []
     for i in range(len(Pset)):
         file.write("\t" + str(Pset[i]) + " partitions:\n")
-        file.write("\t" + str(classArr[Pset[i]]) + "\n\n")
+        file.write("\t" + str(classArr[Pset[i]]) + "\n")
+        file.write("\taccuracy:\n\t" + str(finean.accu(classArr[Pset[i]], testClasses.tolist())) + "\n")
+        file.write("\tprecision:\n\t" + str(finean.multi_precision(classArr[Pset[i]], testClasses.tolist())) + "\n")
+        file.write("\trecall:\n\t" + str(finean.multi_recall(classArr[Pset[i]], testClasses.tolist())) + "\n\n")
     file.write("real values:\n\t" + str(testClasses.tolist()))
     client.publish("exit", 1)
 
