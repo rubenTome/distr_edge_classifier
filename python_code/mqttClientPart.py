@@ -69,7 +69,7 @@ def create_partitions():
         for j in range(Pset[i]):
             #medimos distancia entre cada particion y el conjunto global de datos
             distances[i].append(partf.end(partitions[i][j].drop('classes', axis=1).values.tolist(),
-                                            ds["trainset"].values.tolist()))
+                                            ds["testset"].values.tolist()))
     return (partitions, distances, test)
 
 def distClass(usedClassifier):
