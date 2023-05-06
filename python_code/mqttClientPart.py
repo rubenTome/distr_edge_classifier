@@ -2,7 +2,6 @@ import paho.mqtt.client as mqtt
 import partitionfunctions_python as partf
 import fine_analisis_python as finean
 import sys
-from prettytable import PrettyTable
 
 #cliente para crear y publicar las particiones, y recibir resultados
 #ARRANCAR DESPUES DE LOS CLASIFICADORES 
