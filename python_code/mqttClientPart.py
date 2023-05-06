@@ -6,6 +6,8 @@ import sys
 #cliente para crear y publicar las particiones, y recibir resultados
 #ARRANCAR DESPUES DE LOS CLASIFICADORES 
 
+#SE USA PNW, no PIW
+
 #PARAMETROS 
 
 #size of the total dataset (subsampple)
