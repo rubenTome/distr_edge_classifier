@@ -10,11 +10,6 @@ import sys
 
 #PARAMETROS 
 
-#size of the total dataset (subsampple)
-NSET = 1000
-#size of the train set, thse size of the test set will be NSET - NTRAIN
-NTRAIN = 500
-
 #number of partitions
 Pset = sys.argv[1].replace(" ", "").strip("][").split(",")
 for i in range(len(Pset)):
@@ -24,9 +19,14 @@ for i in range(len(Pset)):
 wbelief = {i:[] for i in Pset}
 is_balanced = True
 
-dataset = sys.argv[2]
+#size of the total dataset (subsampple)
+NSET = int(sys.argv[2])
+#size of the train set, thse size of the test set will be NSET - NTRAIN
+NTRAIN = int(sys.argv[3])
 
-BROKER_IP = "192.168.1.140"
+dataset = sys.argv[4]
+
+BROKER_IP = "10.20.34.134"
 
 #CREACION PARTICIONES
 
@@ -77,7 +77,7 @@ def create_partitions():
 def distClass(usedClassifier):
     splitedName = dataset.split("/")
     dsName = splitedName[len(splitedName) - 1].split(".")[0]
-    file = open("rdos_" + usedClassifier + "_" + dsName + "_distr.txt", "w")
+    file = open("rdos_" + str(NSET) + "_" + usedClassifier + "_" + dsName + "_distr.txt", "w")
     file.write("From dataset " + dataset + "\n")
     classArr = {i:[] for i in Pset}
     tempArr = []

@@ -54,7 +54,7 @@ NDECIMALS = 2
 generateTables = True
 
 #debe ser el nombre o ip
-BROKER_IP = "192.168.1.140"
+BROKER_IP = "10.20.34.134"
 
 CLASSIFIERID = sys.argv[1]
 USEDCLASSIFIER = sys.argv[2]
