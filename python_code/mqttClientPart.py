@@ -79,7 +79,6 @@ def create_partitions():
     return (partitions, distances, test)
 
 def distClass(usedClassifier, clasTime):
-    print("clasTime = " + str(clasTime))
     splitedName = dataset.split("/")
     dsName = splitedName[len(splitedName) - 1].split(".")[0]
     file = open("rdos_" + str(NSET) + "_" + usedClassifier + "_" + dsName + "_distr.txt", "w")
