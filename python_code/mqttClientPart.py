@@ -1,3 +1,5 @@
+import time
+iniTime = time.time()
 import paho.mqtt.client as mqtt
 import partitionfunctions_python as partf
 import fine_analisis_python as finean
@@ -19,6 +21,8 @@ for i in range(len(Pset)):
 wbelief = {i:[] for i in Pset}
 is_balanced = True
 
+clasTime = {i:[] for i in Pset}
+
 #size of the total dataset (subsampple)
 NSET = int(sys.argv[2])
 #size of the train set, thse size of the test set will be NSET - NTRAIN
@@ -26,7 +30,7 @@ NTRAIN = int(sys.argv[3])
 
 dataset = sys.argv[4]
 
-BROKER_IP = "10.20.34.134"
+BROKER_IP = "192.168.1.143"
 
 #CREACION PARTICIONES
 
@@ -74,7 +78,8 @@ def create_partitions():
                                             ds["testset"].values.tolist()))
     return (partitions, distances, test)
 
-def distClass(usedClassifier):
+def distClass(usedClassifier, clasTime):
+    print("clasTime = " + str(clasTime))
     splitedName = dataset.split("/")
     dsName = splitedName[len(splitedName) - 1].split(".")[0]
     file = open("rdos_" + str(NSET) + "_" + usedClassifier + "_" + dsName + "_distr.txt", "w")
@@ -92,7 +97,8 @@ def distClass(usedClassifier):
         file.write("\t" + str(classArr[Pset[i]]) + "\n")
         file.write("\taccuracy:\n\t" + str(finean.accu(classArr[Pset[i]], testClasses.tolist())) + "\n")
         file.write("\tprecision:\n\t" + str(finean.multi_precision(classArr[Pset[i]], testClasses.tolist())) + "\n")
-        file.write("\trecall:\n\t" + str(finean.multi_recall(classArr[Pset[i]], testClasses.tolist())) + "\n\n")
+        file.write("\trecall:\n\t" + str(finean.multi_recall(classArr[Pset[i]], testClasses.tolist())) + "\n")
+        file.write("\texecution time:\n\t" + str(time.time() - iniTime + max(clasTime[Pset[i]])) + "\n\n")
     file.write("real values:\n\t" + str(testClasses.tolist()))
     client.publish("exit", 1)
 
@@ -115,16 +121,17 @@ def on_message(client, userdata, msg):
     splitedMsg = str(msg.payload)[2:-1].split("$")
     message = splitedMsg[0].replace("\\n", "\n")
     usedClassifier = splitedMsg[1]
+    clasTime[nPset].append(float(splitedMsg[2]))
     wbelief[nPset].append(strToArray(message))
     print("from topic " + msg.topic + ": received weighed belief values")
     allReceived = 1
     for i in Pset:
-        if (len(wbelief[i]) != i):
+        if (len(wbelief[i]) != i or len(clasTime[i]) != i):
             allReceived = 0
             break
     if (allReceived):
         print("all received")
-        distClass(usedClassifier)
+        distClass(usedClassifier, clasTime)
 
 client = mqtt.Client("partitions_client")
 client.on_connect = on_connect
