@@ -68,7 +68,7 @@ def create_partitions():
         partitionFun = partf.create_perturbated_partition
     partitions = [[] for _ in range(len(Pset))]
     test = ds["testset"]
-    distances = [[] for _ in range(len(Pset))]
+    inverseDistance = [[] for _ in range(len(Pset))]
     for p in range(len(Pset)):
         #creamos particiones para cada nodo
         partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p])
@@ -76,13 +76,14 @@ def create_partitions():
         for j in range(Pset[i]):
             #medimos distancia segun la weighingStrategy
             if (weighingStrategy == "pnw"):
-                distances[i].append(partf.end(partitions[i][j].drop('classes', axis=1).values.tolist(),
+                #inverso de la distancia energy
+                inverseDistance[i].append(1 / partf.end(partitions[i][j].drop('classes', axis=1).values.tolist(),
                                     ds["testset"].values.tolist()))
             elif (weighingStrategy == "piw"):
                 exit("PIW")
             else:
                 exit("INVALID WEIGHING STRATEGY")
-    return (partitions, distances, test)
+    return (partitions, inverseDistance, test)
 
 def distClass(usedClassifier, clasTime, secondTime):
     splitedName = dataset.split("/")

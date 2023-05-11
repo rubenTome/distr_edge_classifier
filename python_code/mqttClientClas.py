@@ -63,13 +63,13 @@ def extractData(message):
     message = message.replace("\\n", "\n")
     splitedMsg = message.split("$")
     partitions = pd.read_csv(StringIO(splitedMsg[0][2:]))
-    distance = float(splitedMsg[1])
+    inverseDistance = float(splitedMsg[1])
     test = pd.read_csv(StringIO(splitedMsg[2][:-1]))
-    return partitions, distance, test
+    return partitions, inverseDistance, test
 
 #ENTRENAMIENTO Y CLASIFICACION
 
-def classify(partition, distance, test):
+def classify(partition, inverseDistance, test):
     #TEMPORALMENTE SOLO KNN
 
     #obtenemos belief values
@@ -85,7 +85,7 @@ def classify(partition, distance, test):
     #pesamos los belief values
     for i in range(len(classifierOutput)):
         for j in range(len(classifierOutput[i])):
-            classifierOutput[i][j] = classifierOutput[i][j] * distance
+            classifierOutput[i][j] = classifierOutput[i][j] * inverseDistance
     stringOutput = ""
     for i in range(len(classifierOutput)):
         stringOutput += "["
@@ -108,8 +108,8 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     if (msg.topic == "exit"):
         os.kill(os.getppid(), signal.SIGHUP)
-    partition, distance, test = extractData(str(msg.payload))
-    classifiedData = classify(partition, distance, test)
+    partition, inverseDistance, test = extractData(str(msg.payload))
+    classifiedData = classify(partition, inverseDistance, test)
     print("pubish weighed belief values:\n", classifiedData)
     client.publish("results/" + CLASSIFIERID, classifiedData + "$" + USEDCLASSIFIER)
 
