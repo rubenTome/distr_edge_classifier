@@ -8,8 +8,6 @@ import sys
 #cliente para crear y publicar las particiones, y recibir resultados
 #ARRANCAR DESPUES DE LOS CLASIFICADORES 
 
-#SE USA PNW, no PIW
-
 #PARAMETROS 
 
 #number of partitions
@@ -22,6 +20,9 @@ wbelief = {i:[] for i in Pset}
 is_balanced = True
 
 clasTime = {i:0 for i in Pset}
+
+#posibles valores: "pnw", "piw"
+weighingStrategy = "pnw"
 
 #size of the total dataset (subsampple)
 NSET = int(sys.argv[2])
@@ -73,9 +74,14 @@ def create_partitions():
         partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p])
     for i in range(len(Pset)):
         for j in range(Pset[i]):
-            #medimos distancia entre cada particion y el conjunto global de datos
-            distances[i].append(partf.end(partitions[i][j].drop('classes', axis=1).values.tolist(),
-                                            ds["testset"].values.tolist()))
+            #medimos distancia segun la weighingStrategy
+            if (weighingStrategy == "pnw"):
+                distances[i].append(partf.end(partitions[i][j].drop('classes', axis=1).values.tolist(),
+                                    ds["testset"].values.tolist()))
+            elif (weighingStrategy == "piw"):
+                exit("PIW")
+            else:
+                exit("INVALID WEIGHING STRATEGY")
     return (partitions, distances, test)
 
 def distClass(usedClassifier, clasTime, secondTime):
@@ -89,7 +95,8 @@ def distClass(usedClassifier, clasTime, secondTime):
         for j in range(len(wbelief[i][0])):
             for k in range(i):
                 tempArr.append(wbelief[i][k][j])
-            classArr[i].append(finean.sum_rule(tempArr) + 1)
+            if (len(tempArr[0]) != 0):
+                classArr[i].append(finean.sum_rule(tempArr) + 1)
             tempArr = []
     #tiempo en integrar los resultados de todos los clasificadores
     joiningTime = time.time() - secondTime
