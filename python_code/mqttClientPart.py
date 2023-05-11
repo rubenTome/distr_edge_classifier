@@ -21,6 +21,8 @@ for i in range(len(Pset)):
 wbelief = {i:[] for i in Pset}
 is_balanced = True
 
+clasTime = {i:0 for i in Pset}
+
 #size of the total dataset (subsampple)
 NSET = int(sys.argv[2])
 #size of the train set, thse size of the test set will be NSET - NTRAIN
@@ -76,7 +78,7 @@ def create_partitions():
                                             ds["testset"].values.tolist()))
     return (partitions, distances, test)
 
-def distClass(usedClassifier):
+def distClass(usedClassifier, clasTime):
     splitedName = dataset.split("/")
     dsName = splitedName[len(splitedName) - 1].split(".")[0]
     file = open("rdos_" + str(NSET) + "_" + usedClassifier + "_" + dsName + "_distr.txt", "w")
@@ -95,7 +97,7 @@ def distClass(usedClassifier):
         file.write("\taccuracy:\n\t" + str(finean.accu(classArr[Pset[i]], testClasses.tolist())) + "\n")
         file.write("\tprecision:\n\t" + str(finean.multi_precision(classArr[Pset[i]], testClasses.tolist())) + "\n")
         file.write("\trecall:\n\t" + str(finean.multi_recall(classArr[Pset[i]], testClasses.tolist())) + "\n")
-        file.write("\texecution time:\n\t" + str(time.time() - iniTime) + "\n\n")
+        file.write("\texecution time:\n\t" + str(clasTime[Pset[i]]) + "\n\n")
     file.write("real values:\n\t" + str(testClasses.tolist()))
     client.publish("exit", 1)
 
@@ -115,6 +117,8 @@ def on_message(client, userdata, msg):
     if (msg.topic == "exit"):
         exit()
     nPset = int(msg.topic.split("/")[1].split(".")[0])
+    #en caso de un nPset > 1, el que mas tarda sobreescribe el valoe
+    clasTime[nPset] = time.time() - iniTime
     splitedMsg = str(msg.payload)[2:-1].split("$")
     message = splitedMsg[0].replace("\\n", "\n")
     usedClassifier = splitedMsg[1]
@@ -127,7 +131,7 @@ def on_message(client, userdata, msg):
             break
     if (allReceived):
         print("all received")
-        distClass(usedClassifier)
+        distClass(usedClassifier, clasTime)
 
 client = mqtt.Client("partitions_client")
 client.on_connect = on_connect
