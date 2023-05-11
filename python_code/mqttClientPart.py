@@ -21,8 +21,6 @@ for i in range(len(Pset)):
 wbelief = {i:[] for i in Pset}
 is_balanced = True
 
-clasTime = {i:[] for i in Pset}
-
 #size of the total dataset (subsampple)
 NSET = int(sys.argv[2])
 #size of the train set, thse size of the test set will be NSET - NTRAIN
@@ -78,7 +76,7 @@ def create_partitions():
                                             ds["testset"].values.tolist()))
     return (partitions, distances, test)
 
-def distClass(usedClassifier, clasTime):
+def distClass(usedClassifier):
     splitedName = dataset.split("/")
     dsName = splitedName[len(splitedName) - 1].split(".")[0]
     file = open("rdos_" + str(NSET) + "_" + usedClassifier + "_" + dsName + "_distr.txt", "w")
@@ -97,7 +95,7 @@ def distClass(usedClassifier, clasTime):
         file.write("\taccuracy:\n\t" + str(finean.accu(classArr[Pset[i]], testClasses.tolist())) + "\n")
         file.write("\tprecision:\n\t" + str(finean.multi_precision(classArr[Pset[i]], testClasses.tolist())) + "\n")
         file.write("\trecall:\n\t" + str(finean.multi_recall(classArr[Pset[i]], testClasses.tolist())) + "\n")
-        file.write("\texecution time:\n\t" + str(time.time() - iniTime + max(clasTime[Pset[i]])) + "\n\n")
+        file.write("\texecution time:\n\t" + str(time.time() - iniTime) + "\n\n")
     file.write("real values:\n\t" + str(testClasses.tolist()))
     client.publish("exit", 1)
 
@@ -120,17 +118,16 @@ def on_message(client, userdata, msg):
     splitedMsg = str(msg.payload)[2:-1].split("$")
     message = splitedMsg[0].replace("\\n", "\n")
     usedClassifier = splitedMsg[1]
-    clasTime[nPset].append(float(splitedMsg[2]))
     wbelief[nPset].append(strToArray(message))
     print("from topic " + msg.topic + ": received weighed belief values")
     allReceived = 1
     for i in Pset:
-        if (len(wbelief[i]) != i or len(clasTime[i]) != i):
+        if (len(wbelief[i]) != i):
             allReceived = 0
             break
     if (allReceived):
         print("all received")
-        distClass(usedClassifier, clasTime)
+        distClass(usedClassifier)
 
 client = mqtt.Client("partitions_client")
 client.on_connect = on_connect

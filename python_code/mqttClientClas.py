@@ -1,5 +1,3 @@
-import time
-iniTime = time.time()
 import paho.mqtt.client as mqtt
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
@@ -113,7 +111,7 @@ def on_message(client, userdata, msg):
     partition, distance, test = extractData(str(msg.payload))
     classifiedData = classify(partition, distance, test)
     print("pubish weighed belief values:\n", classifiedData)
-    client.publish("results/" + CLASSIFIERID, classifiedData + "$" + USEDCLASSIFIER + "$" + str(time.time() - iniTime))
+    client.publish("results/" + CLASSIFIERID, classifiedData + "$" + USEDCLASSIFIER)
 
 client = mqtt.Client("clas_client_" + CLASSIFIERID)
 client.on_connect = on_connect
