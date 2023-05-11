@@ -78,7 +78,7 @@ def create_partitions():
                                             ds["testset"].values.tolist()))
     return (partitions, distances, test)
 
-def distClass(usedClassifier, clasTime):
+def distClass(usedClassifier, clasTime, secondTime):
     splitedName = dataset.split("/")
     dsName = splitedName[len(splitedName) - 1].split(".")[0]
     file = open("rdos_" + str(NSET) + "_" + usedClassifier + "_" + dsName + "_distr.txt", "w")
@@ -91,13 +91,15 @@ def distClass(usedClassifier, clasTime):
                 tempArr.append(wbelief[i][k][j])
             classArr[i].append(finean.sum_rule(tempArr) + 1)
             tempArr = []
+    #tiempo en integrar los resultados de todos los clasificadores
+    joiningTime = time.time() - secondTime
     for i in range(len(Pset)):
         file.write("\t" + str(Pset[i]) + " partitions:\n")
         file.write("\t" + str(classArr[Pset[i]]) + "\n")
         file.write("\taccuracy:\n\t" + str(finean.accu(classArr[Pset[i]], testClasses.tolist())) + "\n")
         file.write("\tprecision:\n\t" + str(finean.multi_precision(classArr[Pset[i]], testClasses.tolist())) + "\n")
         file.write("\trecall:\n\t" + str(finean.multi_recall(classArr[Pset[i]], testClasses.tolist())) + "\n")
-        file.write("\texecution time:\n\t" + str(clasTime[Pset[i]]) + "\n\n")
+        file.write("\texecution time:\n\t" + str(clasTime[Pset[i]] + joiningTime) + "\n\n")
     file.write("real values:\n\t" + str(testClasses.tolist()))
     client.publish("exit", 1)
 
@@ -119,6 +121,7 @@ def on_message(client, userdata, msg):
     nPset = int(msg.topic.split("/")[1].split(".")[0])
     #en caso de un nPset > 1, el que mas tarda sobreescribe el valoe
     clasTime[nPset] = time.time() - iniTime
+    secondTime = time.time()
     splitedMsg = str(msg.payload)[2:-1].split("$")
     message = splitedMsg[0].replace("\\n", "\n")
     usedClassifier = splitedMsg[1]
@@ -131,7 +134,7 @@ def on_message(client, userdata, msg):
             break
     if (allReceived):
         print("all received")
-        distClass(usedClassifier, clasTime)
+        distClass(usedClassifier, clasTime, secondTime)
 
 client = mqtt.Client("partitions_client")
 client.on_connect = on_connect

@@ -18,6 +18,7 @@ energy_r = ro.r('''
 ''')
 
 #x e y en caso de usar la distancia de R deben pasarse como robjects
+#PNW
 def end(x, y):#x e y son del tipo list
     x = np.array(x)
     y = np.array(y)
@@ -183,6 +184,7 @@ def distancef(x, y):
             distances[i][j] = mt.exp(- distances[i][j])
     return pd.DataFrame(distances)
 
+#PIW
 def energy_wheights_sets(trainset, testset, bound=4):
     result = {
         "weights": None,
