@@ -54,24 +54,32 @@ NDECIMALS = 2
 generateTables = True
 
 #debe ser el nombre o ip
-BROKER_IP = "192.168.1.143"
+BROKER_IP = "192.168.1.140"
 
 CLASSIFIERID = sys.argv[1]
 USEDCLASSIFIER = sys.argv[2]
+
+def strToList(string):
+    list = []
+    splitedList = string[1:-1].split(",")
+    for i in range(len(splitedList) - 1):
+        list.append(float(splitedList[i]))
+    return list
 
 def extractData(message):
     message = message.replace("\\n", "\n")
     splitedMsg = message.split("$")
     partitions = pd.read_csv(StringIO(splitedMsg[0][2:]))
-    inverseDistance = float(splitedMsg[1])
+    if("[" not in splitedMsg[1]):
+        inverseDistance = float(splitedMsg[1])
+    else:
+        inverseDistance = strToList(splitedMsg[1])
     test = pd.read_csv(StringIO(splitedMsg[2][:-1]))
     return partitions, inverseDistance, test
 
 #ENTRENAMIENTO Y CLASIFICACION
 
 def classify(partition, inverseDistance, test):
-    #TEMPORALMENTE SOLO KNN
-
     #obtenemos belief values
     if (USEDCLASSIFIER == "knn"):
         classifierOutput = knn(partition, test)
@@ -83,9 +91,16 @@ def classify(partition, inverseDistance, test):
         print("UNKNOWN CLASSIFIER")
         exit(0)
     #pesamos los belief values
-    for i in range(len(classifierOutput)):
-        for j in range(len(classifierOutput[i])):
-            classifierOutput[i][j] = classifierOutput[i][j] * inverseDistance
+    if isinstance(inverseDistance, float):
+        for i in range(len(classifierOutput)):
+            for j in range(len(classifierOutput[i])):
+                classifierOutput[i][j] = classifierOutput[i][j] * inverseDistance
+    else:
+        print(len(inverseDistance), " inverseDistance")
+        print(len(classifierOutput), " classifierOutput")
+        for i in range(len(classifierOutput)):
+            for j in range(len(classifierOutput[i])):
+                classifierOutput[i][j] = classifierOutput[i][j] * inverseDistance[i]
     stringOutput = ""
     for i in range(len(classifierOutput)):
         stringOutput += "["

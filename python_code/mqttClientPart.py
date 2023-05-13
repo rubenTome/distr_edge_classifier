@@ -22,7 +22,7 @@ is_balanced = True
 clasTime = {i:0 for i in Pset}
 
 #posibles valores: "pnw", "piw"
-weighingStrategy = "pnw"
+weighingStrategy = "piw"
 
 #size of the total dataset (subsampple)
 NSET = int(sys.argv[2])
@@ -31,7 +31,7 @@ NTRAIN = int(sys.argv[3])
 
 dataset = sys.argv[4]
 
-BROKER_IP = "192.168.1.143"
+BROKER_IP = "192.168.1.140"
 
 #CREACION PARTICIONES
 
@@ -68,27 +68,40 @@ def create_partitions():
         partitionFun = partf.create_perturbated_partition
     partitions = [[] for _ in range(len(Pset))]
     test = ds["testset"]
-    inverseDistance = [[] for _ in range(len(Pset))]
     for p in range(len(Pset)):
         #creamos particiones para cada nodo
         partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p])
-    for i in range(len(Pset)):
-        for j in range(Pset[i]):
-            #medimos distancia segun la weighingStrategy
-            if (weighingStrategy == "pnw"):
-                #inverso de la distancia energy
-                inverseDistance[i].append(1 / partf.end(partitions[i][j].drop('classes', axis=1).values.tolist(),
-                                    ds["testset"].values.tolist()))
-            elif (weighingStrategy == "piw"):
-                exit("PIW")
-            else:
-                exit("INVALID WEIGHING STRATEGY")
+    #medimos distancia segun la weighingStrategy
+    testset = ds["testset"].values.tolist()
+    if (weighingStrategy == "pnw"):
+        inverseDistance = [[] for _ in range(len(Pset))]
+        for i in range(len(Pset)):
+            for j in range(Pset[i]):
+                #inverso de la distancia energy 
+                inverseDistance[i].append(1 / partf.end(testset, 
+                partitions[i][j].drop('classes', axis=1).values.tolist()))
+    elif (weighingStrategy == "piw"):
+        inverseDistance = [[] for _ in range(len(Pset))]
+        for i in range(len(Pset)):
+            for j in range(Pset[i]):
+                inverseDistance[i].append([])
+        for i in range(len(Pset)):
+            for j in range(Pset[i]):
+                #por cada particion
+                partInstances = partitions[i][j].drop('classes', axis=1).values.tolist()
+                for k in range(len(testset)):
+                    #calculamos el peso de cada instancia de test
+                    inverseDistance[i][j].append(1 / partf.end([testset[k]], partInstances))
+    else:
+        inverseDistance = []
+        print("INVALID WEIGHING STRATEGY")
+        client.publish("exit", 1)
     return (partitions, inverseDistance, test)
 
 def distClass(usedClassifier, clasTime, secondTime):
     splitedName = dataset.split("/")
     dsName = splitedName[len(splitedName) - 1].split(".")[0]
-    file = open("rdos_" + str(NSET) + "_" + usedClassifier + "_" + dsName + "_distr.txt", "w")
+    file = open("rdos_" + str(NSET) + "_" + usedClassifier + "_" + weighingStrategy + "_" + dsName + "_distr.txt", "w")
     file.write("From dataset " + dataset + "\n")
     classArr = {i:[] for i in Pset}
     tempArr = []
@@ -111,23 +124,38 @@ def distClass(usedClassifier, clasTime, secondTime):
     file.write("real values:\n\t" + str(testClasses.tolist()))
     client.publish("exit", 1)
 
+def listToStr(list):
+    string = "["
+    for i in range(len(list)):
+        string += str(list[i])
+        string += ","
+    string += "]"
+    return string
+
 #MQTT
 def on_connect(client, userdata, flags, rc):
     print("Connected partitions client with result code " + str(rc))
     client.subscribe("results/#")
     client.subscribe("exit")
     partAndDist = create_partitions()
-    for j in range(len(Pset)):
-        for k in range(Pset[j]):
-            message = dataframeToStr(partAndDist[0][j][k]) + "$" + str(partAndDist[1][j][k]) + "$" + dataframeToStr(partAndDist[2])
-            client.publish("partition/" + str(Pset[j]) + "." + str(k), message)
-            print("published partition " + str(Pset[j]) + "." + str(k))
+    if (weighingStrategy == "pnw"):
+        for j in range(len(Pset)):
+            for k in range(Pset[j]):
+                message = dataframeToStr(partAndDist[0][j][k]) + "$" + str(partAndDist[1][j][k]) + "$" + dataframeToStr(partAndDist[2])
+                client.publish("partition/" + str(Pset[j]) + "." + str(k), message)
+                print("published partition " + str(Pset[j]) + "." + str(k))
+    else:
+        for j in range(len(Pset)):
+            for k in range(Pset[j]):
+                message = dataframeToStr(partAndDist[0][j][k]) + "$" + listToStr(partAndDist[1][j][k]) + "$" + dataframeToStr(partAndDist[2])
+                client.publish("partition/" + str(Pset[j]) + "." + str(k), message)
+                print("published partition " + str(Pset[j]) + "." + str(k))
 
 def on_message(client, userdata, msg):
     if (msg.topic == "exit"):
         exit()
     nPset = int(msg.topic.split("/")[1].split(".")[0])
-    #en caso de un nPset > 1, el que mas tarda sobreescribe el valoe
+    #en caso de un nPset > 1, el que mas tarda sobreescribe el valor
     clasTime[nPset] = time.time() - iniTime
     secondTime = time.time()
     splitedMsg = str(msg.payload)[2:-1].split("$")
