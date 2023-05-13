@@ -79,7 +79,7 @@ def create_partitions():
             for j in range(Pset[i]):
                 #inverso de la distancia energy 
                 inverseDistance[i].append(1 / partf.end(testset, 
-                partitions[i][j].drop('classes', axis=1).values.tolist()))
+                partitions[i][j].drop('classes', axis=1).values.tolist(), isR=1))
     elif (weighingStrategy == "piw"):
         inverseDistance = [[] for _ in range(len(Pset))]
         for i in range(len(Pset)):
@@ -91,7 +91,7 @@ def create_partitions():
                 partInstances = partitions[i][j].drop('classes', axis=1).values.tolist()
                 for k in range(len(testset)):
                     #calculamos el peso de cada instancia de test
-                    inverseDistance[i][j].append(1 / partf.end([testset[k]], partInstances))
+                    inverseDistance[i][j].append(1 / partf.end([testset[k]], partInstances, isR=1))
     else:
         inverseDistance = []
         print("INVALID WEIGHING STRATEGY")
