@@ -7,6 +7,7 @@ from io import StringIO
 import sys
 import os
 import signal
+import partitionfunctions_python as partf
 
 #los clientes se subscriben a su particion y publican los resultados
 #ARRANCAR PRIMERO LOS CLASIFICADORES
@@ -70,16 +71,22 @@ def extractData(message):
     message = message.replace("\\n", "\n")
     splitedMsg = message.split("$")
     partitions = pd.read_csv(StringIO(splitedMsg[0][2:]))
-    if("[" not in splitedMsg[1]):
-        inverseDistance = float(splitedMsg[1])
-    else:
-        inverseDistance = strToList(splitedMsg[1])
+    weighting = splitedMsg[1]
     test = pd.read_csv(StringIO(splitedMsg[2][:-1]))
-    return partitions, inverseDistance, test
+    return partitions, weighting, test
 
 #ENTRENAMIENTO Y CLASIFICACION
 
-def classify(partition, inverseDistance, test):
+def classify(partition, weighting, test):
+    #obtenemos distancia entre test y partition
+    partitionList = partition.drop('classes', axis=1).values.tolist() 
+    testList = test.values.tolist() 
+    if (weighting == "piw"):
+        inverseDistance = [0 for _ in range(len(testList))]
+        for i in range(len(testList)):
+            inverseDistance[i] = 1 / partf.end([testList[i]], partitionList, isR=1)
+    else:
+        inverseDistance = 1 / partf.end(testList, partitionList, isR=1)
     #obtenemos belief values
     if (USEDCLASSIFIER == "knn"):
         classifierOutput = knn(partition, test)
@@ -91,16 +98,16 @@ def classify(partition, inverseDistance, test):
         print("UNKNOWN CLASSIFIER")
         exit(0)
     #pesamos los belief values
-    if isinstance(inverseDistance, float):
-        for i in range(len(classifierOutput)):
-            for j in range(len(classifierOutput[i])):
-                classifierOutput[i][j] = classifierOutput[i][j] * inverseDistance
-    else:
-        print(len(inverseDistance), " inverseDistance")
-        print(len(classifierOutput), " classifierOutput")
+    print("weighting strategy:", weighting)
+    if (weighting == "piw"):
         for i in range(len(classifierOutput)):
             for j in range(len(classifierOutput[i])):
                 classifierOutput[i][j] = classifierOutput[i][j] * inverseDistance[i]
+    else:
+        for i in range(len(classifierOutput)):
+            for j in range(len(classifierOutput[i])):
+                classifierOutput[i][j] = classifierOutput[i][j] * inverseDistance
+    #consruimos la respuesta
     stringOutput = ""
     for i in range(len(classifierOutput)):
         stringOutput += "["
@@ -123,8 +130,8 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     if (msg.topic == "exit"):
         os.kill(os.getppid(), signal.SIGHUP)
-    partition, inverseDistance, test = extractData(str(msg.payload))
-    classifiedData = classify(partition, inverseDistance, test)
+    partition, weighting, test = extractData(str(msg.payload))
+    classifiedData = classify(partition, weighting, test)
     print("pubish weighed belief values:\n", classifiedData)
     client.publish("results/" + CLASSIFIERID, classifiedData + "$" + USEDCLASSIFIER)
 

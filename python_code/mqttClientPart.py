@@ -21,15 +21,15 @@ is_balanced = True
 
 clasTime = {i:0 for i in Pset}
 
-#posibles valores: "pnw", "piw"
-weighingStrategy = "piw"
-
 #size of the total dataset (subsampple)
 NSET = int(sys.argv[2])
 #size of the train set, thse size of the test set will be NSET - NTRAIN
 NTRAIN = int(sys.argv[3])
 
-dataset = sys.argv[4]
+#posibles valores: "pnw", "piw"
+weighingStrategy = sys.argv[4]
+
+dataset = sys.argv[5]
 
 BROKER_IP = "192.168.1.140"
 
@@ -71,32 +71,7 @@ def create_partitions():
     for p in range(len(Pset)):
         #creamos particiones para cada nodo
         partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p])
-    #medimos distancia segun la weighingStrategy
-    testset = ds["testset"].values.tolist()
-    if (weighingStrategy == "pnw"):
-        inverseDistance = [[] for _ in range(len(Pset))]
-        for i in range(len(Pset)):
-            for j in range(Pset[i]):
-                #inverso de la distancia energy 
-                inverseDistance[i].append(1 / partf.end(testset, 
-                partitions[i][j].drop('classes', axis=1).values.tolist(), isR=1))
-    elif (weighingStrategy == "piw"):
-        inverseDistance = [[] for _ in range(len(Pset))]
-        for i in range(len(Pset)):
-            for j in range(Pset[i]):
-                inverseDistance[i].append([])
-        for i in range(len(Pset)):
-            for j in range(Pset[i]):
-                #por cada particion
-                partInstances = partitions[i][j].drop('classes', axis=1).values.tolist()
-                for k in range(len(testset)):
-                    #calculamos el peso de cada instancia de test
-                    inverseDistance[i][j].append(1 / partf.end([testset[k]], partInstances, isR=1))
-    else:
-        inverseDistance = []
-        print("INVALID WEIGHING STRATEGY")
-        client.publish("exit", 1)
-    return (partitions, inverseDistance, test)
+    return (partitions, test)
 
 def distClass(usedClassifier, clasTime, secondTime):
     splitedName = dataset.split("/")
@@ -137,19 +112,16 @@ def on_connect(client, userdata, flags, rc):
     print("Connected partitions client with result code " + str(rc))
     client.subscribe("results/#")
     client.subscribe("exit")
-    partAndDist = create_partitions()
-    if (weighingStrategy == "pnw"):
-        for j in range(len(Pset)):
-            for k in range(Pset[j]):
-                message = dataframeToStr(partAndDist[0][j][k]) + "$" + str(partAndDist[1][j][k]) + "$" + dataframeToStr(partAndDist[2])
-                client.publish("partition/" + str(Pset[j]) + "." + str(k), message)
-                print("published partition " + str(Pset[j]) + "." + str(k))
-    else:
-        for j in range(len(Pset)):
-            for k in range(Pset[j]):
-                message = dataframeToStr(partAndDist[0][j][k]) + "$" + listToStr(partAndDist[1][j][k]) + "$" + dataframeToStr(partAndDist[2])
-                client.publish("partition/" + str(Pset[j]) + "." + str(k), message)
-                print("published partition " + str(Pset[j]) + "." + str(k))
+    #comprobamos que la weighting strategy sea correcta
+    if (weighingStrategy != "pnw" and weighingStrategy != "piw"):
+        print("INVALID WEIGHING STRATEGY")
+        client.publish("exit", 1)
+    partAndTest = create_partitions()
+    for j in range(len(Pset)):
+        for k in range(Pset[j]):
+            message = dataframeToStr(partAndTest[0][j][k]) + "$" + weighingStrategy + "$" + dataframeToStr(partAndTest[1])
+            client.publish("partition/" + str(Pset[j]) + "." + str(k), message)
+            print("published partition " + str(Pset[j]) + "." + str(k))
 
 def on_message(client, userdata, msg):
     if (msg.topic == "exit"):
