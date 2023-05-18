@@ -1,13 +1,12 @@
 import rpy2.robjects as ro
-import numpy as np
-import numpy.random as nprd
-import scipy.spatial as scs
+from numpy import array, asarray, arange, unique, floor, flip, sum, append, delete
+from numpy.random import uniform
+from scipy.spatial import distance_matrix
 import random
-import pandas as pd
+from pandas import DataFrame, concat, read_csv
 import sys
-import math as mt
-import statistics as st
-import dcor
+from math import exp
+from dcor import energy_distance
 
 # ditancia "energy" energy.stat
 energy_r = ro.r('''
@@ -21,22 +20,22 @@ energy_r = ro.r('''
 #x e y en caso de usar la distancia de R deben pasarse como robjects
 def end(x, y, isR):#x e y son del tipo list
     if (isR):
-        x = np.array(x)
-        y = np.array(y)
+        x = array(x)
+        y = array(y)
         xR = ro.r.matrix(ro.FloatVector(x.flatten(order="F")), nrow=x.shape[0])
         yR = ro.r.matrix(ro.FloatVector(y.flatten(order="F")), nrow=y.shape[0])
-        return float(np.asarray(energy_r(xR,yR)))
+        return float(asarray(energy_r(xR,yR)))
     else:
-        return (dcor.energy_distance(x, y))
+        return (energy_distance(x, y))
 
-def sample_n_from_csv(filename:str, n:int=100, total_rows:int=None) -> pd.DataFrame:
+def sample_n_from_csv(filename:str, n:int=100, total_rows:int=None) -> DataFrame:
     if total_rows==None:
         with open(filename,"r") as fh:
             total_rows = sum(1 for row in fh)
     if(n>total_rows):
         print("Error: n > total_rows", file=sys.stderr) 
     skip_rows =  random.sample(range(1,total_rows+1), total_rows-n)
-    return pd.read_csv(filename, skiprows=skip_rows)
+    return read_csv(filename, skiprows=skip_rows)
 
 def load_dataset(filename, maxsize, trainsize, testfilename = ""):
     dataset = {
@@ -49,11 +48,11 @@ def load_dataset(filename, maxsize, trainsize, testfilename = ""):
     samp = sample_n_from_csv(filename, maxsize).sample(frac = 1)
     sampShape = samp.shape
     #indices de filas en trainset y testset son secuenciales no aleatorios
-    dataset["trainset"] = samp.iloc[:trainsize, np.arange(sampShape[1] - 1)]
+    dataset["trainset"] = samp.iloc[:trainsize, arange(sampShape[1] - 1)]
     dataset["trainclasses"] = samp.iloc[:trainsize].loc[:, "classes"]
 
     if testfilename == "":
-        dataset["testset"] = samp.iloc[trainsize:, np.arange(sampShape[1] - 1)]
+        dataset["testset"] = samp.iloc[trainsize:, arange(sampShape[1] - 1)]
     else:
         dataset["testset"] = sample_n_from_csv(filename, maxsize - trainsize)
 
@@ -62,36 +61,36 @@ def load_dataset(filename, maxsize, trainsize, testfilename = ""):
     return dataset   
 
 def create_random_partition(trainset, trainclasses, npartitions):
-    classes = np.unique(trainclasses)
+    classes = unique(trainclasses)
     classesLen = len(classes)
-    joined = pd.concat([trainset, trainclasses.reindex(trainset.index)], axis=1)
+    joined = concat([trainset, trainclasses.reindex(trainset.index)], axis=1)
     groups = joined.groupby(["classes"], group_keys=True).apply(lambda x: x)
 
     #groupsList es una lista con 1 dataframe por clase
-    groupsList = [pd.DataFrame() for _ in range(classesLen)]
+    groupsList = [DataFrame() for _ in range(classesLen)]
     for i in range(classesLen):
         groupsList[i] = groups.xs(i + 1, level = "classes")
 
     #groupListPart es una lista que subdivide cada dataframe de groupList npartition veces
-    groupsListPart = [pd.DataFrame() for _ in range(classesLen * npartitions)]
+    groupsListPart = [DataFrame() for _ in range(classesLen * npartitions)]
     for i in range(classesLen):
         gListShape = groupsList[i].shape
         for j in range(npartitions):
             groupsListPart[i * npartitions + j] = groupsList[i].sample(
-                                                    n = np.floor(gListShape[0] / npartitions).astype(int), replace = True)
+                                                    n = floor(gListShape[0] / npartitions).astype(int), replace = True)
     
     #partition es el resultado de create_random_partition() 
-    partitions = [pd.DataFrame() for _ in range(npartitions)]
+    partitions = [DataFrame() for _ in range(npartitions)]
     for i in range(npartitions):
         partitions[i] = groupsListPart[i]
         for j in range(1, classesLen):
-            partitions[i] = pd.concat([partitions[i].reset_index(drop = True), 
+            partitions[i] = concat([partitions[i].reset_index(drop = True), 
                                 groupsListPart[i + j * npartitions]])
     
     return partitions
 
 def tablef(list, trainclasses):
-    classes = np.unique(trainclasses)
+    classes = unique(trainclasses)
     table = [0 for _ in range(len(classes))]
     for i in range(len(classes)):
         for j in range(len(list)):
@@ -108,7 +107,7 @@ def whichf(arr, n):
 
 def deleteRowsDf(dataframe, rows):
     rows.sort()
-    rows = np.flip(rows)
+    rows = flip(rows)
     for i in range(len(rows)):
         dataframe.drop([dataframe.index[rows[i]]], inplace=True)
     return dataframe
@@ -116,24 +115,24 @@ def deleteRowsDf(dataframe, rows):
 def create_perturbated_partition(trainset, trainclasses, npartitions):
     listRes = [[] for _ in range(npartitions)]
 
-    remainingset = pd.DataFrame(trainset)
-    remainingclasses = np.array(trainclasses)
-    C = len(np.unique(trainclasses))
+    remainingset = DataFrame(trainset)
+    remainingclasses = array(trainclasses)
+    C = len(unique(trainclasses))
     partitions = []
     partitionclasses = [[] for _ in range(npartitions - 1)]
 
     for i in range(npartitions-1):
         N = len(remainingclasses)
         P = npartitions - i
-        prop = np.array(tablef(remainingclasses, trainclasses)) / N
-        dev = prop * nprd.uniform(0.1, 0.9, C)
-        dev = dev / np.sum(dev)
+        prop = array(tablef(remainingclasses, trainclasses)) / N
+        dev = prop * uniform(0.1, 0.9, C)
+        dev = dev / sum(dev)
         
         if i == 0:
             dev = prop
 
-        observations = np.floor(dev * (N / P))
-        partitions.append(pd.DataFrame())
+        observations = floor(dev * (N / P))
+        partitions.append(DataFrame())
         
         for j in range(C):
             rem = whichf(remainingclasses, j + 1)
@@ -148,22 +147,22 @@ def create_perturbated_partition(trainset, trainclasses, npartitions):
 
             nremclass = len(rem) - 1 #menos uno ?
             nobs = int(min(nobs, nremclass))
-            selectedobs = np.array(random.sample(rem, nobs))
+            selectedobs = array(random.sample(rem, nobs))
 
             if (len(rem) == 1):
                 selectedobs = rem
 
-            partitions[i] = pd.concat([partitions[i], remainingset.iloc[selectedobs]], ignore_index = True)
+            partitions[i] = concat([partitions[i], remainingset.iloc[selectedobs]], ignore_index = True)
 
-            partitionclasses[i] = np.append(partitionclasses[i], remainingclasses[selectedobs]).astype("int")
+            partitionclasses[i] = append(partitionclasses[i], remainingclasses[selectedobs]).astype("int")
 
             if((tablef(remainingclasses, trainclasses)[j] - nobs) < 1):
                 toadd = nobs
-                remainingset = pd.concat([remainingset, remainingset.iloc[rem[:toadd]]])
-                remainingclasses = np.append(remainingclasses, [remainingclasses[i] for i in rem[:toadd]])  
+                remainingset = concat([remainingset, remainingset.iloc[rem[:toadd]]])
+                remainingclasses = append(remainingclasses, [remainingclasses[i] for i in rem[:toadd]])  
 
             remainingset = deleteRowsDf(remainingset, selectedobs)
-            remainingclasses = np.delete(remainingclasses, selectedobs)
+            remainingclasses = delete(remainingclasses, selectedobs)
 
     partitions.append(remainingset)
     partitionclasses.append(remainingclasses)
@@ -171,7 +170,7 @@ def create_perturbated_partition(trainset, trainclasses, npartitions):
         lenPartClass = len(partitionclasses[i])
         lenPart = partitions[i].shape[0]
         while (lenPart != lenPartClass):
-            partitionclasses[i] = np.delete(partitionclasses[i], lenPartClass - 1)
+            partitionclasses[i] = delete(partitionclasses[i], lenPartClass - 1)
         
         partitions[i]["classes"] = partitionclasses[i]
         listRes[i] = partitions[i]
@@ -179,13 +178,13 @@ def create_perturbated_partition(trainset, trainclasses, npartitions):
     return listRes
 
 def distancef(x, y):
-    arrXY = pd.concat([x, y])
-    distances = scs.distance_matrix(arrXY, arrXY)
+    arrXY = concat([x, y])
+    distances = distance_matrix(arrXY, arrXY)
     dshape = distances.shape
     for i in range(dshape[0]):
         for j in range(dshape[1]):
-            distances[i][j] = mt.exp(- distances[i][j])
-    return pd.DataFrame(distances)
+            distances[i][j] = exp(- distances[i][j])
+    return DataFrame(distances)
 
 def energy_wheights_sets(trainset, testset, bound=4):
     result = {
@@ -199,17 +198,17 @@ def energy_wheights_sets(trainset, testset, bound=4):
     WB = distances.iloc[n:n + testset.shape[0], n:n + testset.shape[0]]
     k = k.mean(axis = 1)
     B = 0
-    c = np.array(-k)
+    c = array(-k)
     H = K
     H =  H.to_numpy().flatten(order="F")
-    A = np.zeros((n, n))
+    A = zeros((n, n))
     for i in range(A.shape[1]):
         A[0][i] = 1
     A = A.flatten(order="F")
-    b = np.zeros(n)
-    r = np.ones(n)
-    l = np.zeros(n)
-    u = np.ones(n)
+    b = zeros(n)
+    r = ones(n)
+    l = zeros(n)
+    u = ones(n)
     bound = bound
 
     ipopf = ro.r('''
@@ -226,12 +225,12 @@ def energy_wheights_sets(trainset, testset, bound=4):
                             ro.vectors.IntVector(u),
                             ro.vectors.IntVector(r),
                             bound)
-    result["val"] = (np.matmul(-2 * np.array(k), result["weights"]) + 
-                     np.matmul(np.matmul(result["weights"], K), result["weights"]) + 
+    result["val"] = (matmul(-2 * array(k), result["weights"]) + 
+                     matmul(matmul(result["weights"], K), result["weights"]) + 
                      WB.stack().mean())
 
     return result
 
 #no usada
 def kfun(x, y):
-    return -np.sum(np.power(np.subtract(x, y), 2)) + np.sum(np.power(x, 2)) + np.sum(np.power(y, 2))
+    return -sum(power(subtract(x, y), 2)) + sum(power(x, 2)) + sum(power(y, 2))

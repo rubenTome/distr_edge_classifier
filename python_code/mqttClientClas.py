@@ -1,8 +1,8 @@
 import paho.mqtt.client as mqtt
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
-import numpy as np
-import pandas as pd
+from numpy import shape, arange
+from pandas import read_csv
 from io import StringIO
 import sys
 import os
@@ -16,8 +16,8 @@ import partitionfunctions_python as partf
 
 def knn(partition, test):#partition es un pandas.DataFrame
     partition = partition.to_numpy()
-    nVars = np.shape(partition)[1] - 1
-    trainset = partition[:, np.arange(nVars)]
+    nVars = shape(partition)[1] - 1
+    trainset = partition[:, arange(nVars)]
     trainclasses = partition[:,[nVars]].flatten()
     clf = KNeighborsClassifier(n_neighbors = 2)
     clf.fit(trainset, trainclasses)
@@ -26,8 +26,8 @@ def knn(partition, test):#partition es un pandas.DataFrame
 
 def rf(partition, test):
     partition = partition.to_numpy()
-    nVars = np.shape(partition)[1] - 1
-    trainset = partition[:, np.arange(nVars)]
+    nVars = shape(partition)[1] - 1
+    trainset = partition[:, arange(nVars)]
     trainclasses = partition[:,[nVars]].flatten()
     rfc = RandomForestClassifier()
     rfc.fit(trainset, trainclasses)
@@ -36,8 +36,8 @@ def rf(partition, test):
 
 def xgb(partition, test):
     partition = partition.to_numpy()
-    nVars = np.shape(partition)[1] - 1
-    trainset = partition[:, np.arange(nVars)]
+    nVars = shape(partition)[1] - 1
+    trainset = partition[:, arange(nVars)]
     trainclasses = partition[:,[nVars]].flatten()
     gbc = GradientBoostingClassifier()
     gbc.fit(trainset, trainclasses)
@@ -70,9 +70,9 @@ def strToList(string):
 def extractData(message):
     message = message.replace("\\n", "\n")
     splitedMsg = message.split("$")
-    partitions = pd.read_csv(StringIO(splitedMsg[0][2:]))
+    partitions = read_csv(StringIO(splitedMsg[0][2:]))
     weighting = splitedMsg[1]
-    test = pd.read_csv(StringIO(splitedMsg[2][:-1]))
+    test = read_csv(StringIO(splitedMsg[2][:-1]))
     return partitions, weighting, test
 
 #ENTRENAMIENTO Y CLASIFICACION
