@@ -129,7 +129,8 @@ def on_connect(client, userdata, flags, rc):
 #se llama al obtener un mensaje del broker
 def on_message(client, userdata, msg):
     if (msg.topic == "exit"):
-        os.kill(os.getppid(), signal.SIGHUP)
+        exit(0)
+        #os.kill(os.getppid(), signal.SIGHUP)
     partition, weighting, test = extractData(str(msg.payload))
     classifiedData = classify(partition, weighting, test)
     print("pubish weighed belief values:\n", classifiedData)
