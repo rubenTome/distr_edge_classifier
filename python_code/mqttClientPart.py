@@ -2,7 +2,7 @@ import time
 iniTime = time.time()
 import paho.mqtt.client as mqtt
 import partitionfunctions_python as partf
-import fine_analisis_python as finean
+import fine_analysis_python as finean
 import sys
 
 #cliente para crear y publicar las particiones, y recibir resultados
