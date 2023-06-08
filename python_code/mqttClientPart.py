@@ -4,6 +4,7 @@ import paho.mqtt.client as mqtt
 import partitionfunctions_python as partf
 import fine_analysis_python as finean
 import sys
+import socket
 
 #cliente para crear y publicar las particiones, y recibir resultados
 #ARRANCAR DESPUES DE LOS CLASIFICADORES 
@@ -31,7 +32,7 @@ weighingStrategy = sys.argv[4]
 
 dataset = sys.argv[5]
 
-BROKER_IP = "192.168.1.140"
+BROKER_IP = socket.gethostbyname(socket.gethostname())
 
 #CREACION PARTICIONES
 

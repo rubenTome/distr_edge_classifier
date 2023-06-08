@@ -55,10 +55,11 @@ NDECIMALS = 2
 generateTables = True
 
 #debe ser el nombre o ip
-BROKER_IP = "192.168.1.140"
 
 CLASSIFIERID = sys.argv[1]
 USEDCLASSIFIER = sys.argv[2]
+
+BROKER_IP = sys.argv[3]
 
 def strToList(string):
     list = []
