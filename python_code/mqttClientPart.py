@@ -59,7 +59,7 @@ def strToArray(str):
     return resArr
 
 def create_partitions():
-    ds = partf.load_dataset(dataset, NSET, NSET - NTRAIN)
+    ds = partf.load_dataset(dataset, NSET, NTRAIN)
     global testClasses
     testClasses = ds["testclasses"]
     #creamos las particiones segun parametro is_balanced
@@ -98,7 +98,7 @@ def distClass(usedClassifier, clasTime, secondTime):
         file.write("\trecall:\n\t" + str(finean.multi_recall(classArr[Pset[i]], testClasses.tolist())) + "\n")
         file.write("\texecution time:\n\t" + str(clasTime[Pset[i]] + joiningTime) + "\n\n")
     file.write("real values:\n\t" + str(testClasses.tolist()))
-    client.publish("exit", 1)
+    client.publish("exit", 1, 0)
 
 def listToStr(list):
     string = "["
@@ -116,16 +116,17 @@ def on_connect(client, userdata, flags, rc):
     #comprobamos que la weighting strategy sea correcta
     if (weighingStrategy != "pnw" and weighingStrategy != "piw"):
         print("INVALID WEIGHING STRATEGY")
-        client.publish("exit", 1)
+        client.publish("exit", 1, 0)
     partAndTest = create_partitions()
     for j in range(len(Pset)):
         for k in range(Pset[j]):
             message = dataframeToStr(partAndTest[0][j][k]) + "$" + weighingStrategy + "$" + dataframeToStr(partAndTest[1])
-            client.publish("partition/" + str(Pset[j]) + "." + str(k), message)
+            client.publish("partition/" + str(Pset[j]) + "." + str(k), message, 0)
             print("published partition " + str(Pset[j]) + "." + str(k))
 
 def on_message(client, userdata, msg):
     if (msg.topic == "exit"):
+        client.disconnect()
         exit()
     nPset = int(msg.topic.split("/")[1].split(".")[0])
     #en caso de un nPset > 1, el que mas tarda sobreescribe el valor
@@ -145,7 +146,7 @@ def on_message(client, userdata, msg):
         print("all received")
         distClass(usedClassifier, clasTime, secondTime)
 
-client = mqtt.Client("partitions_client")
+client = mqtt.Client("partitions_client", True)
 client.on_connect = on_connect
 client.on_message = on_message
 

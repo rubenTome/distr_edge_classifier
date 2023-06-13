@@ -5,8 +5,6 @@ from numpy import shape, arange
 from pandas import read_csv
 from io import StringIO
 import sys
-import os
-import signal
 import partitionfunctions_python as partf
 
 #los clientes se subscriben a su particion y publican los resultados
@@ -130,14 +128,14 @@ def on_connect(client, userdata, flags, rc):
 #se llama al obtener un mensaje del broker
 def on_message(client, userdata, msg):
     if (msg.topic == "exit"):
+        client.disconnect()
         exit(0)
-        #os.kill(os.getppid(), signal.SIGHUP)
     partition, weighting, test = extractData(str(msg.payload))
     classifiedData = classify(partition, weighting, test)
     print("pubish weighed belief values:\n", classifiedData)
-    client.publish("results/" + CLASSIFIERID, classifiedData + "$" + USEDCLASSIFIER)
+    client.publish("results/" + CLASSIFIERID, classifiedData + "$" + USEDCLASSIFIER, 0)
 
-client = mqtt.Client("clas_client_" + CLASSIFIERID)
+client = mqtt.Client("clas_client_" + CLASSIFIERID, True)
 client.on_connect = on_connect
 client.on_message = on_message
 
