@@ -69,7 +69,7 @@ def create_random_partition(trainset, trainclasses, npartitions):
     #groupsList es una lista con 1 dataframe por clase
     groupsList = [DataFrame() for _ in range(classesLen)]
     for i in range(classesLen):
-        groupsList[i] = groups.xs(i + 1, level = "classes")
+        groupsList[i] = groups.xs(classes[i], level = "classes")
 
     #groupListPart es una lista que subdivide cada dataframe de groupList npartition veces
     groupsListPart = [DataFrame() for _ in range(classesLen * npartitions)]

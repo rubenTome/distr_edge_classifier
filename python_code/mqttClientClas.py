@@ -120,6 +120,7 @@ def classify(partition, weighting, test):
 #se llama al conectarse al broker
 def on_connect(client, userdata, flags, rc):
     print("Connected classification client with result code " + str(rc))
+    client.unsubscribe("#")
     #nos subscribimos a este tema
     client.subscribe("partition/" + CLASSIFIERID)
     client.subscribe("exit")
@@ -133,7 +134,7 @@ def on_message(client, userdata, msg):
     partition, weighting, test = extractData(str(msg.payload))
     classifiedData = classify(partition, weighting, test)
     print("pubish weighed belief values:\n", classifiedData)
-    client.publish("results/" + CLASSIFIERID, classifiedData + "$" + USEDCLASSIFIER, 0)
+    client.publish("results/" + CLASSIFIERID, classifiedData + "$" + USEDCLASSIFIER, 2)
 
 client = mqtt.Client("clas_client_" + CLASSIFIERID, True)
 client.on_connect = on_connect

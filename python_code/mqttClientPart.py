@@ -98,7 +98,7 @@ def distClass(usedClassifier, clasTime, secondTime):
         file.write("\trecall:\n\t" + str(finean.multi_recall(classArr[Pset[i]], testClasses.tolist())) + "\n")
         file.write("\texecution time:\n\t" + str(clasTime[Pset[i]] + joiningTime) + "\n\n")
     file.write("real values:\n\t" + str(testClasses.tolist()))
-    client.publish("exit", 1, 0)
+    client.publish("exit", 1, 2)
 
 def listToStr(list):
     string = "["
@@ -111,17 +111,18 @@ def listToStr(list):
 #MQTT
 def on_connect(client, userdata, flags, rc):
     print("Connected partitions client with result code " + str(rc))
+    client.unsubscribe("#")
     client.subscribe("results/#")
     client.subscribe("exit")
     #comprobamos que la weighting strategy sea correcta
     if (weighingStrategy != "pnw" and weighingStrategy != "piw"):
         print("INVALID WEIGHING STRATEGY")
-        client.publish("exit", 1, 0)
+        client.publish("exit", 1, 2)
     partAndTest = create_partitions()
     for j in range(len(Pset)):
         for k in range(Pset[j]):
             message = dataframeToStr(partAndTest[0][j][k]) + "$" + weighingStrategy + "$" + dataframeToStr(partAndTest[1])
-            client.publish("partition/" + str(Pset[j]) + "." + str(k), message, 0)
+            client.publish("partition/" + str(Pset[j]) + "." + str(k), message, 2)
             print("published partition " + str(Pset[j]) + "." + str(k))
 
 def on_message(client, userdata, msg):
