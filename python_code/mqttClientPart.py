@@ -32,6 +32,12 @@ weighingStrategy = sys.argv[4]
 
 dataset = sys.argv[5]
 
+#TODO revisar, fallo en rbind (rpy2)
+if(len(sys.argv) == 7):
+    datasetTrain = sys.argv[6]
+else:
+    datasetTrain = ""
+
 BROKER_IP = socket.gethostbyname(socket.gethostname())
 
 #CREACION PARTICIONES
@@ -59,7 +65,7 @@ def strToArray(str):
     return resArr
 
 def create_partitions():
-    ds = partf.load_dataset(dataset, NSET, NTRAIN)
+    ds = partf.load_dataset(dataset, NSET, NTRAIN, datasetTrain)
     global testClasses
     testClasses = ds["testclasses"]
     #creamos las particiones segun parametro is_balanced

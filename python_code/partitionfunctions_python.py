@@ -2,6 +2,7 @@ import rpy2.robjects as ro
 from numpy import array, asarray, arange, unique, floor, flip, sum, append, delete
 from numpy.random import uniform
 from scipy.spatial import distance_matrix
+#from scipy.stats import energy_distance
 import random
 from pandas import DataFrame, concat, read_csv
 import sys
@@ -17,16 +18,15 @@ energy_r = ro.r('''
     }
 ''')
 
-#x e y en caso de usar la distancia de R deben pasarse como robjects
-def end(x, y, isR):#x e y son del tipo list
-    if (isR):
-        x = array(x)
-        y = array(y)
-        xR = ro.r.matrix(ro.FloatVector(x.flatten(order="F")), nrow=x.shape[0])
-        yR = ro.r.matrix(ro.FloatVector(y.flatten(order="F")), nrow=y.shape[0])
-        return float(asarray(energy_r(xR,yR)))
-    else:
-        return (energy_distance(x, y))
+#x e y son del tipo list
+def end_R(x, y):
+    x = array(x)
+    y = array(y)
+    return float(asarray(energy_r(ro.r.matrix(ro.FloatVector(x.flatten(order="F")), nrow=x.shape[0]),
+                                  ro.r.matrix(ro.FloatVector(y.flatten(order="F")), nrow=y.shape[0]))))
+
+def end_P(x, y):
+    return (energy_distance(x, y))
 
 def sample_n_from_csv(filename:str, n:int=100, total_rows:int=None) -> DataFrame:
     if total_rows==None:
@@ -37,6 +37,7 @@ def sample_n_from_csv(filename:str, n:int=100, total_rows:int=None) -> DataFrame
     skip_rows =  random.sample(range(1,total_rows+1), total_rows-n)
     return read_csv(filename, skiprows=skip_rows)
 
+#TODO revisar funcionamiento de load_dataset 
 def load_dataset(filename, maxsize, trainsize, testfilename = ""):
     dataset = {
         "trainset": None,
@@ -60,6 +61,31 @@ def load_dataset(filename, maxsize, trainsize, testfilename = ""):
 
     return dataset   
 
+#classesDist: matriz, cada fila un nodo, cada elemento una clase
+def create_selected_partition(trainset, trainclasses, npartitions, classesDist):
+    if (npartitions != len(classesDist)):
+        #classesDist debe tener npartitions filas
+        exit("Error in create_selected_partition: classesDist not valid")
+
+    classes = unique(trainclasses)
+    classesLen = len(classes)
+    joined = concat([trainset, trainclasses.reindex(trainset.index)], axis=1)
+    groups = joined.groupby(["classes"], group_keys=True).apply(lambda x: x)
+    groupsList = [DataFrame() for _ in range(classesLen)]
+    partitions = [DataFrame() for _ in range(npartitions)]
+
+    for i in range(classesLen):
+        groupsList[i] = groups.xs(classes[i], level = "classes").reset_index()
+    
+    for i in range(len(classesDist)):
+        for j in range(len(classesDist[0])):
+            for k in range(len(groupsList)):
+                if(len(groupsList[k]) > 0 and 
+                   groupsList[k].at[0, "classes"] == classesDist[i][j]):
+                    partitions[i] = concat([partitions[i], groupsList[k]])
+
+    return partitions
+    
 def create_random_partition(trainset, trainclasses, npartitions):
     classes = unique(trainclasses)
     classesLen = len(classes)

@@ -13,6 +13,7 @@ import partitionfunctions_python as partf
 #CLASIFICADORES
 
 def knn(partition, test):#partition es un pandas.DataFrame
+    print("starting knn classifier")
     partition = partition.to_numpy()
     nVars = shape(partition)[1] - 1
     trainset = partition[:, arange(nVars)]
@@ -23,21 +24,23 @@ def knn(partition, test):#partition es un pandas.DataFrame
     return testClass
 
 def rf(partition, test):
+    print("starting rf classifier")
     partition = partition.to_numpy()
     nVars = shape(partition)[1] - 1
     trainset = partition[:, arange(nVars)]
     trainclasses = partition[:,[nVars]].flatten()
-    rfc = RandomForestClassifier()
+    rfc = RandomForestClassifier(verbose=1)
     rfc.fit(trainset, trainclasses)
     testClass = rfc.predict_proba(test[:].values)
     return testClass
 
 def xgb(partition, test):
+    print("starting xgb classifier")
     partition = partition.to_numpy()
     nVars = shape(partition)[1] - 1
     trainset = partition[:, arange(nVars)]
     trainclasses = partition[:,[nVars]].flatten()
-    gbc = GradientBoostingClassifier()
+    gbc = GradientBoostingClassifier(verbose=1)
     gbc.fit(trainset, trainclasses)
     testClass = gbc.predict_proba(test[:].values)
     return testClass
@@ -78,14 +81,16 @@ def extractData(message):
 
 def classify(partition, weighting, test):
     #obtenemos distancia entre test y partition
+    print("calculating distances")
     partitionList = partition.drop('classes', axis=1).values.tolist() 
     testList = test.values.tolist() 
     if (weighting == "piw"):
         inverseDistance = [0 for _ in range(len(testList))]
         for i in range(len(testList)):
-            inverseDistance[i] = 1 / partf.end([testList[i]], partitionList, isR=1)
+            print("instance ", i, end="\r")
+            inverseDistance[i] = 1 / partf.end_P([testList[i]], partitionList)
     else:
-        inverseDistance = 1 / partf.end(testList, partitionList, isR=1)
+        inverseDistance = 1 / partf.end_P(testList, partitionList)
     #obtenemos belief values
     if (USEDCLASSIFIER == "knn"):
         classifierOutput = knn(partition, test)
@@ -132,6 +137,7 @@ def on_message(client, userdata, msg):
         client.disconnect()
         exit(0)
     partition, weighting, test = extractData(str(msg.payload))
+    print("received", msg.topic)
     classifiedData = classify(partition, weighting, test)
     print("pubish weighed belief values:\n", classifiedData)
     client.publish("results/" + CLASSIFIERID, classifiedData + "$" + USEDCLASSIFIER, 2)
