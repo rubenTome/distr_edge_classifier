@@ -19,6 +19,7 @@ for i in range(len(Pset)):
 #array de weighed belief values
 wbelief = {i:[] for i in Pset}
 is_balanced = True
+classesDist = []#[[0, 1, 4], [3, 5, 7, 8], [2, 6, 9]]
 
 clasTime = {i:0 for i in Pset}
 
@@ -68,16 +69,22 @@ def create_partitions():
     ds = partf.load_dataset(dataset, NSET, NTRAIN, datasetTrain)
     global testClasses
     testClasses = ds["testclasses"]
-    #creamos las particiones segun parametro is_balanced
-    if is_balanced:
+    #creamos las particiones segun parametro classesDist e is_balanced
+    if(len(classesDist) > 0):
+        partitionFun = partf.create_selected_partition
+    elif is_balanced:
         partitionFun = partf.create_random_partition
     else:
         partitionFun = partf.create_perturbated_partition
     partitions = [[] for _ in range(len(Pset))]
     test = ds["testset"]
-    for p in range(len(Pset)):
-        #creamos particiones para cada nodo
-        partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p])
+    #creamos particiones para cada nodo
+    if(len(classesDist) > 0):
+        for p in range(len(Pset)):
+            partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p], classesDist)
+    else:
+        for p in range(len(Pset)):
+            partitions[p] = partitionFun(ds["trainset"], ds["trainclasses"], Pset[p])
     return (partitions, test)
 
 def distClass(usedClassifier, clasTime, secondTime):

@@ -75,7 +75,7 @@ def create_selected_partition(trainset, trainclasses, npartitions, classesDist):
     partitions = [DataFrame() for _ in range(npartitions)]
 
     for i in range(classesLen):
-        groupsList[i] = groups.xs(classes[i], level = "classes").reset_index()
+        groupsList[i] = groups.xs(classes[i], level = "classes").reset_index(drop=True)
     
     for i in range(len(classesDist)):
         for j in range(len(classesDist[0])):

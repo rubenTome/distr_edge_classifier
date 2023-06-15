@@ -1,7 +1,7 @@
 import paho.mqtt.client as mqtt
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
-from numpy import shape, arange
+from numpy import shape, arange, unique
 from pandas import read_csv
 from io import StringIO
 import sys
@@ -81,6 +81,7 @@ def extractData(message):
 
 def classify(partition, weighting, test):
     #obtenemos distancia entre test y partition
+    print("training node with classes ", unique(partition["classes"]))
     print("calculating distances")
     partitionList = partition.drop('classes', axis=1).values.tolist() 
     testList = test.values.tolist() 
