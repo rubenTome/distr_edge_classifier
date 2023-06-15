@@ -5,6 +5,7 @@ import partitionfunctions_python as partf
 import fine_analysis_python as finean
 import sys
 import socket
+from numpy import unique
 
 #cliente para crear y publicar las particiones, y recibir resultados
 #ARRANCAR DESPUES DE LOS CLASIFICADORES 
@@ -69,6 +70,8 @@ def create_partitions():
     ds = partf.load_dataset(dataset, NSET, NTRAIN, datasetTrain)
     global testClasses
     testClasses = ds["testclasses"]
+    global uniqueClass
+    uniqueClass = unique(testClasses)
     #creamos las particiones segun parametro classesDist e is_balanced
     if(len(classesDist) > 0):
         partitionFun = partf.create_selected_partition
@@ -99,13 +102,13 @@ def distClass(usedClassifier, clasTime, secondTime):
             for k in range(i):
                 tempArr.append(wbelief[i][k][j])
             if (len(tempArr[0]) != 0):
-                classArr[i].append(finean.sum_rule(tempArr) + 1)
+                classArr[i].append(finean.sum_rule(tempArr))
             tempArr = []
     #tiempo en integrar los resultados de todos los clasificadores
     joiningTime = time.time() - secondTime
     for i in range(len(Pset)):
         file.write("\t" + str(Pset[i]) + " partitions:\n")
-        file.write("\t" + str(classArr[Pset[i]]) + "\n")
+        file.write("\t" + str(uniqueClass[classArr[Pset[i]]]) + "\n")
         file.write("\taccuracy:\n\t" + str(finean.accu(classArr[Pset[i]], testClasses.tolist())) + "\n")
         file.write("\tprecision:\n\t" + str(finean.multi_precision(classArr[Pset[i]], testClasses.tolist())) + "\n")
         file.write("\trecall:\n\t" + str(finean.multi_recall(classArr[Pset[i]], testClasses.tolist())) + "\n")

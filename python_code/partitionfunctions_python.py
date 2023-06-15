@@ -87,7 +87,8 @@ def create_selected_partition(trainset, trainclasses, npartitions, classesDist):
     return partitions
     
 def create_random_partition(trainset, trainclasses, npartitions):
-    classes = unique(trainclasses)
+    classes, count = unique(trainclasses, return_counts=True)
+    print("counts per class: ", count)
     classesLen = len(classes)
     joined = concat([trainset, trainclasses.reindex(trainset.index)], axis=1)
     groups = joined.groupby(["classes"], group_keys=True).apply(lambda x: x)
