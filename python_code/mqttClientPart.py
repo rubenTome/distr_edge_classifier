@@ -20,8 +20,7 @@ for i in range(len(Pset)):
 #array de weighed belief values
 wbelief = {i:[] for i in Pset}
 is_balanced = True
-#TODO con classesDist no funciona, ya que cada nodo numera clases de 0 a n (mirar prints_.txt)
-classesDist = [[0, 1, 7], [3, 4, 5, 8], [2, 6, 9]]
+classesDist = []#[[0, 1, 7], [3, 4, 5, 8], [2, 6, 9]]
 
 clasTime = {i:0 for i in Pset}
 
@@ -136,9 +135,11 @@ def on_connect(client, userdata, flags, rc):
         print("INVALID WEIGHING STRATEGY")
         client.publish("exit", 1, 2)
     partAndTest = create_partitions()
+    uniqueClassStr = "[" + ",".join(str(i) for i in uniqueClass) + ",]"#TODO en strToList no necesitar la "," final
+    print("linea 140, uniqueClass ", uniqueClass)
     for j in range(len(Pset)):
         for k in range(Pset[j]):
-            message = dataframeToStr(partAndTest[0][j][k]) + "$" + weighingStrategy + "$" + dataframeToStr(partAndTest[1])
+            message = dataframeToStr(partAndTest[0][j][k]) + "$" + weighingStrategy + "$" + dataframeToStr(partAndTest[1]) + "$" + uniqueClassStr
             client.publish("partition/" + str(Pset[j]) + "." + str(k), message, 2)
             print("published partition " + str(Pset[j]) + "." + str(k))
 

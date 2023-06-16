@@ -23,16 +23,22 @@ def knn(partition, test):#partition es un pandas.DataFrame
     testClass = clf.predict_proba(test[:].values)
     return testClass
 
-def rf(partition, test):
+def rf(partition, test, uniqueClass):#uniqueClass son todas las clases que existen
     print("starting rf classifier")
     partition = partition.to_numpy()
     nVars = shape(partition)[1] - 1
     trainset = partition[:, arange(nVars)]
     trainclasses = partition[:,[nVars]].flatten()
+    #clases que existen en este nodo
+    ourTrainclasses = unique(trainclasses)
     rfc = RandomForestClassifier(verbose=1)
     rfc.fit(trainset, trainclasses)
     testClass = rfc.predict_proba(test[:].values)
-    return testClass
+    result = [[0 for _ in range(len(uniqueClass))] for _ in range(len(testClass))]
+    for i in range(len(testClass)):
+        for j in range(len(testClass[i])):
+            result[i][uniqueClass.index(float(ourTrainclasses[j]))] = testClass[i][j]
+    return result
 
 def xgb(partition, test):
     print("starting xgb classifier")
@@ -74,12 +80,13 @@ def extractData(message):
     splitedMsg = message.split("$")
     partitions = read_csv(StringIO(splitedMsg[0][2:]))
     weighting = splitedMsg[1]
-    test = read_csv(StringIO(splitedMsg[2][:-1]))
-    return partitions, weighting, test
+    test = read_csv(StringIO(splitedMsg[2]))
+    uniqueClass = strToList(splitedMsg[3][:-1])
+    return partitions, weighting, test, uniqueClass
 
 #ENTRENAMIENTO Y CLASIFICACION
 
-def classify(partition, weighting, test):
+def classify(partition, weighting, test, uniqueClass):
     #obtenemos distancia entre test y partition
     classes, counts = unique(partition["classes"], return_counts=True)
     print("training node with classes ", classes)
@@ -96,11 +103,11 @@ def classify(partition, weighting, test):
         inverseDistance = 1 / partf.end_P(testList, partitionList)
     #obtenemos belief values
     if (USEDCLASSIFIER == "knn"):
-        classifierOutput = knn(partition, test)
+        classifierOutput = knn(partition, test, uniqueClass)
     elif(USEDCLASSIFIER == "rf"):
-        classifierOutput = rf(partition, test)
+        classifierOutput = rf(partition, test, uniqueClass)
     elif(USEDCLASSIFIER == "xgb"):
-        classifierOutput = xgb(partition, test)
+        classifierOutput = xgb(partition, test, uniqueClass)
     else:
         print("UNKNOWN CLASSIFIER")
         exit(0)
@@ -139,9 +146,9 @@ def on_message(client, userdata, msg):
     if (msg.topic == "exit"):
         client.disconnect()
         exit(0)
-    partition, weighting, test = extractData(str(msg.payload))
+    partition, weighting, test, uniqueClass = extractData(str(msg.payload))
     print("received", msg.topic)
-    classifiedData = classify(partition, weighting, test)
+    classifiedData = classify(partition, weighting, test, uniqueClass)
     print("pubish weighed belief values:\n", classifiedData)
     client.publish("results/" + CLASSIFIERID, classifiedData + "$" + USEDCLASSIFIER, 2)
 
