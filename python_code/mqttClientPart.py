@@ -20,7 +20,8 @@ for i in range(len(Pset)):
 #array de weighed belief values
 wbelief = {i:[] for i in Pset}
 is_balanced = True
-classesDist = []#[[0, 1, 7], [3, 4, 5, 8], [2, 6, 9]]
+#TODO con classesDist no tiene mejores metricas que la version aleatoria
+classesDist = [[0, 1, 7], [3, 4, 5, 8], [2, 6, 9]]
 
 clasTime = {i:0 for i in Pset}
 
@@ -136,7 +137,6 @@ def on_connect(client, userdata, flags, rc):
         client.publish("exit", 1, 2)
     partAndTest = create_partitions()
     uniqueClassStr = "[" + ",".join(str(i) for i in uniqueClass) + ",]"#TODO en strToList no necesitar la "," final
-    print("linea 140, uniqueClass ", uniqueClass)
     for j in range(len(Pset)):
         for k in range(Pset[j]):
             message = dataframeToStr(partAndTest[0][j][k]) + "$" + weighingStrategy + "$" + dataframeToStr(partAndTest[1]) + "$" + uniqueClassStr

@@ -92,15 +92,15 @@ def classify(partition, weighting, test, uniqueClass):
     print("training node with classes ", classes)
     print("counts per class: ", counts)
     print("calculating distances")
-    partitionList = partition.drop('classes', axis=1).values.tolist() 
-    testList = test.values.tolist() 
+    partitionMatrix = partition.drop('classes', axis=1).values
+    testMatrix = test.values
     if (weighting == "piw"):
-        inverseDistance = [0 for _ in range(len(testList))]
-        for i in range(len(testList)):
+        inverseDistance = [0 for _ in range(len(testMatrix))]
+        for i in range(len(testMatrix)):
             print("instance ", i, end="\r")
-            inverseDistance[i] = 1 / partf.end_P([testList[i]], partitionList)
+            inverseDistance[i] = 1 / partf.end_R([testMatrix[i]], partitionMatrix)
     else:
-        inverseDistance = 1 / partf.end_P(testList, partitionList)
+        inverseDistance = 1 / partf.end_R(testMatrix, partitionMatrix)
     #obtenemos belief values
     if (USEDCLASSIFIER == "knn"):
         classifierOutput = knn(partition, test, uniqueClass)
