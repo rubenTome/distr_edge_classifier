@@ -20,7 +20,8 @@ for i in range(len(Pset)):
 #array de weighed belief values
 wbelief = {i:[] for i in Pset}
 is_balanced = True
-classesDist = []#[[0, 1, 4], [3, 5, 7, 8], [2, 6, 9]]
+#TODO con classesDist no funciona, ya que cada nodo numera clases de 0 a n (mirar prints_.txt)
+classesDist = [[0, 1, 7], [3, 4, 5, 8], [2, 6, 9]]
 
 clasTime = {i:0 for i in Pset}
 

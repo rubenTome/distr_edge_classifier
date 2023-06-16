@@ -67,7 +67,8 @@ def create_selected_partition(trainset, trainclasses, npartitions, classesDist):
         #classesDist debe tener npartitions filas
         exit("Error in create_selected_partition: classesDist not valid")
 
-    classes = unique(trainclasses)
+    classes, count = unique(trainclasses, return_counts=True)
+    print("counts per class: ", count)
     classesLen = len(classes)
     joined = concat([trainset, trainclasses.reindex(trainset.index)], axis=1)
     groups = joined.groupby(["classes"], group_keys=True).apply(lambda x: x)
@@ -78,11 +79,11 @@ def create_selected_partition(trainset, trainclasses, npartitions, classesDist):
         groupsList[i] = groups.xs(classes[i], level = "classes").reset_index(drop=True)
     
     for i in range(len(classesDist)):
-        for j in range(len(classesDist[0])):
+        for j in range(len(classesDist[i])):
             for k in range(len(groupsList)):
                 if(len(groupsList[k]) > 0 and 
                    groupsList[k].at[0, "classes"] == classesDist[i][j]):
-                    partitions[i] = concat([partitions[i], groupsList[k]])
+                        partitions[i] = concat([partitions[i], groupsList[k]])
 
     return partitions
     

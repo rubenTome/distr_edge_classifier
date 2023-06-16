@@ -81,7 +81,9 @@ def extractData(message):
 
 def classify(partition, weighting, test):
     #obtenemos distancia entre test y partition
-    print("training node with classes ", unique(partition["classes"]))
+    classes, counts = unique(partition["classes"], return_counts=True)
+    print("training node with classes ", classes)
+    print("counts per class: ", counts)
     print("calculating distances")
     partitionList = partition.drop('classes', axis=1).values.tolist() 
     testList = test.values.tolist() 
