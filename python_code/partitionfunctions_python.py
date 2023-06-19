@@ -54,11 +54,12 @@ def load_dataset(filename, maxsize, trainsize, testfilename = ""):
 
     if testfilename == "":
         dataset["testset"] = samp.iloc[trainsize:, arange(sampShape[1] - 1)]
+        dataset["testclasses"] = samp.iloc[trainsize:].loc[:, "classes"]
     else:
-        dataset["testset"] = sample_n_from_csv(filename, maxsize - trainsize)
-
-    dataset["testclasses"] = samp.iloc[trainsize:].loc[:, "classes"]
-
+        testSamp = sample_n_from_csv(filename, maxsize - trainsize).sample(frac = 1)
+        testSampShape = testSamp.shape
+        dataset["testset"] = testSamp.iloc[:maxsize - trainsize, arange(testSampShape [1] - 1)]
+        dataset["testclasses"] = testSamp.iloc[:maxsize - trainsize].loc[:, "classes"]
     return dataset   
 
 #classesDist: matriz, cada fila un nodo, cada elemento una clase
