@@ -38,7 +38,7 @@ def sample_n_from_csv(filename:str, n:int=100, total_rows:int=None) -> DataFrame
     return read_csv(filename, skiprows=skip_rows)
 
 #TODO revisar funcionamiento de load_dataset 
-def load_dataset(filename, maxsize, trainsize, testfilename = ""):
+def load_dataset(filename, trainsize, testsize, testfilename = ""):
     dataset = {
         "trainset": None,
         "trainclasses": None,
@@ -46,20 +46,21 @@ def load_dataset(filename, maxsize, trainsize, testfilename = ""):
         "testclasses": None
     }
 
-    samp = sample_n_from_csv(filename, maxsize).sample(frac = 1)
+    samp = sample_n_from_csv(filename, trainsize + testsize).sample(frac = 1)
     sampShape = samp.shape
     #indices de filas en trainset y testset son secuenciales no aleatorios
     dataset["trainset"] = samp.iloc[:trainsize, arange(sampShape[1] - 1)]
     dataset["trainclasses"] = samp.iloc[:trainsize].loc[:, "classes"]
 
     if testfilename == "":
-        dataset["testset"] = samp.iloc[trainsize:, arange(sampShape[1] - 1)]
-        dataset["testclasses"] = samp.iloc[trainsize:].loc[:, "classes"]
+        dataset["testset"] = samp.iloc[trainsize:testsize, arange(sampShape[1] - 1)]
+        dataset["testclasses"] = samp.iloc[trainsize:testsize].loc[:, "classes"]
     else:
-        testSamp = sample_n_from_csv(filename, maxsize - trainsize).sample(frac = 1)
+        print("selected file for testing: ", testfilename)
+        testSamp = sample_n_from_csv(testfilename, testsize).sample(frac = 1)
         testSampShape = testSamp.shape
-        dataset["testset"] = testSamp.iloc[:maxsize - trainsize, arange(testSampShape [1] - 1)]
-        dataset["testclasses"] = testSamp.iloc[:maxsize - trainsize].loc[:, "classes"]
+        dataset["testset"] = testSamp.iloc[:testsize, arange(testSampShape [1] - 1)]
+        dataset["testclasses"] = testSamp.iloc[:testsize].loc[:, "classes"]
     return dataset   
 
 #classesDist: matriz, cada fila un nodo, cada elemento una clase
@@ -69,7 +70,7 @@ def create_selected_partition(trainset, trainclasses, npartitions, classesDist):
         exit("Error in create_selected_partition: classesDist not valid")
 
     classes, count = unique(trainclasses, return_counts=True)
-    print("counts per class: ", count)
+    print("counts per class in train: ", count)
     classesLen = len(classes)
     joined = concat([trainset, trainclasses.reindex(trainset.index)], axis=1)
     groups = joined.groupby(["classes"], group_keys=True).apply(lambda x: x)

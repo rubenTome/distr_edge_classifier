@@ -20,15 +20,13 @@ for i in range(len(Pset)):
 #array de weighed belief values
 wbelief = {i:[] for i in Pset}
 is_balanced = True
-#TODO con classesDist no tiene mejores metricas que la version aleatoria
+#TODO con classesDist no tiene mejores metricas que la version aleatoria: !!! segun la distancia de cada instancia de test, enviarla a un nodo u otro !!!
 classesDist = [[0, 1, 7], [3, 4, 5, 8], [2, 6, 9]]
 
 clasTime = {i:0 for i in Pset}
 
-#size of the total dataset (subsampple)
-NSET = int(sys.argv[2])
-#size of the train set, thse size of the test set will be NSET - NTRAIN
-NTRAIN = int(sys.argv[3])
+NTRAIN = int(sys.argv[2])
+NTEST = int(sys.argv[3])
 
 #posibles valores: "pnw", "piw"
 weighingStrategy = sys.argv[4]
@@ -55,7 +53,7 @@ def dataframeToStr(df):
 
 def strToArray(str):
     splitedStr = str.split("\n")
-    resArr = [[] for _ in range(NSET - NTRAIN)]
+    resArr = [[] for _ in range(len(splitedStr))]
     for i in range(len(splitedStr)):
         splitedStr[i] = splitedStr[i][1:-1].split(",")
         for j in range(len(splitedStr[i])):
@@ -68,7 +66,7 @@ def strToArray(str):
     return resArr
 
 def create_partitions():
-    ds = partf.load_dataset(dataset, NSET, NTRAIN, datasetTrain)
+    ds = partf.load_dataset(dataset, NTRAIN, NTEST, datasetTrain)
     global testClasses
     testClasses = ds["testclasses"]
     global uniqueClass
@@ -94,7 +92,7 @@ def create_partitions():
 def distClass(usedClassifier, clasTime, secondTime):
     splitedName = dataset.split("/")
     dsName = splitedName[len(splitedName) - 1].split(".")[0]
-    file = open("rdos_" + str(NSET) + "_" + usedClassifier + "_" + weighingStrategy + "_" + dsName + "_distr.txt", "w")
+    file = open("rdos_" + str(NTRAIN) + "_" + str(NTEST) + "_" + usedClassifier + "_" + weighingStrategy + "_" + dsName + "_distr.txt", "w")
     file.write("From dataset " + dataset + "\n")
     classArr = {i:[] for i in Pset}
     tempArr = []
