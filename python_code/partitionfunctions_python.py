@@ -53,8 +53,8 @@ def load_dataset(filename, trainsize, testsize, testfilename = ""):
     dataset["trainclasses"] = samp.iloc[:trainsize].loc[:, "classes"]
 
     if testfilename == "":
-        dataset["testset"] = samp.iloc[trainsize:testsize, arange(sampShape[1] - 1)]
-        dataset["testclasses"] = samp.iloc[trainsize:testsize].loc[:, "classes"]
+        dataset["testset"] = samp.iloc[trainsize:trainsize + testsize, arange(sampShape[1] - 1)]
+        dataset["testclasses"] = samp.iloc[trainsize:trainsize + testsize].loc[:, "classes"]
     else:
         print("selected file for testing: ", testfilename)
         testSamp = sample_n_from_csv(testfilename, testsize).sample(frac = 1)

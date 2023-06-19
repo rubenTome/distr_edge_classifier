@@ -20,7 +20,7 @@ for i in range(len(Pset)):
 #array de weighed belief values
 wbelief = {i:[] for i in Pset}
 is_balanced = True
-#TODO con classesDist no tiene mejores metricas que la version aleatoria: !!! segun la distancia de cada instancia de test, enviarla a un nodo u otro !!!
+#TODO con classesDist no tiene mejores metricas que la version aleatoria
 classesDist = [[0, 1, 7], [3, 4, 5, 8], [2, 6, 9]]
 
 clasTime = {i:0 for i in Pset}
@@ -101,13 +101,13 @@ def distClass(usedClassifier, clasTime, secondTime):
             for k in range(i):
                 tempArr.append(wbelief[i][k][j])
             if (len(tempArr[0]) != 0):
-                classArr[i].append(finean.sum_rule(tempArr))
+                classArr[i].append(uniqueClass[finean.sum_rule(tempArr)])
             tempArr = []
     #tiempo en integrar los resultados de todos los clasificadores
     joiningTime = time.time() - secondTime
     for i in range(len(Pset)):
         file.write("\t" + str(Pset[i]) + " partitions:\n")
-        file.write("\t" + str(uniqueClass[classArr[Pset[i]]]) + "\n")
+        file.write("\t" + str(classArr[Pset[i]]) + "\n")
         file.write("\taccuracy:\n\t" + str(finean.accu(classArr[Pset[i]], testClasses.tolist())) + "\n")
         file.write("\tprecision:\n\t" + str(finean.multi_precision(classArr[Pset[i]], testClasses.tolist())) + "\n")
         file.write("\trecall:\n\t" + str(finean.multi_recall(classArr[Pset[i]], testClasses.tolist())) + "\n")
