@@ -28,7 +28,7 @@ clasTime = {i:0 for i in Pset}
 NTRAIN = int(sys.argv[2])
 NTEST = int(sys.argv[3])
 
-#posibles valores: "pnw", "piw"
+#posibles valores: "pnw", "piw", "unw"
 weighingStrategy = sys.argv[4]
 
 dataset = sys.argv[5]
@@ -130,7 +130,7 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("results/#")
     client.subscribe("exit")
     #comprobamos que la weighting strategy sea correcta
-    if (weighingStrategy != "pnw" and weighingStrategy != "piw"):
+    if (weighingStrategy != "pnw" and weighingStrategy != "piw" and weighingStrategy != "unw"):
         print("INVALID WEIGHING STRATEGY")
         client.publish("exit", 1, 2)
     partAndTest = create_partitions()
