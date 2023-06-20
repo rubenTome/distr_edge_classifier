@@ -143,6 +143,7 @@ def deleteRowsDf(dataframe, rows):
         dataframe.drop([dataframe.index[rows[i]]], inplace=True)
     return dataframe
 
+#TODO no todas las particiones son desbalanceadas
 def create_perturbated_partition(trainset, trainclasses, npartitions):
     listRes = [[] for _ in range(npartitions)]
 
@@ -150,11 +151,11 @@ def create_perturbated_partition(trainset, trainclasses, npartitions):
     remainingclasses = array(trainclasses)
     C = len(unique(trainclasses))
     partitions = []
-    partitionclasses = [[] for _ in range(npartitions - 1)]
+    partitionclasses = [[] for _ in range(npartitions)]
 
-    for i in range(npartitions-1):
+    for i in range(npartitions):
         N = len(remainingclasses)
-        P = npartitions - i
+        P = npartitions
         prop = array(tablef(remainingclasses, trainclasses)) / N
         dev = prop * uniform(0.1, 0.9, C)
         dev = dev / sum(dev)
@@ -176,7 +177,7 @@ def create_perturbated_partition(trainset, trainclasses, npartitions):
             if ((nobs == [0]).all()):
                 nobs = 1
 
-            nremclass = len(rem) - 1 #menos uno ?
+            nremclass = len(rem)
             nobs = int(min(nobs, nremclass))
             selectedobs = array(random.sample(rem, nobs))
 
@@ -201,7 +202,7 @@ def create_perturbated_partition(trainset, trainclasses, npartitions):
         lenPartClass = len(partitionclasses[i])
         lenPart = partitions[i].shape[0]
         while (lenPart != lenPartClass):
-            partitionclasses[i] = delete(partitionclasses[i], lenPartClass - 1)
+            partitionclasses[i] = delete(partitionclasses[i], lenPartClass)
         
         partitions[i]["classes"] = partitionclasses[i]
         listRes[i] = partitions[i]
