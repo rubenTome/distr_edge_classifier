@@ -143,7 +143,6 @@ def deleteRowsDf(dataframe, rows):
         dataframe.drop([dataframe.index[rows[i]]], inplace=True)
     return dataframe
 
-#TODO no todas las particiones son desbalanceadas
 def create_perturbated_partition(trainset, trainclasses, npartitions):
     listRes = [[] for _ in range(npartitions)]
 
