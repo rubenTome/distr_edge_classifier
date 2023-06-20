@@ -64,6 +64,7 @@ def load_dataset(filename, trainsize, testsize, testfilename = ""):
     return dataset   
 
 #classesDist: matriz, cada fila un nodo, cada elemento una clase
+#TODO crear una version desbalanceada de create_selected_partition
 def create_selected_partition(trainset, trainclasses, npartitions, classesDist):
     if (npartitions != len(classesDist)):
         #classesDist debe tener npartitions filas
@@ -165,7 +166,7 @@ def create_perturbated_partition(trainset, trainclasses, npartitions):
         partitions.append(DataFrame())
         
         for j in range(C):
-            rem = whichf(remainingclasses, j + 1)
+            rem = whichf(remainingclasses, j)
 
             if (len(rem) == 0):
                 exit("ERROR NO ELEMENTS  OF CLASS " + str(j))

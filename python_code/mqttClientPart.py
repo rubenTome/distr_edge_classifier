@@ -19,9 +19,9 @@ for i in range(len(Pset)):
 
 #array de weighed belief values
 wbelief = {i:[] for i in Pset}
-is_balanced = True
+is_balanced = False
 #TODO con classesDist no tiene mejores metricas que la version aleatoria
-classesDist = [[0, 1, 7], [3, 4, 5, 8], [2, 6, 9]]
+classesDist = []#[[0, 1, 7], [3, 4, 5, 8], [2, 6, 9]]
 
 clasTime = {i:0 for i in Pset}
 
