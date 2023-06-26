@@ -61,11 +61,10 @@ NDECIMALS = 2
 #generar tablas con los resultados (+legible)
 generateTables = True
 
-#debe ser el nombre o ip
-
 CLASSIFIERID = sys.argv[1]
 USEDCLASSIFIER = sys.argv[2]
 
+#debe ser el nombre o ip del servidor mosquitto
 BROKER_IP = sys.argv[3]
 
 def strToList(string):
@@ -75,18 +74,34 @@ def strToList(string):
         list.append(float(splitedList[i]))
     return list
 
+def intStrToArray(str):
+    splitedStr = str.split("\n")
+    resArr = [[] for _ in range(len(splitedStr))]
+    for i in range(len(splitedStr)):
+        splitedStr[i] = splitedStr[i].split(",")
+        for j in range(len(splitedStr[i])):
+            if(len(splitedStr[i][j]) == 0):
+                continue
+            else:
+                resArr[i].append(int(splitedStr[i][j]))
+    return resArr
+
 def extractData(message):
     message = message.replace("\\n", "\n")
     splitedMsg = message.split("$")
     partitions = read_csv(StringIO(splitedMsg[0][2:]))
     weighting = splitedMsg[1]
     test = read_csv(StringIO(splitedMsg[2]))
-    uniqueClass = strToList(splitedMsg[3][:-1])
-    return partitions, weighting, test, uniqueClass
+    uniqueClass = strToList(splitedMsg[3])
+    if (splitedMsg[4][:-1] != "not_random"):
+        randomMatrix = intStrToArray(splitedMsg[4][:-1])
+    else:
+        randomMatrix = "not_random"
+    return partitions, weighting, test, uniqueClass, randomMatrix
 
 #ENTRENAMIENTO Y CLASIFICACION
 
-def classify(partition, weighting, test, uniqueClass):
+def classify(partition, weighting, test, uniqueClass, randomMatrix):
     #obtenemos distancia entre test y partition
     classes, counts = unique(partition["classes"], return_counts=True)
     print("training node with classes ", classes)
@@ -123,6 +138,12 @@ def classify(partition, weighting, test, uniqueClass):
         for i in range(len(classifierOutput)):
             for j in range(len(classifierOutput[i])):
                 classifierOutput[i][j] = classifierOutput[i][j] * inverseDistance
+    elif(weighting == "random"):
+        splitedId = CLASSIFIERID.split(".")
+        classIndex = int(splitedId[len(splitedId) - 1])
+        for i in range(len(classifierOutput)):
+            for j in range(len(classifierOutput[i])):
+                classifierOutput[i][j] = classifierOutput[i][j] * randomMatrix[i][classIndex]
     #consruimos la respuesta
     stringOutput = ""
     for i in range(len(classifierOutput)):
@@ -148,9 +169,9 @@ def on_message(client, userdata, msg):
     if (msg.topic == "exit"):
         client.disconnect()
         exit(0)
-    partition, weighting, test, uniqueClass = extractData(str(msg.payload))
+    partition, weighting, test, uniqueClass, randomMatrix = extractData(str(msg.payload))
     print("received", msg.topic)
-    classifiedData = classify(partition, weighting, test, uniqueClass)
+    classifiedData = classify(partition, weighting, test, uniqueClass, randomMatrix)
     print("pubish weighed belief values:\n", classifiedData)
     client.publish("results/" + CLASSIFIERID, classifiedData + "$" + USEDCLASSIFIER, 2)
 

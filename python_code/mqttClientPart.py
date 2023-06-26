@@ -6,6 +6,7 @@ import fine_analysis_python as finean
 import sys
 import socket
 from numpy import unique
+from random import randint
 
 #cliente para crear y publicar las particiones, y recibir resultados
 #ARRANCAR DESPUES DE LOS CLASIFICADORES 
@@ -19,7 +20,6 @@ for i in range(len(Pset)):
 
 #array de weighed belief values
 wbelief = {i:[] for i in Pset}
-is_balanced = False
 #TODO con classesDist no tiene mejores metricas que la version aleatoria
 classesDist = []#[[0, 1, 7], [3, 4, 5, 8], [2, 6, 9]]
 
@@ -27,15 +27,21 @@ clasTime = {i:0 for i in Pset}
 
 NTRAIN = int(sys.argv[2])
 NTEST = int(sys.argv[3])
+if (sys.argv[4] == "balanced"):
+    is_balanced = True
+elif (sys.argv[4] == "unbalanced"):
+    is_balanced = False
+else:
+    exit("ERROR: invalid argument ", sys.argv[4])
 
-#posibles valores: "pnw", "piw", "unw"
-weighingStrategy = sys.argv[4]
+#posibles valores: "pnw", "piw", "unw", "random"
+weighingStrategy = sys.argv[5]
 
-dataset = sys.argv[5]
+dataset = sys.argv[6]
 
 #TODO revisar, fallo en rbind (rpy2)
-if(len(sys.argv) == 7):
-    datasetTrain = sys.argv[6]
+if(len(sys.argv) == 8):
+    datasetTrain = sys.argv[7]
 else:
     datasetTrain = ""
 
@@ -130,14 +136,26 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("results/#")
     client.subscribe("exit")
     #comprobamos que la weighting strategy sea correcta
-    if (weighingStrategy != "pnw" and weighingStrategy != "piw" and weighingStrategy != "unw"):
+    if (weighingStrategy != "pnw" and weighingStrategy != "piw" and weighingStrategy != "unw" and weighingStrategy != "random"):
         print("INVALID WEIGHING STRATEGY")
         client.publish("exit", 1, 2)
+    if (weighingStrategy == "random"):
+        randomMatrixStr = ""
+        for i in range(NTEST):
+            n = randint(0, 2)
+            if (n == 0):
+                randomMatrixStr += "1,0,0\n"
+            if (n == 1):
+                randomMatrixStr += "0,1,0\n"
+            if (n == 2):
+                randomMatrixStr += "0,0,1\n"
+    else:
+        randomMatrixStr = "not_random"
     partAndTest = create_partitions()
     uniqueClassStr = "[" + ",".join(str(i) for i in uniqueClass) + ",]"#TODO en strToList no necesitar la "," final
     for j in range(len(Pset)):
         for k in range(Pset[j]):
-            message = dataframeToStr(partAndTest[0][j][k]) + "$" + weighingStrategy + "$" + dataframeToStr(partAndTest[1]) + "$" + uniqueClassStr
+            message = dataframeToStr(partAndTest[0][j][k]) + "$" + weighingStrategy + "$" + dataframeToStr(partAndTest[1]) + "$" + uniqueClassStr + "$" + randomMatrixStr
             client.publish("partition/" + str(Pset[j]) + "." + str(k), message, 2)
             print("published partition " + str(Pset[j]) + "." + str(k))
 
