@@ -10,6 +10,8 @@ import partitionfunctions_python as partf
 #los clientes se subscriben a su particion y publican los resultados
 #ARRANCAR PRIMERO LOS CLASIFICADORES
 
+#TODO RESULTADOS MUY MALOS SALVO EN MNIST
+
 #CLASIFICADORES
 
 def knn(partition, test):#partition es un pandas.DataFrame

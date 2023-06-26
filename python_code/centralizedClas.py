@@ -7,14 +7,15 @@ from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from numpy import shape, arange, unique, argmax
 
 print("CENTRALIZED CLASSIFIER")
-TRAINFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/scenariosimul/reordered_mnist_train.csv"
-TESTFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/scenariosimul/reordered_mnist_test.csv"
+TRAINFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/scenariosimul/scenariosimulC8D5G3STDEV0.15.csv"
+TESTFILE = ""
 NTRAIN = 3000
-NTEST = 100
+NTEST = 500
 classifier = "rf"
 
 print("\t*Creating dataset")
 ds = partf.load_dataset(TRAINFILE, NTRAIN, NTEST, TESTFILE)
+#TODO func. particion por parametro
 partitions = partf.create_random_partition(ds["trainset"], ds["trainclasses"], 1)
 testset = ds["testset"]
 testclasses = ds["testclasses"]
