@@ -28,7 +28,7 @@ trainclasses = partition[:,[nVars]].flatten()
 if (classifier == "rf"):
     cls = RandomForestClassifier(verbose=1)
 elif (classifier == "knn"):
-    cls = KNeighborsClassifier(n_neighbors = 2)
+    cls = KNeighborsClassifier(n_neighbors = 3)
 elif(classifier == "xgb"):
     cls = GradientBoostingClassifier(verbose=1)
 else:
