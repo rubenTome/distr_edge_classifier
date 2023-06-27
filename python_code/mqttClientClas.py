@@ -12,16 +12,22 @@ import partitionfunctions_python as partf
 
 #CLASIFICADORES
 
-def knn(partition, test):#partition es un pandas.DataFrame
+def knn(partition, test, uniqueClass):#partition es un pandas.DataFrame
     print("starting knn classifier")
     partition = partition.to_numpy()
     nVars = shape(partition)[1] - 1
     trainset = partition[:, arange(nVars)]
     trainclasses = partition[:,[nVars]].flatten()
+    #clases que existen en este nodo
+    ourTrainclasses = unique(trainclasses)
     clf = KNeighborsClassifier(n_neighbors = 2)
     clf.fit(trainset, trainclasses)
     testClass = clf.predict_proba(test[:].values)
-    return testClass
+    result = [[0 for _ in range(len(uniqueClass))] for _ in range(len(testClass))]
+    for i in range(len(testClass)):
+        for j in range(len(testClass[i])):
+            result[i][uniqueClass.index(float(ourTrainclasses[j]))] = testClass[i][j]
+    return result
 
 def rf(partition, test, uniqueClass):#uniqueClass son todas las clases que existen
     print("starting rf classifier")
@@ -40,16 +46,22 @@ def rf(partition, test, uniqueClass):#uniqueClass son todas las clases que exist
             result[i][uniqueClass.index(float(ourTrainclasses[j]))] = testClass[i][j]
     return result
 
-def xgb(partition, test):
+def xgb(partition, test, uniqueClass):
     print("starting xgb classifier")
     partition = partition.to_numpy()
     nVars = shape(partition)[1] - 1
     trainset = partition[:, arange(nVars)]
     trainclasses = partition[:,[nVars]].flatten()
+    #clases que existen en este nodo
+    ourTrainclasses = unique(trainclasses)
     gbc = GradientBoostingClassifier(verbose=1)
     gbc.fit(trainset, trainclasses)
     testClass = gbc.predict_proba(test[:].values)
-    return testClass
+    result = [[0 for _ in range(len(uniqueClass))] for _ in range(len(testClass))]
+    for i in range(len(testClass)):
+        for j in range(len(testClass[i])):
+            result[i][uniqueClass.index(float(ourTrainclasses[j]))] = testClass[i][j]
+    return result
 
 #PARAMETROS 
 

@@ -7,7 +7,7 @@ from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from numpy import shape, arange, unique, argmax
 
 print("CENTRALIZED CLASSIFIER")
-TRAINFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/scenariosimul/scenariosimulC8D5G3STDEV0.15.csv"
+TRAINFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/scenariosimul/scenariosimulC8D5G3STDEV0.05.csv"
 TESTFILE = ""
 NTRAIN = 3000
 NTEST = 500
