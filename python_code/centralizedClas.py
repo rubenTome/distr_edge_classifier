@@ -11,12 +11,21 @@ TRAINFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/scenariosimul/scenariosimulC
 TESTFILE = ""
 NTRAIN = 3000
 NTEST = 500
-classifier = "rf"
+classifier = "knn"
+partitions = "balanced" #puede ser: balanced, unbalanced, selected 
+classesDist = []
 
 print("\t*Creating dataset")
 ds = partf.load_dataset(TRAINFILE, NTRAIN, NTEST, TESTFILE)
 #TODO func. particion por parametro
-partitions = partf.create_random_partition(ds["trainset"], ds["trainclasses"], 1)
+if(partitions == "balanced"):
+    partitions = partf.create_random_partition(ds["trainset"], ds["trainclasses"], 1)
+elif(partitions == "unbalanced"):
+    partitions = partf.create_perturbated_partition(ds["trainset"], ds["trainclasses"], 1)
+elif(partitions == "selected"):
+    partitions = partf.create_selected_partition(ds["trainset"], ds["trainclasses"], 1, classesDist)
+else:
+    exit("ERROR: invalid partitions value:", partitions)
 testset = ds["testset"]
 testclasses = ds["testclasses"]
 uniqueclasses = unique(testclasses)

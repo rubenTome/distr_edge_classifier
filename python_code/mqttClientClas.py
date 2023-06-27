@@ -1,6 +1,9 @@
 import paho.mqtt.client as mqtt
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVC
 from numpy import shape, arange, unique
 from pandas import read_csv
 from io import StringIO
@@ -57,6 +60,23 @@ def xgb(partition, test, uniqueClass):
     gbc = GradientBoostingClassifier(verbose=1)
     gbc.fit(trainset, trainclasses)
     testClass = gbc.predict_proba(test[:].values)
+    result = [[0 for _ in range(len(uniqueClass))] for _ in range(len(testClass))]
+    for i in range(len(testClass)):
+        for j in range(len(testClass[i])):
+            result[i][uniqueClass.index(float(ourTrainclasses[j]))] = testClass[i][j]
+    return result
+
+def svm(partition, test, uniqueClass):
+    print("starting xgb classifier")
+    partition = partition.to_numpy()
+    nVars = shape(partition)[1] - 1
+    trainset = partition[:, arange(nVars)]
+    trainclasses = partition[:,[nVars]].flatten()
+    #clases que existen en este nodo
+    ourTrainclasses = unique(trainclasses)
+    svc = make_pipeline(StandardScaler(), SVC(gamma='auto', probability=True))
+    svc.fit(trainset, trainclasses)
+    testClass = svc.predict_proba(test[:].values)
     result = [[0 for _ in range(len(uniqueClass))] for _ in range(len(testClass))]
     for i in range(len(testClass)):
         for j in range(len(testClass[i])):
@@ -137,6 +157,8 @@ def classify(partition, weighting, test, uniqueClass, randomMatrix):
         classifierOutput = rf(partition, test, uniqueClass)
     elif(USEDCLASSIFIER == "xgb"):
         classifierOutput = xgb(partition, test, uniqueClass)
+    elif(USEDCLASSIFIER == "svm"):
+        classifierOutput = svm(partition, test, uniqueClass)
     else:
         print("UNKNOWN CLASSIFIER")
         exit(0)
