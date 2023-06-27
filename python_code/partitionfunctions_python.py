@@ -143,79 +143,13 @@ def deleteRowsDf(dataframe, rows):
         dataframe.drop([dataframe.index[rows[i]]], inplace=True)
     return dataframe
 
-#TODO usando perturbated antiguo, el nuevo funciona cuando las clases empiezan en 0 pero pierde instancias
-
-# def create_perturbated_partition(trainset, trainclasses, npartitions):
-#     listRes = [[] for _ in range(npartitions)]
-
-#     remainingset = DataFrame(trainset)
-#     remainingclasses = array(trainclasses)
-#     C = unique(trainclasses)
-#     partitions = []
-#     partitionclasses = [[] for _ in range(npartitions)]
-
-#     for i in range(npartitions):
-#         N = len(remainingclasses)
-#         P = npartitions
-#         prop = array(tablef(remainingclasses, trainclasses)) / N
-#         dev = prop * uniform(0.1, 0.9, len(C))
-#         dev = dev / sum(dev)
-        
-#         if i == 0:
-#             dev = prop
-
-#         observations = floor(dev * (N / P))
-#         partitions.append(DataFrame())
-        
-#         for j in range(len(C)):
-#             rem = whichf(remainingclasses, C[j])
-
-#             if (len(rem) == 0):
-#                 exit("ERROR NO ELEMENTS  OF CLASS " + str(j))
-
-#             nobs = observations[j]
-
-#             if ((nobs == [0]).all()):
-#                 nobs = 1
-
-#             nremclass = len(rem)
-#             nobs = int(min(nobs, nremclass))
-#             selectedobs = array(random.sample(rem, nobs))
-
-#             if (len(rem) == 1):
-#                 selectedobs = rem
-
-#             partitions[i] = concat([partitions[i], remainingset.iloc[selectedobs]], ignore_index = True)
-
-#             partitionclasses[i] = append(partitionclasses[i], remainingclasses[selectedobs]).astype("int")
-
-#             if((tablef(remainingclasses, trainclasses)[j] - nobs) < 1):
-#                 toadd = nobs
-#                 remainingset = concat([remainingset, remainingset.iloc[rem[:toadd]]])
-#                 remainingclasses = append(remainingclasses, [remainingclasses[i] for i in rem[:toadd]])  
-
-#             remainingset = deleteRowsDf(remainingset, selectedobs)
-#             remainingclasses = delete(remainingclasses, selectedobs)
-
-#     partitions.append(remainingset)
-#     partitionclasses.append(remainingclasses)
-#     for i in range(npartitions):        
-#         lenPartClass = len(partitionclasses[i])
-#         lenPart = partitions[i].shape[0]
-#         while (lenPart != lenPartClass):
-#             partitionclasses[i] = delete(partitionclasses[i], lenPartClass)
-        
-#         partitions[i]["classes"] = partitionclasses[i]
-#         listRes[i] = partitions[i]
-
-#     return listRes
-
 def create_perturbated_partition(trainset, trainclasses, npartitions):
     listRes = [[] for _ in range(npartitions)]
 
     remainingset = DataFrame(trainset)
     remainingclasses = array(trainclasses)
-    C = len(unique(trainclasses))
+    uniqueTC = unique(trainclasses)
+    C = len(uniqueTC)
     partitions = []
     partitionclasses = [[] for _ in range(npartitions - 1)]
 
@@ -233,7 +167,7 @@ def create_perturbated_partition(trainset, trainclasses, npartitions):
         partitions.append(DataFrame())
         
         for j in range(C):
-            rem = whichf(remainingclasses, j + 1)
+            rem = whichf(remainingclasses, uniqueTC[j])
 
             if (len(rem) == 0):
                 exit("ERROR NO ELEMENTS  OF CLASS " + str(j))
