@@ -20,7 +20,7 @@ def knn(partition, test, uniqueClass):#partition es un pandas.DataFrame
     trainclasses = partition[:,[nVars]].flatten()
     #clases que existen en este nodo
     ourTrainclasses = unique(trainclasses)
-    clf = KNeighborsClassifier(n_neighbors = 2)
+    clf = KNeighborsClassifier(n_neighbors = 3)
     clf.fit(trainset, trainclasses)
     testClass = clf.predict_proba(test[:].values)
     result = [[0 for _ in range(len(uniqueClass))] for _ in range(len(testClass))]
