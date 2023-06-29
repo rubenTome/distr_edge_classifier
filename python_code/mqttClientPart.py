@@ -21,8 +21,8 @@ for i in range(len(Pset)):
 #array de weighed belief values
 wbelief = {i:[] for i in Pset}
 #TODO con classesDist no tiene mejores metricas que la version aleatoria
-#TODO al eliminar una clase, train y test tendran menos de NTRAIN o NTEST instancias
-classesDist = []#[[3, 5, 8], [4, 7, 9], [0, 2, 6]]
+#TODO al eliminar una clase, train y test tendran menos de NTRAIN o NTEST instancias: cargamos un 50% mas de datos, pero puede dar problemas
+classesDist = [[3, 5, 8], [4, 7, 9], [0, 2, 6]]
 classesList = asarray(classesDist).ravel()
 clasTime = {i:0 for i in Pset}
 

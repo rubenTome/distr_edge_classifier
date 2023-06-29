@@ -45,8 +45,13 @@ def load_dataset(filename, trainsize, testsize, testfilename = "", classesList=[
         "testset": None,
         "testclasses": None
     }
-
-    samp = sample_n_from_csv(filename, trainsize + testsize).sample(frac = 1)
+    extra = 1
+    if len(classesList > 0):
+        extra += 0.5
+    if testfilename == "":
+        samp = sample_n_from_csv(filename, round((trainsize + testsize) * extra)).sample(frac = 1)
+    else:
+        samp = sample_n_from_csv(filename, round(trainsize * extra)).sample(frac = 1)
     sampShape = samp.shape
     if (len(classesList) > 0):
         #calculamos clases eliminadas
@@ -66,7 +71,7 @@ def load_dataset(filename, trainsize, testsize, testfilename = "", classesList=[
         dataset["testclasses"] = samp.iloc[trainsize:trainsize + testsize].loc[:, "classes"]
     else:
         print("selected file for testing: ", testfilename)
-        testSamp = sample_n_from_csv(testfilename, testsize).sample(frac = 1)
+        testSamp = sample_n_from_csv(testfilename, round(testsize * extra)).sample(frac = 1)
         if (len(classesList) > 0):
             for i in range(len(deletedClasses)):
                 testSamp = testSamp.drop(testSamp[testSamp["classes"] == deletedClasses[i]].index)
