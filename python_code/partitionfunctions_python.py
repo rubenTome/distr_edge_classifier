@@ -38,7 +38,7 @@ def sample_n_from_csv(filename:str, n:int=100, total_rows:int=None) -> DataFrame
     return read_csv(filename, skiprows=skip_rows)
 
 #TODO revisar funcionamiento de load_dataset 
-def load_dataset(filename, trainsize, testsize, testfilename = ""):
+def load_dataset(filename, trainsize, testsize, testfilename = "", classesList=[]):
     dataset = {
         "trainset": None,
         "trainclasses": None,
@@ -48,6 +48,15 @@ def load_dataset(filename, trainsize, testsize, testfilename = ""):
 
     samp = sample_n_from_csv(filename, trainsize + testsize).sample(frac = 1)
     sampShape = samp.shape
+    if (len(classesList) > 0):
+        #calculamos clases eliminadas
+        uniqueClasses = unique(samp["classes"])
+        if (len(uniqueClasses) < len(classesList)):
+            exit("ERROR: invalid classes number ", classesList)
+        deletedClasses = list(set(uniqueClasses) ^ set(classesList))
+        #eliminamos esas clases de todo el dataset
+        for i in range(len(deletedClasses)):
+            samp = samp.drop(samp[samp["classes"] == deletedClasses[i]].index)
     #indices de filas en trainset y testset son secuenciales no aleatorios
     dataset["trainset"] = samp.iloc[:trainsize, arange(sampShape[1] - 1)]
     dataset["trainclasses"] = samp.iloc[:trainsize].loc[:, "classes"]
@@ -58,6 +67,9 @@ def load_dataset(filename, trainsize, testsize, testfilename = ""):
     else:
         print("selected file for testing: ", testfilename)
         testSamp = sample_n_from_csv(testfilename, testsize).sample(frac = 1)
+        if (len(classesList) > 0):
+            for i in range(len(deletedClasses)):
+                testSamp = testSamp.drop(testSamp[testSamp["classes"] == deletedClasses[i]].index)
         testSampShape = testSamp.shape
         dataset["testset"] = testSamp.iloc[:testsize, arange(testSampShape [1] - 1)]
         dataset["testclasses"] = testSamp.iloc[:testsize].loc[:, "classes"]
@@ -113,6 +125,7 @@ def create_random_partition(trainset, trainclasses, npartitions):
     #partition es el resultado de create_random_partition() 
     partitions = [DataFrame() for _ in range(npartitions)]
     for i in range(npartitions):
+        #TODO ERROR CON MNIST ???
         partitions[i] = groupsListPart[i]
         for j in range(1, classesLen):
             partitions[i] = concat([partitions[i].reset_index(drop = True), 

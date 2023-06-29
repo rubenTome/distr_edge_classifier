@@ -5,7 +5,7 @@ import partitionfunctions_python as partf
 import fine_analysis_python as finean
 import sys
 import socket
-from numpy import unique
+from numpy import unique, asarray
 from random import randint
 
 #cliente para crear y publicar las particiones, y recibir resultados
@@ -21,8 +21,9 @@ for i in range(len(Pset)):
 #array de weighed belief values
 wbelief = {i:[] for i in Pset}
 #TODO con classesDist no tiene mejores metricas que la version aleatoria
-classesDist = []#[[0, 1, 7], [3, 4, 5, 8], [2, 6, 9]]
-
+#TODO al eliminar una clase, train y test tendran menos de NTRAIN o NTEST instancias
+classesDist = []#[[3, 5, 8], [4, 7, 9], [0, 2, 6]]
+classesList = asarray(classesDist).ravel()
 clasTime = {i:0 for i in Pset}
 
 NTRAIN = int(sys.argv[2])
@@ -72,11 +73,13 @@ def strToArray(str):
     return resArr
 
 def create_partitions():
-    ds = partf.load_dataset(dataset, NTRAIN, NTEST, datasetTrain)
+    ds = partf.load_dataset(dataset, NTRAIN, NTEST, datasetTrain, classesList)
     global testClasses
     testClasses = ds["testclasses"]
     global uniqueClass
     uniqueClass = unique(testClasses)
+    global testSize
+    testSize = testClasses.size
     #creamos las particiones segun parametro classesDist e is_balanced
     if(len(classesDist) > 0):
         partitionFun = partf.create_selected_partition
@@ -141,7 +144,7 @@ def on_connect(client, userdata, flags, rc):
         client.publish("exit", 1, 2)
     if (weighingStrategy == "random"):
         randomMatrixStr = ""
-        for i in range(NTEST):
+        for i in range(testSize):
             n = randint(0, 2)
             if (n == 0):
                 randomMatrixStr += "1,0,0\n"
