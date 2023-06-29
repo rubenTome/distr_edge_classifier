@@ -46,7 +46,7 @@ def load_dataset(filename, trainsize, testsize, testfilename = "", classesList=[
         "testclasses": None
     }
     extra = 1
-    if len(classesList > 0):
+    if len(classesList) > 0:
         extra += 0.5
     if testfilename == "":
         samp = sample_n_from_csv(filename, round((trainsize + testsize) * extra)).sample(frac = 1)
@@ -107,6 +107,10 @@ def create_selected_partition(trainset, trainclasses, npartitions, classesDist):
 
     return partitions
     
+# def create_selected_unb_partition(trainset, trainclasses, npartitions, classesDist):
+#     print("create_selected_unb_partition")
+#     return create_perturbated_partition(trainset, trainclasses, npartitions)
+
 def create_random_partition(trainset, trainclasses, npartitions):
     classes, count = unique(trainclasses, return_counts=True)
     print("counts per class: ", count)
