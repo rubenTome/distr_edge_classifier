@@ -17,13 +17,10 @@ classesDist = []
 
 print("\t*Creating dataset")
 ds = partf.load_dataset(TRAINFILE, NTRAIN, NTEST, TESTFILE)
-#TODO func. particion por parametro
 if(partitions == "balanced"):
     partitions = partf.create_random_partition(ds["trainset"], ds["trainclasses"], 1)
 elif(partitions == "unbalanced"):
     partitions = partf.create_perturbated_partition(ds["trainset"], ds["trainclasses"], 1)
-elif(partitions == "selected"):
-    partitions = partf.create_selected_partition(ds["trainset"], ds["trainclasses"], 1, classesDist)
 else:
     exit("ERROR: invalid partitions value:", partitions)
 testset = ds["testset"]

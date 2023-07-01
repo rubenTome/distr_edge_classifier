@@ -22,7 +22,7 @@ for i in range(len(Pset)):
 wbelief = {i:[] for i in Pset}
 #TODO con classesDist no tiene mejores metricas que la version aleatoria
 #TODO al eliminar una clase, train y test tendran menos de NTRAIN o NTEST instancias: cargamos un 50% mas de datos, pero puede dar problemas
-classesDist = [[3, 5, 8], [4, 7, 9], [0, 2, 6]]
+classesDist = [[0, 3, 4], [2, 5, 7], [6, 8, 9]]
 classesList = asarray(classesDist).ravel()
 clasTime = {i:0 for i in Pset}
 
@@ -142,9 +142,10 @@ def on_connect(client, userdata, flags, rc):
     if (weighingStrategy != "pnw" and weighingStrategy != "piw" and weighingStrategy != "unw" and weighingStrategy != "random"):
         print("INVALID WEIGHING STRATEGY")
         client.publish("exit", 1, 2)
+    partAndTest = create_partitions()
     if (weighingStrategy == "random"):
         randomMatrixStr = ""
-        for i in range(testSize):
+        for _ in range(testSize):
             n = randint(0, 2)
             if (n == 0):
                 randomMatrixStr += "1,0,0\n"
@@ -154,7 +155,6 @@ def on_connect(client, userdata, flags, rc):
                 randomMatrixStr += "0,0,1\n"
     else:
         randomMatrixStr = "not_random"
-    partAndTest = create_partitions()
     uniqueClassStr = "[" + ",".join(str(i) for i in uniqueClass) + ",]"#TODO en strToList no necesitar la "," final
     for j in range(len(Pset)):
         for k in range(Pset[j]):
