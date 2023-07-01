@@ -7,11 +7,11 @@ from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from numpy import shape, arange, unique, argmax
 
 print("CENTRALIZED CLASSIFIER")
-TRAINFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/scenariosimul/scenariosimulC8D5G3STDEV0.05.csv"
-TESTFILE = ""
+TRAINFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/datasets/reordered_mnist_train.csv"
+TESTFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/datasets/reordered_mnist_test.csv"
 NTRAIN = 3000
 NTEST = 500
-classifier = "knn"
+classifier = "xgb"
 partitions = "balanced" #puede ser: balanced, unbalanced, selected 
 classesDist = []
 
