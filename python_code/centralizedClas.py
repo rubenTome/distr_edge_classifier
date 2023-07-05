@@ -4,16 +4,18 @@ import partitionfunctions_python as partf
 import fine_analysis_python as finean
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVC
 from numpy import shape, arange, unique, argmax
 
 print("CENTRALIZED CLASSIFIER")
-TRAINFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/datasets/reordered_mnist_train.csv"
-TESTFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/datasets/reordered_mnist_test.csv"
+TRAINFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/datasets/connect-4Train.csv"
+TESTFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/datasets/connect-4Test.csv"
 NTRAIN = 3000
 NTEST = 500
-classifier = "xgb"
+classifier = "knn"
 partitions = "balanced" #puede ser: balanced, unbalanced, selected 
-classesDist = []
 
 print("\t*Creating dataset")
 ds = partf.load_dataset(TRAINFILE, NTRAIN, NTEST, TESTFILE)
@@ -37,6 +39,8 @@ elif (classifier == "knn"):
     cls = KNeighborsClassifier(n_neighbors = 3)
 elif(classifier == "xgb"):
     cls = GradientBoostingClassifier(verbose=1)
+elif(classifier == "svm"):
+    cls = make_pipeline(StandardScaler(), SVC(gamma='auto', probability=True))
 else:
     exit("ERROR: invalid classifier " + classifier)
 cls.fit(trainset, trainclasses)

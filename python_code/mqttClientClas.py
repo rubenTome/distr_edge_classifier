@@ -13,6 +13,8 @@ import partitionfunctions_python as partf
 #los clientes se subscriben a su particion y publican los resultados
 #ARRANCAR PRIMERO LOS CLASIFICADORES
 
+energy_func = partf.end_R #posibles valores: end_P, end_R
+
 #CLASIFICADORES
 
 def knn(partition, test, uniqueClass):#partition es un pandas.DataFrame
@@ -67,7 +69,7 @@ def xgb(partition, test, uniqueClass):
     return result
 
 def svm(partition, test, uniqueClass):
-    print("starting xgb classifier")
+    print("starting svm classifier")
     partition = partition.to_numpy()
     nVars = shape(partition)[1] - 1
     trainset = partition[:, arange(nVars)]
@@ -146,10 +148,10 @@ def classify(partition, weighting, test, uniqueClass, randomMatrix):
         inverseDistance = [0 for _ in range(len(testMatrix))]
         for i in range(len(testMatrix)):
             print("instance ", i, end="\r")
-            inverseDistance[i] = 1 / partf.end_R([testMatrix[i]], partitionMatrix)
+            inverseDistance[i] = 1 / energy_func([testMatrix[i]], partitionMatrix)
     elif(weighting == "pnw"):
         print("calculating distances")
-        inverseDistance = 1 / partf.end_R(testMatrix, partitionMatrix)
+        inverseDistance = 1 / energy_func(testMatrix, partitionMatrix)
     #obtenemos belief values
     if (USEDCLASSIFIER == "knn"):
         classifierOutput = knn(partition, test, uniqueClass)
