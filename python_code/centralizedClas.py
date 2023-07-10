@@ -10,21 +10,16 @@ from sklearn.svm import SVC
 from numpy import shape, arange, unique, argmax
 
 print("CENTRALIZED CLASSIFIER")
-TRAINFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/datasets/connect-4Train.csv"
-TESTFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/datasets/connect-4Test.csv"
+
+TRAINFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/datasets/scenariosimulC8D5G3STDEV0.05.csv"
+TESTFILE = ""
 NTRAIN = 3000
 NTEST = 500
 classifier = "knn"
-partitions = "balanced" #puede ser: balanced, unbalanced, selected 
 
 print("\t*Creating dataset")
 ds = partf.load_dataset(TRAINFILE, NTRAIN, NTEST, TESTFILE)
-if(partitions == "balanced"):
-    partitions = partf.create_random_partition(ds["trainset"], ds["trainclasses"], 1)
-elif(partitions == "unbalanced"):
-    partitions = partf.create_perturbated_partition(ds["trainset"], ds["trainclasses"], 1)
-else:
-    exit("ERROR: invalid partitions value:", partitions)
+partitions = partf.create_random_partition(ds["trainset"], ds["trainclasses"], 1)
 testset = ds["testset"]
 testclasses = ds["testclasses"]
 uniqueclasses = unique(testclasses)
