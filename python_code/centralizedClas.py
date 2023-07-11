@@ -11,11 +11,11 @@ from numpy import shape, arange, unique, argmax
 
 print("CENTRALIZED CLASSIFIER")
 
-TRAINFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/datasets/scenariosimulC8D5G3STDEV0.05.csv"
+TRAINFILE = "/home/ruben/FIC/Q8/TFG/clean_partition/datasets/covtype.csv"
 TESTFILE = ""
 NTRAIN = 3000
 NTEST = 500
-classifier = "knn"
+classifier = "svm"
 
 print("\t*Creating dataset")
 ds = partf.load_dataset(TRAINFILE, NTRAIN, NTEST, TESTFILE)
