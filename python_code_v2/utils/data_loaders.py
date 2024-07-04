@@ -1,0 +1,36 @@
+import pandas as pd
+import random as rd
+import math as mt
+
+def load_dataset(path, size):
+    df = pd.read_csv(filepath_or_buffer=path, nrows=size)
+    return df
+
+def create_random_partition(data, nNodes, trainSize=0.7, testSize=0.3):
+    if trainSize + testSize != 1:
+        raise ValueError("trainSize + testSize must be equal to 1")
+    #divide data in train and test
+    n = len(data)
+    trainN = mt.trunc(trainSize * n)
+    testN = mt.trunc(testSize * n)
+    trainSet = pd.DataFrame(columns=data.columns)
+    testSet = pd.DataFrame(columns=data.columns)
+    for _ in range(trainN):
+        rdInt = rd.randint(0, n - 1)
+        trainSet = pd.concat([trainSet, data.iloc[[rdInt]]])
+    for _ in range(testN):
+        rdInt = rd.randint(0, n - 1)
+        testSet = pd.concat([testSet, data.iloc[[rdInt]]])
+
+    #divide train in nNodes
+    nodeTrainN = mt.trunc(trainN / nNodes)
+    nodeTrainSets = [pd.DataFrame(columns=data.columns) for _ in range(nNodes)]
+    for i in range(nNodes):
+        nodeTrainSets[i] = trainSet.iloc[i * nodeTrainN:(i + 1) * nodeTrainN]
+    
+    return nodeTrainSets, testSet
+
+def create_perturbated_partition(data, nNodes, trainSize=0.7, testSize=0.3):
+    raise NotImplementedError
+def create_selected_partition(data, nNodes, classesDist, trainSize=0.7, testSize=0.3):
+    raise NotImplementedError
