@@ -3,7 +3,7 @@ import socket
 import sys
 import utils.metrics as metrics
 import utils.data_loaders as data_loaders
-import python_code_v2.utils.weighting as weighting
+import utils.weighting as weighting
 import utils.classifiers as classifiers
 import pandas as pd
 import numpy as np
