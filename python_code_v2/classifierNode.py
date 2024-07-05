@@ -3,7 +3,7 @@ import socket
 import sys
 import utils.metrics as metrics
 import utils.data_loaders as data_loaders
-import utils.wheighting as wheighting
+import python_code_v2.utils.weighting as weighting
 import utils.classifiers as classifiers
 import pandas as pd
 import numpy as np
@@ -62,11 +62,11 @@ def on_message(client, userdata, msg):
         trainDataList = trainData.drop('classes', axis=1).values
         testDataList = testData.drop('classes', axis=1).values
         if(sys.argv[4] == "pnw"):
-            wPredicted = wheighting.pnw(predicted, trainDataList, testDataList)
+            wPredicted = weighting.pnw(predicted, trainDataList, testDataList)
         elif(sys.argv[4] == "piw"):
-            wPredicted = wheighting.piw(predicted, trainDataList, testDataList)
+            wPredicted = weighting.piw(predicted, trainDataList, testDataList)
         elif(sys.argv[4] == "random"):
-            wPredicted = wheighting.random(predicted)
+            wPredicted = weighting.random(predicted)
         else:
             print("unknown wheighting strategy (correct values: piw, pnw, random)")
             print("exiting...")

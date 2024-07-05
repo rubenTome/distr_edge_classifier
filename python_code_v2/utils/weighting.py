@@ -1,5 +1,5 @@
 from utils.distance import energyDistR
-from dcor import energy_distance as energyDistP
+#from dcor import energy_distance as energyDistP
 import pandas as pd
 
 #possible values: energyDistR, energyDistP
