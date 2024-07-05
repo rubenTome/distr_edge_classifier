@@ -13,20 +13,19 @@ BROKER_IP = sys.argv[3]
 PORT = 1883
 
 def on_connect(client, userdata, flags, rc):
-    client.unsubscribe("#")
     print("connected to mqtt broker with code", rc)
-    client.subscribe("exit")
-    print("subscribed to exit")
     #subscribe to the topic of node train subset
     client.subscribe(sys.argv[1])
     print("subscribed to", sys.argv[1])
+    #subscribe to exit topic
+    client.subscribe(sys.argv[1] + ".exit")
+    print("subscribed to " + sys.argv[1] + ".exit")
 
 def on_message(client, userdata, msg):
     #diconnect node
-    if (msg.topic == "exit"):
-        print("exiting...")
-        classNode.unsubscribe("#")
+    if (msg.topic == sys.argv[1] + ".exit"):
         client.disconnect()
+        print("exiting...")
         exit(0)
     #receive data from central node, train and classify data
     if (msg.topic == sys.argv[1]):
@@ -55,7 +54,6 @@ def on_message(client, userdata, msg):
         else:
             print("unknown classifier (correct values: knn, xgb, rf, svm)")
             print("exiting...")
-            classNode.publish("exit", 1, 2)
             exit(-1)
         #wheight predicted values
         print("wheighting...")
@@ -78,7 +76,7 @@ def on_message(client, userdata, msg):
         print("published weighted belief values")
 
 
-classNode = mqtt.Client("classNode", True)
+classNode = mqtt.Client("classNode." + sys.argv[1], True)
 classNode.on_connect = on_connect
 classNode.on_message = on_message
 classNode.connect(BROKER_IP, PORT)

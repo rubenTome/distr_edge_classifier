@@ -45,19 +45,21 @@ def createNodeTopics(nPartition):
         nodeTopics.append(nPartition + "." + str(i))
     return nodeTopics
 
+#dataframe to store results from each node
+global nodeResults 
+nodeResults = []
+#number of train subsets, one per classifier node
 nPartition = sys.argv[1]
 #topics assigned to each node
 nodeTopics = createNodeTopics(nPartition)
 #results topics: X.X.results
 nodeTopicsRes = [i + ".results" for i in nodeTopics]
+#load and divide data
 data = data_loaders.load_dataset(sys.argv[6], int(sys.argv[2]))
 trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data)
 
 def on_connect(client, userdata, flags, rc):
-    client.unsubscribe("#")
     print("connected to mqtt broker with code", rc)
-    client.subscribe("exit")
-    print("subscribed to exit")
     for i in range(int(nPartition)):
         topic = str(nPartition) + "." + str(i)
         #subscribe to each node results topic
@@ -68,19 +70,12 @@ def on_connect(client, userdata, flags, rc):
         print("published partition to node", topic)
 
 def on_message(client, userdata, msg):
-    #dataframe to store results from each node
-    global nodeResults
-    nodeResults = []
-    #diconnect node
-    if (msg.topic == "exit"):
-        print("exiting...")
-        centralNode.unsubscribe("#")
-        client.disconnect()
-        exit(0)
     #receive data from node and store it
     if msg.topic in nodeTopicsRes:
         nodeTopicsRes.remove(msg.topic)
-        print(msg.topic + ": received classified data")
+        print("received classified data:", msg.topic)
+        client.publish(msg.topic.replace("results", "") + "exit", 1, 2)
+        print("publishing exit message:", msg.topic.replace("results", "") + "exit")
         #combine csv strings in a single dataframe
         receivedStr = str(msg.payload)
         #remove first 3 characters and replace "\n" string with new line
@@ -99,8 +94,10 @@ def on_message(client, userdata, msg):
             print("\taccuracy: ", acc)
             print("\tprecision: ", prec)
             print("\trecall: ", rec)
-            #send exit message to all nodes, included this one
-            centralNode.publish("exit", 1, 2)
+            #disconnect this node
+            client.disconnect()
+            print("exiting...")
+            exit(0)
 
 centralNode = mqtt.Client("centralNode", True)
 centralNode.on_connect = on_connect
