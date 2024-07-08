@@ -17,5 +17,5 @@ def rf(train, test):
 def svm(train, test):
     trainClasses = np.array(train.iloc[:, -1:].values.tolist()).flatten()
     svc = make_pipeline(StandardScaler(), SVC(gamma='auto', probability=True))
-    svc.fit(train, trainClasses)
+    svc.fit(train.values, trainClasses)
     return svc.predict_proba(test[:].values)
