@@ -1,3 +1,5 @@
+import time
+timer = time.time()
 import paho.mqtt.client as mqtt
 import socket
 import sys
@@ -90,10 +92,13 @@ def on_message(client, userdata, msg):
             print("computing metrics...")
             acc, prec, rec = computeMetrics(np.array(mergedResults), testSet.iloc[:,-1:].to_numpy().flatten())
             #print metrics for each partition size
+            execTime = time.time() - timer
             print("for", nPartition, "partitions:")
-            print("\taccuracy: ", acc)
-            print("\tprecision: ", prec)
-            print("\trecall: ", rec)
+            print("\taccuracy:", acc)
+            print("\tprecision:", prec)
+            print("\trecall:", rec)
+            #print execution time
+            print("execution time:", execTime)
             #disconnect this node
             client.disconnect()
             print("exiting...")
