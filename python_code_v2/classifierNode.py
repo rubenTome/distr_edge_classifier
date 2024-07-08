@@ -68,11 +68,11 @@ def on_message(client, userdata, msg):
         else:
             print("unknown wheighting strategy (correct values: piw, pnw, random)")
             print("exiting...")
-            classNode.publish("exit", 1, 2)
+            client.publish("exit", 1, 2)
             exit(-1)
         #send array of wheighted predicted classes to central node
         wPredicted = pd.DataFrame(wPredicted).to_csv()
-        classNode.publish(sys.argv[1] + ".results", wPredicted, 2)
+        client.publish(sys.argv[1] + ".results", wPredicted, 2)
         print("published weighted belief values")
 
 

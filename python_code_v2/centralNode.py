@@ -59,6 +59,8 @@ nodeTopicsRes = [i + ".results" for i in nodeTopics]
 #load and divide data
 data = data_loaders.load_dataset(sys.argv[6], int(sys.argv[2]))
 trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data)
+#results file
+resultsFile = open("results_distr.txt", "w")
 
 def on_connect(client, userdata, flags, rc):
     print("connected to mqtt broker with code", rc)
@@ -67,11 +69,19 @@ def on_connect(client, userdata, flags, rc):
         #subscribe to each node results topic
         client.subscribe(topic + ".results")
         print("subscribed to", topic + ".results")
+        #subscribe to exit topic
+        client.subscribe("exit")
+        print("subscribed to", "exit")
         #send data to each node
         client.publish(topic, trainSets[i].to_csv(index=False) + "$" + testSet.to_csv(index=False), 2)
         print("published partition to node", topic)
 
 def on_message(client, userdata, msg):
+    #disconnect this node
+    if (msg.topic == "exit"):
+        client.disconnect()
+        print("exiting...")
+        exit(0)
     #receive data from node and store it
     if msg.topic in nodeTopicsRes:
         nodeTopicsRes.remove(msg.topic)
@@ -93,16 +103,16 @@ def on_message(client, userdata, msg):
             acc, prec, rec = computeMetrics(np.array(mergedResults), testSet.iloc[:,-1:].to_numpy().flatten())
             #print metrics for each partition size
             execTime = time.time() - timer
-            print("for", nPartition, "partitions:")
-            print("\taccuracy:", acc)
-            print("\tprecision:", prec)
-            print("\trecall:", rec)
+            resultsFile.write("for" + str(nPartition) + "partitions:\n")
+            resultsFile.write(" ".join(sys.argv) + "\n")
+            resultsFile.write("\taccuracy:" + str(acc) + "\n")
+            resultsFile.write("\tprecision:" + str(prec) + "\n")
+            resultsFile.write("\trecall:" + str(rec) + "\n")
             #print execution time
-            print("execution time:", execTime)
-            #disconnect this node
-            client.disconnect()
-            print("exiting...")
-            exit(0)
+            resultsFile.write("execution time:" + str(execTime))
+            #send disconnect message to this node
+            client.publish("exit", 1, 2)
+            print("published exit message to central node")
 
 centralNode = mqtt.Client("centralNode", True)
 centralNode.on_connect = on_connect
