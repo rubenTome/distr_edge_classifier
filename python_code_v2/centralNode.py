@@ -60,7 +60,7 @@ nodeTopicsRes = [i + ".results" for i in nodeTopics]
 data = data_loaders.load_dataset(sys.argv[6], int(sys.argv[2]))
 trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data)
 #results file
-resultsFile = open("results_distr.txt", "w")
+resultsFile = open("results_distr.txt", "a")
 
 def on_connect(client, userdata, flags, rc):
     print("connected to mqtt broker with code", rc)
@@ -103,13 +103,13 @@ def on_message(client, userdata, msg):
             acc, prec, rec = computeMetrics(np.array(mergedResults), testSet.iloc[:,-1:].to_numpy().flatten())
             #print metrics for each partition size
             execTime = time.time() - timer
-            resultsFile.write("for" + str(nPartition) + "partitions:\n")
+            resultsFile.write("for " + str(nPartition) + " partitions:\n")
             resultsFile.write(" ".join(sys.argv) + "\n")
             resultsFile.write("\taccuracy:" + str(acc) + "\n")
             resultsFile.write("\tprecision:" + str(prec) + "\n")
             resultsFile.write("\trecall:" + str(rec) + "\n")
             #print execution time
-            resultsFile.write("execution time:" + str(execTime))
+            resultsFile.write("\texecution time:" + str(execTime) + "\n----------------\n")
             #send disconnect message to this node
             client.publish("exit", 1, 2)
             print("published exit message to central node")

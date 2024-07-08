@@ -6,13 +6,22 @@ from sklearn.svm import SVC
 import numpy as np
 
 def knn(train, test):
-    raise NotImplementedError
+    trainClasses = np.array(train.iloc[:, -1:].values.tolist()).flatten()
+    model = KNeighborsClassifier()
+    model.fit(train.values, trainClasses)
+    return model.predict_proba(test[:].values)
 
 def xgb(train, test):
-    raise NotImplementedError
+    trainClasses = np.array(train.iloc[:, -1:].values.tolist()).flatten()
+    model = GradientBoostingClassifier()
+    model.fit(train.values, trainClasses)
+    return model.predict_proba(test[:].values)
 
 def rf(train, test):
-    raise NotImplementedError
+    trainClasses = np.array(train.iloc[:, -1:].values.tolist()).flatten()
+    model = RandomForestClassifier()
+    model.fit(train.values, trainClasses)
+    return model.predict_proba(test[:].values)
 
 def svm(train, test):
     trainClasses = np.array(train.iloc[:, -1:].values.tolist()).flatten()
