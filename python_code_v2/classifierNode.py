@@ -17,11 +17,15 @@ def on_connect(client, userdata, flags, rc):
     #subscribe to the topic of node train subset
     client.subscribe(sys.argv[1])
     print("subscribed to", sys.argv[1])
-    #subscribe to exit topic
     client.subscribe(sys.argv[1] + ".exit")
     print("subscribed to " + sys.argv[1] + ".exit")
+    client.subscribe("started")
+    print("subscribed to started")
 
 def on_message(client, userdata, msg):
+    #notify central node that classifier is ready
+    if(msg.topic == "started"):
+        client.publish("classready", 1, 2)
     #diconnect node
     if (msg.topic == sys.argv[1] + ".exit"):
         client.disconnect()

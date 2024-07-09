@@ -61,6 +61,8 @@ data = data_loaders.load_dataset(sys.argv[6], int(sys.argv[2]))
 trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data)
 #results file
 resultsFile = open("results_distr.txt", "a")
+#count the number of ready classifiers
+readyClass = []
 
 def on_connect(client, userdata, flags, rc):
     print("connected to mqtt broker with code", rc)
@@ -69,14 +71,25 @@ def on_connect(client, userdata, flags, rc):
         #subscribe to each node results topic
         client.subscribe(topic + ".results")
         print("subscribed to", topic + ".results")
-        #subscribe to exit topic
-        client.subscribe("exit")
-        print("subscribed to", "exit")
-        #send data to each node
-        client.publish(topic, trainSets[i].to_csv(index=False) + "$" + testSet.to_csv(index=False), 2)
-        print("published partition to node", topic)
+    client.subscribe("exit")
+    print("subscribed to", "exit")
+    client.subscribe("classready")
+    print("subscribed to classready")
+    #all classifier nodes know central node started successfully
+    client.publish("started", 1, 2)
+    print("published started message")
 
 def on_message(client, userdata, msg):
+    #count the number of ready classifiers 
+    if (msg.topic == "classready"):
+        readyClass.append(1)
+        if len(readyClass) == int(nPartition):
+            print("all classifier nodes ready")
+            #send data to each node
+            for i in range(int(nPartition)):
+                topic = str(nPartition) + "." + str(i)
+                client.publish(topic, trainSets[i].to_csv(index=False) + "$" + testSet.to_csv(index=False), 2)
+                print("published partition to node", topic)
     #disconnect this node
     if (msg.topic == "exit"):
         client.disconnect()
