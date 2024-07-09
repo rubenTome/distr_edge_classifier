@@ -8,7 +8,7 @@ train = sys.argv[3]
 test = sys.argv[4]
 partition = sys.argv[5]
 dataset = sys.argv[6]
-N =sys.argv[7]
+N = int(sys.argv[7])
 
 for _ in range(N):
     statement = "python3 centralNode.py " + nNodes + " " + nData + " " + train + " " + test + " " + partition + " " + dataset

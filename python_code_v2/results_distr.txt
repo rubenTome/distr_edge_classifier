@@ -1,0 +1,21 @@
+for 3 partitions:
+./centralNode.py 3 3500 0.75 0.25 random ../datasets/HIGGS.csv
+	accuracy:1.0
+	precision:1.0
+	recall:1.0
+	execution time:45.32008457183838
+----------------
+for 3 partitions:
+./centralNode.py 3 3500 0.75 0.25 random ../datasets/HIGGS.csv
+	accuracy:1.0
+	precision:1.0
+	recall:1.0
+	execution time:45.232667446136475
+----------------
+for 3 partitions:
+./centralNode.py 3 3500 0.75 0.25 random ../datasets/HIGGS.csv
+	accuracy:1.0
+	precision:1.0
+	recall:1.0
+	execution time:45.311312198638916
+----------------
