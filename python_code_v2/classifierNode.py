@@ -60,7 +60,7 @@ def on_message(client, userdata, msg):
             print("exiting...")
             exit(-1)
         #wheight predicted values
-        print("wheighting...")
+        print("weighting...")
         trainDataList = trainData.drop('classes', axis=1).values
         testDataList = testData.drop('classes', axis=1).values
         if(sys.argv[4] == "pnw"):

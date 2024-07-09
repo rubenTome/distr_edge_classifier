@@ -14,4 +14,4 @@ for _ in range(N):
     statement = "python3 centralNode.py " + nNodes + " " + nData + " " + train + " " + test + " " + partition + " " + dataset
     print("loop:", statement)
     os.system(statement)
-    time.sleep(1)
+    time.sleep(4)

@@ -19,3 +19,122 @@ for 3 partitions:
 	recall:1.0
 	execution time:45.311312198638916
 ----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/HIGGS.csv
+	accuracy:1.0
+	precision:1.0
+	recall:1.0
+	execution time:45.219401121139526
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/HIGGS.csv
+	accuracy:1.0
+	precision:1.0
+	recall:1.0
+	execution time:45.352678537368774
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/HIGGS.csv
+	accuracy:1.0
+	precision:1.0
+	recall:1.0
+	execution time:45.43565034866333
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/HIGGS.csv
+	accuracy:1.0
+	precision:1.0
+	recall:1.0
+	execution time:45.669034004211426
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/HIGGS.csv
+	accuracy:1.0
+	precision:1.0
+	recall:1.0
+	execution time:45.48920917510986
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/HIGGS.csv
+	accuracy:1.0
+	precision:1.0
+	recall:1.0
+	execution time:45.362258195877075
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/HIGGS.csv
+	accuracy:1.0
+	precision:1.0
+	recall:1.0
+	execution time:45.13531994819641
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.0
+	precision:0.0
+	recall:0.0
+	execution time:118.41060519218445
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.0
+	precision:0.0
+	recall:0.0
+	execution time:117.93416023254395
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.0
+	precision:0.0
+	recall:0.0
+	execution time:117.03511381149292
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.0
+	precision:0.0
+	recall:0.0
+	execution time:117.29455995559692
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.0
+	precision:0.0
+	recall:0.0
+	execution time:116.49115943908691
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.0
+	precision:0.0
+	recall:0.0
+	execution time:116.63947248458862
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.0
+	precision:0.0
+	recall:0.0
+	execution time:118.46476697921753
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.0
+	precision:0.0
+	recall:0.0
+	execution time:117.06737399101257
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.0
+	precision:0.0
+	recall:0.0
+	execution time:119.30719518661499
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.0
+	precision:0.0
+	recall:0.0
+	execution time:119.25152206420898
+----------------
