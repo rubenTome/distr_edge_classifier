@@ -3,15 +3,18 @@ import sys
 import time
 
 nNodes = sys.argv[1]
-nData = sys.argv[2]
-train = sys.argv[3]
-test = sys.argv[4]
-partition = sys.argv[5]
-dataset = sys.argv[6]
-N = int(sys.argv[7])
-
-for _ in range(N):
-    statement = "python3 centralNode.py " + nNodes + " " + nData + " " + train + " " + test + " " + partition + " " + dataset
-    print("loop:", statement)
-    os.system(statement)
-    time.sleep(4)
+train = "0.7"
+test = "0.3"
+nDatas = ["3500"]
+partitions = ["random"]
+datasets = ["../datasets/covtype.csv", "../datasets/HIGGS.csv", "../datasets/connect-4Train.csv", "../datasets/reordered_mnist_train.csv"]
+#total executions per each configuration (match with nReps in classifierLoop.py)
+nReps = 80
+for nData in nDatas:
+    for partition in partitions:
+        for dataset in datasets:
+            for _ in range(nReps):
+                statement = "python3 centralNode.py " + nNodes + " " + nData + " " + train + " " + test + " " + partition + " " + dataset
+                print("loop:", statement)
+                os.system(statement)
+                time.sleep(4)

@@ -113,7 +113,10 @@ def on_message(client, userdata, msg):
             #apply the sum rule to combine results
             mergedResults = decisionRules.sum_rule(nodeResults)
             print("computing metrics...")
-            acc, prec, rec = computeMetrics(np.array(mergedResults), testSet.iloc[:,-1:].to_numpy().flatten())
+            testClasses = testSet.iloc[:,-1:].to_numpy().flatten()
+            #if labels starts in a numbre != 0
+            testClasses = testClasses - min(testClasses)
+            acc, prec, rec = computeMetrics(np.array(mergedResults), testClasses)
             #print metrics for each partition size
             execTime = time.time() - timer
             resultsFile.write("for " + str(nPartition) + " partitions:\n")
