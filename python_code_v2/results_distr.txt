@@ -1,7 +1,560 @@
 for 3 partitions:
-./centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
-	accuracy:0.696
-	precision:0.7014567529405584
-	recall:0.6651980272015485
-	execution time:60.450995445251465
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6902857142857143
+	precision:0.7116797182478488
+	recall:0.737990564074382
+	execution time:115.01940083503723
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6834285714285714
+	precision:0.7092579068550406
+	recall:0.7340322205608787
+	execution time:113.64275097846985
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7097142857142857
+	precision:0.7005599797532354
+	recall:0.7143705537119451
+	execution time:115.92919421195984
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6605714285714286
+	precision:0.6308372497496028
+	recall:0.6375167913334528
+	execution time:114.65276169776917
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6708571428571428
+	precision:0.6598571718151957
+	recall:0.6351698610197735
+	execution time:115.33733463287354
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7108571428571429
+	precision:0.7614112203220605
+	recall:0.7933298757611114
+	execution time:113.31362676620483
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6971428571428572
+	precision:0.6759695745210534
+	recall:0.6495873873921022
+	execution time:114.52068448066711
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6868571428571428
+	precision:0.6836687793466382
+	recall:0.661704654562177
+	execution time:113.54729843139648
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7108571428571429
+	precision:0.6934058505530342
+	recall:0.6942827770594727
+	execution time:114.82385158538818
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6937142857142857
+	precision:0.7146381551216969
+	recall:0.7193948624634635
+	execution time:113.74537706375122
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.72
+	precision:0.6562921640758399
+	recall:0.6319150545099762
+	execution time:2.5091028213500977
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7222857142857143
+	precision:0.7538634599309748
+	recall:0.7631993165143411
+	execution time:2.4257898330688477
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6971428571428572
+	precision:0.6965976013535073
+	recall:0.7459721731034558
+	execution time:2.4300365447998047
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6994285714285714
+	precision:0.7322705016992008
+	recall:0.7955328946794944
+	execution time:2.5484893321990967
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7188571428571429
+	precision:0.7144584213976801
+	recall:0.7370188913489838
+	execution time:2.4442503452301025
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7131428571428572
+	precision:0.6724789527166151
+	recall:0.6912658983491086
+	execution time:2.4476430416107178
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7222857142857143
+	precision:0.6991614045962009
+	recall:0.7084079202105229
+	execution time:2.510669469833374
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7108571428571429
+	precision:0.7105129700421703
+	recall:0.743493418909695
+	execution time:2.4614779949188232
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7188571428571429
+	precision:0.686409436884318
+	recall:0.6296010935754135
+	execution time:2.476310968399048
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6777142857142857
+	precision:0.6402717648241287
+	recall:0.6290554026594758
+	execution time:2.4858479499816895
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7942857142857143
+	precision:0.8145575040767079
+	recall:0.7869178669947127
+	execution time:115.24523258209229
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7931428571428571
+	precision:0.7706079364109772
+	recall:0.7620237061266708
+	execution time:114.02301979064941
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.8194285714285714
+	precision:0.8360164664178263
+	recall:0.8253993494499677
+	execution time:114.97600746154785
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7565714285714286
+	precision:0.7291749171891327
+	recall:0.7250354046211139
+	execution time:114.07276177406311
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.76
+	precision:0.786038481349941
+	recall:0.7936317928932882
+	execution time:113.41863083839417
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.76
+	precision:0.7514195924186725
+	recall:0.7595935425658514
+	execution time:114.85572695732117
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7828571428571428
+	precision:0.7616247332311222
+	recall:0.8086139832266986
+	execution time:115.38789415359497
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.792
+	precision:0.7654561737542268
+	recall:0.7510896818591661
+	execution time:115.47212624549866
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.8171428571428572
+	precision:0.8024851618147727
+	recall:0.7997673013032541
+	execution time:115.09741973876953
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7805714285714286
+	precision:0.7454756421697114
+	recall:0.7381782810557246
+	execution time:113.58027458190918
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.8068571428571428
+	precision:0.8250576235494901
+	recall:0.8359099174994148
+	execution time:3.06032657623291
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.8011428571428572
+	precision:0.7895592092649049
+	recall:0.7810374657525342
+	execution time:3.060079336166382
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.784
+	precision:0.7773437151349707
+	recall:0.7755046238654124
+	execution time:3.011139392852783
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.8034285714285714
+	precision:0.8103924421345121
+	recall:0.7923965669446578
+	execution time:3.009162187576294
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.792
+	precision:0.7530634939523512
+	recall:0.7694035615885745
+	execution time:3.050485134124756
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.8171428571428572
+	precision:0.8059909266101728
+	recall:0.7862874712600446
+	execution time:3.0464611053466797
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7805714285714286
+	precision:0.7254440592396568
+	recall:0.7289512971751654
+	execution time:2.9909515380859375
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7954285714285714
+	precision:0.7434897275795899
+	recall:0.748516004936611
+	execution time:3.0062074661254883
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7862857142857143
+	precision:0.7992374341206342
+	recall:0.8349595876419785
+	execution time:3.058148145675659
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.8125714285714286
+	precision:0.814999503882173
+	recall:0.8106213961256922
+	execution time:3.0609803199768066
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6685714285714286
+	precision:0.6529117170648056
+	recall:0.6635112096285035
+	execution time:114.98096513748169
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6765714285714286
+	precision:0.6507526491751765
+	recall:0.5124195527432162
+	execution time:115.67086148262024
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6662857142857143
+	precision:0.626300487728745
+	recall:0.7066121101497089
+	execution time:113.14410781860352
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7005714285714286
+	precision:0.702679232677592
+	recall:0.7508225341420532
+	execution time:115.13317561149597
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6594285714285715
+	precision:0.6480027826941847
+	recall:0.6248467617570009
+	execution time:115.35307598114014
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6765714285714286
+	precision:0.7085286751722302
+	recall:0.7666878828546402
+	execution time:116.00281953811646
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6537142857142857
+	precision:0.624077230230192
+	recall:0.648911070563068
+	execution time:114.46084856987
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6582857142857143
+	precision:0.683934232929329
+	recall:0.7195951248633071
+	execution time:114.23449897766113
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6708571428571428
+	precision:0.6498804719183913
+	recall:0.7189445935087833
+	execution time:114.20940566062927
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.656
+	precision:0.6968995788769827
+	recall:0.6924140639967187
+	execution time:114.93692421913147
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6822857142857143
+	precision:0.6661250623645377
+	recall:0.7047874606872414
+	execution time:3.2030811309814453
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6457142857142857
+	precision:0.635249164420447
+	recall:0.6945638715371018
+	execution time:3.168724298477173
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.704
+	precision:0.730634890699984
+	recall:0.8044904245462207
+	execution time:3.092865467071533
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6628571428571428
+	precision:0.659465509206043
+	recall:0.6587877687108479
+	execution time:3.100004196166992
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6617142857142857
+	precision:0.660045908251697
+	recall:0.6685876089952902
+	execution time:3.1237590312957764
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6822857142857143
+	precision:0.7619907923808052
+	recall:0.7570725939050778
+	execution time:3.1741011142730713
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.624
+	precision:0.6681686094337959
+	recall:0.6409586393349661
+	execution time:3.171247720718384
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6868571428571428
+	precision:0.6323799078418257
+	recall:0.5943884348598577
+	execution time:3.1351728439331055
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6971428571428572
+	precision:0.7484961585047382
+	recall:0.7618200482071362
+	execution time:3.1631126403808594
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.6868571428571428
+	precision:0.693767834026769
+	recall:0.7430838705941651
+	execution time:3.1419620513916016
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7691428571428571
+	precision:0.7858835569610125
+	recall:0.811013225019361
+	execution time:117.59994864463806
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7737142857142857
+	precision:0.7452234726537669
+	recall:0.7221079184492563
+	execution time:119.38941216468811
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7874285714285715
+	precision:0.799867111779073
+	recall:0.8089818858170922
+	execution time:118.14170241355896
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.784
+	precision:0.7735993259245945
+	recall:0.7544859649939236
+	execution time:119.34662127494812
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.8171428571428572
+	precision:0.8412433076520335
+	recall:0.8595410537090691
+	execution time:118.1437087059021
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7737142857142857
+	precision:0.8082167732280227
+	recall:0.7962130133639064
+	execution time:118.02832317352295
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7977142857142857
+	precision:0.8077494702129525
+	recall:0.8166217110843866
+	execution time:117.46831917762756
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7965714285714286
+	precision:0.802211926085425
+	recall:0.8080920041846784
+	execution time:119.42647647857666
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7634285714285715
+	precision:0.7664268467066506
+	recall:0.7596206615273707
+	execution time:117.58079671859741
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7851428571428571
+	precision:0.7966812085477416
+	recall:0.8125163511455588
+	execution time:118.57833981513977
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7977142857142857
+	precision:0.8064306283192565
+	recall:0.8535734189984029
+	execution time:7.187495231628418
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7634285714285715
+	precision:0.8122596885535368
+	recall:0.8178195185125466
+	execution time:7.196472883224487
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.8034285714285714
+	precision:0.8314201909952991
+	recall:0.837278421911269
+	execution time:7.204871416091919
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.784
+	precision:0.8174058131025362
+	recall:0.8301561456561213
+	execution time:7.13107705116272
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.792
+	precision:0.8227507142638582
+	recall:0.8143783256807726
+	execution time:7.156264543533325
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.8011428571428572
+	precision:0.8027517408334448
+	recall:0.8143854625573904
+	execution time:7.184872388839722
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7977142857142857
+	precision:0.7867263498183504
+	recall:0.774926088392988
+	execution time:7.197901010513306
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7851428571428571
+	precision:0.7993665925098503
+	recall:0.8086955156027441
+	execution time:7.154783248901367
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7714285714285715
+	precision:0.7551871528228535
+	recall:0.803092383231583
+	execution time:7.161154270172119
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.7702857142857142
+	precision:0.7846991202629264
+	recall:0.8031496611453728
+	execution time:7.200276136398315
 ----------------
