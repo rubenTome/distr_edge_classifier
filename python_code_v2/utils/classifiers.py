@@ -8,7 +8,7 @@ import numpy as np
 def knn(train, test):
     trainClasses = np.array(train.iloc[:, -1:].values.tolist()).flatten()
     trainClasses = trainClasses - min(trainClasses)
-    model = KNeighborsClassifier()
+    model = KNeighborsClassifier(np.unique(trainClasses).size)
     model.fit(train.iloc[:, :-1].values, trainClasses)
     return model.predict_proba(test.iloc[:, :-1].values)
 

@@ -1,0 +1,7 @@
+for 3 partitions:
+./centralNode.py 3 3500 0.75 0.25 random ../datasets/covtype.csv
+	accuracy:0.696
+	precision:0.7014567529405584
+	recall:0.6651980272015485
+	execution time:60.450995445251465
+----------------
