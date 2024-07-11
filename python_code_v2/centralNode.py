@@ -21,19 +21,19 @@ def computeMetrics(predicted, real):
     return acuracy, precision, recall
 
 #select partition type (random, perturbated or selected)
-def selectPartFun(str, nPartition, data):
+def selectPartFun(str, nPartition, data, train ,test):
     if str == "random":
         trainSets, testSet = data_loaders.create_random_partition(
-            data, nPartition, float(sys.argv[3]), float(sys.argv[4]))
+            data, nPartition, time.time(), float(train), float(test))
         return trainSets, testSet
     elif str == "perturbated":
         trainSets, testSet = data_loaders.create_perturbated_partition(
-            data, nPartition, float(sys.argv[3]), float(sys.argv[4]))
+            data, nPartition, float(train), float(test))
         return trainSets, testSet
     elif str == "selected":
         #needed an extra argument to select classes distribution of the nodes
         trainSets, testSet = data_loaders.create_selected_partition(
-            data, nPartition, sys.argv[7], float(sys.argv[3]), float(sys.argv[4]))
+            data, nPartition, sys.argv[7], float(train), float(test))
         return trainSets, testSet
     else:
         print("unknown partition type (correct values: random, perturbated, selected)")
@@ -58,7 +58,7 @@ nodeTopics = createNodeTopics(nPartition)
 nodeTopicsRes = [i + ".results" for i in nodeTopics]
 #load and divide data
 data = data_loaders.load_dataset(sys.argv[6], int(sys.argv[2]))
-trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data)
+trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data, sys.argv[3], sys.argv[4])
 #results file
 resultsFile = open("results_distr.txt", "a")
 #count the number of ready classifiers

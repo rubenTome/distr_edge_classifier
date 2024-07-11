@@ -12,6 +12,13 @@ import io
 BROKER_IP = sys.argv[3]
 PORT = 1883
 
+#calculate accuracy, precision and recall
+def computeMetrics(predicted, real):
+    acuracy = metrics.accu(predicted, real)
+    precision = metrics.multi_precision(predicted, real)
+    recall = metrics.multi_recall(predicted, real)
+    return acuracy, precision, recall
+
 def on_connect(client, userdata, flags, rc):
     print("connected to mqtt broker with code", rc)
     #subscribe to the topic of node train subset
@@ -59,6 +66,14 @@ def on_message(client, userdata, msg):
             print("unknown classifier (correct values: knn, xgb, rf, svm)")
             print("exiting...")
             exit(-1)
+        #local metrics
+        print("metrics results in", sys.argv[1], ":")
+        acc, prec, rec = computeMetrics(
+            pd.DataFrame(predicted).idxmax(axis=1), 
+            testData['classes'].to_list())
+        print("\taccuracy:", acc) 
+        print("\tprecision:", prec)
+        print("\trecall:", rec)        
         #wheight predicted values
         print("weighting...")
         trainDataList = trainData.drop('classes', axis=1).values

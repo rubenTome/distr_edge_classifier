@@ -6,20 +6,25 @@ def load_dataset(path, size):
     df = pd.read_csv(filepath_or_buffer=path, nrows=size)
     return df
 
-def create_random_partition(data, nNodes, trainSize=0.7, testSize=0.3):
+def create_random_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3):
     if trainSize + testSize != 1:
         raise ValueError("trainSize + testSize must be equal to 1")
+    rd.seed(seed)
     #divide data in train and test
     n = len(data)
     trainN = mt.trunc(trainSize * n)
     testN = mt.trunc(testSize * n)
     trainSet = pd.DataFrame(columns=data.columns)
     testSet = pd.DataFrame(columns=data.columns)
+    trainRows = []
     for _ in range(trainN):
         rdInt = rd.randint(0, n - 1)
+        trainRows.append(rdInt)
         trainSet = pd.concat([trainSet, data.iloc[[rdInt]]])
     for _ in range(testN):
         rdInt = rd.randint(0, n - 1)
+        while rdInt in trainRows:
+            rdInt = rd.randint(0, n - 1)
         testSet = pd.concat([testSet, data.iloc[[rdInt]]])
 
     #divide train in nNodes
