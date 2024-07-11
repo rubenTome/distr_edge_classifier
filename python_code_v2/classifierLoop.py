@@ -14,8 +14,8 @@ nDatasets = 3
 
 for _ in range(nDatasets):
 	for model in models:
-    	for weighting in weightings:
-        	for _ in range(int(nReps)):
-            	statement = "python3 classifierNode.py " + nodeTopic + " " + model + " " + brokerIp + " " + weighting
-            	print("loop:", statement)
-            	os.system(statement)
+		for weighting in weightings:
+			for _ in range(int(nReps)):
+				statement = "python3 classifierNode.py " + nodeTopic + " " + model + " " + brokerIp + " " + weighting
+				print("loop:", statement)
+				os.system(statement)
