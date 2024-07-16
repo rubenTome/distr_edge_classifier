@@ -4,7 +4,6 @@ import utils.data_loaders as data_loaders
 import utils.classifiers as classifiers
 import pandas as pd
 import numpy as np
-import io
 
 #calculate accuracy, precision and recall
 def computeMetrics(predicted, real):
@@ -14,19 +13,25 @@ def computeMetrics(predicted, real):
     return acuracy, precision, recall
 
 reps = 10
-paths = ["../datasets/HIGGS.csv"]
-sizes = [1000, 10000, 100000]
-classifiersL = [classifiers.svm, 
+paths = ["../datasets/covtype.csv", 
+         "../datasets/HIGGS.csv", 
+         "../datasets/connect-4Train.csv", 
+         "../datasets/reordered_mnist_train.csv"]
+sizes = [3500]
+trainSize = 0.75
+testSize = 0.25
+seed = time.time()
+classifiersL = [classifiers.knn, 
                 classifiers.rf, 
-                classifiers.xgb, 
-                classifiers.knn
+                classifiers.svm, 
+                classifiers.xgb
 ]
-classNames = {classifiers.svm: "svm",
+classNames = {classifiers.knn: "knn",
               classifiers.rf: "rf",
-              classifiers.xgb: "xgb",
-              classifiers.knn: "knn"
+              classifiers.svm: "svm",
+              classifiers.xgb: "xgb"
 }
-resultsFile = open("results.txt", "a")
+resultsFile = open("results_centralized.txt", "a")
 for _ in range(reps):
     for path in paths:
         for size in sizes:
@@ -35,7 +40,7 @@ for _ in range(reps):
                 print("loading data...")
                 data = data_loaders.load_dataset(path, size)
                 #load data as it exists only 1 node
-                trainData, testData = data_loaders.create_random_partition(data, 1)
+                trainData, testData = data_loaders.create_random_partition(data, 1, seed, trainSize, testSize)
                 print("training...")
                 #classify data and select the classes with highest belief value in each row
                 results = pd.DataFrame(classifier(trainData[0], testData)).idxmax(axis=1).tolist()

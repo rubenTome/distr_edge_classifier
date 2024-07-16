@@ -1,6 +1,7 @@
 from utils.distance import energyDistR
 #from dcor import energy_distance as energyDistP
 import pandas as pd
+import numpy as np
 
 #possible values: energyDistR, energyDistP
 ENERGY_FUNC = energyDistR
@@ -15,6 +16,12 @@ def pnw(predicted, train, test):
 def piw(predicted, train, test):
     for i in range(len(predicted)):
         predicted[i] = predicted[i] * (1 / ENERGY_FUNC(train, [test[i]]))
+    return predicted
+
+def piwm(predicted, train, test):
+    trainMean = np.mean(np.array(train), axis=0)
+    for i in range(len(predicted)):
+        predicted[i] = predicted[i] * (1 / ENERGY_FUNC(trainMean, test[i]))
     return predicted
 
 def random(predicted):

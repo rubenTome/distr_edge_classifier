@@ -3,8 +3,14 @@ import sys
 
 nodeTopic = sys.argv[1]
 brokerIp = sys.argv[2]
-models = ["knn", "rf", "svm", "xgb"]
-weightings = ["piw", "pnw"]
+models = ["knn",
+		  "rf",
+		  "svm",
+		  "xgb"]
+weightings = ["now",
+			  "pnw",
+			  "piwm",
+			  "piw"]
 #total executions per each configuration
 nReps = 10
 #number of datasets processed

@@ -7,7 +7,10 @@ train = "0.75"
 test = "0.25"
 nDatas = ["3500"]
 partitions = ["random"]
-datasets = ["../datasets/covtype.csv", "../datasets/HIGGS.csv", "../datasets/connect-4Train.csv", "../datasets/reordered_mnist_train.csv"]
+datasets = ["../datasets/covtype.csv",
+            "../datasets/HIGGS.csv",
+            "../datasets/connect-4Train.csv",
+            "../datasets/reordered_mnist_train.csv"]
 #total executions per each configuration
 nReps = 80
 for nData in nDatas:

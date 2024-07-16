@@ -82,6 +82,10 @@ def on_message(client, userdata, msg):
             wPredicted = weighting.pnw(predicted, trainDataList, testDataList)
         elif(sys.argv[4] == "piw"):
             wPredicted = weighting.piw(predicted, trainDataList, testDataList)
+        elif(sys.argv[4] == "piwm"):
+            wPredicted = weighting.piwm(predicted, trainDataList, testDataList)
+        elif(sys.argv[4] == "now"):
+            wPredicted = predicted
         elif(sys.argv[4] == "random"):
             wPredicted = weighting.random(predicted)
         else:

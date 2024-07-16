@@ -3,6 +3,17 @@ import sys
 file = sys.argv[1]
 outFile = open("mean10.txt", "w")
 
+#models and weightings from classifierLoop.py
+models = ["knn",
+          "rf",
+          "svm",
+          "xgb"]
+weightings = ["now",
+              "pnw",
+              "piwm",
+              "piw"]
+mw = [i + " " + j for i in models for j in weightings][::-1]
+
 nNodes = ""
 dataset = ""
 acc = []
@@ -10,9 +21,10 @@ prec = []
 rec = []
 t = []
 
-def writeMean(acc, prec, rec, t):
+def writeMean(acc, prec, rec, t, mw):
     outFile.write(nNodes)
     outFile.write(dataset)
+    outFile.write(mw.pop() + "\n")
     outFile.write("\tmean acc:" + str(sum(acc)/len(acc)) + "\n")
     outFile.write("\tmean prec:" + str(sum(prec)/len(prec)) + "\n")
     outFile.write("\tmean rec:" + str(sum(rec)/len(rec)) + "\n")
@@ -40,10 +52,11 @@ with open(file, 'r') as f:
         if i % 7 == 6:
             i += 1
         if n == 10:
-            writeMean(acc, prec, rec, t)
+            writeMean(acc, prec, rec, t, mw)
+            mw = [i + " " + j for i in models for j in weightings][::-1]
             acc = []
             prec = []
             rec = []
             t = []
             n = 0
-    writeMean(acc, prec, rec, t)
+    writeMean(acc, prec, rec, t, mw)
