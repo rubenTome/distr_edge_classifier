@@ -12,7 +12,7 @@ datasets = ["../datasets/covtype.csv",
             "../datasets/connect-4Train.csv",
             "../datasets/reordered_mnist_train.csv"]
 #total executions per each configuration
-nReps = 80
+nReps = 160
 for nData in nDatas:
     for partition in partitions:
         for dataset in datasets:
