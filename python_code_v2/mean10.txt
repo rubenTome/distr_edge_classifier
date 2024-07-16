@@ -206,3 +206,19 @@ centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
 	mean rec:0.8630732892116049
 	mean time:18.619128799438478
 ----------------
+rf piw
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	mean acc:0.8940571428571428
+	mean prec:0.8968506859881991
+	mean rec:0.8946823732720748
+	mean time:1346.1099038124084
+----------------
+rf pnw
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	mean acc:0.8938285714285714
+	mean prec:0.8965720401271866
+	mean rec:0.8983411894778216
+	mean time:19.607658910751343
+----------------
