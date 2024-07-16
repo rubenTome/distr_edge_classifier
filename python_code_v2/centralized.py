@@ -44,6 +44,7 @@ for _ in range(reps):
                 print("training...")
                 #classify data and select the classes with highest belief value in each row
                 results = pd.DataFrame(classifier(trainData[0], testData)).idxmax(axis=1).tolist()
+                #problems with knn and covtype
                 print("computing metrics...")
                 acc, prec, rec = computeMetrics(np.array(results), testData.iloc[:,-1:].to_numpy().flatten())
                 execTime = time.time() - timer

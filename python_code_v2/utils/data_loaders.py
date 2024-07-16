@@ -35,7 +35,20 @@ def create_random_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3):
     
     return nodeTrainSets, testSet
 
-def create_perturbated_partition(data, nNodes, trainSize=0.7, testSize=0.3):
-    raise NotImplementedError
+#calculamos distr clases original
+#para cada nodo, multiplicamos la propr de clases entre 0.3 y 1.7 y normalizamos
+#para cada nodo, cogemos el numero de patrones calculados anteriormente
+def create_perturbated_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3):
+    if trainSize + testSize != 1:
+        raise ValueError("trainSize + testSize must be equal to 1")
+    rd.seed(seed)
+    #divide data in train and test
+    n = len(data)
+    trainN = mt.trunc(trainSize * n)
+    testN = mt.trunc(testSize * n)
+    trainSet = pd.DataFrame(columns=data.columns)
+    testSet = pd.DataFrame(columns=data.columns)
+    #calculate original classes distribution
+
 def create_selected_partition(data, nNodes, classesDist, trainSize=0.7, testSize=0.3):
     raise NotImplementedError
