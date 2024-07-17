@@ -14,7 +14,7 @@ weightings = ["now",
 #total executions per each configuration
 nReps = 10
 #number of datasets processed
-nDatasets = 3
+nDatasets = 4
 
 #80 executions per dataset with this parameters
 

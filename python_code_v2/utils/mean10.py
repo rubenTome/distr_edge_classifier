@@ -20,11 +20,12 @@ acc = []
 prec = []
 rec = []
 t = []
+classifier = ""
 
-def writeMean(acc, prec, rec, t, mw):
+def writeMean(acc, prec, rec, t, classifier):
     outFile.write(nNodes)
     outFile.write(dataset)
-    outFile.write(mw.pop() + "\n")
+    outFile.write(classifier + "\n")
     outFile.write("\tmean acc:" + str(sum(acc)/len(acc)) + "\n")
     outFile.write("\tmean prec:" + str(sum(prec)/len(prec)) + "\n")
     outFile.write("\tmean rec:" + str(sum(rec)/len(rec)) + "\n")
@@ -37,10 +38,14 @@ with open(file, 'r') as f:
     for i in range(len(lines)):
         if i % 7 == 0:
             n += 1
+            #line with the number of nodes
             if n == 0:
                 nNodes = lines[i]
         if i % 7 == 1 and n == 0:
+            #lines with dataset and classifiers parameters
             dataset = lines[i]
+            classifier = mw.pop()
+        #lines with accuracy precision and recall
         if i % 7 == 2:
             acc.append(float(lines[i].split(":")[1]))
         if i % 7 == 3:
@@ -50,13 +55,16 @@ with open(file, 'r') as f:
         if i % 7 == 5:
             t.append(float(lines[i].split(":")[1]))
         if i % 7 == 6:
+            #skip last line
             i += 1
+        #write results
         if n == 10:
-            writeMean(acc, prec, rec, t, mw)
-            mw = [i + " " + j for i in models for j in weightings][::-1]
+            if mw == []:
+                mw = [i + " " + j for i in models for j in weightings][::-1]
+            writeMean(acc, prec, rec, t, classifier)
             acc = []
             prec = []
             rec = []
             t = []
             n = 0
-    writeMean(acc, prec, rec, t, mw)
+    writeMean(acc, prec, rec, t, classifier)
