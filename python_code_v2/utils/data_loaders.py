@@ -35,9 +35,6 @@ def create_random_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3):
     
     return nodeTrainSets, testSet
 
-#calculamos distr clases original
-#para cada nodo, multiplicamos la propr de clases entre 0.3 y 1.7 y normalizamos
-#para cada nodo, cogemos el numero de patrones calculados anteriormente
 def create_perturbated_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3):
     if trainSize + testSize != 1:
         raise ValueError("trainSize + testSize must be equal to 1")
@@ -48,7 +45,43 @@ def create_perturbated_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3
     testN = mt.trunc(testSize * n)
     trainSet = pd.DataFrame(columns=data.columns)
     testSet = pd.DataFrame(columns=data.columns)
+    trainRows = []
     #calculate original classes distribution
+    classesDist = data["classes"].value_counts() / sum(data["classes"].value_counts())
+    classesDist.sort_index(inplace=True)
+    classes = classesDist.index.tolist()
+    classesDist = classesDist.tolist()
+    print("original classes distribution:")
+    print(classesDist)
+    nodeTrainSets = [pd.DataFrame(columns=data.columns) for _ in range(nNodes)]
+    for i in range(nNodes):
+        #for each node, multiply class distribution between 0.3 and 1.7 and normalize
+        pertClassesDist = [i * rd.uniform(0.3, 1.7) for i in classesDist]
+        sumPertClassesDist = sum(pertClassesDist)
+        pertClassesDist = [i / sumPertClassesDist for i in pertClassesDist]
+        print("perturbed classes distribution for node " + str(i) + ":")
+        print(pertClassesDist)
+        #for each node, take the number of samples for each class calculated before
+        pertNTrain = [mt.trunc(i * (trainN / nNodes)) for i in pertClassesDist]
+        #train: for each class
+        for j in range(len(pertNTrain)):
+            #all samples from class classes[j]
+            dataClass = data[data["classes"] == classes[j]]
+            #number of samples from class classes[j]
+            nDataClass = len(dataClass)
+            for _ in range(pertNTrain[j]):
+                #take a random sample
+                rdInt = rd.randint(0, nDataClass - 1)
+                selSample = dataClass.iloc[[rdInt]]
+                trainRows.append(selSample.index.tolist()[0])
+                nodeTrainSets[i] = pd.concat([nodeTrainSets[i], selSample])
+        #test: same as in random partition
+        for _ in range(testN):
+            rdInt = rd.randint(0, n - 1)
+            while rdInt in trainRows:
+                rdInt = rd.randint(0, n - 1)
+            testSet = pd.concat([testSet, data.iloc[[rdInt]]])
+    return nodeTrainSets, testSet
 
 def create_selected_partition(data, nNodes, classesDist, trainSize=0.7, testSize=0.3):
     raise NotImplementedError
