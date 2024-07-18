@@ -1,0 +1,48 @@
+for dataset: ../datasets/covtype.csv with size: 3500 and classifier: knn
+mean accuracy: 0.06171428571428571
+mean precision: 0.03361270375920588
+mean recall: 0.027934624601040237
+mean execution time: 10.342178773880004
+----------
+for dataset: ../datasets/covtype.csv with size: 3500 and classifier: rf
+mean accuracy: 0.0736
+mean precision: 0.04073709551703382
+mean recall: 0.03511887478937829
+mean execution time: 11.481500053405762
+----------
+for dataset: ../datasets/covtype.csv with size: 3500 and classifier: svm
+mean accuracy: 0.07897142857142855
+mean precision: 0.04453148553681642
+mean recall: 0.03807204187908647
+mean execution time: 15.136908650398254
+----------
+for dataset: ../datasets/covtype.csv with size: 3500 and classifier: xgb
+mean accuracy: 0.05165714285714286
+mean precision: 0.027933753048539255
+mean recall: 0.023576213258557313
+mean execution time: 20.738078832626343
+----------
+for dataset: ../datasets/HIGGS.csv with size: 3500 and classifier: knn
+mean accuracy: 0.5531428571428573
+mean precision: 0.521546302943288
+mean recall: 0.5311406191719508
+mean execution time: 6.4203760623931885
+----------
+for dataset: ../datasets/HIGGS.csv with size: 3500 and classifier: rf
+mean accuracy: 0.6827428571428571
+mean precision: 0.6534259115396324
+mean recall: 0.687977172696755
+mean execution time: 8.609063720703125
+----------
+for dataset: ../datasets/HIGGS.csv with size: 3500 and classifier: svm
+mean accuracy: 0.6298285714285715
+mean precision: 0.6004590699176875
+mean recall: 0.6248359567325624
+mean execution time: 11.267962288856506
+----------
+for dataset: ../datasets/HIGGS.csv with size: 3500 and classifier: xgb
+mean accuracy: 0.6846857142857143
+mean precision: 0.6558059235020576
+mean recall: 0.6876431182394629
+mean execution time: 10.127027535438538
+----------
