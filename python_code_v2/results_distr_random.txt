@@ -3357,7 +3357,8 @@ centralNode.py 3 3500 0.75 0.25 random ../datasets/connect-4Train.csv
 	precision:0.7415780369633306
 	recall:0.8243493651609972
 	execution time:91.72432112693787
-----------------for 3 partitions:
+----------------
+for 3 partitions:
 centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
 	accuracy:0.8537142857142858
 	precision:0.8186475458865358
@@ -3566,4 +3567,914 @@ centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
 	precision:0.8296235268061812
 	recall:0.8812442729707393
 	execution time:77.21523928642273
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8548571428571429
+	precision:0.8659718912527554
+	recall:0.8770144694247042
+	execution time:1337.855630159378
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8582857142857143
+	precision:0.8553639825860501
+	recall:0.8827447450615173
+	execution time:1332.2496883869171
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8902857142857142
+	precision:0.9097868701665325
+	recall:0.8888723382688
+	execution time:1360.0663013458252
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.864
+	precision:0.8334899951266079
+	recall:0.9024626918981319
+	execution time:1359.91086769104
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8468571428571429
+	precision:0.8440728058416621
+	recall:0.8258658711167332
+	execution time:1350.927937746048
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.872
+	precision:0.8701807662727404
+	recall:0.8876448432086705
+	execution time:1366.2677755355835
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.888
+	precision:0.8961460297816201
+	recall:0.8415573532756
+	execution time:1339.3174810409546
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.9108571428571428
+	precision:0.9210263459488021
+	recall:0.8868623677873668
+	execution time:1357.9914090633392
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.88
+	precision:0.8481913697300234
+	recall:0.8986402683680785
+	execution time:1361.151487827301
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8605714285714285
+	precision:0.907649056542043
+	recall:0.8369893373221021
+	execution time:1335.6193165779114
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8994285714285715
+	precision:0.9296497834655927
+	recall:0.8834768960744025
+	execution time:15.185694932937622
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8834285714285715
+	precision:0.8926606728968878
+	recall:0.8979558651190424
+	execution time:15.222386598587036
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8971428571428571
+	precision:0.9084186541347765
+	recall:0.89632337648366
+	execution time:15.138880729675293
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8742857142857143
+	precision:0.8224597235649103
+	recall:0.8705256264852238
+	execution time:15.266989946365356
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8982857142857142
+	precision:0.9042922364002358
+	recall:0.8712990467409508
+	execution time:15.20066237449646
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8742857142857143
+	precision:0.8665978502326022
+	recall:0.8960487781912354
+	execution time:15.255195379257202
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8651428571428571
+	precision:0.8855753359331157
+	recall:0.8885016821510323
+	execution time:15.20724868774414
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.872
+	precision:0.8757259561387885
+	recall:0.8827099365404244
+	execution time:15.201778173446655
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8845714285714286
+	precision:0.8937874679203098
+	recall:0.8777327427167559
+	execution time:15.286184549331665
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8697142857142857
+	precision:0.8559856040731468
+	recall:0.9018025385850116
+	execution time:15.179494619369507
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8914285714285715
+	precision:0.8983208126326871
+	recall:0.9183713026886812
+	execution time:19.931957006454468
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.9017142857142857
+	precision:0.9032887923983001
+	recall:0.8722390288673427
+	execution time:20.017009496688843
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8811428571428571
+	precision:0.8844908248279829
+	recall:0.8883869837218603
+	execution time:20.0327570438385
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8891428571428571
+	precision:0.8999790005216364
+	recall:0.9009479357523473
+	execution time:20.11283040046692
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8982857142857142
+	precision:0.9055698504640792
+	recall:0.8738048053735344
+	execution time:19.90139865875244
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8811428571428571
+	precision:0.8915043895841459
+	recall:0.8809864684246322
+	execution time:20.079525470733643
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.92
+	precision:0.9147102753792928
+	recall:0.9143427835508217
+	execution time:19.898306608200073
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.9131428571428571
+	precision:0.896446927485874
+	recall:0.8999253557878524
+	execution time:19.813241004943848
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.904
+	precision:0.8935768532317032
+	recall:0.9238129834809511
+	execution time:19.851476907730103
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8845714285714286
+	precision:0.8965072064135198
+	recall:0.905868096292172
+	execution time:19.821837663650513
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8845714285714286
+	precision:0.8679223550428992
+	recall:0.9095642310677512
+	execution time:77.390141248703
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.88
+	precision:0.8829195880008989
+	recall:0.8729780481043182
+	execution time:76.34528994560242
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8937142857142857
+	precision:0.889557361071503
+	recall:0.9004973328614374
+	execution time:76.49998950958252
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8674285714285714
+	precision:0.876449762362719
+	recall:0.8650583568695858
+	execution time:76.21058106422424
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.92
+	precision:0.929390967958678
+	recall:0.9150195693182788
+	execution time:76.61136507987976
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8902857142857142
+	precision:0.8762916506329572
+	recall:0.8999241999835913
+	execution time:78.10938787460327
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8925714285714286
+	precision:0.9073635124551581
+	recall:0.9082250932756392
+	execution time:78.10580277442932
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8925714285714286
+	precision:0.9278892132993415
+	recall:0.9173864570323677
+	execution time:76.66273331642151
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.9028571428571428
+	precision:0.9131058455214569
+	recall:0.9048131416107511
+	execution time:77.37357234954834
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8914285714285715
+	precision:0.9026480623133221
+	recall:0.876787791354322
+	execution time:77.10626935958862
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8548571428571429
+	precision:0.8521071803465944
+	recall:0.8758432845553331
+	execution time:1352.9212324619293
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8697142857142857
+	precision:0.8481055891692131
+	recall:0.8819808576175161
+	execution time:1354.9994852542877
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8971428571428571
+	precision:0.8959000941134029
+	recall:0.9049755000030076
+	execution time:1347.3570156097412
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8937142857142857
+	precision:0.8807889291658402
+	recall:0.8726675609671182
+	execution time:1338.6280603408813
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8868571428571429
+	precision:0.9048127665688197
+	recall:0.8717696218758164
+	execution time:1339.9804396629333
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.9188571428571428
+	precision:0.9195529925057565
+	recall:0.9215135317820724
+	execution time:1350.3462455272675
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8925714285714286
+	precision:0.9092660453076565
+	recall:0.8994444728024004
+	execution time:1354.0360565185547
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8708571428571429
+	precision:0.8739046295630363
+	recall:0.8894901011427514
+	execution time:1345.2607145309448
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.88
+	precision:0.9029088114124517
+	recall:0.8688782338578216
+	execution time:1348.2457420825958
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8651428571428571
+	precision:0.8605973019180257
+	recall:0.8217535372486248
+	execution time:1355.3703112602234
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8411428571428572
+	precision:0.9169412332769451
+	recall:0.8679209095715714
+	execution time:21.963462829589844
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8422857142857143
+	precision:0.8253995523890895
+	recall:0.7947845335533074
+	execution time:22.14620876312256
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8731428571428571
+	precision:0.8961198505703993
+	recall:0.8846175199688495
+	execution time:22.067657232284546
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8617142857142858
+	precision:0.8792950604867468
+	recall:0.8635824799452673
+	execution time:22.193906545639038
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8605714285714285
+	precision:0.832638710788482
+	recall:0.8344679643219797
+	execution time:22.061765432357788
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8582857142857143
+	precision:0.8473332918094634
+	recall:0.8828941860730076
+	execution time:22.084591150283813
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8457142857142858
+	precision:0.8815108182148403
+	recall:0.8678526096641329
+	execution time:21.981563568115234
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8582857142857143
+	precision:0.8604616418587187
+	recall:0.8852889446347755
+	execution time:22.146283626556396
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8537142857142858
+	precision:0.8749845725037968
+	recall:0.8415501608826341
+	execution time:22.013888597488403
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8662857142857143
+	precision:0.8248961021325572
+	recall:0.8443338466003354
+	execution time:22.18549656867981
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8297142857142857
+	precision:0.7990748750555293
+	recall:0.8306887817497495
+	execution time:26.736424922943115
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8662857142857143
+	precision:0.9013596019174361
+	recall:0.8575626474603746
+	execution time:26.85520076751709
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8354285714285714
+	precision:0.8625861571699602
+	recall:0.8332570872748182
+	execution time:26.755505323410034
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8377142857142857
+	precision:0.8572659452294031
+	recall:0.8423672659668833
+	execution time:26.809849739074707
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8582857142857143
+	precision:0.8101436937081404
+	recall:0.8844349403512984
+	execution time:26.70254898071289
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8765714285714286
+	precision:0.848295064227156
+	recall:0.8876371834591985
+	execution time:27.004229307174683
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8594285714285714
+	precision:0.8865172075366863
+	recall:0.8797659577984133
+	execution time:26.687361478805542
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8548571428571429
+	precision:0.8182173861792756
+	recall:0.8368392009730041
+	execution time:26.790170192718506
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8502857142857143
+	precision:0.8305037922458169
+	recall:0.8708157738580434
+	execution time:26.76648235321045
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8525714285714285
+	precision:0.8572564087682695
+	recall:0.8383425832984714
+	execution time:26.804588317871094
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8605714285714285
+	precision:0.8876424745454397
+	recall:0.8332536273103885
+	execution time:83.00159478187561
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8685714285714285
+	precision:0.9122913699784634
+	recall:0.8528989341446854
+	execution time:83.59851861000061
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8422857142857143
+	precision:0.882113712098316
+	recall:0.8125137799353095
+	execution time:82.75093746185303
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8468571428571429
+	precision:0.8736766330723931
+	recall:0.8342460306023114
+	execution time:83.0549738407135
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8491428571428571
+	precision:0.8523424395883412
+	recall:0.8359652822505815
+	execution time:83.5193543434143
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8697142857142857
+	precision:0.8811195477452001
+	recall:0.8602935780945626
+	execution time:85.70719289779663
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8262857142857143
+	precision:0.8224699079957544
+	recall:0.8103045786840445
+	execution time:83.08810043334961
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8114285714285714
+	precision:0.834361256806029
+	recall:0.8164676628371677
+	execution time:82.8945107460022
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.864
+	precision:0.8618995676550517
+	recall:0.867202812086614
+	execution time:83.29390525817871
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8765714285714286
+	precision:0.8802959231795879
+	recall:0.8638045894695783
+	execution time:82.76817560195923
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.832
+	precision:0.9019269429420316
+	recall:0.8142950466473182
+	execution time:1350.4906446933746
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8377142857142857
+	precision:0.8299981036717629
+	recall:0.8767781446899615
+	execution time:1360.71532869339
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8857142857142857
+	precision:0.893808983363801
+	recall:0.854411244576373
+	execution time:1355.397801399231
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8445714285714285
+	precision:0.8637591268013297
+	recall:0.8356919564284547
+	execution time:1365.4104671478271
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8502857142857143
+	precision:0.8680482044256472
+	recall:0.8040298970922487
+	execution time:1364.1320650577545
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8582857142857143
+	precision:0.9133009089584047
+	recall:0.8596190631510054
+	execution time:1347.5153386592865
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8674285714285714
+	precision:0.9014908347827539
+	recall:0.8601428497921397
+	execution time:1351.0503025054932
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8582857142857143
+	precision:0.8630240046854933
+	recall:0.8869524900073136
+	execution time:1367.2820792198181
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8765714285714286
+	precision:0.8823879738601705
+	recall:0.8788760046574693
+	execution time:1347.753252029419
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8925714285714286
+	precision:0.865828037318367
+	recall:0.8994185851754866
+	execution time:1345.5916743278503
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8628571428571429
+	precision:0.843514598795007
+	recall:0.8536870951681026
+	execution time:79.07604670524597
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8617142857142858
+	precision:0.8679731944644422
+	recall:0.8949508431174031
+	execution time:79.02278161048889
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8285714285714286
+	precision:0.8279087208336533
+	recall:0.8520782211587787
+	execution time:79.01680254936218
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8651428571428571
+	precision:0.8965108763260735
+	recall:0.8940005741918599
+	execution time:78.64389896392822
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8308571428571428
+	precision:0.8152149968310697
+	recall:0.8204976579187807
+	execution time:78.46967959403992
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8354285714285714
+	precision:0.839017916220173
+	recall:0.8387977276025396
+	execution time:79.10827708244324
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8342857142857143
+	precision:0.848148500214657
+	recall:0.8652033144002964
+	execution time:78.75021600723267
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8685714285714285
+	precision:0.8777308836263161
+	recall:0.8810774225471818
+	execution time:79.58519411087036
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8411428571428572
+	precision:0.8299175937278255
+	recall:0.8663086855805426
+	execution time:79.31993055343628
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8285714285714286
+	precision:0.7919569608910951
+	recall:0.8401558305346049
+	execution time:78.88905715942383
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8525714285714285
+	precision:0.8649852975934345
+	recall:0.8742116526824372
+	execution time:84.32773423194885
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8628571428571429
+	precision:0.8838207994621596
+	recall:0.8753970248782201
+	execution time:83.85806560516357
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8502857142857143
+	precision:0.8685825047504052
+	recall:0.8631241531317098
+	execution time:83.81362795829773
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.856
+	precision:0.8667127638015462
+	recall:0.8550466475909502
+	execution time:83.34059762954712
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8331428571428572
+	precision:0.835224800470117
+	recall:0.8211353274101656
+	execution time:84.24440860748291
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8205714285714286
+	precision:0.8495435321248725
+	recall:0.8455101972529832
+	execution time:83.77581572532654
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.832
+	precision:0.8585235289756643
+	recall:0.8100513466181438
+	execution time:83.76735758781433
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8651428571428571
+	precision:0.8761942999332826
+	recall:0.873585732470166
+	execution time:83.90655088424683
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.824
+	precision:0.8224809162943176
+	recall:0.8014450918606899
+	execution time:83.83218359947205
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8365714285714285
+	precision:0.8492967537787722
+	recall:0.8717676728741969
+	execution time:83.46273350715637
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8628571428571429
+	precision:0.8435992628580424
+	recall:0.8474845842857043
+	execution time:141.2292730808258
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8525714285714285
+	precision:0.8568335800866835
+	recall:0.872015099832787
+	execution time:141.2355773448944
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8228571428571428
+	precision:0.8322306470747088
+	recall:0.8409581510456983
+	execution time:140.32072377204895
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8342857142857143
+	precision:0.8148531456491751
+	recall:0.8035384953995095
+	execution time:141.25484371185303
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8251428571428572
+	precision:0.8219838403466578
+	recall:0.7924993591980523
+	execution time:141.168687582016
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8388571428571429
+	precision:0.8518470015670555
+	recall:0.8574332321145312
+	execution time:141.12812852859497
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8491428571428571
+	precision:0.8332288787252213
+	recall:0.875274077307876
+	execution time:140.8773853778839
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8354285714285714
+	precision:0.8315180121929693
+	recall:0.8699621880358773
+	execution time:140.35337734222412
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8422857142857143
+	precision:0.8480337281551282
+	recall:0.859709848557498
+	execution time:141.38563680648804
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8217142857142857
+	precision:0.8312391626186784
+	recall:0.8466281992564408
+	execution time:140.97830963134766
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.832
+	precision:0.8223253826272066
+	recall:0.844209680535889
+	execution time:1413.1441540718079
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8354285714285714
+	precision:0.8200944150362673
+	recall:0.8093918135392322
+	execution time:1417.432161808014
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8548571428571429
+	precision:0.8851724328102695
+	recall:0.8692351848641066
+	execution time:1408.9816133975983
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8377142857142857
+	precision:0.821488363300648
+	recall:0.822157140449813
+	execution time:1401.4470677375793
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.84
+	precision:0.8688031134960553
+	recall:0.8415206243726949
+	execution time:1437.0082185268402
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8605714285714285
+	precision:0.8385072329164199
+	recall:0.8064528179682731
+	execution time:1412.1514348983765
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.84
+	precision:0.8424581272758214
+	recall:0.8396369477539114
+	execution time:1407.2627930641174
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8365714285714285
+	precision:0.8277880728228691
+	recall:0.8694890655989459
+	execution time:1398.885393857956
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8137142857142857
+	precision:0.8576315659123361
+	recall:0.8328093479942658
+	execution time:1420.067754983902
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 random ../datasets/reordered_mnist_train.csv
+	accuracy:0.8525714285714285
+	precision:0.8783020292243231
+	recall:0.858932539023705
+	execution time:1402.8566884994507
 ----------------

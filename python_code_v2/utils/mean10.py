@@ -60,7 +60,7 @@ with open(file, 'r') as f:
         #write results
         if n == 10:
             if mw == []:
-                mw = [i + " " + j for i in models for j in weightings][::-1]
+                mw = [j + " " + k for j in models for k in weightings][::-1]
             writeMean(acc, prec, rec, t, classifier)
             acc = []
             prec = []
