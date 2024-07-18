@@ -6,7 +6,7 @@ nNodes = sys.argv[1]
 train = "0.75"
 test = "0.25"
 nDatas = ["3500"]
-partitions = ["random"]
+partitions = ["perturbated"]
 datasets = ["../datasets/covtype.csv",
             "../datasets/HIGGS.csv",
             "../datasets/connect-4Train.csv",
