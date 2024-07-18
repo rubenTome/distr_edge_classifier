@@ -7,10 +7,10 @@ import numpy as np
 
 #calculate accuracy, precision and recall
 def computeMetrics(predicted, real):
-    acuracy = metrics.accu(predicted, real)
+    accuracy = metrics.accu(predicted, real)
     precision = metrics.multi_precision(predicted, real)
     recall = metrics.multi_recall(predicted, real)
-    return acuracy, precision, recall
+    return accuracy, precision, recall
 
 reps = 10
 paths = ["../datasets/covtype.csv", 
@@ -31,26 +31,37 @@ classNames = {classifiers.knn: "knn",
               classifiers.svm: "svm",
               classifiers.xgb: "xgb"
 }
+acc = []
+prec = []
+rec = []
+t = []
 resultsFile = open("results_centralized.txt", "a")
-for _ in range(reps):
-    for path in paths:
+for path in paths:
+    for classifier in classifiersL:
         for size in sizes:
-            for classifier in classifiersL:
+            for i in range(reps):
+                print("rep", i)
                 timer = time.time()
-                print("loading data...")
+                print("\tloading data...")
                 data = data_loaders.load_dataset(path, size)
                 #load data as it exists only 1 node
                 trainData, testData = data_loaders.create_random_partition(data, 1, seed, trainSize, testSize)
-                print("training...")
+                print("\ttraining...")
                 #classify data and select the classes with highest belief value in each row
                 results = pd.DataFrame(classifier(trainData[0], testData)).idxmax(axis=1).tolist()
-                #problems with knn and covtype
-                print("computing metrics...")
-                acc, prec, rec = computeMetrics(np.array(results), testData.iloc[:,-1:].to_numpy().flatten())
-                execTime = time.time() - timer
-                resultsFile.write("for dataset: " + path + " with size: " + str(size) + " and classifier: " + classNames[classifier] + "\n")
-                resultsFile.write("accuracy: " + str(acc) + "\n")
-                resultsFile.write("precision: " + str(prec) + "\n")
-                resultsFile.write("recall: " + str(rec) + "\n")
-                resultsFile.write("execution time: " + str(execTime) + "\n")
-                resultsFile.write("----------\n")
+                print("\tcomputing metrics...")
+                metricsRes = computeMetrics(np.array(results), testData.iloc[:,-1:].to_numpy().flatten())
+                acc.append(metricsRes[0])
+                prec.append(metricsRes[1])
+                rec.append(metricsRes[2])
+                t.append(time.time() - timer)
+            resultsFile.write("for dataset: " + path + " with size: " + str(size) + " and classifier: " + classNames[classifier] + "\n")
+            resultsFile.write("mean accuracy: " + str(sum(acc) / len(acc)) + "\n")
+            resultsFile.write("mean precision: " + str(sum(prec) / len(prec)) + "\n")
+            resultsFile.write("mean recall: " + str(sum(rec) / len(rec)) + "\n")
+            resultsFile.write("mean execution time: " + str(sum(t) / len(t)) + "\n")
+            resultsFile.write("----------\n")
+            acc = []
+            prec = []
+            rec = []
+            t = []

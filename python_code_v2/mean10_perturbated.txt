@@ -1,0 +1,88 @@
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 perturbated ../datasets/covtype.csv
+knn now
+	mean acc:0.6913904761904762
+	mean prec:0.6860141082961226
+	mean rec:0.6898921166336074
+	mean time:2.190949273109436
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 perturbated ../datasets/covtype.csv
+knn pnw
+	mean acc:0.6999619047619048
+	mean prec:0.6966207341903129
+	mean rec:0.7119638972890887
+	mean time:4.387370944023132
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 perturbated ../datasets/covtype.csv
+knn piwm
+	mean acc:0.7018666666666667
+	mean prec:0.7323315346182347
+	mean rec:0.7270529418946445
+	mean time:12.48012638092041
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 perturbated ../datasets/covtype.csv
+knn piw
+	mean acc:0.6932571428571429
+	mean prec:0.6787409470688139
+	mean rec:0.6949177396273166
+	mean time:335.765825510025
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 perturbated ../datasets/covtype.csv
+rf now
+	mean acc:0.7429714285714286
+	mean prec:0.7415465428205421
+	mean rec:0.7658383854023075
+	mean time:2.680508351325989
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 perturbated ../datasets/covtype.csv
+rf pnw
+	mean acc:0.7736000000000001
+	mean prec:0.771145745934865
+	mean rec:0.7903967985568807
+	mean time:4.919277310371399
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 perturbated ../datasets/covtype.csv
+rf piwm
+	mean acc:0.7787428571428572
+	mean prec:0.7892990808762462
+	mean rec:0.7880323273492995
+	mean time:13.013148093223572
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 perturbated ../datasets/covtype.csv
+rf piw
+	mean acc:0.7701333333333333
+	mean prec:0.7886763426807437
+	mean rec:0.7611713469740519
+	mean time:337.45369770526884
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 perturbated ../datasets/covtype.csv
+svm now
+	mean acc:0.6351619047619048
+	mean prec:0.6651373114271864
+	mean rec:0.6123254245638339
+	mean time:3.0424774169921873
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 perturbated ../datasets/covtype.csv
+svm pnw
+	mean acc:0.6404952380952382
+	mean prec:0.6716396073937975
+	mean rec:0.5931321401204419
+	mean time:5.266182875633239
+----------------
+for 3 partitions:
+centralNode.py 3 3500 0.75 0.25 perturbated ../datasets/covtype.csv
+svm piwm
+	mean acc:0.6459428571428572
+	mean prec:0.6519118936835763
+	mean rec:0.672169403638521
+	mean time:13.334202003479003
+----------------
