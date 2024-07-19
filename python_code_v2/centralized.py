@@ -13,18 +13,15 @@ def computeMetrics(predicted, real):
     return accuracy, precision, recall
 
 reps = 10
-paths = ["../datasets/covtype.csv", 
-         "../datasets/HIGGS.csv", 
-         "../datasets/connect-4Train.csv", 
-         "../datasets/reordered_mnist_train.csv"]
+paths = ["../datasets/covtype.csv"]
 sizes = [3500]
 trainSize = 0.75
 testSize = 0.25
 seed = time.time()
 classifiersL = [classifiers.knn, 
-                classifiers.rf, 
-                classifiers.svm, 
-                classifiers.xgb
+                #classifiers.rf, 
+                #classifiers.svm, 
+                #classifiers.xgb
 ]
 classNames = {classifiers.knn: "knn",
               classifiers.rf: "rf",
@@ -50,7 +47,9 @@ for path in paths:
                 #classify data and select the classes with highest belief value in each row
                 results = pd.DataFrame(classifier(trainData[0], testData)).idxmax(axis=1).tolist()
                 print("\tcomputing metrics...")
-                metricsRes = computeMetrics(np.array(results), testData.iloc[:,-1:].to_numpy().flatten())
+                testClasses = testData.iloc[:,-1:].to_numpy().flatten()
+                testClasses = np.array(testClasses) - min(testClasses)
+                metricsRes = computeMetrics(np.array(results), testClasses)
                 acc.append(metricsRes[0])
                 prec.append(metricsRes[1])
                 rec.append(metricsRes[2])
