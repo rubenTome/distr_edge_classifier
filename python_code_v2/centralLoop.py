@@ -5,7 +5,7 @@ import time
 nNodes = sys.argv[1]
 train = "0.75"
 test = "0.25"
-nDatas = ["400", "800", "1200"]
+nDatas = ["800", "1200", "2400"]
 partitions = ["random", "perturbated"]
 datasets = ["../datasets/covtype.csv",
             "../datasets/HIGGS.csv",

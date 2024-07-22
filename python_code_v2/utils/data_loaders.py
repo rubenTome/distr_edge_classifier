@@ -56,7 +56,7 @@ def create_perturbated_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3
     nodeTrainSets = [pd.DataFrame(columns=data.columns) for _ in range(nNodes)]
     for i in range(nNodes):
         #for each node, multiply class distribution between 0.3 and 1.7 and normalize
-        pertClassesDist = [i * rd.uniform(0.3, 1.7) for i in classesDist]
+        pertClassesDist = [i * rd.uniform(0.25, 1.75) for i in classesDist]
         sumPertClassesDist = sum(pertClassesDist)
         pertClassesDist = [i / sumPertClassesDist for i in pertClassesDist]
         print("perturbed classes distribution for node " + str(i) + ":")
