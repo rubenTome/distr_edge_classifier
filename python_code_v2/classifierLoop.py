@@ -9,8 +9,7 @@ models = ["knn",
 		  "xgb"]
 weightings = ["now",
 			  "pnw",
-			  "piwm",
-			  "piw"]
+			  "piwm"]
 #total executions per each configuration
 nReps = 10
 #number of datasets processed

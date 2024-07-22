@@ -13,15 +13,18 @@ def computeMetrics(predicted, real):
     return accuracy, precision, recall
 
 reps = 10
-paths = ["../datasets/covtype.csv"]
+paths = ["../datasets/covtype.csv",
+            "../datasets/HIGGS.csv",
+            "../datasets/connect-4Train.csv",
+            "../datasets/reordered_mnist_train.csv"]
 sizes = [3500]
 trainSize = 0.75
 testSize = 0.25
 seed = time.time()
 classifiersL = [classifiers.knn, 
-                #classifiers.rf, 
-                #classifiers.svm, 
-                #classifiers.xgb
+                classifiers.rf, 
+                classifiers.svm, 
+                classifiers.xgb
 ]
 classNames = {classifiers.knn: "knn",
               classifiers.rf: "rf",
