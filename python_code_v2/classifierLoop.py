@@ -14,10 +14,13 @@ weightings = ["now",
 nReps = 10
 #number of datasets processed
 nDatasets = 4
+#number of different samples parameter value
+nDatas = 3
+#number of different partitions parameter value
+nPartitions = 2
 
 #80 executions per dataset with this parameters
-
-for _ in range(nDatasets):
+for _ in range(nDatas * nPartitions * nDatasets):
 	for model in models:
 		for weighting in weightings:
 			for _ in range(int(nReps)):
