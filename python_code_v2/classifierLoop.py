@@ -15,7 +15,7 @@ nReps = 10
 #number of datasets processed
 nDatasets = 4
 #number of different samples parameter value
-nDatas = 3
+nDatas = 1
 #number of different partitions parameter value
 nPartitions = 2
 

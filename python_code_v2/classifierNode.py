@@ -68,6 +68,7 @@ def on_message(client, userdata, msg):
             exit(-1)
         #local metrics
         print("metrics results in", sys.argv[1], ":")
+        #ACORDARSE DE ETIQUETAS DE CLASES QUE EMPIEZAN EN NUMERO DISTINTO DE 0
         acc, prec, rec = computeMetrics(
             pd.DataFrame(predicted).idxmax(axis=1), 
             testData['classes'].to_list())

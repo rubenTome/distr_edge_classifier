@@ -10,8 +10,7 @@ models = ["knn",
           "xgb"]
 weightings = ["now",
               "pnw",
-              "piwm",
-              "piw"]
+              "piwm"]
 mw = [i + " " + j for i in models for j in weightings][::-1]
 
 nNodes = ""

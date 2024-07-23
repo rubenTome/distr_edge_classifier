@@ -60,7 +60,7 @@ nodeTopicsRes = [i + ".results" for i in nodeTopics]
 data = data_loaders.load_dataset(sys.argv[6], int(sys.argv[2]))
 trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data, sys.argv[3], sys.argv[4])
 #results file
-resultsFile = open("results_distr.txt", "a")
+resultsFile = open("results_distr_" + sys.argv[2] + "_" + sys.argv[5] + ".txt", "a")
 #count the number of ready classifiers
 readyClass = []
 
