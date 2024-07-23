@@ -68,10 +68,11 @@ def on_message(client, userdata, msg):
             exit(-1)
         #local metrics
         print("metrics results in", sys.argv[1], ":")
-        #ACORDARSE DE ETIQUETAS DE CLASES QUE EMPIEZAN EN NUMERO DISTINTO DE 0
+        #if classes are not 0 based
+        testClasses = testData.iloc[:,-1:].to_numpy().flatten()
+        testClasses = np.array(testClasses) - min(testClasses)
         acc, prec, rec = computeMetrics(
-            pd.DataFrame(predicted).idxmax(axis=1), 
-            testData['classes'].to_list())
+            pd.DataFrame(predicted).idxmax(axis=1), testClasses)
         print("\taccuracy:", acc) 
         print("\tprecision:", prec)
         print("\trecall:", rec)        
