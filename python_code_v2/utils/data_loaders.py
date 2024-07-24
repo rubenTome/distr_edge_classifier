@@ -6,6 +6,7 @@ def load_dataset(path, size):
     df = pd.read_csv(filepath_or_buffer=path, nrows=size)
     return df
 
+#get random samples from data and divide them in nNodes
 def create_random_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3):
     if trainSize + testSize != 1:
         raise ValueError("trainSize + testSize must be equal to 1")
@@ -35,6 +36,7 @@ def create_random_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3):
     
     return nodeTrainSets, testSet
 
+#modify the original distribution multiplying it by a random number between 0.25 and 1.75
 def create_perturbated_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3):
     if trainSize + testSize != 1:
         raise ValueError("trainSize + testSize must be equal to 1")
@@ -75,13 +77,56 @@ def create_perturbated_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3
                 selSample = dataClass.iloc[[rdInt]]
                 trainRows.append(selSample.index.tolist()[0])
                 nodeTrainSets[i] = pd.concat([nodeTrainSets[i], selSample])
-        #test: same as in random partition
-        for _ in range(testN):
+    #test: same as in random partition
+    for _ in range(testN):
+        rdInt = rd.randint(0, n - 1)
+        while rdInt in trainRows:
             rdInt = rd.randint(0, n - 1)
-            while rdInt in trainRows:
-                rdInt = rd.randint(0, n - 1)
-            testSet = pd.concat([testSet, data.iloc[[rdInt]]])
+        testSet = pd.concat([testSet, data.iloc[[rdInt]]])
     return nodeTrainSets, testSet
+
+#create nNodes balanced partitions
+# def create_balanced_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3):
+#     if trainSize + testSize != 1:
+#         raise ValueError("trainSize + testSize must be equal to 1")
+#     rd.seed(seed)
+#     #divide data in train and test
+#     n = len(data)
+#     trainN = mt.trunc(trainSize * n)
+#     testN = mt.trunc(testSize * n)
+#     trainSet = pd.DataFrame(columns=data.columns)
+#     testSet = pd.DataFrame(columns=data.columns)
+#     trainRows = []
+#     nodeTrainSets = [pd.DataFrame(columns=data.columns) for _ in range(nNodes)]
+#     #calculate number of train samples for each class (classesDist)
+#     classesDist = trainSet["classes"].value_counts()
+#     classesDist.sort_index(inplace=True)
+#     classesDist = classesDist.to_numpy()
+#     #calculate number of samples for each class in each node
+#     nClassesNode = classesDist // nNodes
+#     #calculate possible class values
+#     trainClasses = trainSet.iloc[:,-1:].to_numpy().flatten()
+#     trainClasses = trainClasses - min(trainClasses)
+#     #train
+#     #for each node
+#     for i in range(nNodes):
+#         #for each class
+#         for j in range(len(classesDist)):
+#             #get nClassesNode[j] samples from class j
+#             selClassSamples = trainSet.loc[data['classes'] == trainClasses[j]]
+#             for _ in range(nClassesNode[j]):
+#                 rdInt = rd.randint(0, n - 1)
+#                 selSample = selClassSamples.iloc[[rdInt]]
+#                 trainRows.append(selSample.index.tolist()[0])
+#                 nodeTrainSets[i] = pd.concat([nodeTrainSets[i], selSample])
+#     #test: same as in random partition
+#     for _ in range(testN):
+#         rdInt = rd.randint(0, n - 1)
+#         while rdInt in trainRows:
+#             rdInt = rd.randint(0, n - 1)
+#         testSet = pd.concat([testSet, data.iloc[[rdInt]]])
+
+#     return nodeTrainSets, testSet
 
 def create_selected_partition(data, nNodes, classesDist, trainSize=0.7, testSize=0.3):
     raise NotImplementedError
