@@ -3,9 +3,9 @@ import pandas as pd
 
 # Decision rules
 
-#We use only the best decision rule
-
 #beliefs is a list of belief dataframes of each node
+
+#add all the predicted beliefs values, choosing the highest
 def sum_rule(beliefs):
     #add all belief values
     for i in range(len(beliefs) - 1):
@@ -16,4 +16,25 @@ def sum_rule(beliefs):
     resultList = result.tolist()
     resultList = [int(i) for i in resultList]
     return resultList
-    
+
+#choose the highest value
+def max_rule(beliefs):
+    #each element in beliefs is a list of beliefs
+    beliefsL = [i.to_numpy() for i in beliefs]
+    resultList = []
+    for i in range(len(beliefsL[0])):
+        #get all beliefs for sample i
+        sampleBeliefs = [beliefsL[j][i] for j in range(len(beliefsL))]
+        #get index of max belief value of each node
+        maxSampleIndex = np.argmax(sampleBeliefs, axis=1)
+        #get the index of max value between nodes
+        maxVal = -1
+        maxIndex = -1
+        for k in range(len(sampleBeliefs)):
+            if sampleBeliefs[k][maxSampleIndex[k]] > maxVal:
+                maxVal = sampleBeliefs[k][maxSampleIndex[k]]
+                maxIndex = maxSampleIndex[k]
+        resultList.append(maxIndex)
+        maxVal = -1
+        maxIndex = -1
+    return resultList

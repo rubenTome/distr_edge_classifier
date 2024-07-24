@@ -12,6 +12,7 @@ import io
 
 BROKER_IP = socket.gethostbyname(socket.gethostname())
 PORT = 1883
+DECISION_RULE = "max" #max or sum
 
 #calculate accuracy, precision and recall
 def computeMetrics(predicted, real):
@@ -110,8 +111,11 @@ def on_message(client, userdata, msg):
         #compute metrics when all data is received
         if nodeTopicsRes == []:
             print("all data received, merging results...")
-            #apply the sum rule to combine results
-            mergedResults = decisionRules.sum_rule(nodeResults)
+            #apply the decision rule to combine results
+            if DECISION_RULE == "sum":
+                mergedResults = decisionRules.sum_rule(nodeResults)
+            elif DECISION_RULE == "max":
+                mergedResults = decisionRules.max_rule(nodeResults)
             print("computing metrics...")
             testClasses = testSet.iloc[:,-1:].to_numpy().flatten()
             #if labels starts in a numbre != 0
