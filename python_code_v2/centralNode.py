@@ -31,6 +31,10 @@ def selectPartFun(str, nPartition, data, train ,test):
         trainSets, testSet = data_loaders.create_perturbated_partition(
             data, nPartition, time.time(), float(train), float(test))
         return trainSets, testSet
+    elif str == "balanced":
+        trainSets, testSet = data_loaders.create_balanced_partition(
+            data, nPartition, time.time(), float(train), float(test))
+        return trainSets, testSet
     elif str == "selected":
         #needed an extra argument to select classes distribution of the nodes
         trainSets, testSet = data_loaders.create_selected_partition(
