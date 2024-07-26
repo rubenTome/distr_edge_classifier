@@ -112,7 +112,7 @@ def on_message(client, userdata, msg):
         receivedStr = receivedStr.replace("\\n", "\n")
         nodeResults.append(pd.read_csv(io.StringIO(receivedStr)).dropna())
         #compute metrics when all data is received
-        mergedResults = None
+        #mergedResults = None
         if nodeTopicsRes == []:
             print("all data received, merging results...")
             #apply the decision rule to combine results
@@ -120,6 +120,8 @@ def on_message(client, userdata, msg):
                 mergedResults = decisionRules.sum_rule(nodeResults)
             elif sys.argv[7] == "max":
                 mergedResults = decisionRules.max_rule(nodeResults)
+            else:
+                raise ValueError("Unknown decision rule")
             print("computing metrics...")
             testClasses = testSet.iloc[:,-1:].to_numpy().flatten()
             #if labels starts in a numbre != 0
