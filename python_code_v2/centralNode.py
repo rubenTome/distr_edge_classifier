@@ -112,6 +112,7 @@ def on_message(client, userdata, msg):
         receivedStr = receivedStr.replace("\\n", "\n")
         nodeResults.append(pd.read_csv(io.StringIO(receivedStr)).dropna())
         #compute metrics when all data is received
+        mergedResults = None
         if nodeTopicsRes == []:
             print("all data received, merging results...")
             #apply the decision rule to combine results
