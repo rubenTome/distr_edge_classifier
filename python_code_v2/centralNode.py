@@ -12,7 +12,6 @@ import io
 
 BROKER_IP = socket.gethostbyname(socket.gethostname())
 PORT = 1883
-DECISION_RULE = "max" #max or sum
 
 #calculate accuracy, precision and recall
 def computeMetrics(predicted, real):
@@ -22,7 +21,7 @@ def computeMetrics(predicted, real):
     return acuracy, precision, recall
 
 #select partition type (random, perturbated or selected)
-def selectPartFun(str, nPartition, data, train ,test):
+def selectPartFun(str, nPartition, data, train, test):
     if str == "random":
         trainSets, testSet = data_loaders.create_random_partition(
             data, nPartition, time.time(), float(train), float(test))
@@ -38,7 +37,7 @@ def selectPartFun(str, nPartition, data, train ,test):
     elif str == "selected":
         #needed an extra argument to select classes distribution of the nodes
         trainSets, testSet = data_loaders.create_selected_partition(
-            data, nPartition, sys.argv[7], float(train), float(test))
+            data, nPartition, sys.argv[8], float(train), float(test))
         return trainSets, testSet
     else:
         print("unknown partition type (correct values: random, perturbated, selected)")
@@ -116,9 +115,9 @@ def on_message(client, userdata, msg):
         if nodeTopicsRes == []:
             print("all data received, merging results...")
             #apply the decision rule to combine results
-            if DECISION_RULE == "sum":
+            if sys.argv[7] == "sum":
                 mergedResults = decisionRules.sum_rule(nodeResults)
-            elif DECISION_RULE == "max":
+            elif sys.argv[7] == "max":
                 mergedResults = decisionRules.max_rule(nodeResults)
             print("computing metrics...")
             testClasses = testSet.iloc[:,-1:].to_numpy().flatten()
