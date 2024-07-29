@@ -1,7 +1,8 @@
 import sys
 
 file = sys.argv[1]
-outFile = open("mean10.txt", "w")
+N = int(sys.argv[2])
+outFile = open("mean" + sys.argv[2]+ "_" + file, "w")
 
 #models and weightings from classifierLoop.py
 models = ["knn",
@@ -57,7 +58,7 @@ with open(file, 'r') as f:
             #skip last line
             i += 1
         #write results
-        if n == 10:
+        if n == N:
             if mw == []:
                 mw = [j + " " + k for j in models for k in weightings][::-1]
             writeMean(acc, prec, rec, t, classifier)
