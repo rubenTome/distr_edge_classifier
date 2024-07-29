@@ -37,7 +37,7 @@ def selectPartFun(str, nPartition, data, train, test):
     elif str == "selected":
         #needed an extra argument to select classes distribution of the nodes
         trainSets, testSet = data_loaders.create_selected_partition(
-            data, nPartition, sys.argv[8], float(train), float(test))
+            data, nPartition, sys.argv[9], float(train), float(test))
         return trainSets, testSet
     else:
         print("unknown partition type (correct values: random, perturbated, selected)")
@@ -60,9 +60,29 @@ nPartition = sys.argv[1]
 nodeTopics = createNodeTopics(nPartition)
 #results topics: X.X.results
 nodeTopicsRes = [i + ".results" for i in nodeTopics]
+#repeat execution with same data as a previous execution or not
+repConf = int(sys.argv[8])
 #load and divide data
-data = data_loaders.load_dataset(sys.argv[6], int(sys.argv[2]))
-trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data, sys.argv[3], sys.argv[4])
+#do not save csv
+if repConf == -1:
+    data = data_loaders.load_dataset(sys.argv[6], int(sys.argv[2]))
+    trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data, sys.argv[3], sys.argv[4])
+#save csv
+elif repConf == 0:
+    data = data_loaders.load_dataset(sys.argv[6], int(sys.argv[2]))
+    trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data, sys.argv[3], sys.argv[4])
+    for i in range(len(trainSets)):
+        trainSets[i].to_csv("trainset_" + str(i) + ".csv", index=False)
+    testSet.to_csv("testset.csv", index=False)
+#use csv from previous execution
+elif repConf == 1:
+    print("using csv from previous execution")
+    trainSets = []
+    for i in range(int(nPartition)):
+        trainSets.append(pd.read_csv("trainset_" + str(i) + ".csv"))
+    testSet = pd.read_csv("testset.csv")
+else:
+    raise ValueError("unknown rep_conf value")
 #results file
 resultsFile = open("results_distr_" + sys.argv[2] + "_" + sys.argv[5] + ".txt", "a")
 #count the number of ready classifiers

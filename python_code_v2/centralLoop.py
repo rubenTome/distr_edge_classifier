@@ -15,11 +15,17 @@ datasets = ["../datasets/covtype.csv",
 decisionRule = "sum"
 #total executions per each configuration
 nReps = 120
+#number of executions with the same train and test data
+DsReps = 5
 for nData in nDatas:
     for partition in partitions:
         for dataset in datasets:
             for _ in range(nReps):
-                statement = "python3 centralNode.py " + nNodes + " " + nData + " " + train + " " + test + " " + partition + " " + dataset + " " + decisionRule
-                print("loop:", statement)
-                os.system(statement)
-                time.sleep(10)
+                for repConf in range(DsReps):
+                    if DsReps == 1:
+                        repConf == -1
+                    statement = "python3 centralNode.py " + nNodes + " " + nData + " " + train + " " + test + " " + partition + " " + dataset + " " + decisionRule + " " + str(repConf)
+                    print("loop:", statement)
+                    print("rep:", repConf)
+                    os.system(statement)
+                    time.sleep(10)
