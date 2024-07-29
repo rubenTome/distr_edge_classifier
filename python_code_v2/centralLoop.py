@@ -16,7 +16,7 @@ decisionRule = "sum"
 #total executions per each configuration
 nReps = 120
 #number of executions with the same train and test data
-DsReps = 5
+DsReps = 1
 for nData in nDatas:
     for partition in partitions:
         for dataset in datasets:
