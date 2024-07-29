@@ -75,7 +75,7 @@ elif repConf == 0:
         trainSets[i].to_csv("trainset_" + str(i) + ".csv", index=False)
     testSet.to_csv("testset.csv", index=False)
 #use csv from previous execution
-elif repConf == 1:
+elif repConf >= 1:
     print("using csv from previous execution")
     trainSets = []
     for i in range(int(nPartition)):
