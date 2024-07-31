@@ -3,6 +3,8 @@ import random as rd
 import math as mt
 import numpy as np
 
+#REPITEN VALORES ENTRE TRAINSETS EN BALANCED Y PERTURBATED
+
 def load_dataset(path, size):
     df = pd.read_csv(filepath_or_buffer=path, nrows=size)
     return df
@@ -18,16 +20,13 @@ def create_random_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3):
     testN = mt.trunc(testSize * n)
     trainSet = pd.DataFrame(columns=data.columns)
     testSet = pd.DataFrame(columns=data.columns)
-    trainRows = []
+    #generate n random numbers
+    randomN = rd.sample(range(n), n)
+    #choose random numbers as index for train and test samples
     for _ in range(trainN):
-        rdInt = rd.randint(0, n - 1)
-        trainRows.append(rdInt)
-        trainSet = pd.concat([trainSet, data.iloc[[rdInt]]])
+        trainSet = pd.concat([trainSet, data.iloc[[randomN.pop()]]])
     for _ in range(testN):
-        rdInt = rd.randint(0, n - 1)
-        while rdInt in trainRows:
-            rdInt = rd.randint(0, n - 1)
-        testSet = pd.concat([testSet, data.iloc[[rdInt]]])
+        testSet = pd.concat([testSet, data.iloc[[randomN.pop()]]])
 
     #divide train in nNodes
     nodeTrainN = mt.trunc(trainN / nNodes)
@@ -47,7 +46,6 @@ def create_perturbated_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3
     trainN = mt.trunc(trainSize * n)
     testN = mt.trunc(testSize * n)
     testSet = pd.DataFrame(columns=data.columns)
-    trainRows = []
     #calculate original classes distribution
     classesDist = data["classes"].value_counts() / sum(data["classes"].value_counts())
     classesDist.sort_index(inplace=True)
@@ -67,22 +65,24 @@ def create_perturbated_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3
         pertNTrain = [mt.trunc(i * (trainN / nNodes)) for i in pertClassesDist]
         #train: for each class
         for j in range(len(pertNTrain)):
-            #all samples from class classes[j]
+            #get all samples from class classes[j]
             dataClass = data[data["classes"] == classes[j]]
-            #number of samples from class classes[j]
-            nDataClass = len(dataClass)
-            for _ in range(pertNTrain[j]):
-                #take a random sample
-                rdInt = rd.randint(0, nDataClass - 1)
-                selSample = dataClass.iloc[[rdInt]]
-                trainRows.append(selSample.index.tolist()[0])
-                nodeTrainSets[i] = pd.concat([nodeTrainSets[i], selSample])
+            #generate len(dataClass) random numbers
+            randomNDataClass = rd.sample(range(len(dataClass)), len(dataClass))
+            for _ in range(pertNTrain[j]):#popear as mostras de data, evitamos asi tamen o uso de trainrows
+                #take one random number
+                popIndex = randomNDataClass.pop()
+                nodeTrainSets[i] = pd.concat([nodeTrainSets[i], 
+                    dataClass.iloc[[popIndex]]])
+                data.drop(dataClass.iloc[[popIndex]].index, inplace=True)
     #test: same as in random partition
+    randomNtest = rd.sample(range(len(data)), len(data))
     for _ in range(testN):
-        rdInt = rd.randint(0, n - 1)
-        while rdInt in trainRows:
-            rdInt = rd.randint(0, n - 1)
-        testSet = pd.concat([testSet, data.iloc[[rdInt]]])
+        testSet = pd.concat([testSet, data.iloc[[randomNtest.pop()]]])
+    nodeTrainSets[0].to_csv("train_set_1.csv")
+    nodeTrainSets[1].to_csv("train_set_2.csv")
+    nodeTrainSets[2].to_csv("train_set_3.csv")
+    testSet.to_csv("test_set.csv")
     return nodeTrainSets, testSet
 
 #create nNodes balanced partitions
@@ -94,14 +94,14 @@ def create_balanced_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3):
     n = len(data)
     testN = mt.trunc(testSize * n)
     testSet = pd.DataFrame(columns=data.columns)
-    trainRows = []
     nodeTrainSets = [pd.DataFrame(columns=data.columns) for _ in range(nNodes)]
     #calculate number of train samples for each class (classesDist)
     classesDist = data["classes"].value_counts()
     classesDist.sort_index(inplace=True)
     classesDist = classesDist.to_numpy()
     #calculate number of samples for each class in each node
-    nClassesNode = classesDist // nNodes
+    nClassesNode = trainSize * classesDist / nNodes
+    nClassesNode = nClassesNode.astype(int)
     #calculate possible class values
     classes = np.unique(data.iloc[:,-1:].to_numpy().flatten())
     #train
@@ -111,18 +111,16 @@ def create_balanced_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3):
         for j in range(len(nClassesNode)):
             #get nClassesNode[j] samples from class j
             selClassSamples = data.loc[data['classes'] == classes[j]]
-            nSelClassSamples = len(selClassSamples)
+            nRandomNSel = rd.sample(range(len(selClassSamples)), len(selClassSamples))
             for _ in range(nClassesNode[j]):
-                rdInt = rd.randint(0, nSelClassSamples - 1)
-                selSample = selClassSamples.iloc[[rdInt]]
-                trainRows.append(selSample.index.tolist()[0])
-                nodeTrainSets[i] = pd.concat([nodeTrainSets[i], selSample])
+                popIndex = nRandomNSel.pop()
+                nodeTrainSets[i] = pd.concat([nodeTrainSets[i], 
+                    selClassSamples.iloc[[popIndex]]])
+                data.drop(selClassSamples.iloc[[popIndex]].index, inplace=True)
     #test: same as in random partition
+    randomNtest = rd.sample(range(len(data)), len(data))
     for _ in range(testN):
-        rdInt = rd.randint(0, n - 1)
-        while rdInt in trainRows:
-            rdInt = rd.randint(0, n - 1)
-        testSet = pd.concat([testSet, data.iloc[[rdInt]]])
+        testSet = pd.concat([testSet, data.iloc[[randomNtest.pop()]]])
     return nodeTrainSets, testSet
 
 def create_selected_partition(data, nNodes, classesDist, trainSize=0.7, testSize=0.3):

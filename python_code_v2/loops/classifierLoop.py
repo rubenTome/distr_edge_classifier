@@ -17,7 +17,7 @@ nDatasets = 4
 #number of different samples parameter value
 nDatas = 1
 #number of different partitions parameter value
-nPartitions = 2
+nPartitions = 3
 
 #80 executions per dataset with this parameters
 for _ in range(nDatas * nPartitions * nDatasets):

@@ -61,21 +61,21 @@ nodeTopics = createNodeTopics(nPartition)
 #results topics: X.X.results
 nodeTopicsRes = [i + ".results" for i in nodeTopics]
 #repeat execution with same data as a previous execution or not
-repConf = int(sys.argv[8])
+repConf = sys.argv[8]
 #load and divide data
 #do not save csv
-if repConf == -1:
+if repConf == "-1":
     data = data_loaders.load_dataset(sys.argv[6], int(sys.argv[2]))
     trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data, sys.argv[3], sys.argv[4])
 #save csv
-elif repConf == 0:
+elif int(repConf) == 0:
     data = data_loaders.load_dataset(sys.argv[6], int(sys.argv[2]))
     trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data, sys.argv[3], sys.argv[4])
     for i in range(len(trainSets)):
         trainSets[i].to_csv("trainset_" + str(i) + ".csv", index=False)
     testSet.to_csv("testset.csv", index=False)
 #use csv from previous execution
-elif repConf >= 1:
+elif int(repConf) >= 1:
     print("using csv from previous execution")
     trainSets = []
     for i in range(int(nPartition)):

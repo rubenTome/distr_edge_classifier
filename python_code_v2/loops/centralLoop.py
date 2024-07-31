@@ -6,7 +6,7 @@ nNodes = sys.argv[1]
 train = "0.75"
 test = "0.25"
 nDatas = ["10000"]
-partitions = ["balanced", "random"]
+partitions = ["perturbated", "random", "balanced"]
 datasets = ["../datasets/covtype.csv",
             "../datasets/HIGGS.csv",
             "../datasets/connect-4Train.csv",
@@ -23,8 +23,9 @@ for nData in nDatas:
             for _ in range(nReps):
                 for repConf in range(DsReps):
                     if DsReps == 1:
-                        repConf == -1
-                    statement = "python3 centralNode.py " + nNodes + " " + nData + " " + train + " " + test + " " + partition + " " + dataset + " " + decisionRule + " " + str(repConf)
+                        statement = "python3 centralNode.py " + nNodes + " " + nData + " " + train + " " + test + " " + partition + " " + dataset + " " + decisionRule + " -1"
+                    else:
+                        statement = "python3 centralNode.py " + nNodes + " " + nData + " " + train + " " + test + " " + partition + " " + dataset + " " + decisionRule + " " + str(repConf)
                     print("loop:", statement)
                     print("rep:", repConf)
                     os.system(statement)
