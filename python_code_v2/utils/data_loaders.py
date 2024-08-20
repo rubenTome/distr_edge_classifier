@@ -3,8 +3,6 @@ import random as rd
 import math as mt
 import numpy as np
 
-#REPITEN VALORES ENTRE TRAINSETS EN BALANCED Y PERTURBATED
-
 def load_dataset(path, size):
     df = pd.read_csv(filepath_or_buffer=path, nrows=size)
     return df
