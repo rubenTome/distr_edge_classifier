@@ -67,22 +67,21 @@ def create_perturbated_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3
         for j in range(len(pertNTrain)):
             #get all samples from class classes[j]
             dataClass = data[data["classes"] == classes[j]]
-            #generate len(dataClass) random numbers
-            randomNDataClass = rd.sample(range(len(dataClass)), len(dataClass))
-            for _ in range(pertNTrain[j]):#popear as mostras de data, evitamos asi tamen o uso de trainrows
-                #take one random number
-                popIndex = randomNDataClass.pop()
+            #get indexes of samples from class classes[j]
+            dataClassIndexes = dataClass.index.values.tolist()
+            rd.shuffle(dataClassIndexes)
+            #get pertNTrain[j] indexes from dataClassIndexes
+            for _ in range(pertNTrain[j]):
+                popIndex = dataClassIndexes.pop()
+                #get sample with index popIndex and add it to nodeTrainSets[i]
                 nodeTrainSets[i] = pd.concat([nodeTrainSets[i], 
-                    dataClass.iloc[[popIndex]]])
-                data.drop(dataClass.iloc[[popIndex]].index, inplace=True)
+                    data.loc[[popIndex]]])
+                #remove selected sample from data
+                data.drop(data.loc[[popIndex]].index, inplace=True)
     #test: same as in random partition
     randomNtest = rd.sample(range(len(data)), len(data))
     for _ in range(testN):
         testSet = pd.concat([testSet, data.iloc[[randomNtest.pop()]]])
-    nodeTrainSets[0].to_csv("train_set_1.csv")
-    nodeTrainSets[1].to_csv("train_set_2.csv")
-    nodeTrainSets[2].to_csv("train_set_3.csv")
-    testSet.to_csv("test_set.csv")
     return nodeTrainSets, testSet
 
 #create nNodes balanced partitions
