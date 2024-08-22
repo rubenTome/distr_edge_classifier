@@ -40,9 +40,8 @@ def create_perturbated_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3
         raise ValueError("trainSize + testSize must be equal to 1")
     rd.seed(seed)
     #divide data in train and test
-    n = len(data)
-    trainN = mt.trunc(trainSize * n)
-    testN = mt.trunc(testSize * n)
+    trainN = mt.trunc(trainSize * len(data))
+    testN = mt.trunc(testSize * len(data))
     testSet = pd.DataFrame(columns=data.columns)
     #calculate original classes distribution
     classesDist = data["classes"].value_counts() / sum(data["classes"].value_counts())
@@ -76,6 +75,8 @@ def create_perturbated_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3
                     data.loc[[popIndex]]])
                 #remove selected sample from data
                 data.drop(data.loc[[popIndex]].index, inplace=True)
+            trainN = mt.trunc(trainSize * len(data))
+    testN = mt.trunc(testSize * len(data))
     #test: same as in random partition
     randomNtest = rd.sample(range(len(data)), len(data))
     for _ in range(testN):
@@ -88,8 +89,7 @@ def create_balanced_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3):
         raise ValueError("trainSize + testSize must be equal to 1")
     rd.seed(seed)
     #divide data in train and test
-    n = len(data)
-    testN = mt.trunc(testSize * n)
+    testN = mt.trunc(testSize * len(data))
     testSet = pd.DataFrame(columns=data.columns)
     nodeTrainSets = [pd.DataFrame(columns=data.columns) for _ in range(nNodes)]
     #calculate number of train samples for each class (classesDist)
