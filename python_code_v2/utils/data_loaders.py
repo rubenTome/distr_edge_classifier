@@ -68,6 +68,10 @@ def create_perturbated_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3
             dataClassIndexes = dataClass.index.values.tolist()
             rd.shuffle(dataClassIndexes)
             #get pertNTrain[j] indexes from dataClassIndexes
+            #temporal if to avoid errors
+            if pertNTrain[j] > len(dataClassIndexes):
+                print(pertNTrain[j], "<>", len(dataClassIndexes))
+                pertNTrain[j] = len(dataClassIndexes)
             for _ in range(pertNTrain[j]):
                 popIndex = dataClassIndexes.pop()
                 #get sample with index popIndex and add it to nodeTrainSets[i]
@@ -75,7 +79,8 @@ def create_perturbated_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3
                     data.loc[[popIndex]]])
                 #remove selected sample from data
                 data.drop(data.loc[[popIndex]].index, inplace=True)
-            trainN = mt.trunc(trainSize * len(data))
+                #recalcular pertNTrain ???
+        trainN = mt.trunc(trainSize * len(data))
     testN = mt.trunc(testSize * len(data))
     #test: same as in random partition
     randomNtest = rd.sample(range(len(data)), len(data))

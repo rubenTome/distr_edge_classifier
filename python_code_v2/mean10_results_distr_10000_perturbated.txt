@@ -1,0 +1,384 @@
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+knn now
+	mean acc:0.5999659983082151
+	mean prec:0.6092835441637904
+	mean rec:0.6059868468153915
+	mean time:10.591999936103822
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+knn pnw
+	mean acc:0.5912718421203521
+	mean prec:0.6245707612822708
+	mean rec:0.5960176055884039
+	mean time:13.100732040405273
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+knn piwm
+	mean acc:0.63824745205126
+	mean prec:0.670524787470329
+	mean rec:0.6805663878979934
+	mean time:14.735735940933228
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+rf now
+	mean acc:0.722567981135862
+	mean prec:0.7605758600797403
+	mean rec:0.7015243893668658
+	mean time:11.377656817436218
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+rf pnw
+	mean acc:0.7181330810469884
+	mean prec:0.7889132221471197
+	mean rec:0.7355106769399131
+	mean time:14.10789897441864
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+rf piwm
+	mean acc:0.705575743241306
+	mean prec:0.7233316321486619
+	mean rec:0.7100209907830688
+	mean time:15.671954274177551
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+svm now
+	mean acc:0.5827591489636191
+	mean prec:0.6592554454726238
+	mean rec:0.5666985011871016
+	mean time:14.504657673835755
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+svm pnw
+	mean acc:0.5827556023004445
+	mean prec:0.5960933465599934
+	mean rec:0.5619005031425323
+	mean time:17.0447749376297
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+svm piwm
+	mean acc:0.5901083326166108
+	mean prec:0.6360887005645142
+	mean rec:0.580143874662035
+	mean time:19.84117214679718
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+xgb now
+	mean acc:0.6455742347431401
+	mean prec:0.6629579040809614
+	mean rec:0.6350679043920188
+	mean time:20.676813340187074
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+xgb pnw
+	mean acc:0.6939549826553139
+	mean prec:0.7147939665775346
+	mean rec:0.6808430724550287
+	mean time:22.773378014564514
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+xgb piwm
+	mean acc:0.7016246308878759
+	mean prec:0.7468822821827477
+	mean rec:0.6896915116878116
+	mean time:24.690235805511474
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+knn now
+	mean acc:0.5163033175355449
+	mean prec:0.569273825772626
+	mean rec:0.5282921175770106
+	mean time:9.120445919036865
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+knn pnw
+	mean acc:0.527488151658768
+	mean prec:0.5417922832168132
+	mean rec:0.4942601969637238
+	mean time:10.589235472679139
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+knn piwm
+	mean acc:0.47668246445497625
+	mean prec:0.5389397900600814
+	mean rec:0.44549181695866374
+	mean time:13.110195207595826
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+rf now
+	mean acc:0.5557345971563981
+	mean prec:0.6374058384055046
+	mean rec:0.5922358953402476
+	mean time:11.344718265533448
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+rf pnw
+	mean acc:0.6244549763033176
+	mean prec:0.6340550039130843
+	mean rec:0.6908473440644463
+	mean time:12.90053095817566
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+rf piwm
+	mean acc:0.633649289099526
+	mean prec:0.6591850231272605
+	mean rec:0.6127710755549634
+	mean time:15.42888789176941
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+svm now
+	mean acc:0.5309952606635071
+	mean prec:0.637474924902415
+	mean rec:0.46551818495986896
+	mean time:12.841234183311462
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+svm pnw
+	mean acc:0.5672985781990522
+	mean prec:0.6238832788991759
+	mean rec:0.5261267894411547
+	mean time:14.55084478855133
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+svm piwm
+	mean acc:0.5154502369668246
+	mean prec:0.6049833172560092
+	mean rec:0.5190234067016488
+	mean time:16.937820506095886
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+xgb now
+	mean acc:0.6364928909952605
+	mean prec:0.6850948248313877
+	mean rec:0.6211499414657429
+	mean time:12.8784761428833
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+xgb pnw
+	mean acc:0.6312796208530805
+	mean prec:0.6924691819098843
+	mean rec:0.5818401626887572
+	mean time:14.260651588439941
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+xgb piwm
+	mean acc:0.5752606635071089
+	mean prec:0.6591125617864797
+	mean rec:0.5404689097234284
+	mean time:16.836042070388793
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+knn now
+	mean acc:0.5980526272028287
+	mean prec:0.6697118854875312
+	mean rec:0.6187105684920637
+	mean time:9.51275451183319
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+knn pnw
+	mean acc:0.5754434637803751
+	mean prec:0.5977397896675898
+	mean rec:0.5581712494821913
+	mean time:11.617695355415345
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+knn piwm
+	mean acc:0.5449206431923364
+	mean prec:0.6569137210714512
+	mean rec:0.580565071340914
+	mean time:13.80807547569275
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+rf now
+	mean acc:0.7463671370099094
+	mean prec:0.7651160164625928
+	mean rec:0.7821063584296674
+	mean time:10.305875396728515
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+rf pnw
+	mean acc:0.7417996738521124
+	mean prec:0.7320810868164747
+	mean rec:0.7405949257963632
+	mean time:12.36570210456848
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+rf piwm
+	mean acc:0.6578240881171586
+	mean prec:0.6882475433044997
+	mean rec:0.6532528486922092
+	mean time:14.395361161231994
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+svm now
+	mean acc:0.6863827527422997
+	mean prec:0.7236043021782146
+	mean rec:0.733991514153386
+	mean time:14.62211995124817
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+svm pnw
+	mean acc:0.7186124874335775
+	mean prec:0.6611426209687661
+	mean rec:0.7087648535141142
+	mean time:16.871273851394655
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+svm piwm
+	mean acc:0.6535538015435695
+	mean prec:0.6326266383559113
+	mean rec:0.7248714414318925
+	mean time:18.962383675575257
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+xgb now
+	mean acc:0.7239157870170903
+	mean prec:0.7142677132424999
+	mean rec:0.7081549983032807
+	mean time:11.804088044166566
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+xgb pnw
+	mean acc:0.7397478637081718
+	mean prec:0.7457301176429991
+	mean rec:0.7504828957821676
+	mean time:13.733707809448243
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+xgb piwm
+	mean acc:0.7385781990521327
+	mean prec:0.7300074208463405
+	mean rec:0.7543690099342139
+	mean time:16.580880093574525
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+knn now
+	mean acc:0.8575465927930281
+	mean prec:0.8727536586148803
+	mean rec:0.8407334376768765
+	mean time:89.02845911979675
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+knn pnw
+	mean acc:0.8644892363986244
+	mean prec:0.8780782270962698
+	mean rec:0.8582023178779068
+	mean time:102.63135623931885
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+knn piwm
+	mean acc:0.8682769295702608
+	mean prec:0.8784318394485597
+	mean rec:0.8708736617080568
+	mean time:151.8435438156128
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+rf now
+	mean acc:0.8670333522309637
+	mean prec:0.8810017165476024
+	mean rec:0.8676204401636068
+	mean time:90.05062353610992
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+rf pnw
+	mean acc:0.8761107424980281
+	mean prec:0.8880815947074922
+	mean rec:0.8939127601441932
+	mean time:107.54081881046295
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+rf piwm
+	mean acc:0.8661476184501244
+	mean prec:0.8534836889310657
+	mean rec:0.8667714414249985
+	mean time:153.46908338069915
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+svm now
+	mean acc:0.8646575266519181
+	mean prec:0.8716372891596371
+	mean rec:0.861614485543298
+	mean time:128.27985262870789
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+svm pnw
+	mean acc:0.8642655051479649
+	mean prec:0.875420045771025
+	mean rec:0.8657056648336559
+	mean time:143.34968156814574
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+svm piwm
+	mean acc:0.8597348131906651
+	mean prec:0.8848274643655394
+	mean rec:0.845792236469805
+	mean time:192.64280409812926
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+xgb now
+	mean acc:0.8321339597569896
+	mean prec:0.8505546858997002
+	mean rec:0.8263069616210945
+	mean time:258.4663708925247
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+xgb pnw
+	mean acc:0.8293770220315368
+	mean prec:0.8313541462790542
+	mean rec:0.8104623085903357
+	mean time:274.9428621768951
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+xgb piwm
+	mean acc:0.8279360926258109
+	mean prec:0.8424302603339253
+	mean rec:0.8279671830485439
+	mean time:323.028244304657
+----------------
