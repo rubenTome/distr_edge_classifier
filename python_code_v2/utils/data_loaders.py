@@ -39,10 +39,8 @@ def create_perturbated_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3
     if trainSize + testSize != 1:
         raise ValueError("trainSize + testSize must be equal to 1")
     rd.seed(seed)
-    #divide data in train and test
+    #train
     trainN = mt.trunc(trainSize * len(data))
-    testN = mt.trunc(testSize * len(data))
-    testSet = pd.DataFrame(columns=data.columns)
     #calculate original classes distribution
     classesDist = data["classes"].value_counts() / sum(data["classes"].value_counts())
     classesDist.sort_index(inplace=True)
@@ -53,7 +51,7 @@ def create_perturbated_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3
     nodeTrainSets = [pd.DataFrame(columns=data.columns) for _ in range(nNodes)]
     for i in range(nNodes):
         #for each node, multiply class distribution between 0.3 and 1.7 and normalize
-        pertClassesDist = [i * rd.uniform(0.25, 1.75) for i in classesDist]
+        pertClassesDist = [i * rd.uniform(0.3, 1.7) for i in classesDist]
         sumPertClassesDist = sum(pertClassesDist)
         pertClassesDist = [i / sumPertClassesDist for i in pertClassesDist]
         print("perturbed classes distribution for node " + str(i) + ":")
@@ -68,10 +66,6 @@ def create_perturbated_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3
             dataClassIndexes = dataClass.index.values.tolist()
             rd.shuffle(dataClassIndexes)
             #get pertNTrain[j] indexes from dataClassIndexes
-            #temporal if to avoid errors
-            if pertNTrain[j] > len(dataClassIndexes):
-                print(pertNTrain[j], "<>", len(dataClassIndexes))
-                pertNTrain[j] = len(dataClassIndexes)
             for _ in range(pertNTrain[j]):
                 popIndex = dataClassIndexes.pop()
                 #get sample with index popIndex and add it to nodeTrainSets[i]
@@ -79,10 +73,15 @@ def create_perturbated_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3
                     data.loc[[popIndex]]])
                 #remove selected sample from data
                 data.drop(data.loc[[popIndex]].index, inplace=True)
-                #recalcular pertNTrain ???
+        #recalculate number of train samples and classes distribution
         trainN = mt.trunc(trainSize * len(data))
-    testN = mt.trunc(testSize * len(data))
+        classesDist = data["classes"].value_counts() / sum(data["classes"].value_counts())
+        classesDist.sort_index(inplace=True)
+        classes = classesDist.index.tolist()
+        classesDist = classesDist.tolist()
     #test: same as in random partition
+    testN = mt.trunc(testSize * len(data))
+    testSet = pd.DataFrame(columns=data.columns)
     randomNtest = rd.sample(range(len(data)), len(data))
     for _ in range(testN):
         testSet = pd.concat([testSet, data.iloc[[randomNtest.pop()]]])
