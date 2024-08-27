@@ -19,7 +19,6 @@ nDatas = 1
 #number of different partitions parameter value
 nPartitions = 3
 
-#80 executions per dataset with this parameters
 for _ in range(nDatas * nPartitions * nDatasets):
 	for model in models:
 		for weighting in weightings:
