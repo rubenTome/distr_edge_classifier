@@ -7,7 +7,7 @@ train = "0.75"
 test = "0.25"
 nDatas = ["10000"]
 partitions = ["perturbated", "random", "balanced"]
-datasets = [#"../datasets/covtype.csv",
+datasets = ["../datasets/covtype.csv",
             "../datasets/HIGGS.csv",
             "../datasets/connect-4Train.csv",
             "../datasets/reordered_mnist_train.csv"]
