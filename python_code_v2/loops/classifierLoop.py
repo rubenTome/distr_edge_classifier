@@ -3,6 +3,7 @@ import sys
 
 nodeTopic = sys.argv[1]
 brokerIp = sys.argv[2]
+distance = sys.argv[3]
 models = ["knn",
 		  "rf",
 		  "svm",
@@ -23,6 +24,6 @@ for _ in range(nDatas * nPartitions * nDatasets):
 	for model in models:
 		for weighting in weightings:
 			for _ in range(int(nReps)):
-				statement = "python3 classifierNode.py " + nodeTopic + " " + model + " " + brokerIp + " " + weighting
+				statement = "python3 classifierNode.py " + nodeTopic + " " + model + " " + brokerIp + " " + weighting + " " + distance
 				print("loop:", statement)
 				os.system(statement)

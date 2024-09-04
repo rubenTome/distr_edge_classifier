@@ -3,14 +3,24 @@ import socket
 import sys
 import utils.metrics as metrics
 import utils.data_loaders as data_loaders
-import utils.weighting as weighting
+import utils.wheighting as wheighting
 import utils.classifiers as classifiers
 import pandas as pd
 import numpy as np
 import io
+from utils.distance import energyDistR, canberraDist, braycurtisDist
+#from dcor import energy_distance as energyDistP
 
 BROKER_IP = sys.argv[3]
 PORT = 1883
+if sys.argv[5] == "en":
+    DISTANC_FUNC = energyDistR
+elif sys.argv[5] == "ca":
+    DISTANC_FUNC = canberraDist
+elif sys.argv[5] == "br":
+    DISTANC_FUNC = braycurtisDist
+else:
+    raise ValueError("Unknown distance function")
 
 #calculate accuracy, precision and recall
 def computeMetrics(predicted, real):
@@ -81,15 +91,13 @@ def on_message(client, userdata, msg):
         trainDataList = trainData.drop('classes', axis=1).values
         testDataList = testData.drop('classes', axis=1).values
         if(sys.argv[4] == "pnw"):
-            wPredicted = weighting.pnw(predicted, trainDataList, testDataList)
+            wPredicted = wheighting.pnw(predicted, trainDataList, testDataList, DISTANC_FUNC)
         elif(sys.argv[4] == "piw"):
-            wPredicted = weighting.piw(predicted, trainDataList, testDataList)
+            wPredicted = wheighting.piw(predicted, trainDataList, testDataList, DISTANC_FUNC)
         elif(sys.argv[4] == "piwm"):
-            wPredicted = weighting.piwm(predicted, trainDataList, testDataList)
+            wPredicted = wheighting.piwm(predicted, trainDataList, testDataList, DISTANC_FUNC)
         elif(sys.argv[4] == "now"):
             wPredicted = predicted
-        elif(sys.argv[4] == "random"):
-            wPredicted = weighting.random(predicted)
         else:
             print("unknown wheighting strategy (correct values: piw, pnw, random)")
             print("exiting...")
