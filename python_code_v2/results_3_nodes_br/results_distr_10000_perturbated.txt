@@ -1,0 +1,3360 @@
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5558712121212122
+	precision:0.6351967011017733
+	recall:0.4867721927082072
+	execution time:4.613914251327515
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5710227272727273
+	precision:0.5421755918230479
+	recall:0.6861638735098367
+	execution time:4.576577425003052
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6041666666666666
+	precision:0.5916132197401384
+	recall:0.5917409835785781
+	execution time:4.573111057281494
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5880681818181818
+	precision:0.6081478071741182
+	recall:0.6197644407358629
+	execution time:4.551241397857666
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6291390728476821
+	precision:0.5609332542413249
+	recall:0.6561009600887059
+	execution time:4.575578451156616
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6543560606060606
+	precision:0.6704778172308982
+	recall:0.733572514038294
+	execution time:4.668208599090576
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6240530303030303
+	precision:0.6547802694968523
+	recall:0.7114377906956009
+	execution time:4.589932918548584
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6168401135288553
+	precision:0.5992935910561761
+	recall:0.5817010777042178
+	execution time:4.5662758350372314
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6448863636363636
+	precision:0.6210583566792212
+	recall:0.6897454262051889
+	execution time:4.566599607467651
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6215704824976348
+	precision:0.6542687640462513
+	recall:0.53130066366402
+	execution time:4.530892610549927
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5994318181818182
+	precision:0.6356837007312015
+	recall:0.5627507939488166
+	execution time:4.62548041343689
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5984848484848485
+	precision:0.6567525058555136
+	recall:0.5048252759975483
+	execution time:4.567289113998413
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6357615894039735
+	precision:0.6733187325389886
+	recall:0.6213483562755735
+	execution time:4.694672107696533
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6811731315042573
+	precision:0.7074014987129463
+	recall:0.5990677242980461
+	execution time:4.583204507827759
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5984848484848485
+	precision:0.6781319178289256
+	recall:0.6886469458036547
+	execution time:4.63633918762207
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6268939393939394
+	precision:0.6571611175544658
+	recall:0.5526855030191662
+	execution time:4.593945026397705
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5634469696969697
+	precision:0.5329206447427249
+	recall:0.47694777286162093
+	execution time:4.612420558929443
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6253547776726585
+	precision:0.7486429564460279
+	recall:0.7125755433675801
+	execution time:4.60903787612915
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5397727272727273
+	precision:0.46898451939101665
+	recall:0.5701657690310494
+	execution time:4.589871883392334
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5918560606060606
+	precision:0.5284166659522523
+	recall:0.4874349758019041
+	execution time:4.5350916385650635
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.584280303030303
+	precision:0.5619714563599738
+	recall:0.5279988308723758
+	execution time:4.622625112533569
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6515151515151515
+	precision:0.6112968875169218
+	recall:0.6099946747690798
+	execution time:4.662918329238892
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6183712121212122
+	precision:0.6454967329977065
+	recall:0.5701705714755315
+	execution time:4.656909942626953
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6013257575757576
+	precision:0.6697069425684916
+	recall:0.637395375014747
+	execution time:4.661227464675903
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6089015151515151
+	precision:0.6569061701012568
+	recall:0.6500064904154854
+	execution time:4.636012077331543
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6234626300851467
+	precision:0.6207044158987014
+	recall:0.6346262912050195
+	execution time:4.65070652961731
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.609271523178808
+	precision:0.6389558070344457
+	recall:0.6511580818815083
+	execution time:4.636361598968506
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6439393939393939
+	precision:0.6319400094338045
+	recall:0.4902875500923945
+	execution time:4.681141376495361
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5648060548722801
+	precision:0.6642121222082306
+	recall:0.4624790613561238
+	execution time:4.643476486206055
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6206244087038789
+	precision:0.5986635311415606
+	recall:0.6643316248256673
+	execution time:4.667003870010376
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7310606060606061
+	precision:0.7862875579327809
+	recall:0.6816857433523916
+	execution time:5.565582036972046
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7225378787878788
+	precision:0.7568307218282516
+	recall:0.597686664994008
+	execution time:5.515404939651489
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6609848484848485
+	precision:0.6735396522216995
+	recall:0.6739140812638037
+	execution time:5.528970956802368
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7086092715231788
+	precision:0.6743608300925813
+	recall:0.8011998964778858
+	execution time:5.535181283950806
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7215909090909091
+	precision:0.7269755280554122
+	recall:0.561910368543636
+	execution time:5.485263347625732
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7272727272727273
+	precision:0.7859435878943783
+	recall:0.7793200329191844
+	execution time:5.544919490814209
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7509469696969697
+	precision:0.7994723211187631
+	recall:0.844837685128966
+	execution time:5.5425920486450195
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7291666666666666
+	precision:0.7067234498152567
+	recall:0.5452454962729952
+	execution time:5.564265489578247
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7123935666982024
+	precision:0.7306261156246465
+	recall:0.5061270584966585
+	execution time:5.55619740486145
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7026515151515151
+	precision:0.7106727885214481
+	recall:0.8012489572266903
+	execution time:5.554579496383667
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.78125
+	precision:0.7422538818768594
+	recall:0.7020699015778626
+	execution time:5.585120916366577
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7521286660359509
+	precision:0.7518149876426085
+	recall:0.7169091679241509
+	execution time:5.575536251068115
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.75
+	precision:0.7423306498207225
+	recall:0.8524652284728347
+	execution time:5.6030097007751465
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6537369914853358
+	precision:0.8023544792668013
+	recall:0.5612948143947806
+	execution time:5.584995269775391
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6499526963103122
+	precision:0.5972943896060012
+	recall:0.6024024568690162
+	execution time:5.522994756698608
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6354166666666666
+	precision:0.6674045938458315
+	recall:0.5915918354336078
+	execution time:5.5528435707092285
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7206439393939394
+	precision:0.6668836708706758
+	recall:0.6983904847919428
+	execution time:5.6126861572265625
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7272727272727273
+	precision:0.8200451813364106
+	recall:0.7162008697203802
+	execution time:5.564504146575928
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6676136363636364
+	precision:0.6929578988414732
+	recall:0.6065262949874732
+	execution time:5.579133033752441
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7026515151515151
+	precision:0.7249032475043933
+	recall:0.6480929124688893
+	execution time:5.562954425811768
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7073863636363636
+	precision:0.7805893873566097
+	recall:0.7400326685879108
+	execution time:5.602877140045166
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7291666666666666
+	precision:0.7123360253981946
+	recall:0.7492821530103474
+	execution time:5.641700029373169
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7537878787878788
+	precision:0.7835648772804661
+	recall:0.7468010541310587
+	execution time:5.647063970565796
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.718070009460738
+	precision:0.784054995842707
+	recall:0.6555390548412622
+	execution time:5.634049654006958
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7547348484848485
+	precision:0.75321106276091
+	recall:0.8441892279933201
+	execution time:5.629315376281738
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6695075757575758
+	precision:0.6678760205112749
+	recall:0.8122407439158925
+	execution time:5.5720648765563965
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6960227272727273
+	precision:0.7872995825139132
+	recall:0.7029234343409706
+	execution time:5.624085426330566
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7159090909090909
+	precision:0.6994594482895111
+	recall:0.6548218855449416
+	execution time:5.6359100341796875
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7329545454545454
+	precision:0.6586995567856605
+	recall:0.7506380419721184
+	execution time:5.602622747421265
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6704545454545454
+	precision:0.7049196671701142
+	recall:0.49373759748071916
+	execution time:5.647855758666992
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6212121212121212
+	precision:0.6230210786394565
+	recall:0.6770371427060934
+	execution time:8.59498929977417
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6231060606060606
+	precision:0.6326745659424595
+	recall:0.6406289914944182
+	execution time:8.281826972961426
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5757575757575758
+	precision:0.6373743417288731
+	recall:0.41278134156503965
+	execution time:8.24617600440979
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5501893939393939
+	precision:0.5142995879083523
+	recall:0.6417751989712307
+	execution time:8.2384512424469
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.603219696969697
+	precision:0.5772741997584147
+	recall:0.5035644012541605
+	execution time:8.117292404174805
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6168401135288553
+	precision:0.6929725285332635
+	recall:0.6768910119176209
+	execution time:8.65308928489685
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5761589403973509
+	precision:0.7134073425825732
+	recall:0.5631431913263686
+	execution time:8.571385383605957
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6164772727272727
+	precision:0.6825491910566935
+	recall:0.5606871147483379
+	execution time:8.462914943695068
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6079545454545454
+	precision:0.5379316380543276
+	recall:0.6655556502892931
+	execution time:8.502386569976807
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6060606060606061
+	precision:0.6514265951416126
+	recall:0.7011472427611684
+	execution time:8.04466986656189
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6348155156102177
+	precision:0.779981309873122
+	recall:0.656475631716189
+	execution time:8.54047179222107
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.615530303030303
+	precision:0.5684306597299288
+	recall:0.5619041539886095
+	execution time:8.21735692024231
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5785984848484849
+	precision:0.5122788573730698
+	recall:0.7236434150427756
+	execution time:8.585751295089722
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5738636363636364
+	precision:0.5541647222777734
+	recall:0.565792791462883
+	execution time:8.131555795669556
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5814393939393939
+	precision:0.5612225777718324
+	recall:0.46308665114866604
+	execution time:8.514037609100342
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6183712121212122
+	precision:0.5753888865550207
+	recall:0.6190158942718584
+	execution time:8.653874635696411
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6306818181818182
+	precision:0.6582200677557326
+	recall:0.6166000721956841
+	execution time:8.7018723487854
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6140018921475875
+	precision:0.5262567876512163
+	recall:0.6039246417911727
+	execution time:8.346822500228882
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6183712121212122
+	precision:0.6727969593923648
+	recall:0.7388592876316663
+	execution time:8.824786901473999
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6392045454545454
+	precision:0.6516692296465124
+	recall:0.6803107549741217
+	execution time:8.275864839553833
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5776515151515151
+	precision:0.6902706617453751
+	recall:0.5009415629221027
+	execution time:8.526708126068115
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5397727272727273
+	precision:0.5214549555151847
+	recall:0.395341353739047
+	execution time:8.441400527954102
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6259469696969697
+	precision:0.7500684704793016
+	recall:0.46453200041958137
+	execution time:8.59304141998291
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5070955534531694
+	precision:0.5285253791414647
+	recall:0.3202556069538694
+	execution time:8.42133092880249
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5487228003784295
+	precision:0.6350434958480109
+	recall:0.6214205433073986
+	execution time:8.481935977935791
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5369318181818182
+	precision:0.6451052642093877
+	recall:0.42457398031752885
+	execution time:8.225553035736084
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6448863636363636
+	precision:0.6647546070287792
+	recall:0.7242490234189015
+	execution time:8.419685125350952
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5568181818181818
+	precision:0.6692826631815219
+	recall:0.5100281773698182
+	execution time:8.205626010894775
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6041666666666666
+	precision:0.6119576420337312
+	recall:0.6496392682771629
+	execution time:8.781157732009888
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.5738636363636364
+	precision:0.6883610478009725
+	recall:0.6809148591039371
+	execution time:8.690099000930786
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7178030303030303
+	precision:0.7813980800771729
+	recall:0.7479785497609545
+	execution time:14.771706342697144
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6982024597918638
+	precision:0.6923761664542002
+	recall:0.7899187154242779
+	execution time:14.713335514068604
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7426679280983917
+	precision:0.7925913982173294
+	recall:0.798155892012556
+	execution time:14.721814155578613
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7064393939393939
+	precision:0.8090967439171938
+	recall:0.7962435865546927
+	execution time:14.675057888031006
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.663197729422895
+	precision:0.6301359186116084
+	recall:0.6122344694702034
+	execution time:14.781302452087402
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7123935666982024
+	precision:0.6793018568416851
+	recall:0.6346346406819319
+	execution time:14.807898759841919
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7149621212121212
+	precision:0.7248435103248452
+	recall:0.7199537805981004
+	execution time:14.714481592178345
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.678030303030303
+	precision:0.7400976595958163
+	recall:0.7168304850264543
+	execution time:14.696060180664062
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6827651515151515
+	precision:0.7234753688438655
+	recall:0.6946935476244983
+	execution time:14.781993865966797
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7322611163670766
+	precision:0.7477901376452738
+	recall:0.7995463072005142
+	execution time:14.813551425933838
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7339015151515151
+	precision:0.7671065975374347
+	recall:0.8073367689233445
+	execution time:14.639548063278198
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6764427625354777
+	precision:0.7765691922444814
+	recall:0.6511823645000875
+	execution time:14.936965227127075
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6811731315042573
+	precision:0.6213628385215365
+	recall:0.7475715991521978
+	execution time:14.837871551513672
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6922348484848485
+	precision:0.6478237952185003
+	recall:0.8512007441829621
+	execution time:14.686318397521973
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7265846736045412
+	precision:0.704419493909942
+	recall:0.777751970380214
+	execution time:14.86165475845337
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6410984848484849
+	precision:0.681839744824479
+	recall:0.8231470537114013
+	execution time:14.79873275756836
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7357954545454546
+	precision:0.7825546815907983
+	recall:0.7006157675647727
+	execution time:14.830741167068481
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6979166666666666
+	precision:0.6690032742612073
+	recall:0.6157223829559494
+	execution time:14.735098838806152
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6903409090909091
+	precision:0.7033733364636234
+	recall:0.6763346752050016
+	execution time:14.758167743682861
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7357954545454546
+	precision:0.7253900863820414
+	recall:0.6507114785648714
+	execution time:14.71943998336792
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6950757575757576
+	precision:0.6442686043244175
+	recall:0.6218836694652031
+	execution time:14.821120023727417
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6922348484848485
+	precision:0.7140944281628478
+	recall:0.6897610571328421
+	execution time:14.81505036354065
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.6922348484848485
+	precision:0.7466350008762749
+	recall:0.7067983798943072
+	execution time:14.830724477767944
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7196969696969697
+	precision:0.7757511695239271
+	recall:0.7112075544410261
+	execution time:14.872319459915161
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7140151515151515
+	precision:0.7221955370940237
+	recall:0.7610966874953815
+	execution time:14.8631591796875
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.709280303030303
+	precision:0.6573408281473334
+	recall:0.8306055482696963
+	execution time:14.902481317520142
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.738883632923368
+	precision:0.7558100663755926
+	recall:0.6538779239905462
+	execution time:15.061048984527588
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7263257575757576
+	precision:0.7305386797648042
+	recall:0.7143544029768565
+	execution time:14.863700151443481
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.7537878787878788
+	precision:0.7280055554907854
+	recall:0.7784024102270113
+	execution time:14.914902448654175
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/covtype.csv sum -1
+	accuracy:0.663197729422895
+	precision:0.6165832665010127
+	recall:0.7194554296454337
+	execution time:14.769968509674072
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6170616113744076
+	precision:0.6190991008018598
+	recall:0.7899836650380538
+	execution time:3.546135902404785
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.4710900473933649
+	precision:0.4613704953947957
+	recall:0.6378559480664303
+	execution time:3.5883188247680664
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.557345971563981
+	precision:0.5286729857819905
+	recall:0.28937962389762223
+	execution time:3.5550529956817627
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.45592417061611373
+	precision:0.5799357695185832
+	recall:0.31208158216340276
+	execution time:3.5731117725372314
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5184834123222749
+	precision:0.4978410546953394
+	recall:0.5644500394944708
+	execution time:3.558068037033081
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.4767772511848341
+	precision:0.4608825131229794
+	recall:0.632328019531811
+	execution time:3.5689609050750732
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5355450236966824
+	precision:0.6023246142249409
+	recall:0.5388836229594524
+	execution time:3.5769431591033936
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5412322274881517
+	precision:0.5622827804107425
+	recall:0.5552181898686432
+	execution time:3.556831121444702
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5184834123222749
+	precision:0.49882503949447077
+	recall:0.6201203672490035
+	execution time:3.561065435409546
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5099526066350711
+	precision:0.5135064870445697
+	recall:0.4408253599213091
+	execution time:3.6209535598754883
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5440758293838862
+	precision:0.5379587408537332
+	recall:0.5703004629544914
+	execution time:3.586840867996216
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.45781990521327015
+	precision:0.5775338058176442
+	recall:0.34441147236347397
+	execution time:3.559121608734131
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.4976303317535545
+	precision:0.49268170169620806
+	recall:0.7408943737975693
+	execution time:3.577939510345459
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5146919431279621
+	precision:0.5912620554800649
+	recall:0.41441833998503363
+	execution time:3.5899910926818848
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5592417061611374
+	precision:0.5721109716576438
+	recall:0.6533582268179425
+	execution time:3.606161594390869
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5251184834123223
+	precision:0.5198491216375505
+	recall:0.5521345312814507
+	execution time:3.557302236557007
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.4255924170616114
+	precision:0.39434382757842473
+	recall:0.6183813149137845
+	execution time:3.577213764190674
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5421800947867299
+	precision:0.5563613652228223
+	recall:0.5916475386825635
+	execution time:3.5967423915863037
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5232227488151658
+	precision:0.5966954080210283
+	recall:0.5014609984677333
+	execution time:3.631244659423828
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.4976303317535545
+	precision:0.5497133694695916
+	recall:0.4168753665456736
+	execution time:3.5906784534454346
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5383886255924171
+	precision:0.510054527849972
+	recall:0.5074921851366341
+	execution time:3.6338586807250977
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5260663507109005
+	precision:0.4814239799531514
+	recall:0.5774539791379562
+	execution time:3.618633985519409
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6028436018957346
+	precision:0.6130007483162884
+	recall:0.7547142971193834
+	execution time:3.6375956535339355
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5412322274881517
+	precision:0.5073652303518497
+	recall:0.5657702987661023
+	execution time:3.6334054470062256
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5364928909952607
+	precision:0.5486125020700097
+	recall:0.5680685095545699
+	execution time:3.6651341915130615
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.4720379146919431
+	precision:0.5542007755277898
+	recall:0.2606235267660067
+	execution time:3.612748384475708
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5895734597156398
+	precision:0.6126917237676859
+	recall:0.6926525835163565
+	execution time:3.634833574295044
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5165876777251185
+	precision:0.5542122062094981
+	recall:0.4354317097177076
+	execution time:3.6254794597625732
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5601895734597157
+	precision:0.5002205728933798
+	recall:0.5380800447151158
+	execution time:3.622769594192505
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.557345971563981
+	precision:0.5753021992651366
+	recall:0.5186729857819905
+	execution time:3.6336467266082764
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6758293838862559
+	precision:0.6474385014669375
+	recall:0.6320323390019515
+	execution time:5.888291358947754
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6635071090047393
+	precision:0.6859630000875853
+	recall:0.6408933394486063
+	execution time:5.954610347747803
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6502369668246446
+	precision:0.6932776873924218
+	recall:0.5898769807289592
+	execution time:5.838794231414795
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6672985781990521
+	precision:0.6718369913648983
+	recall:0.7009603611557651
+	execution time:5.840301990509033
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6900473933649289
+	precision:0.7082312438522758
+	recall:0.6845298695219706
+	execution time:5.8970255851745605
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6464454976303318
+	precision:0.7220142896006644
+	recall:0.5548016961835869
+	execution time:5.856521844863892
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5402843601895735
+	precision:0.5222430204309212
+	recall:0.7569575959162878
+	execution time:5.7781243324279785
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.46729857819905213
+	precision:0.4642341404897466
+	recall:0.7336492890995261
+	execution time:6.008423089981079
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.7156398104265402
+	precision:0.7187722861656511
+	recall:0.7133546144065159
+	execution time:5.887513160705566
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6758293838862559
+	precision:0.6667324259332758
+	recall:0.7844029862575093
+	execution time:5.857395172119141
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6748815165876777
+	precision:0.6740941447480221
+	recall:0.6643266383712083
+	execution time:5.795177698135376
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5099526066350711
+	precision:0.5078498665359263
+	recall:0.7540311237334145
+	execution time:5.878192663192749
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6360189573459716
+	precision:0.6688382079547537
+	recall:0.5576321201824197
+	execution time:5.826586008071899
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6995260663507109
+	precision:0.7224567601126248
+	recall:0.7729473907172548
+	execution time:5.846097707748413
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6398104265402843
+	precision:0.5988369640119819
+	recall:0.7303855626151203
+	execution time:5.911870956420898
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6616113744075829
+	precision:0.6666490606977673
+	recall:0.7120022684003726
+	execution time:5.861375570297241
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6322274881516587
+	precision:0.7204962141953513
+	recall:0.5030382376301572
+	execution time:5.9867353439331055
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6265402843601896
+	precision:0.7185955859670771
+	recall:0.5400913342330749
+	execution time:5.914781093597412
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6644549763033175
+	precision:0.6553982198589758
+	recall:0.720505876430047
+	execution time:5.837335586547852
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6426540284360189
+	precision:0.6295166693904233
+	recall:0.8036204374895103
+	execution time:5.867401599884033
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6834123222748815
+	precision:0.6805321137635993
+	recall:0.8262422436116675
+	execution time:5.96466851234436
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.7696682464454976
+	precision:0.7908705696919971
+	recall:0.835529445599487
+	execution time:6.043625831604004
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5298578199052133
+	precision:0.6891092378214592
+	recall:0.420334315358012
+	execution time:5.916870594024658
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6426540284360189
+	precision:0.7058609125230941
+	recall:0.6089656829977241
+	execution time:5.9291229248046875
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6293838862559241
+	precision:0.6136897159564698
+	recall:0.7882369166729356
+	execution time:5.989111423492432
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6151658767772512
+	precision:0.6043914490269235
+	recall:0.7869643816875946
+	execution time:5.795345306396484
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6890995260663507
+	precision:0.6889820774436557
+	recall:0.8126506532408905
+	execution time:5.908609628677368
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6995260663507109
+	precision:0.6432190658951918
+	recall:0.7067282073047088
+	execution time:6.097121953964233
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5526066350710901
+	precision:0.7115974351826039
+	recall:0.4000491369335384
+	execution time:5.9923179149627686
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6123222748815166
+	precision:0.5631773855943771
+	recall:0.7127031935155246
+	execution time:5.905753135681152
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.637914691943128
+	precision:0.6498925977701251
+	recall:0.42668568320809797
+	execution time:7.511915445327759
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.43317535545023694
+	precision:0.6610321221695629
+	recall:0.2710506126721684
+	execution time:7.864320516586304
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6132701421800948
+	precision:0.5948486990826809
+	recall:0.6253723419658112
+	execution time:8.282935619354248
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.35165876777251187
+	precision:0.6151150981719702
+	recall:0.2536774851520787
+	execution time:7.221070766448975
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.4900473933649289
+	precision:0.6444319807061331
+	recall:0.35065749949936587
+	execution time:7.582556247711182
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6208530805687204
+	precision:0.6363374714584493
+	recall:0.603153813011633
+	execution time:7.125661134719849
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6113744075829384
+	precision:0.6813153444949868
+	recall:0.5507691710045839
+	execution time:7.702894926071167
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.524170616113744
+	precision:0.6844154051442506
+	recall:0.33800153842336417
+	execution time:8.088826417922974
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5289099526066351
+	precision:0.5221206538503007
+	recall:0.7578261884245296
+	execution time:7.832375526428223
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5734597156398105
+	precision:0.6896643950659549
+	recall:0.5343026733538858
+	execution time:7.987548828125
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.609478672985782
+	precision:0.6071665209589103
+	recall:0.8007584447731457
+	execution time:6.56506085395813
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6341232227488152
+	precision:0.651023875525351
+	recall:0.6308913986084501
+	execution time:7.373812675476074
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.656872037914692
+	precision:0.6493768383807147
+	recall:0.7136819205966902
+	execution time:7.9719812870025635
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.4085308056872038
+	precision:0.6242654028436019
+	recall:0.22064605806981094
+	execution time:7.688388347625732
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5886255924170616
+	precision:0.5520615727175031
+	recall:0.6430986681732107
+	execution time:7.5246899127960205
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5412322274881517
+	precision:0.5941455255087817
+	recall:0.28186355750685704
+	execution time:7.244240999221802
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6028436018957346
+	precision:0.5923822529252685
+	recall:0.41637715809072445
+	execution time:7.0480334758758545
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.590521327014218
+	precision:0.5819138485424983
+	recall:0.7865951522419443
+	execution time:8.096229553222656
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6549763033175355
+	precision:0.654128044563721
+	recall:0.738955268016272
+	execution time:7.889389991760254
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5563981042654028
+	precision:0.6756349495685988
+	recall:0.3097672802386077
+	execution time:7.827873945236206
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.45781990521327015
+	precision:0.4439853294910572
+	recall:0.7231362805512078
+	execution time:7.709470748901367
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5706161137440758
+	precision:0.5669172522743368
+	recall:0.754820251993989
+	execution time:7.96950364112854
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.637914691943128
+	precision:0.6229866500008681
+	recall:0.6509573459715641
+	execution time:8.197493553161621
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.671090047393365
+	precision:0.6702774476211316
+	recall:0.8116644266817571
+	execution time:7.852051258087158
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5914691943127962
+	precision:0.6944130112533144
+	recall:0.45562859008926027
+	execution time:7.438172101974487
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6303317535545023
+	precision:0.6206006593859468
+	recall:0.6007349824683081
+	execution time:7.255906820297241
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5772511848341232
+	precision:0.6488079632377303
+	recall:0.48913320663025955
+	execution time:7.521846532821655
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5725118483412323
+	precision:0.5377710756857677
+	recall:0.7412997838197389
+	execution time:7.857123374938965
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.637914691943128
+	precision:0.6438304424182645
+	recall:0.6624278289769308
+	execution time:7.977516412734985
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6881516587677725
+	precision:0.6862868846602681
+	recall:0.8332999673149207
+	execution time:8.286356449127197
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5222748815165876
+	precision:0.6451954117727865
+	recall:0.3101208048987744
+	execution time:7.46258544921875
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6369668246445498
+	precision:0.628382174976943
+	recall:0.7807317344699258
+	execution time:7.483374834060669
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6729857819905213
+	precision:0.6508996706562775
+	recall:0.709732327614979
+	execution time:7.46085000038147
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6938388625592417
+	precision:0.7331106300656602
+	recall:0.7200865867048407
+	execution time:7.481995105743408
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6720379146919432
+	precision:0.7049705702491974
+	recall:0.6504519470366932
+	execution time:7.445064544677734
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6606635071090048
+	precision:0.7374418452976217
+	recall:0.6111861839342492
+	execution time:7.515477657318115
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5383886255924171
+	precision:0.6945189881208839
+	recall:0.45553855177202646
+	execution time:7.416544198989868
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5118483412322274
+	precision:0.4641580608309108
+	recall:0.7212575039494471
+	execution time:7.417945623397827
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5819905213270142
+	precision:0.6312730384412849
+	recall:0.3434577874301024
+	execution time:7.502348184585571
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6502369668246446
+	precision:0.6573765479284513
+	recall:0.6210954949065752
+	execution time:7.4310057163238525
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.604739336492891
+	precision:0.6963090621858394
+	recall:0.38464814925910373
+	execution time:7.46897292137146
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6085308056872037
+	precision:0.7297973177372189
+	recall:0.3877727097329547
+	execution time:7.4863996505737305
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.623696682464455
+	precision:0.5904941745655607
+	recall:0.7530854546342893
+	execution time:7.472611665725708
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5582938388625592
+	precision:0.6992858083201685
+	recall:0.3864164229773789
+	execution time:7.515841722488403
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6009478672985782
+	precision:0.6475813716658181
+	recall:0.39021752339287885
+	execution time:7.434973239898682
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6748815165876777
+	precision:0.6685974747117494
+	recall:0.6807676441739162
+	execution time:7.4374682903289795
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6597156398104266
+	precision:0.6578964939383625
+	recall:0.7358407258881192
+	execution time:7.438690185546875
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6322274881516587
+	precision:0.5938915218536072
+	recall:0.6700960449607851
+	execution time:7.440042734146118
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5402843601895735
+	precision:0.7034755134281201
+	recall:0.38812897877465474
+	execution time:7.477946519851685
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5876777251184834
+	precision:0.6552250011731031
+	recall:0.36988052922590836
+	execution time:7.512758016586304
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6625592417061611
+	precision:0.6696254855147347
+	recall:0.662161973794257
+	execution time:7.492358922958374
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6682464454976303
+	precision:0.6299865321013332
+	recall:0.6980612758461603
+	execution time:7.4931206703186035
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6739336492890995
+	precision:0.7099826976604228
+	recall:0.5724377665283173
+	execution time:7.488897085189819
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.7023696682464455
+	precision:0.6928270628622257
+	recall:0.6165606883373458
+	execution time:7.488215446472168
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6246445497630332
+	precision:0.6770011739640853
+	recall:0.4726045329460327
+	execution time:7.514501333236694
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.7440758293838863
+	precision:0.7438702733664071
+	recall:0.8674924601464886
+	execution time:7.5665857791900635
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6919431279620853
+	precision:0.7147887682821179
+	recall:0.6600741280836068
+	execution time:7.53813362121582
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6701421800947868
+	precision:0.6806282127554328
+	recall:0.7308707669456163
+	execution time:7.507648229598999
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.6890995260663507
+	precision:0.6986038170872294
+	recall:0.6960703354839803
+	execution time:7.516970157623291
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/HIGGS.csv sum -1
+	accuracy:0.5895734597156398
+	precision:0.7299097723634127
+	recall:0.5493678816902806
+	execution time:7.510442733764648
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.5099526066350711
+	precision:0.3372754524892831
+	recall:0.3976089708089174
+	execution time:4.155592441558838
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6227488151658768
+	precision:0.6609774241480948
+	recall:0.7228439684053146
+	execution time:4.186873435974121
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6170616113744076
+	precision:0.6633344204748305
+	recall:0.6888853647520992
+	execution time:4.191264390945435
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7061611374407583
+	precision:0.7220366593471234
+	recall:0.8035560400773937
+	execution time:4.186172008514404
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6180094786729858
+	precision:0.7899357763850157
+	recall:0.6335153246200278
+	execution time:4.115232467651367
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6966824644549763
+	precision:0.7055560956143081
+	recall:0.8060027643659593
+	execution time:4.145368337631226
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7121212121212122
+	precision:0.7297810317944546
+	recall:0.7871117672340914
+	execution time:4.199303150177002
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6085308056872037
+	precision:0.6765457139125912
+	recall:0.6487203046252291
+	execution time:4.122584342956543
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7061611374407583
+	precision:0.7059565534638286
+	recall:0.8283248957173802
+	execution time:4.169861555099487
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6369668246445498
+	precision:0.6840218469317197
+	recall:0.6913601256320225
+	execution time:4.091099500656128
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.738388625592417
+	precision:0.7585905690337693
+	recall:0.8205946902423308
+	execution time:4.17833399772644
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.595260663507109
+	precision:0.5498911181841432
+	recall:0.48057542495360694
+	execution time:4.204757928848267
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6037914691943128
+	precision:0.48964089463307275
+	recall:0.47246321191121865
+	execution time:4.095187187194824
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.628436018957346
+	precision:0.4916377256146333
+	recall:0.6031030666101757
+	execution time:4.139157056808472
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6881516587677725
+	precision:0.7055525243961508
+	recall:0.7821442360652983
+	execution time:4.145481824874878
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.5772511848341232
+	precision:0.4734886498286183
+	recall:0.5772589557743809
+	execution time:4.1554975509643555
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7118483412322275
+	precision:0.7182295007927637
+	recall:0.859887789305739
+	execution time:4.186521053314209
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7298578199052133
+	precision:0.743190898208819
+	recall:0.8192344485810642
+	execution time:4.178206443786621
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.5895734597156398
+	precision:0.6571113006289129
+	recall:0.63260359968894
+	execution time:4.181767463684082
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6862559241706161
+	precision:0.7056917107218906
+	recall:0.8156319192559804
+	execution time:4.173198699951172
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6293838862559241
+	precision:0.6792610925734709
+	recall:0.6856673186903731
+	execution time:4.187305212020874
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.5345971563981042
+	precision:0.7111960108370362
+	recall:0.5426870658759931
+	execution time:4.205740690231323
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7071090047393365
+	precision:0.7237500960276542
+	recall:0.8345193750796965
+	execution time:4.2333550453186035
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7668246445497631
+	precision:0.654073572556985
+	recall:0.5526438531318502
+	execution time:4.206157922744751
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7924170616113744
+	precision:0.7980346535427074
+	recall:0.8770345979491333
+	execution time:4.210298538208008
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.604739336492891
+	precision:0.6376003545727483
+	recall:0.7222985289184317
+	execution time:4.173052549362183
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6976303317535545
+	precision:0.4228952377179212
+	recall:0.29206464120594894
+	execution time:4.25167989730835
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.5137440758293839
+	precision:0.616860798638562
+	recall:0.5562925483962983
+	execution time:4.214962482452393
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6303317535545023
+	precision:0.6065452609528439
+	recall:0.4846791895719387
+	execution time:4.220757484436035
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.36492890995260663
+	precision:0.548877943075038
+	recall:0.3268383015474337
+	execution time:4.244016647338867
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6312796208530805
+	precision:0.6326193274406511
+	recall:0.7642799300579274
+	execution time:4.821605920791626
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7459715639810427
+	precision:0.7370433116739222
+	recall:0.6359654350108567
+	execution time:4.812838315963745
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6919431279620853
+	precision:0.6293092771983242
+	recall:0.4846054523523195
+	execution time:4.758932590484619
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7014218009478673
+	precision:0.7005708661597819
+	recall:0.8072664969635915
+	execution time:4.880005598068237
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7696682464454976
+	precision:0.6830518086442257
+	recall:0.5434110640707457
+	execution time:4.892799377441406
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7421800947867299
+	precision:0.7441038211399924
+	recall:0.8480345687714089
+	execution time:4.794473648071289
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7687203791469195
+	precision:0.5610896163064233
+	recall:0.6636899102622963
+	execution time:4.892137765884399
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6988636363636364
+	precision:0.7090221686279112
+	recall:0.8036361088248786
+	execution time:4.8205726146698
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7260663507109004
+	precision:0.8182022441674611
+	recall:0.7581520973738761
+	execution time:4.850083827972412
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7102272727272727
+	precision:0.7113802418022045
+	recall:0.8103320410486182
+	execution time:4.873795747756958
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.8075829383886256
+	precision:0.8228609546894634
+	recall:0.8828031366074232
+	execution time:4.927211046218872
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.8691943127962085
+	precision:0.8739723551547535
+	recall:0.9140728937785694
+	execution time:4.887133598327637
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7791469194312797
+	precision:0.8192326018638502
+	recall:0.7954071412914017
+	execution time:4.914768934249878
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6881516587677725
+	precision:0.6866758472424627
+	recall:0.8041352902850368
+	execution time:4.873373508453369
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7203791469194313
+	precision:0.804662656810817
+	recall:0.747221467359391
+	execution time:4.883476495742798
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6767772511848341
+	precision:0.5626867647942569
+	recall:0.5140373995743905
+	execution time:4.861094236373901
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7184834123222749
+	precision:0.7217028903738156
+	recall:0.8226505178263928
+	execution time:4.792684316635132
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7964015151515151
+	precision:0.7964015151515151
+	recall:0.8725635258838383
+	execution time:4.91697096824646
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7118483412322275
+	precision:0.76050497251339
+	recall:0.5259882982532873
+	execution time:4.922445774078369
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6388625592417062
+	precision:0.6388713357907672
+	recall:0.7923098958390655
+	execution time:4.847960710525513
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7781990521327015
+	precision:0.5187292223111535
+	recall:0.5637797879789034
+	execution time:5.010921955108643
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7450236966824645
+	precision:0.8269048195618408
+	recall:0.7635335845746819
+	execution time:4.9621195793151855
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7336492890995261
+	precision:0.5627260438375169
+	recall:0.6172746515723834
+	execution time:4.923535585403442
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7156398104265402
+	precision:0.7176301122702627
+	recall:0.8247425417944209
+	execution time:4.906024217605591
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.776303317535545
+	precision:0.7798554140102728
+	recall:0.5775476649183162
+	execution time:4.942415714263916
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7573459715639811
+	precision:0.7825901808254523
+	recall:0.8138415298520528
+	execution time:4.885386943817139
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7563981042654029
+	precision:0.7540861913740678
+	recall:0.8354272930845935
+	execution time:4.9568986892700195
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6255924170616114
+	precision:0.620757608455445
+	recall:0.7689014503890625
+	execution time:4.904636383056641
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7791469194312797
+	precision:0.7960232385319225
+	recall:0.8586979422037597
+	execution time:4.9193384647369385
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7165876777251184
+	precision:0.7576887838896408
+	recall:0.7805083064835605
+	execution time:4.935667514801025
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7118483412322275
+	precision:0.7727774096553718
+	recall:0.7763842215408467
+	execution time:9.508137941360474
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6739336492890995
+	precision:0.678017019930334
+	recall:0.7981638566349444
+	execution time:10.115867137908936
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7867298578199052
+	precision:0.8093914642076913
+	recall:0.8544281802481084
+	execution time:10.31450629234314
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6360189573459716
+	precision:0.6367171618110135
+	recall:0.7734107218874398
+	execution time:9.524287700653076
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6483412322274882
+	precision:0.6478565413293501
+	recall:0.7677069420286112
+	execution time:8.397931575775146
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6350710900473934
+	precision:0.6447924512287564
+	recall:0.7542172424286689
+	execution time:8.706733703613281
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7518939393939394
+	precision:0.7530844753920186
+	recall:0.8564086658980873
+	execution time:9.873080253601074
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7639810426540284
+	precision:0.7904628326870403
+	recall:0.8231537333316284
+	execution time:9.04611873626709
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7573459715639811
+	precision:0.7574515927923348
+	recall:0.8569876069102184
+	execution time:10.250598430633545
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6587677725118484
+	precision:0.4378606201572997
+	recall:0.5065677657213957
+	execution time:9.393642902374268
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7800947867298578
+	precision:0.7992877939237267
+	recall:0.8742571468371375
+	execution time:9.11100959777832
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.70521327014218
+	precision:0.7065256566482153
+	recall:0.8226965393308738
+	execution time:9.077577352523804
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6540284360189573
+	precision:0.6577746190073861
+	recall:0.7837739655387671
+	execution time:9.287949562072754
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.771563981042654
+	precision:0.814613881106772
+	recall:0.8384457439319446
+	execution time:10.159594058990479
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7374407582938388
+	precision:0.6585270585837147
+	recall:0.5427637674585207
+	execution time:9.822945833206177
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.671090047393365
+	precision:0.6395702356772094
+	recall:0.582226703300854
+	execution time:8.734819173812866
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7696682464454976
+	precision:0.5126262626262627
+	recall:0.5280371921451558
+	execution time:10.463623762130737
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6853080568720379
+	precision:0.7435994948549148
+	recall:0.7001047465768456
+	execution time:9.764526128768921
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6350710900473934
+	precision:0.7149534192076068
+	recall:0.6283827263874701
+	execution time:9.56182336807251
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7014218009478673
+	precision:0.7333002800175671
+	recall:0.7371439286981136
+	execution time:9.013318538665771
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.8568720379146919
+	precision:0.8699707745415264
+	recall:0.9010996242322852
+	execution time:10.424506425857544
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7004739336492891
+	precision:0.6465967243218428
+	recall:0.513671766424869
+	execution time:9.224770069122314
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6180094786729858
+	precision:0.6184763476595675
+	recall:0.759576148386221
+	execution time:10.590996026992798
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6369668246445498
+	precision:0.7310038719412367
+	recall:0.6770349966167103
+	execution time:8.985204935073853
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7706161137440758
+	precision:0.7704710258969816
+	recall:0.8933035422073384
+	execution time:10.652483463287354
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7308056872037915
+	precision:0.7340434454944771
+	recall:0.8315532603565708
+	execution time:9.752517223358154
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7829383886255924
+	precision:0.7861037689447046
+	recall:0.8697578997623996
+	execution time:10.610325574874878
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7023696682464455
+	precision:0.7168202026288446
+	recall:0.7649832735542882
+	execution time:8.02442717552185
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7146919431279621
+	precision:0.7170973736111509
+	recall:0.8217252713652347
+	execution time:9.101842164993286
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7651515151515151
+	precision:0.7651515151515151
+	recall:0.8817752690301709
+	execution time:10.073299884796143
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7431279620853081
+	precision:0.7442139431509665
+	recall:0.8621718206040566
+	execution time:6.326037406921387
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.8312796208530806
+	precision:0.857672172261943
+	recall:0.8591199323797355
+	execution time:6.333467483520508
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.704265402843602
+	precision:0.7038784771270379
+	recall:0.8214896527979221
+	execution time:6.3388330936431885
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7497630331753554
+	precision:0.7665566904869179
+	recall:0.8276128365326546
+	execution time:6.351253986358643
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7886255924170616
+	precision:0.7987592105984115
+	recall:0.8694300517181661
+	execution time:6.311923503875732
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7004739336492891
+	precision:0.47634845407357257
+	recall:0.49502746314271845
+	execution time:6.325450658798218
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7270142180094786
+	precision:0.7424418750488985
+	recall:0.8237700271785401
+	execution time:6.353797197341919
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7507109004739336
+	precision:0.7288694454571232
+	recall:0.7011780515779579
+	execution time:6.281608581542969
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.790521327014218
+	precision:0.8045471475493763
+	recall:0.8721840144707319
+	execution time:6.336332559585571
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7677725118483413
+	precision:0.7639062906671993
+	recall:0.5836721479320737
+	execution time:6.2598443031311035
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7244318181818182
+	precision:0.7290673203122325
+	recall:0.816924970502824
+	execution time:6.385806322097778
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7175355450236967
+	precision:0.7164229049392065
+	recall:0.8587861572510027
+	execution time:6.361350774765015
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7127962085308057
+	precision:0.7142056156369948
+	recall:0.8664575234249842
+	execution time:6.356189727783203
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7469194312796209
+	precision:0.7588760365811588
+	recall:0.8463557138986894
+	execution time:6.367820739746094
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6407582938388625
+	precision:0.635098265335152
+	recall:0.777373119030872
+	execution time:6.30493950843811
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.8104265402843602
+	precision:0.8273068384235197
+	recall:0.8501469897277945
+	execution time:6.363214731216431
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.8170616113744076
+	precision:0.8374799679765393
+	recall:0.8859935123910194
+	execution time:6.276812553405762
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7336492890995261
+	precision:0.5050115234949358
+	recall:0.31356596555909605
+	execution time:6.289506435394287
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7232227488151659
+	precision:0.7093479629135567
+	recall:0.8799892939094228
+	execution time:6.314603805541992
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.8123222748815165
+	precision:0.820816500448207
+	recall:0.604888659350803
+	execution time:6.337184190750122
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.8132701421800947
+	precision:0.8255884567425958
+	recall:0.8803433839073559
+	execution time:6.36251425743103
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7604166666666666
+	precision:0.7631176738734045
+	recall:0.8354450154241267
+	execution time:6.360223054885864
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7488151658767772
+	precision:0.6828627764578497
+	recall:0.7437983177036065
+	execution time:6.364464998245239
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7914691943127962
+	precision:0.7128517761757401
+	recall:0.6616770026620644
+	execution time:6.431784629821777
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6559241706161137
+	precision:0.5326090204794848
+	recall:0.4950221665861476
+	execution time:6.430734872817993
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7367424242424242
+	precision:0.7376069988351223
+	recall:0.8378492304272566
+	execution time:6.336876630783081
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.6796208530805687
+	precision:0.7821592297032774
+	recall:0.6926256894556092
+	execution time:6.365208387374878
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.776303317535545
+	precision:0.7839756424408812
+	recall:0.8617063429426789
+	execution time:6.422688961029053
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7658767772511849
+	precision:0.7690239492043073
+	recall:0.8404169408265055
+	execution time:6.406365156173706
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/connect-4Train.csv sum -1
+	accuracy:0.7601895734597156
+	precision:0.7643329061126086
+	recall:0.8382545830946305
+	execution time:6.391203165054321
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8657844990548205
+	precision:0.871695261833425
+	recall:0.8843926424234464
+	execution time:66.3494005203247
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8694418164616841
+	precision:0.856571087304087
+	recall:0.8909146339404137
+	execution time:66.49020338058472
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8391674550614948
+	precision:0.8290452753525006
+	recall:0.8867114310865123
+	execution time:66.30321931838989
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8278145695364238
+	precision:0.860148506829786
+	recall:0.8573419604491104
+	execution time:65.40316081047058
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8637653736991485
+	precision:0.8853872950073743
+	recall:0.824384644981814
+	execution time:65.24795293807983
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8382213812677389
+	precision:0.8987072732928898
+	recall:0.7876368968098986
+	execution time:66.2185468673706
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8675496688741722
+	precision:0.8973273907271887
+	recall:0.8706623027959111
+	execution time:65.61405777931213
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8675496688741722
+	precision:0.8621234271918056
+	recall:0.8984079125750656
+	execution time:66.23237633705139
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8582230623818525
+	precision:0.8881592565460711
+	recall:0.8658358527208387
+	execution time:66.31807947158813
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8741721854304636
+	precision:0.8929801833482693
+	recall:0.8101059623416724
+	execution time:65.32648587226868
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8431001890359168
+	precision:0.8964582389098854
+	recall:0.8368391196668075
+	execution time:66.37655997276306
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8855250709555346
+	precision:0.8989175385970618
+	recall:0.8752789335311381
+	execution time:66.49876499176025
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8524124881740776
+	precision:0.9005339944509287
+	recall:0.8805150939652024
+	execution time:66.57435774803162
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8960302457466919
+	precision:0.9152013987076998
+	recall:0.9180584125079253
+	execution time:65.67339086532593
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8657844990548205
+	precision:0.8993771973437086
+	recall:0.8731815304627017
+	execution time:65.2671730518341
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.859035004730369
+	precision:0.8708360591936716
+	recall:0.8579361915887149
+	execution time:66.23672533035278
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8647114474929044
+	precision:0.839458118098128
+	recall:0.8410464271182333
+	execution time:66.42145228385925
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8713339640491958
+	precision:0.8850368792925082
+	recall:0.8969764080365461
+	execution time:66.36551547050476
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8987701040681173
+	precision:0.8561841728498051
+	recall:0.9030963353068747
+	execution time:66.53393006324768
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8760643330179754
+	precision:0.8639604220082067
+	recall:0.9067215149512118
+	execution time:66.70060300827026
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8533585619678334
+	precision:0.851362296742397
+	recall:0.9024827244352996
+	execution time:66.40750074386597
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8760643330179754
+	precision:0.8922690882251777
+	recall:0.8549581948823338
+	execution time:66.27881240844727
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8525519848771267
+	precision:0.8690264738628329
+	recall:0.8909542315770252
+	execution time:65.11374831199646
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8686200378071833
+	precision:0.8896540086657156
+	recall:0.8430752676648272
+	execution time:65.60780334472656
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8497164461247637
+	precision:0.8572030369389761
+	recall:0.8652262563423687
+	execution time:66.2905764579773
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8666035950804163
+	precision:0.874805608023804
+	recall:0.8380869618717645
+	execution time:66.49168395996094
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8988657844990549
+	precision:0.8886821128807668
+	recall:0.9238591993220441
+	execution time:66.41251349449158
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8438978240302744
+	precision:0.8336146958650312
+	recall:0.8336248172663469
+	execution time:66.57335162162781
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8968779564806055
+	precision:0.8964883361872124
+	recall:0.9143916404115341
+	execution time:66.52225160598755
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.847682119205298
+	precision:0.8945347133828842
+	recall:0.8338382565137031
+	execution time:66.54588913917542
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8686200378071833
+	precision:0.8697157341336981
+	recall:0.8980801810105797
+	execution time:68.69623231887817
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.9016083254493851
+	precision:0.8966617867950664
+	recall:0.9082269919386212
+	execution time:68.69370865821838
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8978240302743614
+	precision:0.9416289864850379
+	recall:0.8737062700192949
+	execution time:68.92013335227966
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8601134215500945
+	precision:0.893946989874674
+	recall:0.853699868701456
+	execution time:68.05112385749817
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8855250709555346
+	precision:0.8873786966404019
+	recall:0.922955458127273
+	execution time:68.73306775093079
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8420056764427626
+	precision:0.8043614687533648
+	recall:0.8049445254720823
+	execution time:68.70466256141663
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.9176915799432356
+	precision:0.9058699811473954
+	recall:0.9213336479971149
+	execution time:67.99347925186157
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8487712665406427
+	precision:0.8511490093146177
+	recall:0.9009596524776968
+	execution time:68.66276121139526
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8807947019867549
+	precision:0.9031916198017236
+	recall:0.8476813832120419
+	execution time:68.88877987861633
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8705103969754253
+	precision:0.8962262502268029
+	recall:0.8471593669270302
+	execution time:68.56587338447571
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.833648393194707
+	precision:0.8318273043722604
+	recall:0.8606184306402109
+	execution time:68.77488040924072
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8591682419659735
+	precision:0.8897958195007677
+	recall:0.848670395756885
+	execution time:68.88751363754272
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8620037807183365
+	precision:0.8825608743399067
+	recall:0.8674621596060149
+	execution time:68.09477519989014
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8656575212866604
+	precision:0.8518157271495899
+	recall:0.8683519576024097
+	execution time:69.07388401031494
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8732261116367077
+	precision:0.8595746710281155
+	recall:0.8104273444818645
+	execution time:68.70389699935913
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.9073724007561437
+	precision:0.8960976909053271
+	recall:0.8929733681835854
+	execution time:68.91461873054504
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8684957426679281
+	precision:0.8900186845679638
+	recall:0.8843094887171091
+	execution time:68.2672119140625
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.9053926206244087
+	precision:0.901625704856265
+	recall:0.9070260707641726
+	execution time:68.82757902145386
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8591682419659735
+	precision:0.8759570516406956
+	recall:0.8661781991669646
+	execution time:68.1686954498291
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8648393194706995
+	precision:0.8808990359382998
+	recall:0.8965714112074521
+	execution time:68.77465748786926
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8544423440453687
+	precision:0.7795247280322875
+	recall:0.8536763536927141
+	execution time:68.62917518615723
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8571428571428571
+	precision:0.8307803740514679
+	recall:0.899776209846164
+	execution time:68.65315818786621
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8628192999053926
+	precision:0.911068749277467
+	recall:0.8615264159387289
+	execution time:67.9459331035614
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8949858088930936
+	precision:0.9232982861480638
+	recall:0.862536897202873
+	execution time:68.78406310081482
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8855250709555346
+	precision:0.8963472693333987
+	recall:0.9028552333723114
+	execution time:68.72846055030823
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.879848628192999
+	precision:0.8777551713999122
+	recall:0.8300511131846813
+	execution time:68.9980936050415
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8751182592242195
+	precision:0.845105774113606
+	recall:0.8943782684141613
+	execution time:69.25005316734314
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8770104068117314
+	precision:0.8445235409966066
+	recall:0.8964568250538647
+	execution time:67.74041628837585
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.9053926206244087
+	precision:0.9152273215297647
+	recall:0.9220287485786681
+	execution time:68.77171421051025
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.9035004730368968
+	precision:0.9130545066182447
+	recall:0.9343562845111195
+	execution time:68.8126392364502
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8656575212866604
+	precision:0.8741193645757278
+	recall:0.848476797531295
+	execution time:106.92987704277039
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8751182592242195
+	precision:0.8658604006065642
+	recall:0.8616682500033219
+	execution time:107.29114270210266
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8902554399243141
+	precision:0.9085380806147544
+	recall:0.8867137594881571
+	execution time:109.0861074924469
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8580889309366131
+	precision:0.8390465534612073
+	recall:0.8720160829524648
+	execution time:109.28088116645813
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8741721854304636
+	precision:0.8517098749712091
+	recall:0.8599816557882193
+	execution time:109.01088309288025
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8610586011342155
+	precision:0.8618635184654193
+	recall:0.9024458261655838
+	execution time:107.66541314125061
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8893093661305582
+	precision:0.8863119885313043
+	recall:0.9176031968325022
+	execution time:109.9207398891449
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8713339640491958
+	precision:0.8509296422309831
+	recall:0.8482928126945686
+	execution time:108.89869046211243
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.831758034026465
+	precision:0.8504039248151084
+	recall:0.8668848308776201
+	execution time:111.52495288848877
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8770104068117314
+	precision:0.8922140821931455
+	recall:0.9118755637367622
+	execution time:110.55779480934143
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8780718336483931
+	precision:0.8540441584330287
+	recall:0.8689624743237074
+	execution time:108.86315107345581
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8817407757805109
+	precision:0.81854362612735
+	recall:0.906859066053096
+	execution time:110.06916165351868
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8684957426679281
+	precision:0.8960235911325432
+	recall:0.8971327484514416
+	execution time:109.79132390022278
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8543046357615894
+	precision:0.8749615013193651
+	recall:0.8345282617375057
+	execution time:109.61952328681946
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8751182592242195
+	precision:0.8868249202581773
+	recall:0.8341807025009864
+	execution time:110.96746611595154
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8609271523178808
+	precision:0.8161647066407767
+	recall:0.8245968733890411
+	execution time:109.122962474823
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8724007561436673
+	precision:0.8847289675817853
+	recall:0.8560617797795439
+	execution time:108.12647747993469
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8666035950804163
+	precision:0.920883707743713
+	recall:0.8918738990958719
+	execution time:108.52541041374207
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8647114474929044
+	precision:0.8820305868214134
+	recall:0.8512645889878862
+	execution time:108.23448348045349
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8807947019867549
+	precision:0.896677668542081
+	recall:0.8710210267988941
+	execution time:108.35954308509827
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8666035950804163
+	precision:0.8226433583201993
+	recall:0.9051854785586316
+	execution time:109.86556839942932
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8950850661625709
+	precision:0.9172520675001223
+	recall:0.9233330963873645
+	execution time:111.93759512901306
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8543046357615894
+	precision:0.8906159607822935
+	recall:0.8657425914194932
+	execution time:107.82286024093628
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8864711447492905
+	precision:0.8986822809769528
+	recall:0.8866322761463283
+	execution time:108.89909839630127
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8410596026490066
+	precision:0.8000456251468029
+	recall:0.867355034445627
+	execution time:108.3107852935791
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8864711447492905
+	precision:0.8471848197815184
+	recall:0.8987343518050812
+	execution time:110.15439367294312
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8790170132325141
+	precision:0.8617265437983133
+	recall:0.8785033346223285
+	execution time:107.10683250427246
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.9044465468306528
+	precision:0.9006364637243192
+	recall:0.9128692722691245
+	execution time:110.04724740982056
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8609271523178808
+	precision:0.8316946002581996
+	recall:0.8036883034494477
+	execution time:109.76797437667847
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8836329233680227
+	precision:0.8350603024187352
+	recall:0.8791948980830842
+	execution time:109.64231538772583
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8638941398865785
+	precision:0.8970902025783027
+	recall:0.848819678303866
+	execution time:244.64456844329834
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8298676748582231
+	precision:0.8478363911339594
+	recall:0.8062804076124808
+	execution time:243.36806845664978
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8497164461247637
+	precision:0.8230067599534362
+	recall:0.8835689332800356
+	execution time:244.7354040145874
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8164616840113529
+	precision:0.857344113838083
+	recall:0.7104949219006245
+	execution time:242.33801651000977
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.7967863894139886
+	precision:0.8182363826896785
+	recall:0.8087723116067712
+	execution time:243.52796506881714
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8126773888363292
+	precision:0.8355573286058814
+	recall:0.8456884264898253
+	execution time:246.38462090492249
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.7892249527410208
+	precision:0.8038649401143594
+	recall:0.8774111922046224
+	execution time:241.6826024055481
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8438978240302744
+	precision:0.8597138266505059
+	recall:0.8578675438739938
+	execution time:246.31046223640442
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8126773888363292
+	precision:0.8236146712985288
+	recall:0.8025951813002857
+	execution time:242.06746196746826
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8505203405865658
+	precision:0.8780395051911201
+	recall:0.8403172638928916
+	execution time:243.4972755908966
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8287606433301797
+	precision:0.8652392158005302
+	recall:0.7918594565731718
+	execution time:242.81782984733582
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8647114474929044
+	precision:0.9008235191632611
+	recall:0.8787923803271074
+	execution time:239.56628608703613
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8561967833491012
+	precision:0.8909641715744863
+	recall:0.8848124216252552
+	execution time:243.461106300354
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8534971644612477
+	precision:0.829249281968021
+	recall:0.8416221747301101
+	execution time:241.7998104095459
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8666035950804163
+	precision:0.8894017531884717
+	recall:0.8193113220650654
+	execution time:245.111554145813
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8826868495742668
+	precision:0.8654756656501155
+	recall:0.8967226241928732
+	execution time:245.1710078716278
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8544423440453687
+	precision:0.8489263003729466
+	recall:0.8627465250281301
+	execution time:239.37032055854797
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8457899716177862
+	precision:0.8307051176882243
+	recall:0.7826605394687519
+	execution time:244.07979607582092
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.804162724692526
+	precision:0.7922650031059166
+	recall:0.828723019526741
+	execution time:243.15041375160217
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8505203405865658
+	precision:0.8622077797986819
+	recall:0.8415422150624658
+	execution time:245.26376485824585
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8034026465028355
+	precision:0.8236433037037904
+	recall:0.7421005720913684
+	execution time:239.8160479068756
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8637653736991485
+	precision:0.8695039489380247
+	recall:0.8455041765642856
+	execution time:245.9501039981842
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8126773888363292
+	precision:0.8620911622204102
+	recall:0.7912698676038399
+	execution time:244.35846257209778
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8552507095553453
+	precision:0.8558367678229732
+	recall:0.8441704311451292
+	execution time:244.05388283729553
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8486281929990539
+	precision:0.8464534605402525
+	recall:0.9085611144892531
+	execution time:241.82626628875732
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8457899716177862
+	precision:0.8298490488207335
+	recall:0.8523033722241447
+	execution time:243.80275511741638
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8601134215500945
+	precision:0.869102405077036
+	recall:0.861515659156224
+	execution time:239.76679468154907
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.836329233680227
+	precision:0.8605959327873605
+	recall:0.8506045806738589
+	execution time:246.09916806221008
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8486281929990539
+	precision:0.8063757091573986
+	recall:0.8601628735267578
+	execution time:245.478773355484
+----------------
+for 3 partitions:
+centralNode.py 3 10000 0.75 0.25 perturbated ../datasets/reordered_mnist_train.csv sum -1
+	accuracy:0.8364839319470699
+	precision:0.8019068100693436
+	recall:0.8034680573950647
+	execution time:245.71477818489075
+----------------
