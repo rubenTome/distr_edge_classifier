@@ -124,5 +124,11 @@ def create_balanced_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3):
         testSet = pd.concat([testSet, data.iloc[[randomNtest.pop()]]])
     return nodeTrainSets, testSet
 
-def create_selected_partition(data, nNodes, classesDist, trainSize=0.7, testSize=0.3):
-    raise NotImplementedError
+def create_selected_partition(data, nNodes, confFile, trainSize=0.7, testSize=0.3):
+    f = open(confFile, "r")
+    #discard first line
+    f.readline()
+    for i in range(nNodes):
+        #get list with selected classes for each node
+        nodeDist = f.readline().split(" ")
+        print("selected classes for node " + i + ":", nodeDist)

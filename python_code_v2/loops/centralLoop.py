@@ -11,6 +11,8 @@ datasets = ["../datasets/covtype.csv",
             "../datasets/HIGGS.csv",
             "../datasets/connect-4Train.csv",
             "../datasets/reordered_mnist_train.csv"]
+#TODO add selectedDsetFiles to loop
+selectedDsetFiles = ["sel_part_conf.txt"]
 #decision rule to merge results
 decisionRule = "sum"
 #total executions per each configuration
