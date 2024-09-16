@@ -130,7 +130,6 @@ def create_selected_partition(data, nNodes, seed, confFile, trainSize=0.7, testS
     rd.seed(seed)
     #divide data in train and test
     testN = mt.trunc(testSize * len(data))
-    testSet = pd.DataFrame(columns=data.columns)
     nodeTrainSets = [pd.DataFrame(columns=data.columns) for _ in range(nNodes)]
     f = open(confFile, "r")
     #discard first line
@@ -139,6 +138,8 @@ def create_selected_partition(data, nNodes, seed, confFile, trainSize=0.7, testS
     #test
     testSet = data.sample(testN)
     data.drop(testSet.index, inplace=True)
+    print("test distribution of classes:")
+    print(testSet.classes.value_counts())
     #train
     for i in range(nNodes):
         #get list with selected classes for each node
@@ -149,6 +150,7 @@ def create_selected_partition(data, nNodes, seed, confFile, trainSize=0.7, testS
         for j in range(len(nodeDistr)):
             selClassSamples = data.loc[data['classes'] == nodeDistr[j]]
             nodeTrainSets[i] = pd.concat([nodeTrainSets[i], selClassSamples])
+            data.drop(selClassSamples.index, inplace=True)
         print("Number of samples per each class:") 
         print(nodeTrainSets[i].classes.value_counts())
     return nodeTrainSets, testSet

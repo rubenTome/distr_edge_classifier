@@ -21,7 +21,7 @@ def computeMetrics(predicted, real):
     return acuracy, precision, recall
 
 #select partition type (random, perturbated or selected)
-def selectPartFun(str, nPartition, data, train, test, confFile):
+def selectPartFun(str, nPartition, data, train, test):
     if str == "random":
         trainSets, testSet = data_loaders.create_random_partition(
             data, nPartition, time.time(), float(train), float(test))
@@ -37,7 +37,7 @@ def selectPartFun(str, nPartition, data, train, test, confFile):
     elif str == "selected":
         #needed an extra argument to select classes distribution of the nodes
         trainSets, testSet = data_loaders.create_selected_partition(
-            data, nPartition, time.time(), confFile, float(train), float(test))
+            data, nPartition, time.time(), sys.argv[9], float(train), float(test))
         return trainSets, testSet
     else:
         print("unknown partition type (correct values: random, perturbated, selected)")
@@ -66,11 +66,11 @@ repConf = sys.argv[8]
 #do not save csv
 if repConf == "-1":
     data = data_loaders.load_dataset(sys.argv[6], int(sys.argv[2]))
-    trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data, sys.argv[3], sys.argv[4], sys.argv[9])
+    trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data, sys.argv[3], sys.argv[4])
 #save csv
 elif int(repConf) == 0:
     data = data_loaders.load_dataset(sys.argv[6], int(sys.argv[2]))
-    trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data, sys.argv[3], sys.argv[4], sys.argv[9])
+    trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data, sys.argv[3], sys.argv[4])
     for i in range(len(trainSets)):
         trainSets[i].to_csv("trainset_" + str(i) + ".csv", index=False)
     testSet.to_csv("testset.csv", index=False)
@@ -147,6 +147,7 @@ def on_message(client, userdata, msg):
             #if labels starts in a numbre != 0
             testClasses = testClasses - min(testClasses)
             acc, prec, rec = computeMetrics(np.array(mergedResults), testClasses)
+            print(mergedResults, "\n", testClasses)
             #print metrics for each partition size
             execTime = time.time() - timer
             resultsFile.write("for " + str(nPartition) + " partitions:\n")

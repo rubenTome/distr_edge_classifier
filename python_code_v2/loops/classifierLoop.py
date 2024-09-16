@@ -14,7 +14,7 @@ weightings = ["now",
 #total executions per each configuration
 nReps = 10
 #number of datasets processed
-nDatasets = 4
+nDatasets = 1
 #number of different samples parameter value
 nDatas = 1
 #number of different partitions parameter value
