@@ -124,11 +124,31 @@ def create_balanced_partition(data, nNodes, seed, trainSize=0.7, testSize=0.3):
         testSet = pd.concat([testSet, data.iloc[[randomNtest.pop()]]])
     return nodeTrainSets, testSet
 
-def create_selected_partition(data, nNodes, confFile, trainSize=0.7, testSize=0.3):
+def create_selected_partition(data, nNodes, seed, confFile, trainSize=0.7, testSize=0.3):
+    if trainSize + testSize != 1:
+        raise ValueError("trainSize + testSize must be equal to 1")
+    rd.seed(seed)
+    #divide data in train and test
+    testN = mt.trunc(testSize * len(data))
+    testSet = pd.DataFrame(columns=data.columns)
+    nodeTrainSets = [pd.DataFrame(columns=data.columns) for _ in range(nNodes)]
     f = open(confFile, "r")
     #discard first line
-    f.readline()
+    lines = f.read()
+    splitLines = lines.split("\n")
+    #test
+    testSet = data.sample(testN)
+    data.drop(testSet.index, inplace=True)
+    #train
     for i in range(nNodes):
         #get list with selected classes for each node
-        nodeDist = f.readline().split(" ")
-        print("selected classes for node " + i + ":", nodeDist)
+        nodeDistr = splitLines[i].split(" ")
+        nodeDistr = [int(i) for i in nodeDistr]
+        print("selected classes for node " + str(i) + ":", nodeDistr)
+        #Get samples from selected classes
+        for j in range(len(nodeDistr)):
+            selClassSamples = data.loc[data['classes'] == nodeDistr[j]]
+            nodeTrainSets[i] = pd.concat([nodeTrainSets[i], selClassSamples])
+        print("Number of samples per each class:") 
+        print(nodeTrainSets[i].classes.value_counts())
+    return nodeTrainSets, testSet

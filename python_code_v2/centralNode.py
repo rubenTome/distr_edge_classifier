@@ -21,7 +21,7 @@ def computeMetrics(predicted, real):
     return acuracy, precision, recall
 
 #select partition type (random, perturbated or selected)
-def selectPartFun(str, nPartition, data, train, test):
+def selectPartFun(str, nPartition, data, train, test, confFile):
     if str == "random":
         trainSets, testSet = data_loaders.create_random_partition(
             data, nPartition, time.time(), float(train), float(test))
@@ -37,7 +37,7 @@ def selectPartFun(str, nPartition, data, train, test):
     elif str == "selected":
         #needed an extra argument to select classes distribution of the nodes
         trainSets, testSet = data_loaders.create_selected_partition(
-            data, nPartition, sys.argv[9], float(train), float(test))
+            data, nPartition, time.time(), confFile, float(train), float(test))
         return trainSets, testSet
     else:
         print("unknown partition type (correct values: random, perturbated, selected)")
@@ -66,11 +66,11 @@ repConf = sys.argv[8]
 #do not save csv
 if repConf == "-1":
     data = data_loaders.load_dataset(sys.argv[6], int(sys.argv[2]))
-    trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data, sys.argv[3], sys.argv[4])
+    trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data, sys.argv[3], sys.argv[4], sys.argv[9])
 #save csv
 elif int(repConf) == 0:
     data = data_loaders.load_dataset(sys.argv[6], int(sys.argv[2]))
-    trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data, sys.argv[3], sys.argv[4])
+    trainSets, testSet = selectPartFun(sys.argv[5], int(nPartition), data, sys.argv[3], sys.argv[4], sys.argv[9])
     for i in range(len(trainSets)):
         trainSets[i].to_csv("trainset_" + str(i) + ".csv", index=False)
     testSet.to_csv("testset.csv", index=False)
