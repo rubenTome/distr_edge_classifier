@@ -18,7 +18,7 @@ nDatasets = 4
 #number of different samples parameter value
 nDatas = 1
 #number of different partitions parameter value
-nPartitions = 3
+nPartitions = 4
 
 for _ in range(nDatas * nPartitions * nDatasets):
 	for model in models:

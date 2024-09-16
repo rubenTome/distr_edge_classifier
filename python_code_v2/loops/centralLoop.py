@@ -6,13 +6,12 @@ nNodes = sys.argv[1]
 train = "0.75"
 test = "0.25"
 nDatas = ["10000"]
-partitions = ["perturbated", "random", "balanced"]
+partitions = ["perturbated", "random", "balanced", "selected"]
 datasets = ["../datasets/covtype.csv",
             "../datasets/HIGGS.csv",
             "../datasets/connect-4Train.csv",
             "../datasets/reordered_mnist_train.csv"]
-#TODO add selectedDsetFiles to loop
-selectedDsetFiles = ["sel_part_conf.txt"]
+selectedDsFile = "sel_part_conf.txt"
 #decision rule to merge results
 decisionRule = "sum"
 #total executions per each configuration
@@ -28,6 +27,8 @@ for nData in nDatas:
                         statement = "python3 centralNode.py " + nNodes + " " + nData + " " + train + " " + test + " " + partition + " " + dataset + " " + decisionRule + " -1"
                     else:
                         statement = "python3 centralNode.py " + nNodes + " " + nData + " " + train + " " + test + " " + partition + " " + dataset + " " + decisionRule + " " + str(repConf)
+                    if partition == "selected":
+                        statement += " " + selectedDsFile
                     print("loop:", statement)
                     print("rep:", repConf)
                     os.system(statement)
