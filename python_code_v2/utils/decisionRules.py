@@ -7,15 +7,21 @@ import pandas as pd
 
 #add all the predicted beliefs values, choosing the highest
 def sum_rule(beliefs):
-    #add all belief values
+    ##add all belief values
+    #for i in range(len(beliefs) - 1):
+    #    beliefs[0].add(beliefs[i + 1], fill_value=0)
+    ##select the class with the highest belief
+    #result = beliefs[0].idxmax(axis=1)
+    ##return the result as a list
+    #resultList = result.tolist()
+    #resultList = [int(i) for i in resultList]
+    #return resultList
+    resultDataframe = beliefs[0]
     for i in range(len(beliefs) - 1):
-        beliefs[0].add(beliefs[i + 1], fill_value=0)
-    #select the class with the highest belief
-    result = beliefs[0].idxmax(axis=1)
-    #return the result as a list
-    resultList = result.tolist()
-    resultList = [int(i) for i in resultList]
-    return resultList
+        resultDataframe = resultDataframe.add(beliefs[i + 1], fill_value=0.0)
+    result = resultDataframe.idxmax(axis=1)
+    return list(map(int, result.tolist()))
+
 
 #choose the highest value
 def max_rule(beliefs):
