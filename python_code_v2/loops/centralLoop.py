@@ -6,14 +6,11 @@ nNodes = sys.argv[1]
 train = "0.75"
 test = "0.25"
 nDatas = ["10000"]
-partitions = ["perturbated", "random", "balanced", "selected"]
+partitions = ["selected"]
 datasets = ["../datasets/reordered_mnist_train.csv",
-            "../datasets/covtype.csv",
-            "../datasets/connect-4Train.csv",
-            "../datasets/HIGGS.csv"]
+            "../datasets/letter-recognition-reordered-numeric.csv"]
 selectedDsFile = {"../datasets/reordered_mnist_train.csv":"conf_files/sel_part_conf_mnist.txt", 
-                  "../datasets/covtype.csv":"conf_files/sel_part_conf_covtype.txt", 
-                  "../datasets/connect-4Train.csv":"conf_files/sel_part_conf_connect4.txt"}
+                  "../datasets/letter-recognition-reordered-numeric.csv":"conf_files/sel_part_conf_letter.txt"}
 #decision rule to merge results
 decisionRule = "sum"
 #total executions per each configuration
