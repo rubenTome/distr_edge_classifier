@@ -8,5 +8,5 @@ sleep 5
 # if rep_conf == -1 do not create csv
 # if rep_conf == 0 create csv with train subsets and test data
 # if rep_conf == 1 use csv created before
-# in sel_part_conf_file put the classes labels, whitespace separated, one line per node
-gnome-terminal -- bash -c "python3 ./centralNode.py 3 10000 0.75 0.25 selected ../datasets/reordered_mnist_train.csv sum -1 sel_part_conf.txt; exec bash"
+# in sel_part_conf_file put the classes labels, whitespace separated, one line per node. If needed, put a blank line and then specify discarded classes
+gnome-terminal -- bash -c "python3 ./centralNode.py 3 10000 0.75 0.25 selected ../datasets/reordered_mnist_train.csv sum -1 conf_files/sel_part_conf_mnist.txt; exec bash"

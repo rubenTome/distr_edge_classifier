@@ -137,6 +137,13 @@ def create_selected_partition(data, nNodes, seed, confFile, trainSize=0.7, testS
     splitLines = lines.split("\n")
     #test
     testSet = data.sample(testN)
+    #if we specify discarded classes
+    if (len(splitLines) == nNodes + 2):
+        discardedClass = splitLines[nNodes + 1].split(" ")
+        discardedClass = [int(i) for i in discardedClass]
+        print("discarded classes:", discardedClass)
+        for i in range(len(discardedClass)):
+            testSet = testSet[testSet.classes != discardedClass[i]]
     data.drop(testSet.index, inplace=True)
     print("test distribution of classes:")
     print(testSet.classes.value_counts())
