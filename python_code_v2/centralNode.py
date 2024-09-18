@@ -147,7 +147,6 @@ def on_message(client, userdata, msg):
             #if labels starts in a numbre != 0
             testClasses = testClasses - min(testClasses)
             acc, prec, rec = computeMetrics(np.array(mergedResults), testClasses)
-            print(mergedResults, "\n", testClasses)
             #print metrics for each partition size
             execTime = time.time() - timer
             resultsFile.write("for " + str(nPartition) + " partitions:\n")
