@@ -14,11 +14,11 @@ weightings = ["now",
 #total executions per each configuration
 nReps = 10
 #number of datasets processed
-nDatasets = 5
+nDatasets = 2
 #number of different samples parameter value
 nDatas = 1
 #number of different partitions parameter value
-nPartitions = 4
+nPartitions = 1
 
 for _ in range(nDatas * nPartitions * nDatasets):
 	for model in models:
