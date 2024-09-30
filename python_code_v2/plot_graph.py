@@ -37,13 +37,16 @@ def plot_graph(dataList):
                 marker = markers[0]
             elif dataList[i]["points"][j][0] == "piwm":
                 marker = markers[1]
-            plt.scatter(dataList[i]["points"][j][1], dataList[i]["points"][j][2], color=color, marker=marker)
+            plt.scatter(dataList[i]["points"][j][1], dataList[i]["points"][j][2], s=60 ,color=color, marker=marker)
     #asume that all dataList elemnt have the same balancedness value
-    plt.title(dataList[0]["balancedness"])
+    if dataList[0]["balancedness"] == "perturbated":
+        plt.title("unbalanced scenario")
+    else:
+        plt.title(dataList[0]["balancedness"] + " scenario")
     plt.xlabel("Mean accuracy")
     plt.ylabel("Mean execution time")
-    w = {"o": "pnw", "^": "piwm"}
-    d = {"red": "en", "green": "ca", "blue": "br"}
+    w = {"o": "PNW", "^": "PIW"}
+    d = {"red": "Energy", "green": "Canberra", "blue": "Bray-Curtis"}
     legend_elements = [
         mlines.Line2D([], [], color=c, marker=m, linestyle='None',
         markersize=10, label=f'{d[c]}, {w[m]}')
@@ -57,5 +60,11 @@ data = [
     parse_results("/home/ruben/FIC/GRADO/Q8/TFG/distr_edge_classifier/python_code_v2/results_3_nodes_ca/mean10_results_distr_10000_balanced.txt"),
     parse_results("/home/ruben/FIC/GRADO/Q8/TFG/distr_edge_classifier/python_code_v2/results_3_nodes_br/mean10_results_distr_10000_balanced.txt")
 ]
+plot_graph(data)
 
+data = [
+    parse_results("/home/ruben/FIC/GRADO/Q8/TFG/distr_edge_classifier/python_code_v2/results_3_nodes/mean10_results_distr_10000_perturbated.txt"),
+    parse_results("/home/ruben/FIC/GRADO/Q8/TFG/distr_edge_classifier/python_code_v2/results_3_nodes_ca/mean10_results_distr_10000_perturbated.txt"),
+    parse_results("/home/ruben/FIC/GRADO/Q8/TFG/distr_edge_classifier/python_code_v2/results_3_nodes_br/mean10_results_distr_10000_perturbated.txt")
+]
 plot_graph(data)
