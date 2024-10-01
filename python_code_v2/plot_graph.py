@@ -6,7 +6,8 @@ def parse_results(file):
         "balancedness": "",
         "distance": "",
         "points": [],
-        "datasets": []
+        "datasets": [],
+        "classifiers": []
     }
     f = open(file, 'r')
     lines = f.readlines()
@@ -19,18 +20,22 @@ def parse_results(file):
         data["distance"] = "en"
     for i in range(1, len(lines) - 1, 8):
         dataset = lines[i].split(" ")[6]
-        weight = lines[i + 1].split(" ")[1].replace("\n", "")
+        cw = lines[i + 1].split(" ")
+        classifier = cw[0]
+        weight = cw[1].replace("\n", "")
         acc = float(lines[i + 2].split(":")[1])
         time = float(lines[i + 5].split(":")[1])
         data["points"].append((weight, acc, time))
+        data["classifiers"].append(classifier)
         data["datasets"].append(dataset)
     f.close()
     return data
 
 def plot_graph(dataList, selectedDs):
     colors = ["red", "green", "blue"]
-    marker = "o"
+    markers = ["o", "^", "P", "*"]
     selectedW = "piwm"
+    selectedClass = ["knn", "rf", "svm", "xgb"]
     dist = []
     w = {"piwm": "PIW"}
     for i in range(len(dataList)):
@@ -39,7 +44,16 @@ def plot_graph(dataList, selectedDs):
         for j in range(len(dataList[i]["points"])):
             if (dataList[i]["points"][j][0] == selectedW 
                 and selectedDs in dataList[i]["datasets"][j]):
-                plt.scatter(dataList[i]["points"][j][1], dataList[i]["points"][j][2], s=60, color=color, marker=marker)
+                marker = ""
+                if dataList[i]["classifiers"][j] == "knn":
+                    marker = markers[0]
+                elif dataList[i]["classifiers"][j] == "rf":
+                    marker = markers[1]
+                elif dataList[i]["classifiers"][j] == "svm":
+                    marker = markers[2]
+                else:
+                    marker = markers[3]
+                plt.scatter(dataList[i]["points"][j][1], dataList[i]["points"][j][2], s=100, color=color, marker=marker)
     #asume that all dataList elemnt have the same balancedness value
     if dataList[0]["balancedness"] == "perturbated":
         plt.title(selectedDs + " dataset, " 
@@ -52,12 +66,16 @@ def plot_graph(dataList, selectedDs):
     plt.xlabel("Mean accuracy")
     plt.ylabel("Mean execution time")
     d = {"red": "Energy", "green": "Canberra", "blue": "Bray-Curtis"}
+    m = {selectedClass[0]: markers[0],
+         selectedClass[1]: markers[1], 
+         selectedClass[2]: markers[2], 
+         selectedClass[3]: markers[3]}
     legend_elements = [
-        mlines.Line2D([], [], color=c, marker=marker, linestyle='None',
-        markersize=10, label=f'{d[c]}')
-        for c in colors
+        mlines.Line2D([], [], color=c, marker=m[cl], linestyle='None',
+        markersize=10, label=f'{d[c]}, {cl}')
+        for c in colors for cl in selectedClass
     ]
-    plt.legend(handles=legend_elements, loc='upper left')
+    plt.legend(handles=legend_elements, ncol=3, loc='upper left')
     plt.show()
 
 data = [
