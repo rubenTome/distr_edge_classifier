@@ -53,18 +53,18 @@ def plot_graph(dataList, selectedDs):
                     marker = markers[2]
                 else:
                     marker = markers[3]
-                plt.scatter(dataList[i]["points"][j][1], dataList[i]["points"][j][2], s=100, color=color, marker=marker)
+                plt.scatter(dataList[i]["points"][j][1], dataList[i]["points"][j][2], s=150, color=color, marker=marker)
     #asume that all dataList elemnt have the same balancedness value
     if dataList[0]["balancedness"] == "perturbated":
-        plt.title(selectedDs + " dataset, " 
-                  + "unbalanced scenario, " 
+        plt.title(selectedDs.upper() + " DATASET, " 
+                  + "UNBALANCED SCENARIO, " 
                   + w[selectedW])
     else:
-        plt.title(selectedDs + " dataset, " 
-                  + dataList[0]["balancedness"] + " scenario, " 
-                  + w[selectedW])
-    plt.xlabel("Mean accuracy")
-    plt.ylabel("Mean execution time")
+        plt.title(selectedDs.upper() + " DATASET, " 
+                  + dataList[0]["balancedness"].upper() + " SCENARIO, " 
+                  + w[selectedW], fontsize="15")
+    plt.xlabel("MEAN ACCURACY", fontsize="15")
+    plt.ylabel("MEAN EXECUTION TIME", fontsize="15")
     d = {"red": "Energy", "green": "Canberra", "blue": "Bray-Curtis"}
     m = {selectedClass[0]: markers[0],
          selectedClass[1]: markers[1], 
@@ -72,10 +72,10 @@ def plot_graph(dataList, selectedDs):
          selectedClass[3]: markers[3]}
     legend_elements = [
         mlines.Line2D([], [], color=c, marker=m[cl], linestyle='None',
-        markersize=10, label=f'{d[c]}, {cl}')
+        markersize=10, label=f'{d[c].upper()}, {cl.upper()}')
         for c in colors for cl in selectedClass
     ]
-    plt.legend(handles=legend_elements, ncol=3, loc='upper left')
+    plt.legend(handles=legend_elements, ncol=3, loc='upper left', fontsize="15")
     plt.show()
 
 data = [
