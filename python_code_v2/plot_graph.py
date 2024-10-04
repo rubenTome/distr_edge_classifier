@@ -75,7 +75,7 @@ def plot_graph(dataList, selectedDs):
         markersize=10, label=f'{d[c].upper()}, {cl.upper()}')
         for c in colors for cl in selectedClass
     ]
-    plt.legend(handles=legend_elements, ncol=3, loc='upper left', fontsize="15")
+    #plt.legend(handles=legend_elements, ncol=3, loc='upper left', fontsize="15")
     plt.show()
 
 data = [
